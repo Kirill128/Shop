@@ -37,3 +37,5 @@ n
 >entities/src/main/java/by/itacademy/shop/entities/Product.java,3/4/34f69e509838ab1f45f7bdb4516d1293ac924ff0
 @
 entities/pom.xml,9/3/933df8b157fce2fed7197b9602389f8d7213d695
+x
+Hdao/src/main/java/by/itacademy/shop/configurations/DaoConfiguration.java,5/2/5271399fec75da3bd67127252ddf22b0461777cb
