@@ -10,11 +10,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ComponentScan(basePackages = "by.itacademy.shop.dao")
 public class DaoConfiguration {
-    @Bean
-    public SpringLiquibase liquibase() {
-        SpringLiquibase liquibase = new SpringLiquibase();
-        liquibase.setChangeLog("classpath:liquibase-changeLog.xml");
-        liquibase.setDataSource(dataSource());
-        return liquibase;
-    }
+//    @Bean
+//    public SpringLiquibase liquibase() {
+//        SpringLiquibase liquibase = new SpringLiquibase();
+//        liquibase.setChangeLog("classpath:liquibase-changeLog.xml");
+//        liquibase.setDataSource();
+//        return liquibase;
+//    }
 }
