@@ -12,5 +12,11 @@
         <module name="dao" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="entity" target="1.8" />
+      <module name="main" target="1.8" />
+      <module name="rest" target="1.8" />
+      <module name="service" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
