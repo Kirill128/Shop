@@ -45,6 +45,10 @@ class ProductDaoImplTest {
                 .build());
     }
     @Test
+    public void liquibase(){
+
+    }
+    @Test
     public void findAll(){
 
     }
