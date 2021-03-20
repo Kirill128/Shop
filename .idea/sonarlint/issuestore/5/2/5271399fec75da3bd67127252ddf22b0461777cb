@@ -3,5 +3,9 @@
 java:S1128"ARemove this unused import 'by.itacademy.shop.dao.ProductDaoImpl'.(§Ò€8–†α„/
 c
 java:S1128"ARemove this unused import 'by.itacademy.shop.api.dao.ProductDao'.(άφψ£ωÿÿÿÿ8£¤Ϋ„/
+<<<<<<< HEAD
 £
 java:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(»Γοθόÿÿÿÿ8±ι£„/
+=======
+]	java:S125"<This block of commented-out lines of code should be removed.(ϊª‘χώÿÿÿÿ8ρψµ„/
+>>>>>>> 2d1c46c4ca9eea3afe840549f67e75818b0bd5e5
