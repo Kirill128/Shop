@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+	<changeSet author="kirill" id="1">
+		<createTable tableName="user">
+			<column autoIncrement="true" name="id" type="SERIAL">
+				<constraints nullable="false"/>
+			</column>
+			<column name="user_name" type="VARCHAR(255)"/>
+			<column name="preferences" type="TEXT"/>
+		</createTable>
+	</changeSet>
+	<changeSet author="kirill" id="2">
+		<createTable tableName="user_role">
+			<column autoIncrement="true" name="id" type="SERIAL">
+				<constraints nullable="false"/>
+			</column>
+			<column name="user_name" type="VARCHAR(255)"/>
+			<column name="preferences" type="TEXT"/>
+		</createTable>
+	</changeSet>
+	<changeSet author="kirill" id="3">
+		<createTable tableName="test">
+			<column autoIncrement="true" name="id" type="SERIAL">
+				<constraints nullable="false"/>
+			</column>
+			<column name="user_name" type="VARCHAR(255)"/>
+			<column name="preferences" type="TEXT"/>
+		</createTable>
+	</changeSet>
+	<changeSet author="kirill" id="4">
+		<createTable tableName="test">
+			<column autoIncrement="true" name="id" type="SERIAL">
+				<constraints nullable="false"/>
+			</column>
+			<column name="user_name" type="VARCHAR(255)"/>
+			<column name="preferences" type="TEXT"/>
+		</createTable>
+	</changeSet>
+	<changeSet author="kirill" id="5">
+		<createTable tableName="test">
+			<column autoIncrement="true" name="id" type="SERIAL">
+				<constraints nullable="false"/>
+			</column>
+			<column name="user_name" type="VARCHAR(255)"/>
+			<column name="preferences" type="TEXT"/>
+		</createTable>
+	</changeSet>
+	<changeSet author="kirill" id="6">
+		<createTable tableName="test">
+			<column autoIncrement="true" name="id" type="SERIAL">
+				<constraints nullable="false"/>
+			</column>
+			<column name="user_name" type="VARCHAR(255)"/>
+			<column name="preferences" type="TEXT"/>
+		</createTable>
+	</changeSet>
+	<changeSet author="kirill" id="7">
+		<createTable tableName="test">
+			<column autoIncrement="true" name="id" type="SERIAL">
+				<constraints nullable="false"/>
+			</column>
+			<column name="user_name" type="VARCHAR(255)"/>
+			<column name="preferences" type="TEXT"/>
+		</createTable>
+	</changeSet>
+	<changeSet author="kirill" id="8">
+		<createTable tableName="test">
+			<column autoIncrement="true" name="id" type="SERIAL">
+				<constraints nullable="false"/>
+			</column>
+			<column name="user_name" type="VARCHAR(255)"/>
+			<column name="preferences" type="TEXT"/>
+		</createTable>
+	</changeSet>
+	<changeSet author="kirill" id="9">
+		<createTable tableName="test">
+			<column autoIncrement="true" name="id" type="SERIAL">
+				<constraints nullable="false"/>
+			</column>
+			<column name="user_name" type="VARCHAR(255)"/>
+			<column name="preferences" type="TEXT"/>
+		</createTable>
+	</changeSet>
+
+</databaseChangeLog>
