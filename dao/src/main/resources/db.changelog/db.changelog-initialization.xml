@@ -6,82 +6,109 @@
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 	<changeSet author="kirill" id="1">
 		<createTable tableName="user">
-			<column autoIncrement="true" name="user_id" type="int">
+			<column autoIncrement="true" name="id" type="int">
 				<constraints primaryKey="true" nullable="false"/>
 			</column>
-			<column name="user_name" type="VARCHAR(255)"/>
-			<column name="user_email" type="VARCHAR(255)"/>
-			<column name="user_phone" type="VARCHAR(255)"/>
+			<column name="name" type="VARCHAR(255)"/>
+			<column name="email" type="VARCHAR(255)"/>
+			<column name="phone" type="VARCHAR(255)"/>
+			<column name="password" type="VARCHAR(255)"/>
 		</createTable>
 	</changeSet>
 	<changeSet author="kirill" id="2">
 		<createTable tableName="role">
-			<column autoIncrement="true" name="role_id" type="int">
+			<column autoIncrement="true" name="id" type="int">
 				<constraints primaryKey="true" nullable="false"/>
 			</column>
-			<column name="role_name" type="VARCHAR(255)"/>
+			<column name="name" type="VARCHAR(255)"/>
 		</createTable>
 	</changeSet>
 	<changeSet author="kirill" id="3">
 		<createTable tableName="user_role">
 			<column name="user_id" type="int">
-				<constraints references="" foreignKeyName=""/>
+				<constraints foreignKeyName="fk_user_role" referencedTableName="user" referencedColumnNames="id" nullable="false" />
 			</column>
-			<column name="role_id" type="int"/>
+			<column name="role_id" type="int">
+				<constraints foreignKeyName="fk_role_user" referencedTableName="role" referencedColumnNames="id" nullable="false" />
+			</column>
 		</createTable>
 	</changeSet>
 	<changeSet author="kirill" id="4">
 		<createTable tableName="category">
-			<column autoIncrement="true" name="id" type="SERIAL">
-				<constraints nullable="false"/>
+			<column autoIncrement="true" name="id" type="int">
+				<constraints primaryKey="true" nullable="false"/>
 			</column>
-			<column name="user_name" type="VARCHAR(255)"/>
-			<column name="preferences" type="TEXT"/>
+			<column name="name" type="VARCHAR(255)"/>
 		</createTable>
 	</changeSet>
 	<changeSet author="kirill" id="5">
 		<createTable tableName="provider">
-			<column autoIncrement="true" name="id" type="SERIAL">
-				<constraints nullable="false"/>
+			<column autoIncrement="true" name="id" type="int">
+				<constraints primaryKey="true" nullable="false"/>
 			</column>
-			<column name="user_name" type="VARCHAR(255)"/>
-			<column name="preferences" type="TEXT"/>
+			<column name="name" type="VARCHAR(255)"/>
 		</createTable>
 	</changeSet>
 	<changeSet author="kirill" id="6">
 		<createTable tableName="photo">
-			<column autoIncrement="true" name="id" type="SERIAL">
-				<constraints nullable="false"/>
+			<column autoIncrement="true" name="id" type="int">
+				<constraints primaryKey="true" nullable="false"/>
 			</column>
-			<column name="user_name" type="VARCHAR(255)"/>
-			<column name="preferences" type="TEXT"/>
+			<column name="url" type="VARCHAR(255)"/>
 		</createTable>
 	</changeSet>
 	<changeSet author="kirill" id="7">
 		<createTable tableName="product">
-			<column autoIncrement="true" name="id" type="SERIAL">
-				<constraints nullable="false"/>
+			<column autoIncrement="true" name="id" type="int">
+				<constraints primaryKey="true" nullable="false"/>
 			</column>
-			<column name="user_name" type="VARCHAR(255)"/>
-			<column name="preferences" type="TEXT"/>
+			<column name="short_description" type="text"/>
+			<column name="quantity_in_storage" type="int"/>
+			<column name="price" type="numeric(8,2)"/>
+			<column name="category_id" type="int">
+				<constraints foreignKeyName="fk_product_category" referencedTableName="category" referencedColumnNames="id" nullable="false"/>
+			</column>
+			<column name="photo_id" type="int">
+				<constraints foreignKeyName="fk_product_photo" referencedTableName="photo" referencedColumnNames="id" nullable="false" />
+			</column>
+			<column name="provider_id" type="int">
+				<constraints foreignKeyName="fk_product_provider" referencedTableName="role" referencedColumnNames="id"  />
+			</column>
 		</createTable>
 	</changeSet>
 	<changeSet author="kirill" id="8">
-		<createTable tableName="order">
-			<column autoIncrement="true" name="id" type="SERIAL">
-				<constraints nullable="false"/>
+		<createTable tableName="status">
+			<column autoIncrement="true" name="id" type="int">
+				<constraints primaryKey="true" nullable="false"/>
 			</column>
-			<column name="user_name" type="VARCHAR(255)"/>
-			<column name="preferences" type="TEXT"/>
+			<column name="description" type="VARCHAR(255)"/>
 		</createTable>
 	</changeSet>
 	<changeSet author="kirill" id="9">
-		<createTable tableName="product_position">
-			<column autoIncrement="true" name="id" type="SERIAL">
-				<constraints nullable="false"/>
+		<createTable tableName="order">
+			<column autoIncrement="true" name="id" type="int">
+				<constraints primaryKey="true" nullable="false"/>
 			</column>
-			<column name="user_name" type="VARCHAR(255)"/>
-			<column name="preferences" type="TEXT"/>
+			<column name="status_id" type="int">
+				<constraints foreignKeyName="fk_order_status" referencedTableName="status" referencedColumnNames="id"  />
+			</column>
+			<column name="sale_time" type="timestamp"/>
+			<column name="price" type="numeric(8,2)"/>
+		</createTable>
+	</changeSet>
+	<changeSet author="kirill" id="10">
+		<createTable tableName="product_position">
+			<column autoIncrement="true" name="id" type="int">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			<column name="order_id" type="int">
+				<constraints foreignKeyName="fk_product_position_order" referencedTableName="order" referencedColumnNames="id"  />
+			</column>
+			<column name="product_id" type="int">
+				<constraints foreignKeyName="fk_product_position_product" referencedTableName="product" referencedColumnNames="id"  />
+			</column>
+			<column name="quantity" type="numeric(8,2)"/>
+			<column name="price" type="numeric(8,2)"/>
 		</createTable>
 	</changeSet>
 
