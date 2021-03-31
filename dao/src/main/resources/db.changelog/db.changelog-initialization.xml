@@ -93,7 +93,7 @@
 				<constraints foreignKeyName="fk_order_status" referencedTableName="status" referencedColumnNames="id"  />
 			</column>
 			<column name="sale_time" type="timestamp"/>
-			<column name="price" type="numeric(8,2)"/>
+			<column name="price" type="numeric(8,2)"/>   <!--Products price can change, but product can be already bought-->
 		</createTable>
 	</changeSet>
 	<changeSet author="kirill" id="10">
@@ -108,7 +108,7 @@
 				<constraints foreignKeyName="fk_product_position_product" referencedTableName="product" referencedColumnNames="id"  />
 			</column>
 			<column name="quantity" type="numeric(8,2)"/>
-			<column name="price" type="numeric(8,2)"/>
+			<column name="price" type="numeric(8,2)"/>	 <!--Products price can change, but product can be already bought-->
 		</createTable>
 	</changeSet>
 
