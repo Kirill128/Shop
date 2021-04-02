@@ -28,12 +28,12 @@ public enum Category {
     INCANDESCENT_LAMP("Лампы накала"),
     HALOGEN_LAMP("Галогеновая лампочка");
 
-    private String description;
+    private String title;
     Category(String description){
-        this.description=description;
+        this.title=description;
     }
     public String getDescription(){
-        return this.description;
+        return this.title;
     }
 }
 

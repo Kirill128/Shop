@@ -14,9 +14,10 @@ import javax.persistence.*;
 @AllArgsConstructor
 @SuperBuilder
 @MappedSuperclass
-public abstract class Entity<T> {
+public abstract class GenericEntity<T> {
 
     @Id
     @Column(name="id")
-    private T id;
+    protected T id;
+
 }

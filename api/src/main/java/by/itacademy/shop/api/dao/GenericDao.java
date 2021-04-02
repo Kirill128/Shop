@@ -1,11 +1,11 @@
 package by.itacademy.shop.api.dao;
 
-import by.itacademy.shop.entities.Entity;
+import by.itacademy.shop.entities.GenericEntity;
 
 import java.util.List;
 
 // CRUD implementation
-public interface GenericDao<T extends Entity<Long>> {
+public interface GenericDao<T extends GenericEntity<Long>> {
     T create(T entity);
 
     T find(long id);

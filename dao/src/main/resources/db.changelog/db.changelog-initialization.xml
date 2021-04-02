@@ -5,14 +5,18 @@
 	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
                       http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
 	<changeSet author="kirill" id="1">
-		<createTable tableName="user">
+		<createTable tableName="shop_user">
 			<column autoIncrement="true" name="id" type="int">
 				<constraints primaryKey="true" nullable="false"/>
 			</column>
 			<column name="name" type="VARCHAR(255)"/>
-			<column name="email" type="VARCHAR(255)"/>
+			<column name="email" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
 			<column name="phone" type="VARCHAR(255)"/>
-			<column name="password" type="VARCHAR(255)"/>
+			<column name="password" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
 		</createTable>
 	</changeSet>
 	<changeSet author="kirill" id="2">
@@ -26,7 +30,7 @@
 	<changeSet author="kirill" id="3">
 		<createTable tableName="user_role">
 			<column name="user_id" type="int">
-				<constraints foreignKeyName="fk_user_role" referencedTableName="user" referencedColumnNames="id" nullable="false" />
+				<constraints foreignKeyName="fk_user_role" referencedTableName="shop_user" referencedColumnNames="id" nullable="false" />
 			</column>
 			<column name="role_id" type="int">
 				<constraints foreignKeyName="fk_role_user" referencedTableName="role" referencedColumnNames="id" nullable="false" />
@@ -38,7 +42,10 @@
 			<column autoIncrement="true" name="id" type="int">
 				<constraints primaryKey="true" nullable="false"/>
 			</column>
-			<column name="name" type="VARCHAR(255)"/>
+			<column name="title" type="jsonb"/>
+			<column name="parent_id" type="int">
+				<constraints foreignKeyName="fk_category_parent" referencedTableName="category" referencedColumnNames="id" nullable="true"/>
+			</column>
 		</createTable>
 	</changeSet>
 	<changeSet author="kirill" id="5">
@@ -54,7 +61,7 @@
 			<column autoIncrement="true" name="id" type="int">
 				<constraints primaryKey="true" nullable="false"/>
 			</column>
-			<column name="url" type="VARCHAR(255)"/>
+			<column name="url" type="varchar(255)"/>
 		</createTable>
 	</changeSet>
 	<changeSet author="kirill" id="7">
@@ -62,9 +69,10 @@
 			<column autoIncrement="true" name="id" type="int">
 				<constraints primaryKey="true" nullable="false"/>
 			</column>
-			<column name="short_description" type="text"/>
+			<column name="short_description" type="jsonb"/>
 			<column name="quantity_in_storage" type="int"/>
 			<column name="price" type="numeric(8,2)"/>
+			<column name="attributes" type="jsonb"/>
 			<column name="category_id" type="int">
 				<constraints foreignKeyName="fk_product_category" referencedTableName="category" referencedColumnNames="id" nullable="false"/>
 			</column>
@@ -72,7 +80,7 @@
 				<constraints foreignKeyName="fk_product_photo" referencedTableName="photo" referencedColumnNames="id" nullable="false" />
 			</column>
 			<column name="provider_id" type="int">
-				<constraints foreignKeyName="fk_product_provider" referencedTableName="role" referencedColumnNames="id"  />
+				<constraints foreignKeyName="fk_product_provider" referencedTableName="provider" referencedColumnNames="id"  />
 			</column>
 		</createTable>
 	</changeSet>
@@ -81,7 +89,7 @@
 			<column autoIncrement="true" name="id" type="int">
 				<constraints primaryKey="true" nullable="false"/>
 			</column>
-			<column name="description" type="VARCHAR(255)"/>
+			<column name="description" type="jsonb"/>
 		</createTable>
 	</changeSet>
 	<changeSet author="kirill" id="9">
@@ -92,7 +100,7 @@
 			<column name="status_id" type="int">
 				<constraints foreignKeyName="fk_order_status" referencedTableName="status" referencedColumnNames="id"  />
 			</column>
-			<column name="sale_time" type="timestamp"/>
+			<column name="submit_time" type="timestamp"/>
 			<column name="price" type="numeric(8,2)"/>   <!--Products price can change, but product can be already bought-->
 		</createTable>
 	</changeSet>
@@ -107,7 +115,7 @@
 			<column name="product_id" type="int">
 				<constraints foreignKeyName="fk_product_position_product" referencedTableName="product" referencedColumnNames="id"  />
 			</column>
-			<column name="quantity" type="numeric(8,2)"/>
+			<column name="quantity" type="int"/>
 			<column name="price" type="numeric(8,2)"/>	 <!--Products price can change, but product can be already bought-->
 		</createTable>
 	</changeSet>

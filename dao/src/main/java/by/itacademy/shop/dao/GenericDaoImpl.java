@@ -1,17 +1,15 @@
 package by.itacademy.shop.dao;
 
 import by.itacademy.shop.api.dao.GenericDao;
-import by.itacademy.shop.entities.Entity;
-import org.hibernate.Session;
+import by.itacademy.shop.entities.GenericEntity;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
 
-public abstract class GenericDaoImpl<T extends Entity<Long>> implements GenericDao<T> {
+public abstract class GenericDaoImpl<T extends GenericEntity<Long>> implements GenericDao<T> {
     private EntityManagerFactory entityManagerFactory;
     private EntityManager entityManager;
 

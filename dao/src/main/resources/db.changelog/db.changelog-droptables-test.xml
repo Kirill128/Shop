@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    <changeSet id="1" author="kirill">
+
+        <dropTable tableName="product_position"/>
+        <dropTable tableName="order"/>
+        <dropTable tableName="status"/>
+        <dropTable tableName="product"/>
+        <dropTable tableName="photo"/>
+        <dropTable tableName="provider"/>
+        <dropTable tableName="category"/>
+        <dropTable tableName="user_role"/>
+        <dropTable tableName="user"/>
+        <dropTable tableName="role"/>
+
+    </changeSet>
+</databaseChangeLog>

@@ -13,14 +13,7 @@ class ProductDaoImplTest {
     @Test
     public void create(){
         ProductDao productDao=new ProductDaoImpl();
-        Product first=Product.builder()
-                .id(4690612002200L)
-                .quantityInStorage(5)
-                .name("SSSSSS name")
-                .price(12.0)
-                .build();
-        Product product = productDao.create(first);
-        System.out.println(product);
+
     }
     @Test
     public void find(){
@@ -37,12 +30,7 @@ class ProductDaoImplTest {
     @Test
     public void update(){
         ProductDao productDao=new ProductDaoImpl();
-        productDao.update(Product.builder()
-                .id(4690612003917L)
-                .quantityInStorage(5)
-                .name("sECOND name")
-                .price(12.0)
-                .build());
+
     }
     @Test
     public void liquibase(){

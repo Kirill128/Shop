@@ -4,19 +4,20 @@ import lombok.*;
 import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
+import java.util.Map;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@SuperBuilder
+//@SuperBuilder
 @ToString
 @javax.persistence.Entity
 @Table(name = "product")
-public class Product extends Entity<Long>{
+public class Product extends GenericEntity<Long>{
 
-    @Column(name="name")
-    private String name;
+    @Column(name="short_description")
+    private String shortDescription;
 
     @Column(name="price")
     private Double price;
@@ -24,4 +25,11 @@ public class Product extends Entity<Long>{
     @Column(name="quantity_in_storage")
     private Integer quantityInStorage;
 
+    private Category category;
+
+    private Photo photo;
+
+    private Provider provider;
+
+    private Map<String,String> attributes;
 }

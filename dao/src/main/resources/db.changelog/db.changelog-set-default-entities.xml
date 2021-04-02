@@ -5,25 +5,25 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
     <changeSet id="1" author="kirill">
-        <insert tableName="user">
+        <insert tableName="shop_user">
             <column name="name" value="anna"/>
             <column name="email" value="anna@gmail.com"/>
             <column name="phone" value="+37525999999"/>
             <column name="password" value="12345"/>
         </insert>
-        <insert tableName="user">
+        <insert tableName="shop_user">
             <column name="name" value="bob"/>
             <column name="email" value="bob@gmail.com"/>
             <column name="password" value="12345"/>
             <column name="phone" value="+37525999999"/>
         </insert>
-        <insert tableName="user">
+        <insert tableName="shop_user">
             <column name="name" value="kata"/>
             <column name="email" value="kata@gmail.com"/>
             <column name="password" value="12345"/>
             <column name="phone" value="+37525999999"/>
         </insert>
-        <insert tableName="user">
+        <insert tableName="shop_user">
             <column name="name" value="sella"/>
             <column name="email" value="sella@gmail.com"/>
             <column name="password" value="12345"/>
@@ -50,84 +50,109 @@
     </changeSet>
     <changeSet id="4" author="kirill">
         <insert tableName="status">
-            <column name="description" value="Оплачено"/>
+            <column name="description" value='{"RU":"Оплачено"}'/>
         </insert>
         <insert tableName="status">
-            <column name="description" value="Ожидается оплата"/>
+            <column name="description" value='{"RU":"Ожидается оплата"}'/>
         </insert>
         <insert tableName="status">
-            <column name="description" value="Получено"/>
+            <column name="description" value='{"RU":"Получено"}'/>
         </insert>
         <insert tableName="status">
-            <column name="description" value="Товар в пути"/>
+            <column name="description" value='{"RU":"Товар в пути"}'/>
         </insert>
         <insert tableName="status">
-            <column name="description" value="Есть пункте выдачи"/>
+            <column name="description" value='{"RU":"Есть пункте выдачи"}'/>
         </insert>
         <insert tableName="status">
-            <column name="description" value="Нет в пункте выдачи"/>
+            <column name="description" value='{"RU":"Нет в пункте выдачи"}'/>
         </insert>
     </changeSet>
     <changeSet id="5" author="kirill">
         <insert tableName="category">
-            <column name="name" value="LED_LAMP"/>
+            <column name="title" value='{"RU":"Тестовая категория"}'/>
+            <column name="parent_id" value="null"/>
+        </insert>
+        <!--Subcategories-->
+        <insert tableName="category">
+            <column name="title" value='{"RU":"Светоидиодная лампа"}'/>
+            <column name="parent_id" value="1"/>
         </insert>
         <insert tableName="category">
-            <column name="name" value="UNIVERSAL_REMOTE"/>
+            <column name="title" value='{"RU":"Пульты"}'/>
+            <column name="parent_id" value="1"/>
         </insert>
         <insert tableName="category">
-            <column name="name" value="COMPUTER_SOCKETS"/>
+            <column name="title" value='{"RU":"Компютерные розетки"}'/>
+            <column name="parent_id" value="1"/>
         </insert>
         <insert tableName="category">
-            <column name="name" value="COMPUTER_ADAPTERS"/>
+            <column name="title" value='{"RU":"Компьютерные адаптеры"}'/>
+            <column name="parent_id" value="1"/>
         </insert>
         <insert tableName="category">
-            <column name="name" value="PHONE_SOCKETS"/>
+            <column name="title" value='{"RU":"Телефонные розетки"}'/>
+            <column name="parent_id" value="1"/>
         </insert>
         <insert tableName="category">
-            <column name="name" value="PUMP"/>
+            <column name="title" value='{"RU":"Насосы"}'/>
+            <column name="parent_id" value="1"/>
         </insert>
         <insert tableName="category">
-            <column name="name" value="PORTABLE_SPEAKERS"/>
+            <column name="title" value='{"RU":"Портативные потоки"}'/>
+            <column name="parent_id" value="1"/>
         </insert>
         <insert tableName="category">
-            <column name="name" value="WIRED_CHARGERS"/>
+            <column name="title" value='{"RU":"Проводная зарядка"}'/>
+            <column name="parent_id" value="1"/>
         </insert>
         <insert tableName="category">
-            <column name="name" value="WIRELESS_CHARGERS"/>
+            <column name="title" value='{"RU":"Беспроводная зарядка"}'/>
+            <column name="parent_id" value="1"/>
         </insert>
         <insert tableName="category">
-            <column name="name" value="POWER_ADAPTER"/>
+            <column name="title" value='{"RU":"Адаптеры питания"}'/>
+            <column name="parent_id" value="1"/>
         </insert>
         <insert tableName="category">
-            <column name="name" value="WIRELESS_HEADPHONES"/>
+            <column name="title" value='{"RU":"Беспроводные наушники"}'/>
+            <column name="parent_id" value="1"/>
         </insert>
         <insert tableName="category">
-            <column name="name" value="WIRED_HEADPHONES"/>
+            <column name="title" value='{"RU":"Проводные наушники"}'/>
+            <column name="parent_id" value="1"/>
         </insert>
         <insert tableName="category">
-            <column name="name" value="CABLE"/>
+            <column name="title" value='{"RU":"Кабеля"}'/>
+            <column name="parent_id" value="1"/>
         </insert>
         <insert tableName="category">
-            <column name="name" value="USB_HAB"/>
+            <column name="title" value='{"RU":"USB хаб"}'/>
+            <column name="parent_id" value="1"/>
         </insert>
         <insert tableName="category">
-            <column name="name" value="HAIR_DRYER"/>
+            <column name="title" value='{"RU":"Фены"}'/>
+            <column name="parent_id" value="1"/>
         </insert>
         <insert tableName="category">
-            <column name="name" value="FORCEPS"/>
+            <column name="title" value='{"RU":"Поршни"}'/>
+            <column name="parent_id" value="1"/>
         </insert>
         <insert tableName="category">
-            <column name="name" value="IRON"/> <!--УТЮГ-->
+            <column name="title" value='{"RU":"Утюги"}'/>
+            <column name="parent_id" value="1"/>
         </insert>
         <insert tableName="category">
-            <column name="name" value="BLENDER"/>
+            <column name="title" value='{"RU":"Блендеры"}'/>
+            <column name="parent_id" value="1"/>
         </insert>
         <insert tableName="category">
-            <column name="name" value="INCANDESCENT_LAMP"/>
+            <column name="title" value='{"RU":"Лампы накала"}'/>
+            <column name="parent_id" value="1"/>
         </insert>
         <insert tableName="category">
-            <column name="name" value="HALOGEN_LAMP"/>
+            <column name="title" value='{"RU":"Галогеновая лампочка"}'/>
+            <column name="parent_id" value="1"/>
         </insert>
     </changeSet>
     <changeSet id="6" author="kirill">
@@ -142,18 +167,19 @@
     </changeSet>
     <changeSet id="8" author="kirill">
         <insert tableName="product">
-            <column name="short_description" value="Лампа светодиодная LED-СВЕЧА-standard 5Вт 230В Е14 3000К 450Лм ASD"/>
+            <column name="short_description" value='{"RU":"Лампа светодиодная LED-СВЕЧА-standard 5Вт 230В Е14 3000К 450Лм ASD"}'/>
             <column name="quantity_in_storage" value="20"/>
             <column name="price" value="1.7"/>
-            <column name="category_id" value="1"/>
+            <column name="category_id" value="2"/>
             <column name="photo_id" value="1"/>
             <column name="provider_id" value="1"/>
+            <column name="attributes" value='{}' />
         </insert>
     </changeSet>
     <changeSet id="9" author="kirill">
         <insert tableName="order">
             <column name="status_id" value="2"/>
-            <column name="sale_time" value="2021-03-31 11:45:45"/>
+            <column name="submit_time" value="2021-03-31 11:45:45"/>
             <column name="price" value="8.5"/>
         </insert>
     </changeSet>
