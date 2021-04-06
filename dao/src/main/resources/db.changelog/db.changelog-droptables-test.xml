@@ -14,7 +14,7 @@
         <dropTable tableName="provider"/>
         <dropTable tableName="category"/>
         <dropTable tableName="user_role"/>
-        <dropTable tableName="user"/>
+        <dropTable tableName="shop_user"/>
         <dropTable tableName="role"/>
 
     </changeSet>

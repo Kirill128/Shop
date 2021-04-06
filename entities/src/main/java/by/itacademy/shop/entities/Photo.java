@@ -15,7 +15,10 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "user")
-public class Photo {
+@Table(name = "photo")
+public class Photo extends GenericEntity<Long>{
+
     private String url;
+
+
 }

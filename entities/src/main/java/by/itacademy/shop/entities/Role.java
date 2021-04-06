@@ -8,7 +8,6 @@ import java.util.List;
 
 @Setter
 @Getter
-@ToString
 @NoArgsConstructor
 @SuperBuilder
 @AllArgsConstructor
@@ -19,6 +18,14 @@ public class Role extends GenericEntity<Long>{
     @Column(name = "name")
     private String name;
 
-//    @ManyToMany(mappedBy = "roles")
-//    private List<User> users;
+    @ManyToMany(fetch = FetchType.LAZY,mappedBy = "roles",cascade = CascadeType.ALL)
+    private List<User> users;
+
+    @Override
+    public String toString() {
+        return "Role{" +
+                "id=" + id +
+                ", name='" + name +
+                '}';
+    }
 }

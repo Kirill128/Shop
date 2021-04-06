@@ -16,6 +16,7 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @Entity
 @Table(name = "provider")
-public class Provider {
+public class Provider extends GenericEntity<Long>{
+
     private String name;
 }

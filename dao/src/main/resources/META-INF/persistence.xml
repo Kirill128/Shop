@@ -6,10 +6,10 @@
 
     <persistence-unit name="by.itacademy.shop.hibernate.jpa">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-<!--        <class>by.itacademy.shop.entities.Photo</class>-->
-<!--        <class>by.itacademy.shop.entities.Product</class>-->
-<!--        <class>by.itacademy.shop.entities.Provider</class>-->
-<!--        <class>by.itacademy.shop.entities.Category</class>-->
+        <class>by.itacademy.shop.entities.Photo</class>
+        <class>by.itacademy.shop.entities.Product</class>
+        <class>by.itacademy.shop.entities.Provider</class>
+        <class>by.itacademy.shop.entities.Category</class>
 <!--        <class>by.itacademy.shop.entities.Order</class>-->
 <!--        <class>by.itacademy.shop.entities.ProductPosition</class>-->
         <class>by.itacademy.shop.entities.Role</class>

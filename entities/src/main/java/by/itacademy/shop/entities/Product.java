@@ -10,9 +10,8 @@ import java.util.Map;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-//@SuperBuilder
-@ToString
-@javax.persistence.Entity
+@SuperBuilder
+@Entity
 @Table(name = "product")
 public class Product extends GenericEntity<Long>{
 
@@ -25,11 +24,18 @@ public class Product extends GenericEntity<Long>{
     @Column(name="quantity_in_storage")
     private Integer quantityInStorage;
 
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="id")
     private Category category;
 
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="id")
     private Photo photo;
 
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name="id")
     private Provider provider;
 
-    private Map<String,String> attributes;
+//    private String attributes;
+//    private Map<String,String> attributes;
 }

@@ -32,10 +32,10 @@
     </changeSet>
     <changeSet id="2" author="kirill">
         <insert tableName="role">
-            <column name="name" value="ADMIN"/>
+            <column name="name" value="ROLE_ADMIN"/>
         </insert>
         <insert tableName="role">
-            <column name="name" value="USER"/>
+            <column name="name" value="ROLE_USER"/>
         </insert>
     </changeSet>
     <changeSet id="3" author="kirill">
