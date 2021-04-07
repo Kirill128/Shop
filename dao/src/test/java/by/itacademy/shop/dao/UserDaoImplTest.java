@@ -15,30 +15,69 @@ class UserDaoImplTest {
     public void create(){
         RoleDao roleDao=new RoleDaoImpl();
         UserDao userDao=new UserDaoImpl();
-        User u=new User(19L,"role create","teeee","ssss","heeeeeel");
+        User u= User.builder()
+                .id(200L)
+                .name("Test Vasa")
+                .email("Test Vasa")
+                .password("Test Vasa")
+                .roles(new ArrayList<>())
+                .phone("Test Vasa")
+                .build();
         u.getRoles().add(roleDao.find(2));
         userDao.create(u);
     }
     @Test
     public void find(){
         UserDao userDao=new UserDaoImpl();
-        User user=userDao.find(2);
+        User user=userDao.find(200L);
         System.out.println(user);
-    }
-    @Test
-    public void delete(){
     }
     @Test
     public void update(){
         RoleDao roleDao=new RoleDaoImpl();
         UserDao userDao=new UserDaoImpl();
-        User u=new User(9L,"test after update","teeee","ssss","heeeeeel");
-        u.getRoles().add(roleDao.find(2));
+        User u= User.builder()
+                .id(200L)
+                .name("Test Peta")
+                .email("Test Peta")
+                .password("Test Peta")
+                .roles(new ArrayList<>())
+                .phone("Test Peta")
+                .build();
         u.getRoles().add(roleDao.find(1));
         userDao.update(u);
+    }
+    @Test
+    public void delete(){
+        UserDao userDao=new UserDaoImpl();
+        User u=userDao.find(200L);
+        userDao.delete(u);
     }
     @Test
     public void findAll(){
 
     }
+    /*
+    @Test
+    public void create(){
+
+    }
+    @Test
+    public void find(){
+
+    }
+    @Test
+    public void update() {
+
+    }
+    @Test
+    public void delete(){
+
+    }
+
+    @Test
+    public void findAll(){
+
+    }
+    */
 }

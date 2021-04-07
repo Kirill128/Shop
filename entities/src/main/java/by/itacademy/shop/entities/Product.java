@@ -1,5 +1,6 @@
 package by.itacademy.shop.entities;
 
+import by.itacademy.shop.converter.JsonMapConverter;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
@@ -11,12 +12,14 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
+@ToString
 @Entity
 @Table(name = "product")
 public class Product extends GenericEntity<Long>{
 
     @Column(name="short_description")
-    private String shortDescription;
+    @Convert(converter = JsonMapConverter.class)
+    private Map<String,String> shortDescription;
 
     @Column(name="price")
     private Double price;
@@ -25,17 +28,18 @@ public class Product extends GenericEntity<Long>{
     private Integer quantityInStorage;
 
     @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="id")
+    @JoinColumn(name="category_id")
     private Category category;
 
     @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="id")
+    @JoinColumn(name="photo_id")
     private Photo photo;
 
     @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="id")
+    @JoinColumn(name="provider_id")
     private Provider provider;
 
-//    private String attributes;
-//    private Map<String,String> attributes;
+    @Convert(converter = JsonMapConverter.class)
+    private Map<String,String> attributes;
+
 }

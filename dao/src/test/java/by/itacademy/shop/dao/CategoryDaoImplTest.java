@@ -1,11 +1,10 @@
 package by.itacademy.shop.dao;
 
-import by.itacademy.shop.api.dao.RoleDao;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class RoleDaoImplTest {
+class CategoryDaoImplTest {
     @Test
     public void create(){
 
@@ -27,4 +26,5 @@ class RoleDaoImplTest {
     public void findAll(){
 
     }
+
 }

@@ -19,4 +19,12 @@ import javax.persistence.Table;
 public class Provider extends GenericEntity<Long>{
 
     private String name;
+
+    @Override
+    public String toString() {
+        return "Provider{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
+    }
 }

@@ -21,4 +21,11 @@ public class Photo extends GenericEntity<Long>{
     private String url;
 
 
+    @Override
+    public String toString() {
+        return "Photo{" +
+                "id=" + id +
+                ", url='" + url + '\'' +
+                '}';
+    }
 }

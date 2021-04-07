@@ -23,15 +23,6 @@ public class User extends GenericEntity<Long> {
     private String email;
     @Column(name = "phone")
     private String phone;
-
-    public User(Long id, String name, String email, String phone, String password) {
-        super(id);
-        this.name = name;
-        this.email = email;
-        this.phone = phone;
-        this.password = password;
-    }
-
     @Column(name = "password")
     private String password;
 
@@ -39,7 +30,7 @@ public class User extends GenericEntity<Long> {
     @JoinTable(name = "user_role",
             joinColumns = {@JoinColumn(name="user_id") },
             inverseJoinColumns = {@JoinColumn(name="role_id")})
-    private List<Role> roles=new ArrayList<>();
+    private List<Role> roles;
 
     @Override
     public String toString() {
