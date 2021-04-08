@@ -13,11 +13,5 @@ import javax.sql.DataSource;
 @ComponentScan(basePackages = "by.itacademy.shop.dao")
 public class DaoConfiguration {
    
-//    @Bean
-//    public SpringLiquibase liquibase() {
-//        SpringLiquibase liquibase = new SpringLiquibase();
-//        liquibase.setChangeLog("classpath:liquibase-changeLog.xml");
-//        liquibase.setDataSource();
-//        return liquibase;
-//    }
+
 }

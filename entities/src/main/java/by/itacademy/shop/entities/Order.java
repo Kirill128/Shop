@@ -17,7 +17,7 @@ import java.util.GregorianCalendar;
 @AllArgsConstructor
 @Entity
 @Table(name = "user")
-public class Order {
+public class Order  extends GenericEntity<Long>{
     private Status status;
     private GregorianCalendar saleTime;
     private Double price;

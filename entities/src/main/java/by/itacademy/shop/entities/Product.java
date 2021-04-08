@@ -27,15 +27,15 @@ public class Product extends GenericEntity<Long>{
     @Column(name="quantity_in_storage")
     private Integer quantityInStorage;
 
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.LAZY)//,cascade = CascadeType.PERSIST)
     @JoinColumn(name="category_id")
     private Category category;
 
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.LAZY)//,cascade = CascadeType.PERSIST)
     @JoinColumn(name="photo_id")
     private Photo photo;
 
-    @ManyToOne(fetch=FetchType.LAZY)
+    @ManyToOne(fetch=FetchType.LAZY)//,cascade = CascadeType.PERSIST)
     @JoinColumn(name="provider_id")
     private Provider provider;
 

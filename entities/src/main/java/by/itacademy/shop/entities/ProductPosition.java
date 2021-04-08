@@ -16,7 +16,7 @@ import javax.persistence.Table;
 @AllArgsConstructor
 @Entity
 @Table(name = "product_position")
-public class ProductPosition {
+public class ProductPosition extends GenericEntity<Long> {
     private Order order;
     private Product product;
     private Integer quantity;
