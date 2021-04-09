@@ -1,10 +1,18 @@
 package by.itacademy.shop.entities;
 
 import by.itacademy.shop.converter.JsonMapConverter;
+import com.vladmihalcea.hibernate.type.array.IntArrayType;
+import com.vladmihalcea.hibernate.type.array.StringArrayType;
+import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
+import com.vladmihalcea.hibernate.type.json.JsonStringType;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
+import org.hibernate.annotations.TypeDefs;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Map;
 
 @Getter
@@ -17,8 +25,12 @@ import java.util.Map;
 @Table(name = "product")
 public class Product extends GenericEntity<Long>{
 
-    @Column(name="short_description")
     @Convert(converter = JsonMapConverter.class)
+    @Column(name = "attributes")
+    private Map<String,String> attributes;
+
+    @Convert(converter = JsonMapConverter.class)
+    @Column(name="short_description")
     private Map<String,String> shortDescription;
 
     @Column(name="price")
@@ -39,7 +51,5 @@ public class Product extends GenericEntity<Long>{
     @JoinColumn(name="provider_id")
     private Provider provider;
 
-    @Convert(converter = JsonMapConverter.class)
-    private Map<String,String> attributes;
 
 }

@@ -14,9 +14,11 @@ public class JsonMapConverter implements AttributeConverter<Map<String,String>,S
         String jsonResult="{}";
         try {
             jsonResult = objectMapper.writeValueAsString(source);
-        } catch (JsonProcessingException e) {
+        }
+        catch (JsonProcessingException e) {
             e.printStackTrace();
         }
+
         return jsonResult;
     }
 

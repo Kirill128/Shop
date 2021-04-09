@@ -4,8 +4,11 @@ import by.itacademy.shop.api.dao.CategoryDao;
 import by.itacademy.shop.api.dao.PhotoDao;
 import by.itacademy.shop.api.dao.ProductDao;
 import by.itacademy.shop.api.dao.ProviderDao;
+import by.itacademy.shop.converter.JsonMapConverter;
 import by.itacademy.shop.entities.Category;
 import by.itacademy.shop.entities.Product;
+import com.fasterxml.jackson.databind.util.JSONPObject;
+import liquibase.pro.packaged.J;
 import org.junit.jupiter.api.Test;
 
 import javax.transaction.Transactional;
@@ -26,18 +29,20 @@ class ProductDaoImplTest {
         ProviderDao providerDao=new ProviderDaoImpl();
 
         Map<String,String> map=new HashMap<>();
+        Map<String,String> attr=new HashMap<>();
+        attr.put("some","test");
         map.put("RU","TEST PRODUCT CREATE");
         Product product= Product.builder()
                 .id(100L)
-                .attributes(new HashMap<>())
                 .category(categoryDao.find(2L))
                 .photo(photoDao.find(1L))
                 .price(2.5)
                 .provider(providerDao.find(1L))
                 .quantityInStorage(2)
                 .shortDescription(map)
+                .attributes(attr)
                 .build();
-        productDao.create(product);
+        productDao.createNative(product);
     }
     @Test
     public void find(){

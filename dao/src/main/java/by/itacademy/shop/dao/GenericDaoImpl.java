@@ -10,8 +10,8 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 public abstract class GenericDaoImpl<T extends GenericEntity<Long>> implements GenericDao<T> {
-    private EntityManagerFactory entityManagerFactory;
-    private EntityManager entityManager;
+    protected EntityManagerFactory entityManagerFactory;
+    protected EntityManager entityManager;
 
     private Class<T> classForFind;
 
