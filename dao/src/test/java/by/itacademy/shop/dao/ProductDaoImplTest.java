@@ -4,19 +4,14 @@ import by.itacademy.shop.api.dao.CategoryDao;
 import by.itacademy.shop.api.dao.PhotoDao;
 import by.itacademy.shop.api.dao.ProductDao;
 import by.itacademy.shop.api.dao.ProviderDao;
-import by.itacademy.shop.converter.JsonMapConverter;
-import by.itacademy.shop.entities.Category;
+import by.itacademy.shop.entities.Photo;
 import by.itacademy.shop.entities.Product;
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import liquibase.pro.packaged.J;
 import org.junit.jupiter.api.Test;
 
 import javax.transaction.Transactional;
 
 import java.util.HashMap;
 import java.util.Map;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class ProductDaoImplTest {
 
@@ -42,28 +37,31 @@ class ProductDaoImplTest {
                 .shortDescription(map)
                 .attributes(attr)
                 .build();
-        productDao.createNative(product);
+        productDao.create(product);
     }
     @Test
     public void find(){
         ProductDao productDao=new ProductDaoImpl();
-        Product product=productDao.find(1L);
+        Product product=productDao.find(101L);
         System.out.println(product);
-    }
-    @Test
-    public void delete(){
-        ProductDao productDao=new ProductDaoImpl();
-        Product product=productDao.find(4690612019017L);
-        if(product!=null)productDao.delete(product);
     }
     @Test
     public void update(){
         ProductDao productDao=new ProductDaoImpl();
-
+        Product product=productDao.find(101L);
+        product.setPrice(1000.0);
+        productDao.update(product);
+    }
+    @Test
+    public void delete(){
+        ProductDao productDao=new ProductDaoImpl();
+        Product product=productDao.find(200L);
+        productDao.delete(product);
     }
     @Test
     public void findAll(){
-
+        ProductDao productDao=new ProductDaoImpl();
+        productDao.findAll().stream().forEach(System.out::println);
     }
 
 }

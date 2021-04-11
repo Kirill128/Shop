@@ -6,9 +6,8 @@
         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
     <changeSet id="1" author="kirill">
 
-        <dropTable tableName="product_position"/>
+        <dropTable tableName="product_order"/>
         <dropTable tableName="order"/>
-        <dropTable tableName="status"/>
         <dropTable tableName="product"/>
         <dropTable tableName="photo"/>
         <dropTable tableName="provider"/>

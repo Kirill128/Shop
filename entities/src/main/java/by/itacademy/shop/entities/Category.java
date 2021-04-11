@@ -1,8 +1,8 @@
 package by.itacademy.shop.entities;
 
-import by.itacademy.shop.converter.JsonMapConverter;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.util.List;
@@ -17,14 +17,14 @@ import java.util.Map;
 @Table(name="category")
 public class Category extends GenericEntity<Long>{
 
-    @Convert(converter = JsonMapConverter.class)
+    @Type(type = "jsonb")
     private Map<String,String> title;
 
     @ManyToOne
     @JoinColumn(name = "parent_id")
     private Category parentCategory;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "category")
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "category",cascade = CascadeType.ALL)
     private List<Product> products;
 
     @Override
@@ -36,5 +36,7 @@ public class Category extends GenericEntity<Long>{
                 ", id=" + id +
                 '}';
     }
+
+
 }
 

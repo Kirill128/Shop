@@ -73,47 +73,42 @@
 			<column name="quantity_in_storage" type="int"/>
 			<column name="price" type="numeric(8,2)"/>
 			<column name="attributes" type="jsonb"/>
-			<column name="category_id" type="int">
-				<constraints foreignKeyName="fk_product_category" referencedTableName="category" referencedColumnNames="id" nullable="false"/>
-			</column>
-			<column name="photo_id" type="int">
-				<constraints foreignKeyName="fk_product_photo" referencedTableName="photo" referencedColumnNames="id" nullable="false" />
-			</column>
-			<column name="provider_id" type="int">
-				<constraints foreignKeyName="fk_product_provider" referencedTableName="provider" referencedColumnNames="id"  />
-			</column>
+			<column name="category_id" type="int"/>
+			<column name="photo_id" type="int" defaultValue="1"/>
+			<column name="provider_id" type="int"/>
 		</createTable>
 	</changeSet>
-	<changeSet author="kirill" id="8">
-		<createTable tableName="status">
-			<column autoIncrement="true" name="id" type="int">
-				<constraints primaryKey="true" nullable="false"/>
-			</column>
-			<column name="description" type="jsonb"/>
-		</createTable>
+	<changeSet id="8" author="kirill">
+		<addForeignKeyConstraint baseTableName="product" baseColumnNames="category_id" constraintName="fk_product_category" referencedTableName="category"
+								 referencedColumnNames="id" nullable="false" onDelete="CASCADE"/>
+		<addForeignKeyConstraint baseTableName="product" baseColumnNames="photo_id" constraintName="fk_product_photo" referencedTableName="photo"
+								 referencedColumnNames="id" onDelete="SET DEFAULT"/>
+		<addForeignKeyConstraint baseTableName="product" baseColumnNames="provider_id" constraintName="fk_product_provider" referencedTableName="provider"
+								 referencedColumnNames="id" onDelete="SET NULL"/>
 	</changeSet>
 	<changeSet author="kirill" id="9">
-		<createTable tableName="order">
+		<createTable tableName="shop_order">
 			<column autoIncrement="true" name="id" type="int">
 				<constraints primaryKey="true" nullable="false"/>
 			</column>
-			<column name="status_id" type="int">
-				<constraints foreignKeyName="fk_order_status" referencedTableName="status" referencedColumnNames="id"  />
+			<column name="status" type="smallint"/>
+			<column name="user_id" type="int">
+				<constraints foreignKeyName="fk_order_user" referencedTableName="shop_user" referencedColumnNames="id" nullable="false" />
 			</column>
 			<column name="submit_time" type="timestamp"/>
 			<column name="price" type="numeric(8,2)"/>   <!--Products price can change, but product can be already bought-->
 		</createTable>
 	</changeSet>
 	<changeSet author="kirill" id="10">
-		<createTable tableName="product_position">
+		<createTable tableName="product_order">
 			<column autoIncrement="true" name="id" type="int">
 				<constraints primaryKey="true" nullable="false"/>
 			</column>
 			<column name="order_id" type="int">
-				<constraints foreignKeyName="fk_product_position_order" referencedTableName="order" referencedColumnNames="id"  />
+				<constraints foreignKeyName="fk_product_position_order" referencedTableName="shop_order" referencedColumnNames="id"  nullable="false" />
 			</column>
 			<column name="product_id" type="int">
-				<constraints foreignKeyName="fk_product_position_product" referencedTableName="product" referencedColumnNames="id"  />
+				<constraints foreignKeyName="fk_product_position_product" referencedTableName="product" referencedColumnNames="id" nullable="false" />
 			</column>
 			<column name="quantity" type="int"/>
 			<column name="price" type="numeric(8,2)"/>	 <!--Products price can change, but product can be already bought-->

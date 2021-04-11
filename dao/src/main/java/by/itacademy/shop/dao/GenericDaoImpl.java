@@ -6,6 +6,9 @@ import by.itacademy.shop.entities.GenericEntity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -47,7 +50,10 @@ public abstract class GenericDaoImpl<T extends GenericEntity<Long>> implements G
     }
 
     public List<T> findAll() {
-        return null;
+        CriteriaBuilder cb= entityManager.getCriteriaBuilder();
+        CriteriaQuery<T> cq=cb.createQuery(getClassForFind());
+        Root<T> root=cq.from(getClassForFind());
+        return entityManager.createQuery(cq).getResultList();
     }
 
     private void setUp(){

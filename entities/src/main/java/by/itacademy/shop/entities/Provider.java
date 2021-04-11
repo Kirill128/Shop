@@ -6,8 +6,8 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -20,6 +20,9 @@ public class Provider extends GenericEntity<Long>{
 
     private String name;
 
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "provider")
+    private List<Product> products;
+
     @Override
     public String toString() {
         return "Provider{" +
@@ -27,4 +30,5 @@ public class Provider extends GenericEntity<Long>{
                 ", name='" + name + '\'' +
                 '}';
     }
+
 }

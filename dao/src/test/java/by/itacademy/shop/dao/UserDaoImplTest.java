@@ -55,7 +55,8 @@ class UserDaoImplTest {
     }
     @Test
     public void findAll(){
-
+        UserDao userDao=new UserDaoImpl();
+        userDao.findAll().stream().forEach(System.out::println);
     }
     /*
     @Test

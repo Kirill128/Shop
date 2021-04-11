@@ -32,6 +32,9 @@ public class User extends GenericEntity<Long> {
             inverseJoinColumns = {@JoinColumn(name="role_id")})
     private List<Role> roles;
 
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "user")
+    private List<Order> orders;
+
     @Override
     public String toString() {
         return "User{" +
