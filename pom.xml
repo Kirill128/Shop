@@ -12,6 +12,8 @@
         <module>entities</module>
         <module>api</module>
         <module>dao</module>
+        <module>services</module>
+        <module>rest</module>
     </modules>
 
     <properties>
