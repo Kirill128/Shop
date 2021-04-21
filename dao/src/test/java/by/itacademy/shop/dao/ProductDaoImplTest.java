@@ -42,7 +42,7 @@ class ProductDaoImplTest {
     @Test
     public void find(){
         ProductDao productDao=new ProductDaoImpl();
-        Product product=productDao.find(101L);
+        Product product=productDao.find(1L);
         System.out.println(product);
     }
     @Test
