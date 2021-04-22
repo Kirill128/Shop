@@ -7,7 +7,7 @@
     <changeSet id="1" author="kirill">
 
         <dropTable tableName="product_order"/>
-        <dropTable tableName="order"/>
+        <dropTable tableName="shop_order"/>
         <dropTable tableName="product"/>
         <dropTable tableName="photo"/>
         <dropTable tableName="provider"/>

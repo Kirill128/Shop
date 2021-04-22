@@ -26,7 +26,7 @@ public class RestConfiguration implements WebMvcConfigurer {
     public SpringResourceTemplateResolver templateResolver() {
         SpringResourceTemplateResolver templateResolver = new SpringResourceTemplateResolver();
         templateResolver.setApplicationContext(applicationContext);
-        templateResolver.setPrefix("/WEB-INF/templates");
+        templateResolver.setPrefix("classpath:/templates");
         templateResolver.setSuffix(".html");
         return templateResolver;
     }
@@ -48,6 +48,6 @@ public class RestConfiguration implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+        registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
     }
 }
