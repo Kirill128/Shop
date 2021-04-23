@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserControllerImpl {
 
     private UserService userService;
@@ -20,24 +20,28 @@ public class UserControllerImpl {
         this.userService = userService;
     }
 
-    @GetMapping
-    public String defaultPage(){
-        return "<h1>Hello</h1>";
+    @GetMapping("/{id}")
+    public UserDto find(@PathVariable int id){
+        return this.userService.find(id);
     }
+
+    @GetMapping("/all")
+    public ModelAndView findAllUsers(){
+        ModelAndView modelAndView=new ModelAndView("/admin/users");
+        modelAndView.addObject("userList",this.userService.getAllUsers());
+        return modelAndView;
+    }
+
+
     @PostMapping("/create")
     public UserDto createUser(UserDto user){
         return null;
     }
-
-    @GetMapping("/{id}")
-    public String find(@PathVariable int id){
-        return "<h1>"+this.userService.find(id).toString()+"</h1>";
+    @PutMapping("/update")
+    public void update(@RequestBody UserDto user){
     }
+    @DeleteMapping("/delete")
+    public void delete(){
 
-    @GetMapping("/all")
-    public ModelAndView showAllUsers(){
-        ModelAndView modelAndView=new ModelAndView("/admin/users");
-        modelAndView.addObject("userList",this.userService.getAllUsers());
-        return modelAndView;
     }
 }

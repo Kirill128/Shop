@@ -25,19 +25,28 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDto find(int id) {
-        return UserMapper.INSTANCE.mapUserDto(this.userDao.find(id));
+    public UserDto find(long id) {
+        User user=this.userDao.find(id);
+        return (user!=null)? UserMapper.INSTANCE.mapUserDto(user) : null;
     }
 
     @Override
     public void update(UserDto user) {
-        this.userDao.update(UserMapper.INSTANCE.mapUser(user));
+        User userUpd=this.userDao.find(user.getId());
+        if(userUpd!=null){
+            if(user.getName()!=null)userUpd.setName(user.getName());
+            if(user.getEmail()!=null)userUpd.setEmail(user.getEmail());
+            if(user.getPassword()!=null)userUpd.setPassword(user.getPassword());
+            if(user.getPhone()!=null)userUpd.setPhone(user.getPhone());
+            if(user.getOrders()!=null)userUpd.setOrders(user.getOrders());
+            this.userDao.update(userUpd);
+        }
     }
 
     @Override
-    public void delete(int id) {
+    public void delete(long id) {
         User user=this.userDao.find(id);
-        this.userDao.delete(user);
+        if(user!=null)this.userDao.delete(user);
     }
 
     @Override
