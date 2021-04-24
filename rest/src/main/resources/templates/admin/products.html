@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- <script src="../../static/js/popper.min.js"></script> -->
+    <script src="/static/js/popper.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="/static/css/bootstrap/bootstrap.min.css">
     <link rel="stylesheet" href="/static/css/my/general.css">
     <link rel="stylesheet" href="/static/css/my/users.css">
@@ -47,44 +48,93 @@
                         <a href="#" class="list-group-item list-group-item-action">..</a>
                     </div>
                 </div>
-                <div class="col main-content">
-                    <ul class="nav nav-tabs">
-                        <li class="nav-item">
-                            <table class="table">
-                                <thead>
-                                     <tr>
-                                         <th scope="col">Id</th>
-                                         <th scope="col">Name</th>
-                                         <th scope="col">Email</th>
-                                         <th scope="col">Phone</th>
-                                         <th scope="col">Password</th>
-                                         <th scope="col">Action</th>
-                                     </tr>
-                                 </thead>
-                                 <tbody>
-                                     <tr>
-                                         <th scope="row">1</th>
-                                         <td>Mark</td>
-                                         <td>Otto</td>
-                                         <td>@mdo</td>
-                                     </tr>
-                                     <tr>
-                                         <th scope="row">2</th>
-                                         <td>Jacob</td>
-                                         <td>Thornton</td>
-                                         <td>@fat</td>
-                                     </tr>
-                                     <tr>
-                                         <th scope="row">3</th>
-                                         <td colspan="2">Larry the Bird</td>
-                                         <td>@twitter</td>
-                                     </tr>
-                                 </tbody>
-                            </table>
-                        </li>
+                <div class="col main-content mt-3">
+                    <div class="modal fade" id="modal" aria-hidden="true" aria-labelledby="..." tabindex="-1">
+                        <div class="modal-dialog modal-dialog-centered">
+                          <div class="modal-content p-4">
+                            <form>
+                                <div class="mb-3">
+                                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                                  <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                                </div>
+                                <div class="mb-3">
+                                  <label for="exampleInputPassword1" class="form-label">Password</label>
+                                  <input type="password" class="form-control" id="exampleInputPassword1">
+                                </div>
+                                <div class="mb-3 form-check">
+                                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                  <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                              </form>
+                          </div>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary" data-bs-toggle="modal" href="#modal" role="button">Add New Product</a>
+                    <table class="table">
+                        <thead>
+                             <tr>
+                                 <th scope="col">Id</th>
+                                 <th scope="col">Short Description</th>
+                                 <th scope="col">Quantity in storage</th>
+                                 <th scope="col">Price</th>
+                                 <th scope="col">Category</th>
+                                 <th scope="col">Photo</th>
+                                 <th scope="col">Provider</th>
+                                 <th scope="col">Attributes</th>
+                                 <th scope="col">Update</th>
+                                 <th scope="col">Delete</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                             <tr>
+                                 <form action="#" method="POST" >
+                                    <th scope="row">1</th>
+                                    <td>
+                                        <input type="text" value="Mark" class="form-control"> 
+                                    </td>
+                                    <td>
+                                        <input type="text" value="Mark" class="form-control"> 
+                                    </td>
+                                    <td>
+                                        <input type="text" value="Mark" class="form-control"> 
+                                    </td>
+                                    <td>
+                                        <select class="form-select w-auto" >
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select w-auto" >
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-select w-auto" >
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="submit" class="btn btn-primary" value="Open">
+                                    </td>
+                                    <td>
+                                        <input type="submit" class="btn btn-success" value="Update">
+                                    </td>
+                                    <td>
+                                        <input type="submit" class="btn btn-danger" value="Delete" >
+                                    </td>
+                                </form>
+                             </tr>
+                         </tbody>
+                    </table>
 
-                    </ul>
-                    
                 </div>
             </div>
         </div>

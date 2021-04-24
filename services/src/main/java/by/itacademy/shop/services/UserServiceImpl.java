@@ -32,15 +32,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void update(UserDto user) {
-        User userUpd=this.userDao.find(user.getId());
-        if(userUpd!=null){
-            if(user.getName()!=null)userUpd.setName(user.getName());
-            if(user.getEmail()!=null)userUpd.setEmail(user.getEmail());
-            if(user.getPassword()!=null)userUpd.setPassword(user.getPassword());
-            if(user.getPhone()!=null)userUpd.setPhone(user.getPhone());
-            if(user.getOrders()!=null)userUpd.setOrders(user.getOrders());
-            this.userDao.update(userUpd);
-        }
+//        User userUpd=this.userDao.find(user.getId());
+//        if(userUpd!=null){
+//            if(user.getName()!=null)userUpd.setName(user.getName());
+//            if(user.getEmail()!=null)userUpd.setEmail(user.getEmail());
+//            if(user.getPassword()!=null)userUpd.setPassword(user.getPassword());
+//            if(user.getPhone()!=null)userUpd.setPhone(user.getPhone());
+//            if(user.getOrders()!=null)userUpd.setOrders(user.getOrders());
+//            this.userDao.update(userUpd);
+//        }
     }
 
     @Override

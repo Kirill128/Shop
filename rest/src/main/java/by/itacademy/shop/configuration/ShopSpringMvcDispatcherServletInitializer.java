@@ -15,6 +15,6 @@ public class ShopSpringMvcDispatcherServletInitializer extends AbstractAnnotatio
 
     @Override
     protected String[] getServletMappings() {
-        return new String[]{"/products"};
+        return new String[]{"/"};
     }
 }
