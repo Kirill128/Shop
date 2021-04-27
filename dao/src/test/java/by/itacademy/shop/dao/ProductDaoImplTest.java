@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import javax.transaction.Transactional;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 class ProductDaoImplTest {
@@ -64,4 +65,11 @@ class ProductDaoImplTest {
         productDao.findAll().stream().forEach(System.out::println);
     }
 
+    @Test
+    public void getLimitedProductsWithOffset() {
+        ProductDao productDao=new ProductDaoImpl();
+        List<Product> productList=productDao.getLimitedProductsWithOffset(1,10);
+        productList.stream().forEach(System.out::println);
+
+    }
 }

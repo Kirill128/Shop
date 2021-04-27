@@ -13,7 +13,6 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-@ToString
 @Entity
 @Table(name = "product")
 public class Product extends GenericEntity<Long>{
@@ -47,4 +46,19 @@ public class Product extends GenericEntity<Long>{
 
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "product",cascade = CascadeType.ALL)
     private List<ProductOrder> productOrders;
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", attributes=" + attributes +
+                ", shortDescription=" + shortDescription +
+                ", price=" + price +
+                ", quantityInStorage=" + quantityInStorage +
+                ", category=" + category +
+                ", photo=" + photo +
+                ", provider=" + provider +
+                ", productOrders=" + productOrders +
+                '}';
+    }
 }
