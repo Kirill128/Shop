@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 
 public class ProviderDaoImpl extends GenericDaoImpl<Provider> implements ProviderDao {
-    protected ProviderDaoImpl() {
+    public ProviderDaoImpl() {
         super(Provider.class);
     }
 }

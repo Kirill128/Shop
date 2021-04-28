@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 public class PhotoDaoImpl extends GenericDaoImpl<Photo> implements PhotoDao {
 
-    protected PhotoDaoImpl() {
+    public PhotoDaoImpl() {
         super(Photo.class);
     }
 }

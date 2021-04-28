@@ -18,7 +18,7 @@ public class UserServiceImpl implements UserService {
     public UserServiceImpl(UserDao userDao){
         this.userDao=userDao;
     }
-
+    //---------------------------------CRUD----------------------------------------------------
     @Override
     public UserDto createUser(UserDto user) {
         return UserMapper.INSTANCE.mapUserDto(this.userDao.create(UserMapper.INSTANCE.mapUser(user)));
@@ -41,6 +41,7 @@ public class UserServiceImpl implements UserService {
 //            if(user.getOrders()!=null)userUpd.setOrders(user.getOrders());
 //            this.userDao.update(userUpd);
 //        }
+
     }
 
     @Override
@@ -53,4 +54,5 @@ public class UserServiceImpl implements UserService {
     public List<UserDto> getAllUsers() {
         return UserMapper.INSTANCE.mapUserDtos(this.userDao.findAll());
     }
+    //-------------------------------------------------------------------------------------
 }

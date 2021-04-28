@@ -22,7 +22,7 @@ public class ProductControllerImpl {
     @GetMapping("")
     public ModelAndView getStartPage(){
         ModelAndView modelAndView=new ModelAndView("/main");
-        List<ProductDto> someProducts=this.productService.getLimitedProductsWithOffset(1,10);
+        List<ProductDto> someProducts=this.productService.getLimitedProductsWithOffset(1,20);
         modelAndView.addObject("products",someProducts);
         return modelAndView;
     }

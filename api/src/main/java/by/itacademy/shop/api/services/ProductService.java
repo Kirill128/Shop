@@ -1,8 +1,10 @@
 package by.itacademy.shop.api.services;
 
 import by.itacademy.shop.api.dto.ProductDto;
-import by.itacademy.shop.entities.Product;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 
 public interface ProductService {
@@ -13,6 +15,6 @@ public interface ProductService {
 
     List<ProductDto> getAllProducts();
     List<ProductDto> getLimitedProductsWithOffset(int pageNum, int pageSize);
-
+    List<ProductDto> parseXLSOrXlSXFile(MultipartFile file, InputStream inputStream) throws IOException;
 
 }

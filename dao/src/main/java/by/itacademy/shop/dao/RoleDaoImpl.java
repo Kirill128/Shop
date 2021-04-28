@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 
 public class RoleDaoImpl extends GenericDaoImpl<Role> implements RoleDao {
-    protected RoleDaoImpl() {
+    public RoleDaoImpl() {
         super(Role.class);
     }
 }

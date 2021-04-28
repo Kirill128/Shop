@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class UserDaoImpl extends GenericDaoImpl<User> implements UserDao {
-    protected UserDaoImpl() {
+    public UserDaoImpl() {
         super(User.class);
     }
 }

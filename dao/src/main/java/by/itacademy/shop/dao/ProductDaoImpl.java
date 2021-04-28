@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ProductDaoImpl extends GenericDaoImpl<Product> implements ProductDao{
 
-    protected ProductDaoImpl() {
+    public ProductDaoImpl() {
         super(Product.class);
     }
 

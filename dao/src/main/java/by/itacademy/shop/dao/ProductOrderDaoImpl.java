@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 
 public class ProductOrderDaoImpl extends GenericDaoImpl<ProductOrder> implements ProductOrderDao {
-    protected ProductOrderDaoImpl() {
+    public ProductOrderDaoImpl() {
         super(ProductOrder.class);
     }
 }
