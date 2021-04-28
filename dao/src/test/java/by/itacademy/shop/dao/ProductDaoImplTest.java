@@ -6,6 +6,7 @@ import by.itacademy.shop.api.dao.ProductDao;
 import by.itacademy.shop.api.dao.ProviderDao;
 import by.itacademy.shop.entities.Photo;
 import by.itacademy.shop.entities.Product;
+import by.itacademy.shop.locale.Lang;
 import org.junit.jupiter.api.Test;
 
 import javax.transaction.Transactional;
@@ -72,4 +73,6 @@ class ProductDaoImplTest {
         productList.stream().forEach(System.out::println);
 
     }
+
+
 }

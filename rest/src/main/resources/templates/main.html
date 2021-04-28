@@ -78,9 +78,9 @@
                     <div class="row row-cols-1 row-cols-md-4 g-4" th:each="product : ${products}">
                         <div class="col">
                           <div class="card w-75">
-                            <img src="/static/img/unnamed.jpg" class="card-img-top" alt="#">
+                            <img th:src="@{/static/img/unnamed.jpg}" class="card-img-top" alt="#">
                             <div class="card-body">
-                              <p class="card-text" th:text="${product.short_description}"></p>
+                              <p class="card-text" th:text="${product.short_description['RU']}"></p>
                             </div>
                           </div>
                         </div>

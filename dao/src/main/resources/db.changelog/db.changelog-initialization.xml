@@ -70,6 +70,7 @@
 				<constraints primaryKey="true" nullable="false"/>
 			</column>
 			<column name="short_description" type="jsonb"/>
+			<column name="barcode" type="varchar(30)"/>
 			<column name="quantity_in_storage" type="int"/>
 			<column name="price" type="numeric(8,2)"/>
 			<column name="attributes" type="jsonb"/>

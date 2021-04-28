@@ -19,10 +19,13 @@ public class UserControllerImpl {
     public UserControllerImpl(UserService userService) {
         this.userService = userService;
     }
+    //--------------------
 
+    //--------------------
     @GetMapping("/{id}")
-    public UserDto find(@PathVariable int id){
-        return this.userService.find(id);
+    public ModelAndView find(@PathVariable int id){
+        UserDto userDto=this.userService.find(id);
+        return null;
     }
 
     @GetMapping("/all")
@@ -32,16 +35,17 @@ public class UserControllerImpl {
         return modelAndView;
     }
 
-
     @PostMapping("/create")
-    public UserDto createUser(UserDto user){
+    public ModelAndView createUser(UserDto user){
         return null;
     }
+
     @PutMapping("/update")
-    public void update(@RequestBody UserDto user){
+    public ModelAndView update(@RequestBody UserDto user){
+        return null;
     }
     @DeleteMapping("/delete")
-    public void delete(){
-
+    public ModelAndView delete(){
+        return null;
     }
 }

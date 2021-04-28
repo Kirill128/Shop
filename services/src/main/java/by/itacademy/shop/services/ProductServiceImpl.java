@@ -1,9 +1,11 @@
 package by.itacademy.shop.services;
 
 import by.itacademy.shop.api.dao.ProductDao;
+import by.itacademy.shop.api.dto.CategoryDto;
 import by.itacademy.shop.api.dto.ProductDto;
 import by.itacademy.shop.api.mappers.ProductMapper;
 import by.itacademy.shop.api.services.ProductService;
+import by.itacademy.shop.entities.Category;
 import by.itacademy.shop.entities.Product;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -73,17 +75,19 @@ public class ProductServiceImpl implements ProductService {
                 Map<String,String> shortDescr=new HashMap<>();
                 shortDescr.put("RU",currentRow.getCell(3).getStringCellValue());
 
-                Long id=-1L;
+                Long barcode=-1L;
                 Double price=-1.0;
                 try {
-                    id = (long) (currentRow.getCell(5).getNumericCellValue());
+                    barcode = (long) (currentRow.getCell(5).getNumericCellValue());
                     price = currentRow.getCell(11).getNumericCellValue();
                 }catch (Exception e){
-                    System.out.println(e.getMessage());
+                    continue;
                 }
-
-                productDto.setId(id);
+                productDto.setBarcode(barcode.toString());
                 productDto.setShortDescription(shortDescr);
+                productDto.setQuantityInStorage(0);
+                productDto.setAttributes(null);
+                productDto.setCategory(null);
                 productDto.setPrice(price);
                 productDtoList.add(productDto);
             }

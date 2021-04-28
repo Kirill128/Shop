@@ -28,6 +28,8 @@ public class Product extends GenericEntity<Long>{
     @Column(name="price")
     private Double price;
 
+    @Column(name="barcode")
+    private String barcode;
 
     @Column(name="quantity_in_storage")
     private Integer quantityInStorage;

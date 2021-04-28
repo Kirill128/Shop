@@ -18,6 +18,8 @@ public class ProductDto {
 
     private Long id;
 
+    private String barcode;
+
     private Map<String,String> attributes;
 
     private Map<String,String> shortDescription;
@@ -38,6 +40,7 @@ public class ProductDto {
     public String toString() {
         return "ProductDto{" +
                 "id=" + id +
+                ", barcode='" + barcode + '\'' +
                 ", attributes=" + attributes +
                 ", shortDescription=" + shortDescription +
                 ", price=" + price +
@@ -47,6 +50,14 @@ public class ProductDto {
                 ", provider=" + provider +
                 ", productOrders=" + productOrders +
                 '}';
+    }
+
+    public String getBarcode() {
+        return barcode;
+    }
+
+    public void setBarcode(String barcode) {
+        this.barcode = barcode;
     }
 
     public Long getId() {

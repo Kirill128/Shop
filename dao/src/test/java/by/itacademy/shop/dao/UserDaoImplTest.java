@@ -16,14 +16,13 @@ class UserDaoImplTest {
         RoleDao roleDao=new RoleDaoImpl();
         UserDao userDao=new UserDaoImpl();
         User u= User.builder()
-                .id(200L)
                 .name("Test Vasa")
                 .email("Test Vasa")
                 .password("Test Vasa")
                 .roles(new ArrayList<>())
                 .phone("Test Vasa")
                 .build();
-        u.getRoles().add(roleDao.find(2));
+        u.getRoles().add(roleDao.find(1));
         userDao.create(u);
     }
     @Test
@@ -37,7 +36,7 @@ class UserDaoImplTest {
         RoleDao roleDao=new RoleDaoImpl();
         UserDao userDao=new UserDaoImpl();
         User u= User.builder()
-                .id(200L)
+
                 .name("Test Peta")
                 .email("Test Peta")
                 .password("Test Peta")

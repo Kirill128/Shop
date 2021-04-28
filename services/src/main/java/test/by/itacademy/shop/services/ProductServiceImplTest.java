@@ -3,6 +3,7 @@ package test.by.itacademy.shop.services;
 import by.itacademy.shop.api.dao.ProductDao;
 import by.itacademy.shop.api.services.ProductService;
 import by.itacademy.shop.dao.ProductDaoImpl;
+import by.itacademy.shop.locale.Lang;
 import by.itacademy.shop.services.ProductServiceImpl;
 import org.junit.Test;
 import org.junit.Before; 
@@ -75,9 +76,10 @@ public void testDelete() throws Exception {
 * 
 */ 
 @Test
-public void testGetAllProducts() throws Exception { 
-//TODO: Test goes here... 
-} 
+public void testGetAllProducts() throws Exception {
+    System.out.println("En"+Lang.EN.value);
+    System.out.println("RU"+ Lang.RU.value);
+}
 
 /** 
 * 
@@ -100,7 +102,7 @@ public void testGetLimitedProductsWithOffset() throws Exception {
 public void testParseXLSOrXlSXFile() throws Exception {
     ProductDao productDao=new ProductDaoImpl();
     ProductService productService=new ProductServiceImpl(productDao);
-    productService.parseXLSOrXlSXFile(null,new FileInputStream("G:\\Programming\\Shop\\services\\src\\main\\resources\\ShopProducts.xlsx")).stream().forEach(System.out::println);
+    productService.parseXLSOrXlSXFile(null,new FileInputStream("/home/kirill/Programming/Shop/services/src/main/resources/ShopProducts.xlsx")).stream().forEach(System.out::println);
 }
 
 
