@@ -1,10 +1,8 @@
 package by.itacademy.shop.rest;
 
-import by.itacademy.shop.api.dto.UserDto;
+import by.itacademy.shop.api.dto.admin.UserDto;
 import by.itacademy.shop.api.services.UserService;
-import liquibase.pro.packaged.M;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 

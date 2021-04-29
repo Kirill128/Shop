@@ -8,9 +8,7 @@ import by.itacademy.shop.services.ProductServiceImpl;
 import org.junit.Test;
 import org.junit.Before; 
 import org.junit.After;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
-import java.io.File;
 import java.io.FileInputStream;
 
 /** 
@@ -47,7 +45,10 @@ public void testCreateProduct() throws Exception {
 */ 
 @Test
 public void testFind() throws Exception { 
-//TODO: Test goes here... 
+    ProductDao productDao=new ProductDaoImpl();
+    ProductService productService=new ProductServiceImpl(productDao);
+//    System.out.println(productService.find(1L));
+
 } 
 
 /** 
@@ -66,9 +67,8 @@ public void testUpdate() throws Exception {
 * 
 */ 
 @Test
-public void testDelete() throws Exception { 
-//TODO: Test goes here... 
-} 
+public void testDelete() throws Exception {
+}
 
 /** 
 * 

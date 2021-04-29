@@ -1,7 +1,6 @@
 package by.itacademy.shop.dao;
 
 import  by.itacademy.shop.api.dao.ProductDao;
-import by.itacademy.shop.api.dto.ProductDto;
 import by.itacademy.shop.entities.Product;
 import org.springframework.stereotype.Repository;
 

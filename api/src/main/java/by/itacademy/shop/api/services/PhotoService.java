@@ -1,7 +1,7 @@
 package by.itacademy.shop.api.services;
 
-import by.itacademy.shop.api.dto.PhotoDto;
-import by.itacademy.shop.api.dto.UserDto;
+import by.itacademy.shop.api.dto.admin.PhotoDto;
+import by.itacademy.shop.api.dto.admin.UserDto;
 
 import java.util.List;
 

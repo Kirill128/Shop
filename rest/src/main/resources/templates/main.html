@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/static/css/bootstrap/bootstrap.min.css}">
     <link rel="stylesheet" th:href="@{/static/css/my/general.css}">
@@ -80,7 +80,7 @@
                           <div class="card w-75">
                             <img th:src="@{/static/img/unnamed.jpg}" class="card-img-top" alt="#">
                             <div class="card-body">
-                              <p class="card-text" th:text="${product.short_description['RU']}"></p>
+                              <p class="card-text" th:utext="${product.shortDescription}"></p>
                             </div>
                           </div>
                         </div>

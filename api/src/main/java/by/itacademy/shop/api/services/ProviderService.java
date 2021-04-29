@@ -1,7 +1,6 @@
 package by.itacademy.shop.api.services;
 
-import by.itacademy.shop.api.dto.ProviderDto;
-import by.itacademy.shop.api.dto.UserDto;
+import by.itacademy.shop.api.dto.admin.ProviderDto;
 
 import java.util.List;
 

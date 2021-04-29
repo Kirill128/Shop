@@ -1,7 +1,7 @@
 package by.itacademy.shop.rest;
 
-import by.itacademy.shop.api.dto.CategoryDto;
-import by.itacademy.shop.api.dto.ProductDto;
+import by.itacademy.shop.api.dto.GuestProductDto;
+import by.itacademy.shop.api.dto.admin.ProductDto;
 import by.itacademy.shop.api.services.CategoryService;
 import by.itacademy.shop.api.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +31,7 @@ public class ProductControllerImpl {
     public ModelAndView getProductsPage(@RequestParam int num){
         ModelAndView modelAndView=new ModelAndView("/main");
         List<CategoryDto> categoryDtos=this.categoryService.getAllCategories();
-        List<ProductDto> someProducts=this.productService.getLimitedProductsWithOffset(num,PRODUCT_PAGE_SIZE);
+        List<GuestProductDto> someProducts=this.productService.getLimitedProductsWithOffset(num,PRODUCT_PAGE_SIZE,MainController.GLOBAL_LANG);
         modelAndView.addObject("products",someProducts);
         modelAndView.addObject("category",categoryDtos);
         return modelAndView;
@@ -46,14 +46,14 @@ public class ProductControllerImpl {
     //---------------------------------------------
     @GetMapping("/{id}")
     public ModelAndView find(@PathVariable int id){
-        ProductDto productDto=this.productService.find(id);
+        GuestProductDto productDto=this.productService.find(id,MainController.GLOBAL_LANG);
         return null;
     }
 
     @GetMapping("/all")
     public ModelAndView findAllProducts(){
         ModelAndView modelAndView=new ModelAndView("/admin/users");
-        modelAndView.addObject("productList",this.productService.getAllProducts());
+        modelAndView.addObject("productList",this.productService.getAllProducts(MainController.GLOBAL_LANG));
         return modelAndView;
     }
 

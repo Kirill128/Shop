@@ -1,7 +1,5 @@
-package by.itacademy.shop.api.dto;
+package by.itacademy.shop.api.dto.admin;
 
-import by.itacademy.shop.entities.Order;
-import by.itacademy.shop.entities.Role;
 import lombok.*;
 
 import java.util.List;
@@ -17,8 +15,7 @@ public class UserDto {
         private String email;
         private String phone;
         private String password;
-        private List<Role> roles;
-        private List<Order> orders;
+        private List<RoleDto> roles;
 
         @Override
         public String toString() {
@@ -28,7 +25,6 @@ public class UserDto {
                     ", email='" + email + '\'' +
                     ", phone='" + phone + '\'' +
                     ", password='" + password + '\'' +
-                    ", roles=" + roles +
                     '}';
         }
 }

@@ -1,12 +1,12 @@
 package by.itacademy.shop.services;
 
 import by.itacademy.shop.api.dao.ProductDao;
-import by.itacademy.shop.api.dto.CategoryDto;
-import by.itacademy.shop.api.dto.ProductDto;
+import by.itacademy.shop.api.dto.GuestProductDto;
+import by.itacademy.shop.api.dto.admin.ProductDto;
 import by.itacademy.shop.api.mappers.ProductMapper;
 import by.itacademy.shop.api.services.ProductService;
-import by.itacademy.shop.entities.Category;
 import by.itacademy.shop.entities.Product;
+import by.itacademy.shop.locale.Lang;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -27,20 +27,38 @@ public class ProductServiceImpl implements ProductService {
         this.productDao = productDao;
     }
 
-    //---------------------------------CRUD----------------------------------------------------
+    //---------------------------------Users----------------------------------------------------
+
     @Override
-    public ProductDto createProduct(ProductDto product) {
-        return ProductMapper.INSTANCE.mapProductDto(this.productDao.create(ProductMapper.INSTANCE.mapProduct(product)));
+    public GuestProductDto find(long id, Lang lang) {
+        return ProductMapper.mapProductToGuestProductDto(this.productDao.find(id),lang);
     }
 
     @Override
-    public ProductDto find(long id) {
-        return ProductMapper.INSTANCE.mapProductDto(this.productDao.find(id));
+    public List<GuestProductDto> getAllProducts(Lang lang) {
+        return ProductMapper.mapProductsToGuestProductDtos(this.productDao.findAll(),lang);
+
+
+    }
+    @Override
+    public List<GuestProductDto> getLimitedProductsWithOffset(int pageNum, int pageSize, Lang lang) {
+        return ProductMapper.mapProductsToGuestProductDtos(this.productDao.getLimitedProductsWithOffset(pageNum,pageSize),lang);
     }
 
+    //----------------------------------Admin ---------------------------------------------------
+
+    @Override
+    public List<ProductDto> getAllProducts() {
+        return ProductMapper.mapProductsToProductDtos(this.productDao.findAll());
+    }
+
+    @Override
+    public List<ProductDto> getLimitedProductsWithOffset(int pageNum, int pageSize) {
+        return ProductMapper.mapProductsToProductDtos(this.productDao.getLimitedProductsWithOffset(pageNum,pageSize));
+    }
     @Override
     public void update(ProductDto product) {
-        this.productDao.update(ProductMapper.INSTANCE.mapProduct(product));
+        this.productDao.update(ProductMapper.mapProductDtoToProduct(product));
     }
 
     @Override
@@ -50,13 +68,13 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<ProductDto> getAllProducts() {
-        return ProductMapper.INSTANCE.mapProductDtos(this.productDao.findAll());
+    public ProductDto createProduct(ProductDto product) {
+        return ProductMapper.mapProductToProductDto(this.productDao.create(ProductMapper.mapProductDtoToProduct(product)));
     }
-    //----------------------------------Special logic---------------------------------------------------
+
     @Override
-    public List<ProductDto> getLimitedProductsWithOffset(int pageNum, int pageSize) {
-        return ProductMapper.INSTANCE.mapProductDtos(this.productDao.getLimitedProductsWithOffset(pageNum,pageSize));
+    public ProductDto findFullInfo(long id) {
+        return ProductMapper.mapProductToProductDto(this.productDao.find(id));
     }
 
     @Override

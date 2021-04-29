@@ -1,8 +1,7 @@
 package by.itacademy.shop.services;
 
 import by.itacademy.shop.api.dao.UserDao;
-import by.itacademy.shop.api.dto.UserDto;
-import by.itacademy.shop.api.mappers.UserMapper;
+import by.itacademy.shop.api.dto.admin.UserDto;
 import by.itacademy.shop.api.services.UserService;
 import by.itacademy.shop.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,13 +20,13 @@ public class UserServiceImpl implements UserService {
     //---------------------------------CRUD----------------------------------------------------
     @Override
     public UserDto createUser(UserDto user) {
-        return UserMapper.INSTANCE.mapUserDto(this.userDao.create(UserMapper.INSTANCE.mapUser(user)));
+        return null;
     }
 
     @Override
     public UserDto find(long id) {
         User user=this.userDao.find(id);
-        return (user!=null)? UserMapper.INSTANCE.mapUserDto(user) : null;
+        return null;
     }
 
     @Override
@@ -52,7 +51,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<UserDto> getAllUsers() {
-        return UserMapper.INSTANCE.mapUserDtos(this.userDao.findAll());
+        return null;
     }
     //-------------------------------------------------------------------------------------
 }

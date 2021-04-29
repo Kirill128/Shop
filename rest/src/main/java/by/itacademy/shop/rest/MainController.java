@@ -1,11 +1,9 @@
 package by.itacademy.shop.rest;
 
-import by.itacademy.shop.api.dao.CategoryDao;
-import by.itacademy.shop.api.dao.ProductDao;
-import by.itacademy.shop.api.dto.CategoryDto;
-import by.itacademy.shop.api.dto.ProductDto;
+import by.itacademy.shop.api.dto.GuestProductDto;
 import by.itacademy.shop.api.services.CategoryService;
 import by.itacademy.shop.api.services.ProductService;
+import by.itacademy.shop.locale.Lang;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/")
 public class MainController {
+    public static final Lang GLOBAL_LANG=Lang.RU;
     private CategoryService categoryService;
     private ProductService productService;
 
@@ -29,11 +28,11 @@ public class MainController {
     @GetMapping
     public ModelAndView getMainPage(){
         ModelAndView modelAndView=new ModelAndView("/main");
-        List<CategoryDto> categoryDtos=this.categoryService.getAllCategories();
-        List<ProductDto> someProducts=this.productService.getLimitedProductsWithOffset(1,ProductControllerImpl.PRODUCT_PAGE_SIZE);
+//        List<CategoryDto> categoryDtos=this.categoryService.getAllCategories();
+        List<GuestProductDto> someProducts=this.productService.getLimitedProductsWithOffset(1,ProductControllerImpl.PRODUCT_PAGE_SIZE, GLOBAL_LANG);
         modelAndView.addObject("products",someProducts);
 
-        modelAndView.addObject("category",categoryDtos);
+//        modelAndView.addObject("category",categoryDtos);
         return modelAndView;
     }
 }
