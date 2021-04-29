@@ -8,6 +8,7 @@ import java.util.List;
 
 public interface CategoryService {
     GuestCategoryDto find(long id,Lang lang);
+    List<GuestCategoryDto> getParentCategories(Lang lang);
     List<GuestCategoryDto> getAllCategories(Lang lang);
 
     //Admin

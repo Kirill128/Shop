@@ -24,6 +24,9 @@ public class Category extends GenericEntity<Long>{
     @JoinColumn(name = "parent_id")
     private Category parentCategory;
 
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "parentCategory",cascade = CascadeType.REMOVE)
+    private List<Category> subCategories;
+
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "category",cascade = CascadeType.ALL)
     private List<Product> products;
 
@@ -31,12 +34,10 @@ public class Category extends GenericEntity<Long>{
     public String toString() {
         return "Category{" +
                 "title=" + title +
-                ", parentCategory=" + parentCategory +
-//                ", products=" + products +
+//                ", parentCategory=" + parentCategory +
+                ", subCategories=" + subCategories +
                 ", id=" + id +
                 '}';
     }
-
-
 }
 

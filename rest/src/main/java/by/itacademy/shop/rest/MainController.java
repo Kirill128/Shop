@@ -1,5 +1,6 @@
 package by.itacademy.shop.rest;
 
+import by.itacademy.shop.api.dto.GuestCategoryDto;
 import by.itacademy.shop.api.dto.GuestProductDto;
 import by.itacademy.shop.api.services.CategoryService;
 import by.itacademy.shop.api.services.ProductService;
@@ -28,11 +29,10 @@ public class MainController {
     @GetMapping
     public ModelAndView getMainPage(){
         ModelAndView modelAndView=new ModelAndView("/main");
-//        List<CategoryDto> categoryDtos=this.categoryService.getAllCategories();
+        List<GuestCategoryDto> categoryDtos=this.categoryService.getParentCategories(MainController.GLOBAL_LANG);
         List<GuestProductDto> someProducts=this.productService.getLimitedProductsWithOffset(1,ProductControllerImpl.PRODUCT_PAGE_SIZE, GLOBAL_LANG);
         modelAndView.addObject("products",someProducts);
-
-//        modelAndView.addObject("category",categoryDtos);
+        modelAndView.addObject("categories",categoryDtos);
         return modelAndView;
     }
 }

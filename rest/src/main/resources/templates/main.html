@@ -38,39 +38,17 @@
             <div class="main__body">
                 <aside class="sidebar">
                     <nav class="sidebar__menu">
-                        <ul class="sidebar__list">
-                            <li class="sidebar__item">
-                                <div class="item-sidebar__header">COmpa and </div>
-                                <ul class="item-sidebar__hidden-list">
-                                    <li>
-                                        <a href="#">Some things</a>
+                        <ul class="sidebar__list" >
+
+                            <li class="sidebar__item" th:each="category : ${categories}">
+                                <div class="item-sidebar__header" th:utext="${category.title}"></div>
+                                <ul class="item-sidebar__hidden-list" >
+                                    <li th:each="subCategory : ${category.subcategories}">
+                                        <a href="#" th:utext="${subCategory.title}"></a>
                                     </li>
                                 </ul>
                             </li>
-                            <li class="sidebar__item">
-                                <div class="item-sidebar__header">COmpa and</div>
-                                <ul class="item-sidebar__hidden-list">
-                                    <li>
-                                        <a href="#">Some things</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="sidebar__item">
-                                <div class="item-sidebar__header">COmpa and</div>
-                                <ul class="item-sidebar__hidden-list">
-                                    <li>
-                                        <a href="#">Some things</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="sidebar__item">
-                                <div class="item-sidebar__header">COmpa and</div>
-                                <ul class="item-sidebar__hidden-list">
-                                    <li>
-                                        <a href="#">Some things</a>
-                                    </li>
-                                </ul>
-                            </li>
+
                         </ul>
                     </nav>
                 </aside>

@@ -1,9 +1,12 @@
 package by.itacademy.shop.rest;
 
+import by.itacademy.shop.api.dto.GuestCategoryDto;
 import by.itacademy.shop.api.dto.GuestProductDto;
+import by.itacademy.shop.api.dto.admin.CategoryDto;
 import by.itacademy.shop.api.dto.admin.ProductDto;
 import by.itacademy.shop.api.services.CategoryService;
 import by.itacademy.shop.api.services.ProductService;
+import jdk.jfr.internal.tool.Main;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -30,10 +33,10 @@ public class ProductControllerImpl {
     @GetMapping("/main")
     public ModelAndView getProductsPage(@RequestParam int num){
         ModelAndView modelAndView=new ModelAndView("/main");
-        List<CategoryDto> categoryDtos=this.categoryService.getAllCategories();
+        List<GuestCategoryDto> categoryDtos=this.categoryService.getAllCategories(MainController.GLOBAL_LANG);
         List<GuestProductDto> someProducts=this.productService.getLimitedProductsWithOffset(num,PRODUCT_PAGE_SIZE,MainController.GLOBAL_LANG);
         modelAndView.addObject("products",someProducts);
-        modelAndView.addObject("category",categoryDtos);
+        modelAndView.addObject("categories",categoryDtos);
         return modelAndView;
     }
     

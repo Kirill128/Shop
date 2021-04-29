@@ -29,8 +29,11 @@ class CategoryDaoImplTest {
     @Test
     public void find(){
         CategoryDao categoryDao=new CategoryDaoImpl();
-        Category category=categoryDao.find(200L);
-        System.out.println(category);
+        Category category=categoryDao.find(1L);
+        for(Category category1: category.getSubCategories()){
+            System.out.println("//////////////////////////////////////////////");
+            System.out.println(category1);
+        }
     }
     @Order(value = 3)
     @Test

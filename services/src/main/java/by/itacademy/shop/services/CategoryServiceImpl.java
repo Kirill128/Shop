@@ -28,6 +28,11 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    public List<GuestCategoryDto> getParentCategories(Lang lang) {
+        return CategoryMapper.mapCategoriesToGuestCategoryDtos(this.categoryDao.getParentCategories(),lang);
+    }
+
+    @Override
     public List<GuestCategoryDto> getAllCategories( Lang lang) {
         return CategoryMapper.mapCategoriesToGuestCategoryDtos(this.categoryDao.findAll(),lang);
     }
