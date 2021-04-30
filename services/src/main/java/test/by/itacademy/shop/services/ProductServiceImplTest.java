@@ -102,7 +102,7 @@ public void testGetLimitedProductsWithOffset() throws Exception {
 public void testParseXLSOrXlSXFile() throws Exception {
     ProductDao productDao=new ProductDaoImpl();
     ProductService productService=new ProductServiceImpl(productDao);
-    productService.parseXLSOrXlSXFile(null,new FileInputStream("/home/kirill/Programming/Shop/services/src/main/resources/ShopProducts.xlsx")).stream().forEach(System.out::println);
+//    productService.parseXLSOrXlSXFile(null,new FileInputStream("/home/kirill/Programming/Shop/services/src/main/resources/ShopProducts.xlsx")).stream().forEach(System.out::println);
 }
 
 

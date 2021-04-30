@@ -7,6 +7,7 @@ import by.itacademy.shop.api.mappers.ProductMapper;
 import by.itacademy.shop.api.services.ProductService;
 import by.itacademy.shop.entities.Product;
 import by.itacademy.shop.locale.Lang;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
@@ -16,7 +17,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.*;
 
 @Service
@@ -78,9 +78,15 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<ProductDto> parseXLSOrXlSXFile(MultipartFile file, InputStream inputStream) throws IOException {
-//        Workbook workbook= (file.getContentType().equals(".xls"))? new HSSFWorkbook(file.getInputStream()):new XSSFWorkbook(file.getInputStream());
-        Workbook workbook=new XSSFWorkbook(inputStream);
+    public List<ProductDto> parseXLSOrXlSXFile(MultipartFile file) throws IOException {
+        Workbook workbook= (file.getContentType().equals(".xls"))? new HSSFWorkbook(file.getInputStream()):new XSSFWorkbook(file.getInputStream());
+        int quantityInStorageCellNum=8;
+        int shortDescrCellNum=3;
+        int barcodeCellNum=5;
+        int priceCellNum=11;
+
+
+//        Workbook workbook=new XSSFWorkbook(inputStream);
         List<ProductDto> productDtoList=new LinkedList<>();
         Iterator<Sheet> sheetIterator=workbook.sheetIterator();
         while(sheetIterator.hasNext()){
@@ -91,21 +97,24 @@ public class ProductServiceImpl implements ProductService {
                 Row currentRow=rowIterator.next();
                 ProductDto productDto=new ProductDto();
                 Map<String,String> shortDescr=new HashMap<>();
-                shortDescr.put("RU",currentRow.getCell(3).getStringCellValue());
+                shortDescr.put("RU",currentRow.getCell(shortDescrCellNum).getStringCellValue());
 
                 Long barcode=-1L;
                 Double price=-1.0;
+                double quantity=0.0;
                 try {
-                    barcode = (long) (currentRow.getCell(5).getNumericCellValue());
-                    price = currentRow.getCell(11).getNumericCellValue();
+                    barcode = (long) (currentRow.getCell(barcodeCellNum).getNumericCellValue());
+                    price = currentRow.getCell(priceCellNum).getNumericCellValue();
+                    quantity=currentRow.getCell(quantityInStorageCellNum).getNumericCellValue();
                 }catch (Exception e){
                     continue;
+
                 }
                 productDto.setBarcode(barcode.toString());
                 productDto.setShortDescription(shortDescr);
-                productDto.setQuantityInStorage(0);
                 productDto.setAttributes(null);
                 productDto.setCategory(null);
+                productDto.setQuantityInStorage((int)quantity);
                 productDto.setPrice(price);
                 productDtoList.add(productDto);
             }

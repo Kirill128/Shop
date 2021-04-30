@@ -2,16 +2,15 @@ package by.itacademy.shop.rest;
 
 import by.itacademy.shop.api.dto.GuestCategoryDto;
 import by.itacademy.shop.api.dto.GuestProductDto;
-import by.itacademy.shop.api.dto.admin.CategoryDto;
 import by.itacademy.shop.api.dto.admin.ProductDto;
 import by.itacademy.shop.api.services.CategoryService;
 import by.itacademy.shop.api.services.ProductService;
-import jdk.jfr.internal.tool.Main;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.IOException;
 import java.util.List;
 
 @RestController
@@ -41,10 +40,12 @@ public class ProductControllerImpl {
     }
     
 
-    @PostMapping("/upload-file")
-    public ModelAndView uploadProductsFile(@RequestBody MultipartFile file){
-
-        return null;
+    @PostMapping(value="/upload-file")
+    public ModelAndView uploadProductsFile(@RequestParam("customFile") MultipartFile file) throws IOException {
+        List<ProductDto> productDtos=this.productService.parseXLSOrXlSXFile(file);
+        ModelAndView modelAndView=new ModelAndView("/admin/uploadfile");
+        modelAndView.addObject("products",productDtos);
+        return modelAndView;
     }
     //---------------------------------------------
     @GetMapping("/{id}")
@@ -55,8 +56,9 @@ public class ProductControllerImpl {
 
     @GetMapping("/all")
     public ModelAndView findAllProducts(){
-        ModelAndView modelAndView=new ModelAndView("/admin/users");
-        modelAndView.addObject("productList",this.productService.getAllProducts(MainController.GLOBAL_LANG));
+        List<ProductDto> productDtos=this.productService.getAllProducts();
+        ModelAndView modelAndView=new ModelAndView("/admin/products");
+        modelAndView.addObject("products",productDtos);
         return modelAndView;
     }
 

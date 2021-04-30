@@ -6,7 +6,6 @@ import by.itacademy.shop.locale.Lang;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.List;
 
 public interface ProductService {
@@ -24,7 +23,7 @@ public interface ProductService {
     List<ProductDto> getLimitedProductsWithOffset(int pageNum, int pageSize);
     void update(ProductDto user);
     void delete(long id);
-    List<ProductDto> parseXLSOrXlSXFile(MultipartFile file, InputStream inputStream) throws IOException;
+    List<ProductDto> parseXLSOrXlSXFile(MultipartFile file) throws IOException;
 
 
 }
