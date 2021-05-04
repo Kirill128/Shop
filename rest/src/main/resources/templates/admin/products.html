@@ -39,12 +39,11 @@
             <div class="row">
                 <div class="col-3 sidebar-nav" >
                     <div class="list-group ">
-                        <a href="#" class="list-group-item list-group-item-action">Users Managment</a>
-                        <a href="#" class="list-group-item list-group-item-action active">Products Managment</a>
-                        <a href="#" class="list-group-item list-group-item-action">Provider Managment</a>
-                        <a href="#" class="list-group-item list-group-item-action">Category Managment</a>
-                        <a href="#" class="list-group-item list-group-item-action">Photo Managment</a>
-                        <a href="#" class="list-group-item list-group-item-action">..</a>
+                        <a th:href="@{/users/}" class="list-group-item list-group-item-action">Users Managment</a>
+                        <a th:href="@{/products/}" class="list-group-item list-group-item-action active">Products Managment</a>
+                        <a th:href="@{/providers/}" class="list-group-item list-group-item-action">Provider Managment</a>
+                        <a th:href="@{/categories/}" class="list-group-item list-group-item-action">Category Managment</a>
+                        <a th:href="@{/photos/}" class="list-group-item list-group-item-action">Photo Managment</a>
                     </div>
                 </div>
                 <div class="col main-content mt-3">
@@ -73,10 +72,10 @@
                     </div>
                     -->
                     <a class="btn btn-primary" data-bs-toggle="modal" href="#modal" role="button">Add New Product</a>
-                    <form th:action="@{/products/upload-file}" th:enctype="multipart/form-data" th:method="POST" class="mt-3">
+                    <form th:action="@{/products/upload-file}" enctype="multipart/form-data" method="POST" class="mt-3">
                         <label class="form-label" for="fileUpload">Upload .xls/.xlsx file</label>
-                        <input type="file" class="form-control" accept=".xls,.xlsx" name="customFile" id="fileUpload"/>
-                        <input type="submit" value="Send" class="btn btn-light border-dark" />
+                        <input type="file" class="form-control" accept=".xls,.xlsx" name="exelFile" id="fileUpload" >
+                        <input type="submit" value="Send" class="btn btn-light border-dark" >
                     </form>  
                     <table class="table">
                         <thead>
@@ -99,7 +98,7 @@
                                  <form action="#" method="POST" >
                                     <th scope="row" th:utext="${product.id}"></th>
                                     <td>
-                                        <input type="text" value="Mark" class="form-control" th:value="${product.shortDescription.get('RU')}">
+                                        <input type="text" value="Mark" class="form-control" th:value="${product.shortDescription}">
                                     </td>
                                     <td>
                                         <input type="text" value="Mark" class="form-control" th:value="${product.barcode}">
@@ -145,12 +144,11 @@
                              </tr>
                          </tbody>
                     </table>
-
                 </div>
             </div>
         </div>
     </main>
-    <footer class="fixed-bottom footer">
+    <footer class="bottom-0 footer">
         <div class="footer__info">+375259999999, г. Гродно, le.le999@mail.com</div>
     </footer>   
 </body>

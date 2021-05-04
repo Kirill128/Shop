@@ -7,6 +7,9 @@ import by.itacademy.shop.api.mappers.ProductMapper;
 import by.itacademy.shop.api.services.ProductService;
 import by.itacademy.shop.entities.Product;
 import by.itacademy.shop.locale.Lang;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import liquibase.pro.packaged.O;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
@@ -47,17 +50,18 @@ public class ProductServiceImpl implements ProductService {
 
     //----------------------------------Admin ---------------------------------------------------
 
+
     @Override
-    public List<ProductDto> getAllProducts() {
+    public List<ProductDto> getAllProducts() throws JsonProcessingException {
         return ProductMapper.mapProductsToProductDtos(this.productDao.findAll());
     }
 
     @Override
-    public List<ProductDto> getLimitedProductsWithOffset(int pageNum, int pageSize) {
+    public List<ProductDto> getLimitedProductsWithOffset(int pageNum, int pageSize) throws JsonProcessingException {
         return ProductMapper.mapProductsToProductDtos(this.productDao.getLimitedProductsWithOffset(pageNum,pageSize));
     }
     @Override
-    public void update(ProductDto product) {
+    public void update(ProductDto product) throws JsonProcessingException {
         this.productDao.update(ProductMapper.mapProductDtoToProduct(product));
     }
 
@@ -68,24 +72,32 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductDto createProduct(ProductDto product) {
+    public ProductDto createProduct(ProductDto product) throws JsonProcessingException {
         return ProductMapper.mapProductToProductDto(this.productDao.create(ProductMapper.mapProductDtoToProduct(product)));
     }
 
     @Override
-    public ProductDto findFullInfo(long id) {
+    public List<ProductDto> createProducts(List<ProductDto> productDtos) throws JsonProcessingException {
+        List<Product> savedProducts=new ArrayList<>(productDtos.size());
+        for(ProductDto productDto : productDtos){
+            savedProducts.add(this.productDao.create(ProductMapper.mapProductDtoToProduct(productDto)));
+        }
+        return ProductMapper.mapProductsToProductDtos(savedProducts);
+    }
+
+    @Override
+    public ProductDto findFullInfo(long id) throws JsonProcessingException {
         return ProductMapper.mapProductToProductDto(this.productDao.find(id));
     }
 
     @Override
-    public List<ProductDto> parseXLSOrXlSXFile(MultipartFile file) throws IOException {
+    public List<ProductDto> parseXLSOrXlSXFile(MultipartFile file,Lang lang) throws IOException {
         Workbook workbook= (file.getContentType().equals(".xls"))? new HSSFWorkbook(file.getInputStream()):new XSSFWorkbook(file.getInputStream());
         int quantityInStorageCellNum=8;
         int shortDescrCellNum=3;
         int barcodeCellNum=5;
         int priceCellNum=11;
-
-
+        ObjectMapper objectMapper=new ObjectMapper();
 //        Workbook workbook=new XSSFWorkbook(inputStream);
         List<ProductDto> productDtoList=new LinkedList<>();
         Iterator<Sheet> sheetIterator=workbook.sheetIterator();
@@ -96,8 +108,11 @@ public class ProductServiceImpl implements ProductService {
             while(rowIterator.hasNext()){
                 Row currentRow=rowIterator.next();
                 ProductDto productDto=new ProductDto();
+
                 Map<String,String> shortDescr=new HashMap<>();
-                shortDescr.put("RU",currentRow.getCell(shortDescrCellNum).getStringCellValue());
+                String shortDescrString=currentRow.getCell(shortDescrCellNum).getStringCellValue();
+                if(shortDescrString.isEmpty())continue;
+                shortDescr.put(lang.value,shortDescrString);
 
                 Long barcode=-1L;
                 Double price=-1.0;
@@ -111,7 +126,7 @@ public class ProductServiceImpl implements ProductService {
 
                 }
                 productDto.setBarcode(barcode.toString());
-                productDto.setShortDescription(shortDescr);
+                productDto.setShortDescription(objectMapper.writeValueAsString(shortDescr));
                 productDto.setAttributes(null);
                 productDto.setCategory(null);
                 productDto.setQuantityInStorage((int)quantity);
@@ -121,4 +136,6 @@ public class ProductServiceImpl implements ProductService {
         }
         return productDtoList;
     }
+
+
 }

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script th:src="@{/static/js/popper.min.js}"></script>
+    <script th:src="@{/static/js/bootstrap.min.js}"></script>
+    <link rel="stylesheet" th:href="@{/static/css/bootstrap/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/static/css/my/general.css}">
+    <title>Document</title>
+</head>
+<body>
+<header class="header">
+    <div class="header__body">
+        <div class="header__user">
+            <div class="user__body">
+                <div class="user__img"></div>
+                <div class="user__name">Kirill Lysyakov</div>
+            </div>
+        </div>
+        <nav class="header__menu">
+            <ul class="nav justify-content-end me-5">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
+<main>
+    <div class="container-fluid mt-3">
+        <div class="row">
+            <div class="col-3 sidebar-nav" >
+                <div class="list-group ">
+                    <a th:href="@{/users/}" class="list-group-item list-group-item-action">Users Managment</a>
+                    <a th:href="@{/products/}" class="list-group-item list-group-item-action ">Products Managment</a>
+                    <a th:href="@{/providers/}" class="list-group-item list-group-item-action">Provider Managment</a>
+                    <a th:href="@{/categories/}" class="list-group-item list-group-item-action active">Category Managment</a>
+                    <a th:href="@{/photos/}" class="list-group-item list-group-item-action">Photo Managment</a>
+                </div>
+            </div>
+            <div class="col main-content mt-3">
+
+                <a class="btn btn-primary" data-bs-toggle="modal" href="#modal" role="button">Add New Product</a>
+                <form th:action="@{/products/upload-file}" enctype="multipart/form-data" method="POST" class="mt-3">
+                    <label class="form-label" for="fileUpload">Upload .xls/.xlsx file</label>
+                    <input type="file" class="form-control" accept=".xls,.xlsx" name="exelFile" id="fileUpload" >
+                    <input type="submit" value="Send" class="btn btn-light border-dark" >
+                </form>
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th scope="col">Id</th>
+                        <th scope="col">Short Description</th>
+                        <th scope="col">Barcode</th>
+                        <th scope="col">Quantity in storage</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Photo</th>
+                        <th scope="col">Provider</th>
+                        <th scope="col">Attributes</th>
+                        <th scope="col">Update</th>
+                        <th scope="col">Delete</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="product : ${products}">
+                        <form action="#" method="POST" >
+                            <th scope="row" th:utext="${product.id}"></th>
+                            <td>
+                                <input type="text" value="Mark" class="form-control" th:value="${product.shortDescription}">
+                            </td>
+                            <td>
+                                <input type="text" value="Mark" class="form-control" th:value="${product.barcode}">
+                            </td>
+                            <td>
+                                <input type="text" value="Mark" class="form-control" th:value="${product.quantityInStorage}">
+                            </td>
+                            <td>
+                                <input type="text" value="Mark" class="form-control" th:value="${product.price}">
+                            </td>
+                            <!--TODO: Something to show attributes -->
+                            <td>
+                                <select class="form-select w-auto" >
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-select w-auto" >
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-select w-auto" >
+                                    <option value="1">One</option>
+                                    <option value="2">Two</option>
+                                    <option value="3">Three</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="submit" class="btn btn-primary" value="Open">
+                            </td>
+                            <td>
+                                <input type="submit" class="btn btn-success" value="Update">
+                            </td>
+                            <td>
+                                <input type="submit" class="btn btn-danger" value="Delete" >
+                            </td>
+                        </form>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="bottom-0 footer">
+    <div class="footer__info">+375259999999, г. Гродно, le.le999@mail.com</div>
+</footer>
+</body>
+</html>

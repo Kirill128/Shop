@@ -26,24 +26,24 @@ public class UserControllerImpl {
         return null;
     }
 
-    @GetMapping("/all")
+    @GetMapping("/")
     public ModelAndView findAllUsers(){
         ModelAndView modelAndView=new ModelAndView("/admin/users");
         modelAndView.addObject("userList",this.userService.getAllUsers());
         return modelAndView;
     }
 
-    @PostMapping("/create")
+    @PostMapping("/")
     public ModelAndView createUser(UserDto user){
         return null;
     }
 
-    @PutMapping("/update")
+    @PutMapping("/")
     public ModelAndView update(@RequestBody UserDto user){
         return null;
     }
-    @DeleteMapping("/delete")
-    public ModelAndView delete(){
+    @DeleteMapping("/{id}}")
+    public ModelAndView delete(@PathVariable int id){
         return null;
     }
 }

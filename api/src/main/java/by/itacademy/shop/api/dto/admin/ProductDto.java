@@ -20,7 +20,7 @@ public class ProductDto {
 
     private Map<String,String> attributes;
 
-    private Map<String,String> shortDescription;
+    private String shortDescription;
 
     private Double price;
 

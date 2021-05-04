@@ -1,10 +1,11 @@
 package by.itacademy.shop.rest;
 
-import by.itacademy.shop.api.dto.GuestCategoryDto;
 import by.itacademy.shop.api.dto.GuestProductDto;
+import by.itacademy.shop.api.dto.admin.lists.ListProductDtos;
 import by.itacademy.shop.api.dto.admin.ProductDto;
 import by.itacademy.shop.api.services.CategoryService;
 import by.itacademy.shop.api.services.ProductService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -30,7 +31,7 @@ public class ProductControllerImpl {
 
     //--------------------------------------------
     @GetMapping("/main")
-    public ModelAndView getProductsPage(@RequestParam int num){
+    public ModelAndView getProductsPage(@RequestParam int num) {
         ModelAndView modelAndView=new ModelAndView("/main");
         List<GuestCategoryDto> categoryDtos=this.categoryService.getAllCategories(MainController.GLOBAL_LANG);
         List<GuestProductDto> someProducts=this.productService.getLimitedProductsWithOffset(num,PRODUCT_PAGE_SIZE,MainController.GLOBAL_LANG);
@@ -41,10 +42,12 @@ public class ProductControllerImpl {
     
 
     @PostMapping(value="/upload-file")
-    public ModelAndView uploadProductsFile(@RequestParam("customFile") MultipartFile file) throws IOException {
-        List<ProductDto> productDtos=this.productService.parseXLSOrXlSXFile(file);
+    public ModelAndView uploadProductsFile(@RequestParam("exelFile") MultipartFile exelFile) throws IOException {
+        List<ProductDto> productDtos=this.productService.parseXLSOrXlSXFile(exelFile,MainController.GLOBAL_LANG);
+        ListProductDtos list=new ListProductDtos(  productDtos);
         ModelAndView modelAndView=new ModelAndView("/admin/uploadfile");
-        modelAndView.addObject("products",productDtos);
+        modelAndView.addObject("listProductDtos",list);
+        modelAndView.addObject("lang",MainController.GLOBAL_LANG);
         return modelAndView;
     }
     //---------------------------------------------
@@ -54,25 +57,32 @@ public class ProductControllerImpl {
         return null;
     }
 
-    @GetMapping("/all")
-    public ModelAndView findAllProducts(){
+    @GetMapping("/")
+    public ModelAndView findAllProducts() throws JsonProcessingException {
         List<ProductDto> productDtos=this.productService.getAllProducts();
         ModelAndView modelAndView=new ModelAndView("/admin/products");
         modelAndView.addObject("products",productDtos);
         return modelAndView;
     }
 
-    @PostMapping("/create")
+    @PostMapping("/")
     public ModelAndView createProduct(ProductDto product){
         return null;
     }
 
-    @PutMapping("/update")
+    @PostMapping("/list")
+    public ModelAndView createProduct(@ModelAttribute ListProductDtos products) throws JsonProcessingException {
+        this.productService.createProducts(products.getProductDtoList());
+        return new ModelAndView("redirect:/products/");
+    }
+
+
+    @PutMapping("/")
     public ModelAndView update(@RequestBody ProductDto product){
         return null;
     }
 
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/{id}")
     public ModelAndView delete(@PathVariable int id){
         return null;
     }

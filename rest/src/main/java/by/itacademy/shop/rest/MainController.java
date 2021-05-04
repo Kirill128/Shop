@@ -1,6 +1,5 @@
 package by.itacademy.shop.rest;
 
-import by.itacademy.shop.api.dto.GuestCategoryDto;
 import by.itacademy.shop.api.dto.GuestProductDto;
 import by.itacademy.shop.api.services.CategoryService;
 import by.itacademy.shop.api.services.ProductService;

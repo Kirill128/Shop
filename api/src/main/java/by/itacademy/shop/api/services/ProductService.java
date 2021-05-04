@@ -3,6 +3,7 @@ package by.itacademy.shop.api.services;
 import by.itacademy.shop.api.dto.GuestProductDto;
 import by.itacademy.shop.api.dto.admin.ProductDto;
 import by.itacademy.shop.locale.Lang;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -17,13 +18,13 @@ public interface ProductService {
 
 
     //Admin
-    ProductDto createProduct(ProductDto user);
-    ProductDto findFullInfo(long id);
-    List<ProductDto> getAllProducts();
-    List<ProductDto> getLimitedProductsWithOffset(int pageNum, int pageSize);
-    void update(ProductDto user);
+    ProductDto createProduct(ProductDto user) throws JsonProcessingException;
+    ProductDto findFullInfo(long id) throws JsonProcessingException;
+    List<ProductDto> getAllProducts() throws JsonProcessingException;
+    List<ProductDto> getLimitedProductsWithOffset(int pageNum, int pageSize) throws JsonProcessingException;
+    void update(ProductDto user) throws JsonProcessingException;
     void delete(long id);
-    List<ProductDto> parseXLSOrXlSXFile(MultipartFile file) throws IOException;
-
+    List<ProductDto> parseXLSOrXlSXFile(MultipartFile file,Lang lang) throws IOException;
+    List<ProductDto> createProducts(List<ProductDto> productDtos) throws JsonProcessingException;
 
 }

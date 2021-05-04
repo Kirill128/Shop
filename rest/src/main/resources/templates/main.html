@@ -53,17 +53,18 @@
                     </nav>
                 </aside>
                 <section class="products">
-                    <div class="row row-cols-1 row-cols-md-4 g-4" th:each="product : ${products}">
-                        <div class="col">
-                          <div class="card w-75">
-                            <img th:src="@{/static/img/unnamed.jpg}" class="card-img-top" alt="#">
-                            <div class="card-body">
-                              <p class="card-text" th:utext="${product.shortDescription}"></p>
-                            </div>
-                          </div>
+
+                    <div class="products__items" >
+                        <div class="products__item" th:each="product : ${products}">
+                              <div class="card w-100" >
+                                <img th:src="@{/static/img/unnamed.jpg}" class="card-img-top" alt="#">
+                                    <div class="card-body">
+                                      <p class="card-text" th:utext="${product.shortDescription}"></p>
+                                    </div>
+                              </div>
                         </div>
                     </div>
-                        
+
                         <div class="btn-toolbar " role="toolbar" aria-label="Toolbar with button groups">
                             <div class="btn-group me-2" role="group" aria-label="First group">
                               <button type="button" class="btn btn-primary">1</button>
@@ -73,7 +74,7 @@
             </div>
         </main> 
 
-        <footer class="fixed-bottom footer">
+        <footer class=" footer">
             <div class="footer__info">+375259999999, г. Гродно, le.le999@mail.com</div>
         </footer>   
     </div>
