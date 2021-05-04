@@ -4,7 +4,6 @@ import by.itacademy.shop.api.dto.GuestParentCategoryDto;
 import by.itacademy.shop.api.dto.GuestSubCategoryDto;
 import by.itacademy.shop.api.dto.admin.category.CategoryDto;
 import by.itacademy.shop.api.dto.admin.category.ParentCategoryDto;
-import by.itacademy.shop.api.dto.admin.category.SubCategoryDto;
 import by.itacademy.shop.entities.Category;
 import by.itacademy.shop.locale.Lang;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -44,51 +43,24 @@ public class CategoryMapper {
         return categoryList.stream().map((e) -> CategoryMapper.mapCategoryToGuestCategoryDto(e, lang)).collect(Collectors.toList());
     }
 
-    //-------------------------------CategoryDto------------------------------------------for admin
-    public CategoryDto mapCategoryToCategoryDto(Category category) throws JsonProcessingException {
-        ObjectMapper mapper=new ObjectMapper();
-        return CategoryDto.builder().
-                id(category.getId()).
-                title(mapper.writeValueAsString(category.getTitle())).
-                parentCategory(category.getParentCategory()).
-                subCategories(CategoryMapper.mapCategoriesToSubcategoryDtos(category.getSubCategories())).
-                build();
-    }
 
-    public Category mapCategoryDtoToCategory(CategoryDto category) throws JsonProcessingException {
-        ObjectMapper mapper=new ObjectMapper();
-        return Category.builder().
-                id(category.getId()).
-                title(mapper.readValue(category.getTitle(),new TypeReference<HashMap<String, String>>(){})).
-                parentCategory(category.getParentCategory()).
-                subCategories(category.getSubCategories()).
-                build();
-    }
-
-    public List<CategoryDto> mapCategoriesToCategoryDtos(List<Category> categoryList) throws JsonProcessingException {
-        List<CategoryDto> result = new ArrayList<>(categoryList.size());
-        for (Category category : categoryList) {
-            result.add(CategoryMapper.mapCategoryToCategoryDto(category));
-        }
-        return result;
-    }
-
-
-    public List<Category> mapCategoryDtosToCategories(List<CategoryDto> categoryList) throws JsonProcessingException {
-        List<Category> result = new ArrayList<>(categoryList.size());
-        for (CategoryDto category : categoryList) {
-            result.add(CategoryMapper.mapCategoryDtoToCategory(category));
-        }
-        return result;
-    }
     //----------------------------ParentCategoryDto----------------------------------------------for admin
     public ParentCategoryDto mapCategoryToParentCategoryDto(Category category) throws JsonProcessingException {
         ObjectMapper mapper=new ObjectMapper();
         return ParentCategoryDto.builder().
                 id(category.getId()).
                 title(mapper.writeValueAsString(category.getTitle())).
+                subcategories(CategoryMapper.mapCategoriesToCategoryDtos(category.getSubCategories())).
                 build();
     }
+    public Category mapParentCategoryDtoToCategory(ParentCategoryDto category) throws JsonProcessingException {
+        ObjectMapper objectMapper=new ObjectMapper();
+        return Category.builder().
+                id(category.getId()).
+                title(objectMapper.readValue(category.getTitle(),new TypeReference<HashMap<String, String>>(){})).
+                build();
+    }
+
     public List<ParentCategoryDto> mapCategoriesToParentCategoryDtos(List<Category> categories) throws JsonProcessingException {
         List<ParentCategoryDto> result=new ArrayList<>(categories.size());
         for(Category cat: categories){
@@ -96,19 +68,43 @@ public class CategoryMapper {
         }
         return result;
     }
-    //----------------------------SubCategoryDto----------------------------------------------for admin
+    public List<Category> mapParentCategoryDtosToCategories(List<ParentCategoryDto> categories) throws JsonProcessingException {
+        List<Category> result=new ArrayList<>(categories.size());
+        for(ParentCategoryDto cat: categories){
+            result.add(CategoryMapper.mapParentCategoryDtoToCategory(cat));
+        }
+        return result;
+    }
 
-    public SubCategoryDto mapCategoryToSubcategoryDto(Category source) throws JsonProcessingException {
+    //----------------------------CategoryDto----------------------------------------------for admin
+
+    public CategoryDto mapCategoryToCategoryDto(Category source) throws JsonProcessingException {
         ObjectMapper objectMapper=new ObjectMapper();
-        return SubCategoryDto.builder().
+        return CategoryDto.builder().
                 id(source.getId()).
                 title(objectMapper.writeValueAsString(source.getTitle())).
                 build();
     }
-    public List<SubCategoryDto> mapCategoriesToSubcategoryDtos(List<Category> source) throws JsonProcessingException {
-        List<SubCategoryDto> result = new ArrayList<>(source.size());
+    public Category mapCategoryDtoToCategory(CategoryDto source) throws JsonProcessingException {
+        ObjectMapper objectMapper=new ObjectMapper();
+        return Category.builder().
+                id(source.getId()).
+                title(objectMapper.readValue(source.getTitle(),new TypeReference<HashMap<String, String>>(){})).
+                parentCategory(  (source.getParentCategoryDto()!=null)?
+                        CategoryMapper.mapParentCategoryDtoToCategory(source.getParentCategoryDto()) : null).
+                build();
+    }
+    public List<CategoryDto> mapCategoriesToCategoryDtos(List<Category> source) throws JsonProcessingException {
+        List<CategoryDto> result = new ArrayList<>(source.size());
         for (Category category : source) {
-            result.add(CategoryMapper.mapCategoryToSubcategoryDto(category));
+            result.add(CategoryMapper.mapCategoryToCategoryDto(category));
+        }
+        return result;
+    }
+    public List<Category> mapCategoryDtosToCategories(List<CategoryDto> source) throws JsonProcessingException {
+        List<Category> result = new ArrayList<>(source.size());
+        for (CategoryDto category : source) {
+            result.add(CategoryMapper.mapCategoryDtoToCategory(category));
         }
         return result;
     }

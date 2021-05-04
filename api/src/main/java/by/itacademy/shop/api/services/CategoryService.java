@@ -11,7 +11,6 @@ import java.util.List;
 public interface CategoryService {
     GuestParentCategoryDto find(long id, Lang lang);
     List<GuestParentCategoryDto> getParentCategories(Lang lang);
-    List<GuestParentCategoryDto> getAllCategories(Lang lang);
 
     //Admin
     CategoryDto createCategory(CategoryDto user) throws JsonProcessingException;
@@ -19,5 +18,5 @@ public interface CategoryService {
     void update(CategoryDto user) throws JsonProcessingException;
     void delete(long id);
     List<CategoryDto> getAllCategoriesFullInfo() throws JsonProcessingException;
-    List<ParentCategoryDto> getParentCategoryFullInfo();
+    List<ParentCategoryDto> getParentCategoriesFullInfo() throws JsonProcessingException;
 }

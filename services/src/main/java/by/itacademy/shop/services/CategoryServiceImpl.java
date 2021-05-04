@@ -34,11 +34,6 @@ public class CategoryServiceImpl implements CategoryService {
         return CategoryMapper.mapCategoriesToGuestCategoryDtos(this.categoryDao.getParentCategories(),lang);
     }
 
-    @Override
-    public List<GuestParentCategoryDto> getAllCategories(Lang lang) {
-        return CategoryMapper.mapCategoriesToGuestCategoryDtos(this.categoryDao.findAll(),lang);
-    }
-
     //--------------Admin
     @Override
     public CategoryDto createCategory(CategoryDto user) throws JsonProcessingException {
@@ -68,7 +63,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public List<ParentCategoryDto> getParentCategoryFullInfo() {
-        return this.categoryDao.getParentCategories();
+    public List<ParentCategoryDto> getParentCategoriesFullInfo() throws JsonProcessingException {
+        return CategoryMapper.mapCategoriesToParentCategoryDtos(this.categoryDao.getParentCategories());
     }
 }

@@ -1,9 +1,6 @@
 package by.itacademy.shop.api.dto.admin.category;
 
-import by.itacademy.shop.entities.Category;
 import lombok.*;
-
-import java.util.List;
 
 @Getter
 @Setter
@@ -15,7 +12,6 @@ public class CategoryDto {
 
     private String title;
 
-    private Category parentCategory;
+    private ParentCategoryDto parentCategoryDto;
 
-    private List<SubCategoryDto> subCategories;
 }

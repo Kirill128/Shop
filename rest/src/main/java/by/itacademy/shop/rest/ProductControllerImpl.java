@@ -1,5 +1,6 @@
 package by.itacademy.shop.rest;
 
+import by.itacademy.shop.api.dto.GuestParentCategoryDto;
 import by.itacademy.shop.api.dto.GuestProductDto;
 import by.itacademy.shop.api.dto.admin.lists.ListProductDtos;
 import by.itacademy.shop.api.dto.admin.ProductDto;
@@ -33,7 +34,7 @@ public class ProductControllerImpl {
     @GetMapping("/main")
     public ModelAndView getProductsPage(@RequestParam int num) {
         ModelAndView modelAndView=new ModelAndView("/main");
-        List<GuestCategoryDto> categoryDtos=this.categoryService.getAllCategories(MainController.GLOBAL_LANG);
+        List<GuestParentCategoryDto> categoryDtos=this.categoryService.getParentCategories(MainController.GLOBAL_LANG);
         List<GuestProductDto> someProducts=this.productService.getLimitedProductsWithOffset(num,PRODUCT_PAGE_SIZE,MainController.GLOBAL_LANG);
         modelAndView.addObject("products",someProducts);
         modelAndView.addObject("categories",categoryDtos);
