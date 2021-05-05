@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <script th:src="@{/static/js/popper.min.js}"></script>
     <script th:src="@{/static/js/bootstrap.min.js}"></script>
     <link rel="stylesheet" th:href="@{/static/css/bootstrap/bootstrap.min.css}">
@@ -48,7 +49,7 @@
             </div>
             <div class="col main-content mt-3">
 
-                <div > Parent Categories</div>
+                <h3 > Parent Categories</h3>
                 <table class="table">
                     <thead>
                     <tr>
@@ -60,10 +61,12 @@
                     </thead>
                     <tbody>
                     <tr th:each="parentCategory : ${parentCategories}">
-<!--                        <form action="#" method="POST"  >-->
-                            <th scope="row" th:utext="${parentCategory.id}"></th>
+                        <form th:action="@{/categories/}" method="POST"  >
+                            <th scope="row">
+                                <input type="text"  class="form-control" th:name="id" th:value="${parentCategory.id}" disabled>
+                            </th>
                             <td>
-                                <input type="text" class="form-control" th:field="${parentCategory.title}">
+                                <input type="text" class="form-control" th:name="title" th:value="${parentCategory.title}">
                             </td>
                             <td>
                                 <input type="submit" class="btn btn-success" value="Update">
@@ -71,14 +74,20 @@
                             <td>
                                 <input type="submit" class="btn btn-danger" value="Delete" >
                             </td>
-<!--                        </form>-->
+                        </form>
                     </tr>
                     </tbody>
                 </table>
 
-                <div>Sub Categories </div>
-                <div th:each="parentCategory : ${parentCategories}">
-                    <div th:value="${parentCategory.title}"></div>
+                <h3>Sub Categories </h3>
+                <div th:each="parentCategory,itemStat : ${parentCategories}">
+                    <h5 th:utext="${parentCategory.title}"></h5>
+                    <h6>ADD NEW SUBCATEGORY</h6>
+                    <form th:action="@{/categories/}" method="POST"  >
+                        <input type="text" class="form-control" th:value="${newCategoryDtos.get(__${itemStat.index}__).title}" th:name="title">
+<!--                        <input type="text" class="form-control" th:value="${newCategoryDtos.get(__${itemStat.index}__).parentCategoryDto}" th:name="parentCategory" >-->
+                        <button  class="btn btn-primary" type="submit">Save New SubCategory</button>
+                    </form>
                     <table class="table">
                         <thead>
                         <tr>
@@ -89,11 +98,13 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr th:each="subCategory , itemStat: ${parentCategory.subcategories}">
-                            <form action="#" method="POST"  >
-                                <th scope="row" th:utext="${subCategory.id}"></th>
+                        <tr th:each="subCategory : ${parentCategory.subcategories}">
+                            <form th:action="@{/categories/}" method="POST"  >
+                                <th scope="row">
+                                    <input type="text" style="width:auto;" class="form-control " th:name="id" th:value="${subCategory.id}" disabled >
+                                </th>
                                 <td>
-                                    <input type="text" value="Mark" class="form-control" th:field="*{parentCategory.subcategories[__${itemStat.index}__].title}">
+                                    <input type="text" class="form-control" th:name="title" th:value="${subCategory.title}">
                                 </td>
                                 <td>
                                     <input type="submit" class="btn btn-success" value="Update">
