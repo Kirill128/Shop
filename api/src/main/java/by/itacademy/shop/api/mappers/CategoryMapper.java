@@ -3,6 +3,7 @@ package by.itacademy.shop.api.mappers;
 import by.itacademy.shop.api.dto.GuestParentCategoryDto;
 import by.itacademy.shop.api.dto.GuestSubCategoryDto;
 import by.itacademy.shop.api.dto.admin.category.CategoryDto;
+import by.itacademy.shop.api.dto.admin.category.CategoryDtoFromFront;
 import by.itacademy.shop.api.dto.admin.category.ParentCategoryDto;
 import by.itacademy.shop.entities.Category;
 import by.itacademy.shop.locale.Lang;
@@ -49,15 +50,15 @@ public class CategoryMapper {
         ObjectMapper mapper=new ObjectMapper();
         return ParentCategoryDto.builder().
                 id(category.getId()).
-                title(mapper.writeValueAsString(category.getTitle())).
-                subcategories(CategoryMapper.mapCategoriesToCategoryDtos(category.getSubCategories())).
+                title( (category.getTitle()!=null)? mapper.writeValueAsString(category.getTitle()) : null).
+                subcategories( (category.getSubCategories()!=null)? CategoryMapper.mapCategoriesToCategoryDtos(category.getSubCategories()) : null).
                 build();
     }
     public Category mapParentCategoryDtoToCategory(ParentCategoryDto category) throws JsonProcessingException {
         ObjectMapper objectMapper=new ObjectMapper();
         return Category.builder().
                 id(category.getId()).
-                title(objectMapper.readValue(category.getTitle(),new TypeReference<HashMap<String, String>>(){})).
+                title( (category.getTitle()!=null) ? objectMapper.readValue(category.getTitle(),new TypeReference<HashMap<String, String>>(){}) : null).
                 build();
     }
 
@@ -82,14 +83,14 @@ public class CategoryMapper {
         ObjectMapper objectMapper=new ObjectMapper();
         return CategoryDto.builder().
                 id(source.getId()).
-                title(objectMapper.writeValueAsString(source.getTitle())).
+                title((source.getTitle()!=null) ? objectMapper.writeValueAsString(source.getTitle()): null).
                 build();
     }
     public Category mapCategoryDtoToCategory(CategoryDto source) throws JsonProcessingException {
         ObjectMapper objectMapper=new ObjectMapper();
         return Category.builder().
                 id(source.getId()).
-                title(objectMapper.readValue(source.getTitle(),new TypeReference<HashMap<String, String>>(){})).
+                title( (source.getTitle()!=null) ? objectMapper.readValue(source.getTitle(),new TypeReference<HashMap<String, String>>(){}) : null).
                 parentCategory(  (source.getParentCategoryDto()!=null)?
                         CategoryMapper.mapParentCategoryDtoToCategory(source.getParentCategoryDto()) : null).
                 build();
@@ -109,5 +110,14 @@ public class CategoryMapper {
         return result;
     }
 
-    //---------------------------------------------------------------------------------
+    //-------------------------------CategoryDtoFromFront--------------------------------------------------
+    public CategoryDto mapCategoryDtoFromFrontToCategoryDto(CategoryDtoFromFront source){
+        return CategoryDto.builder().
+                id(source.getId()).
+                title(source.getTitle()).
+                parentCategoryDto(ParentCategoryDto.builder().
+                        id(source.getParentCategoryId()).
+                        build()).
+                build();
+    }
 }

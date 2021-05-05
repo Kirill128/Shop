@@ -1,7 +1,9 @@
 package by.itacademy.shop.rest;
 
 import by.itacademy.shop.api.dto.admin.category.CategoryDto;
+import by.itacademy.shop.api.dto.admin.category.CategoryDtoFromFront;
 import by.itacademy.shop.api.dto.admin.category.ParentCategoryDto;
+import by.itacademy.shop.api.mappers.CategoryMapper;
 import by.itacademy.shop.api.services.CategoryService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.web.bind.annotation.*;
@@ -23,25 +25,25 @@ public class CategoryControllerImpl {
     public ModelAndView showCategories() throws JsonProcessingException {
         ModelAndView modelAndView=new ModelAndView("/admin/categories");
         List<ParentCategoryDto> parentCategoryDtos=this.categoryService.getParentCategoriesFullInfo();
-        List<CategoryDto> newCategories=new ArrayList(parentCategoryDtos.size());
+        List<CategoryDtoFromFront> newCategories=new ArrayList(parentCategoryDtos.size());
         for(ParentCategoryDto parentCategoryDto : parentCategoryDtos){
-            newCategories.add( CategoryDto.builder().parentCategoryDto(parentCategoryDto).build() );
+            newCategories.add( CategoryDtoFromFront.builder().parentCategoryId(parentCategoryDto.getId()).build() );
         }
         modelAndView.addObject("parentCategories",parentCategoryDtos);
         modelAndView.addObject("newCategoryDtos",newCategories);
         return modelAndView;
     }
     @PostMapping(value = "/")
-    public ModelAndView createCategory(@ModelAttribute CategoryDto category) throws JsonProcessingException {
-        this.categoryService.createCategory(category);
+    public ModelAndView createCategory(@ModelAttribute CategoryDtoFromFront category) throws JsonProcessingException {
+        this.categoryService.createCategory(CategoryMapper.mapCategoryDtoFromFrontToCategoryDto(category));
         return new ModelAndView("redirect:/categories/");
     }
-    @PutMapping(value = "/")
+    @PostMapping(value = "/update")
     public ModelAndView updateCategory(@ModelAttribute CategoryDto category) throws JsonProcessingException {
         this.categoryService.update(category);
         return new ModelAndView("redirect:/categories/");
     }
-    @DeleteMapping("/{id}")
+    @PostMapping("/delete/{id}")
     public ModelAndView deleteCategory(@PathVariable int id){
         this.categoryService.delete(id);
         return new ModelAndView("redirect:/categories/");

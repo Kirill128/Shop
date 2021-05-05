@@ -83,9 +83,9 @@
                 <div th:each="parentCategory,itemStat : ${parentCategories}">
                     <h5 th:utext="${parentCategory.title}"></h5>
                     <h6>ADD NEW SUBCATEGORY</h6>
-                    <form th:action="@{/categories/}" method="POST"  >
+                    <form th:action="@{/categories/}" method="POST" >
                         <input type="text" class="form-control" th:value="${newCategoryDtos.get(__${itemStat.index}__).title}" th:name="title">
-<!--                        <input type="text" class="form-control" th:value="${newCategoryDtos.get(__${itemStat.index}__).parentCategoryDto}" th:name="parentCategory" >-->
+                        <input type="text" class="form-control" th:value="${newCategoryDtos.get(__${itemStat.index}__).parentCategoryId}" th:name="parentCategoryId" >
                         <button  class="btn btn-primary" type="submit">Save New SubCategory</button>
                     </form>
                     <table class="table">
@@ -98,8 +98,8 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr th:each="subCategory : ${parentCategory.subcategories}">
-                            <form th:action="@{/categories/}" method="POST"  >
+                        <tr th:each="subCategory,itemStat : ${parentCategory.subcategories}">
+                            <form th:action="@{/categories/}" method="put"  >
                                 <th scope="row">
                                     <input type="text" style="width:auto;" class="form-control " th:name="id" th:value="${subCategory.id}" disabled >
                                 </th>
@@ -109,6 +109,9 @@
                                 <td>
                                     <input type="submit" class="btn btn-success" value="Update">
                                 </td>
+
+                            </form>
+                            <form th:action="@{/categories/${subCategory.id}}" method="post" >
                                 <td>
                                     <input type="submit" class="btn btn-danger" value="Delete" >
                                 </td>
