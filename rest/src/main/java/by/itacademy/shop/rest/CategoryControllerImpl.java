@@ -1,10 +1,10 @@
 package by.itacademy.shop.rest;
 
 import by.itacademy.shop.api.dto.admin.category.CategoryDto;
-import by.itacademy.shop.api.dto.admin.category.CategoryDtoFromFront;
 import by.itacademy.shop.api.dto.admin.category.ParentCategoryDto;
 import by.itacademy.shop.api.mappers.CategoryMapper;
 import by.itacademy.shop.api.services.CategoryService;
+import by.itacademy.shop.entities.Category;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -25,17 +25,17 @@ public class CategoryControllerImpl {
     public ModelAndView showCategories() throws JsonProcessingException {
         ModelAndView modelAndView=new ModelAndView("/admin/categories");
         List<ParentCategoryDto> parentCategoryDtos=this.categoryService.getParentCategoriesFullInfo();
-        List<CategoryDtoFromFront> newCategories=new ArrayList(parentCategoryDtos.size());
+        List<CategoryDto> newCategories=new ArrayList(parentCategoryDtos.size());
         for(ParentCategoryDto parentCategoryDto : parentCategoryDtos){
-            newCategories.add( CategoryDtoFromFront.builder().parentCategoryId(parentCategoryDto.getId()).build() );
+            newCategories.add( CategoryDto.builder().parentCategoryId(parentCategoryDto.getId()).build() );
         }
         modelAndView.addObject("parentCategories",parentCategoryDtos);
         modelAndView.addObject("newCategoryDtos",newCategories);
         return modelAndView;
     }
     @PostMapping(value = "/")
-    public ModelAndView createCategory(@ModelAttribute CategoryDtoFromFront category) throws JsonProcessingException {
-        this.categoryService.createCategory(CategoryMapper.mapCategoryDtoFromFrontToCategoryDto(category));
+    public ModelAndView createCategory(@ModelAttribute CategoryDto category) throws JsonProcessingException {
+        this.categoryService.createCategory(category);
         return new ModelAndView("redirect:/categories/");
     }
     @PostMapping(value = "/update")
@@ -44,8 +44,8 @@ public class CategoryControllerImpl {
         return new ModelAndView("redirect:/categories/");
     }
     @PostMapping("/delete")
-    public void deleteCategory(@ModelAttribute CategoryDto categoryDto){
+    public ModelAndView deleteCategory(@ModelAttribute CategoryDto categoryDto){
         this.categoryService.delete(categoryDto.getId());
-//        return new ModelAndView("/redirect");
+        return new ModelAndView("redirect:/categories/");
     }
 }

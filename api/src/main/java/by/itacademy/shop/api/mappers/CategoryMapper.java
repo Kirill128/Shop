@@ -3,7 +3,6 @@ package by.itacademy.shop.api.mappers;
 import by.itacademy.shop.api.dto.GuestParentCategoryDto;
 import by.itacademy.shop.api.dto.GuestSubCategoryDto;
 import by.itacademy.shop.api.dto.admin.category.CategoryDto;
-import by.itacademy.shop.api.dto.admin.category.CategoryDtoFromFront;
 import by.itacademy.shop.api.dto.admin.category.ParentCategoryDto;
 import by.itacademy.shop.entities.Category;
 import by.itacademy.shop.locale.Lang;
@@ -91,8 +90,9 @@ public class CategoryMapper {
         return Category.builder().
                 id(source.getId()).
                 title( (source.getTitle()!=null) ? objectMapper.readValue(source.getTitle(),new TypeReference<HashMap<String, String>>(){}) : null).
-                parentCategory(  (source.getParentCategoryDto()!=null)?
-                        CategoryMapper.mapParentCategoryDtoToCategory(source.getParentCategoryDto()) : null).
+                parentCategory((source.getParentCategoryDto()==null) ?
+                        Category.builder().id(source.getParentCategoryId()).build() :
+                        CategoryMapper.mapParentCategoryDtoToCategory(source.getParentCategoryDto())).
                 build();
     }
     public List<CategoryDto> mapCategoriesToCategoryDtos(List<Category> source) throws JsonProcessingException {
@@ -110,14 +110,5 @@ public class CategoryMapper {
         return result;
     }
 
-    //-------------------------------CategoryDtoFromFront--------------------------------------------------
-    public CategoryDto mapCategoryDtoFromFrontToCategoryDto(CategoryDtoFromFront source){
-        return CategoryDto.builder().
-                id(source.getId()).
-                title(source.getTitle()).
-                parentCategoryDto(ParentCategoryDto.builder().
-                        id(source.getParentCategoryId()).
-                        build()).
-                build();
-    }
+
 }

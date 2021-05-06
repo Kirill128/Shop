@@ -80,12 +80,12 @@
                 </table>
 
                 <h3>Sub Categories </h3>
-                <div th:each="parentCategory,itemStat : ${parentCategories}">
+                <div th:each="parentCategory : ${parentCategories}">
                     <h5 style="display: flex;justify-content: center;" th:utext="${parentCategory.title}"></h5>
                     <h6>ADD NEW SUBCATEGORY</h6>
                     <form th:action="@{/categories/}" method="POST" >
-                        <input type="text" class="form-control" th:value="${newCategoryDtos.get(__${itemStat.index}__).title}" th:name="title">
-                        <input type="text" class="form-control" th:value="${newCategoryDtos.get(__${itemStat.index}__).parentCategoryId}" th:name="parentCategoryId" >
+                        <input type="text" class="form-control" th:value="${parentCategory.title}" th:name="title">
+                        <input type="text" class="form-control" th:value="${parentCategory.id}" th:name="parentCategoryId" >
                         <button  class="btn btn-primary" type="submit">Save New SubCategory</button>
                     </form>
                     <table class="table">
@@ -107,6 +107,7 @@
                                     <input type="text" class="form-control" th:name="title" th:value="${subCategory.title}">
                                 </td>
                                 <td>
+                                    <input type="hidden" th:name="id" th:value="${subCategory.parentCategoryDto.id}">
                                     <input type="submit" class="btn btn-success" value="Update">
                                 </td>
                             </form>

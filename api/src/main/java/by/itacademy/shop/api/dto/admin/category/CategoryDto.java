@@ -12,6 +12,8 @@ public class CategoryDto {
 
     private String title;
 
+    private Long parentCategoryId;
+
     private ParentCategoryDto parentCategoryDto;
 
 }
