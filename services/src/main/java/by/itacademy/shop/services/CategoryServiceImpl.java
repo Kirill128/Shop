@@ -12,6 +12,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityManager;
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -52,9 +54,12 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+
     public void delete(long id) {
-        Category category=this.categoryDao.find(id);
-        this.categoryDao.delete(category);
+       this.categoryDao.delete(id);
+//        Category category=this.categoryDao.find(id);
+//        this.categoryDao.delete(category);
+
     }
 
     @Override

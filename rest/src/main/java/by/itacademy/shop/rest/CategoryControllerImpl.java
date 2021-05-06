@@ -43,9 +43,9 @@ public class CategoryControllerImpl {
         this.categoryService.update(category);
         return new ModelAndView("redirect:/categories/");
     }
-    @PostMapping("/delete/{id}")
-    public ModelAndView deleteCategory(@PathVariable int id){
-        this.categoryService.delete(id);
-        return new ModelAndView("redirect:/categories/");
+    @PostMapping("/delete")
+    public void deleteCategory(@ModelAttribute CategoryDto categoryDto){
+        this.categoryService.delete(categoryDto.getId());
+//        return new ModelAndView("/redirect");
     }
 }

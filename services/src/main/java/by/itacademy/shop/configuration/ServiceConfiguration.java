@@ -6,6 +6,5 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 @Configuration
 @ComponentScan("by.itacademy.shop.services")
-@EnableWebMvc
 public class ServiceConfiguration {
 }

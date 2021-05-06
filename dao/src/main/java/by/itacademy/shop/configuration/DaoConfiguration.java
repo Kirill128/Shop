@@ -13,6 +13,7 @@ import javax.persistence.Persistence;
 @ComponentScan("by.itacademy.shop.dao")
 public class DaoConfiguration {
 
+
     @Bean
     public EntityManager getEntityManager(){
         EntityManagerFactory entityManagerFactory= Persistence.createEntityManagerFactory("by.itacademy.shop.hibernate.jpa");

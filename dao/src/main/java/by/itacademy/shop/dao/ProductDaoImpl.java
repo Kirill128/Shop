@@ -4,6 +4,7 @@ import  by.itacademy.shop.api.dao.ProductDao;
 import by.itacademy.shop.entities.Product;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.util.List;
 
@@ -18,10 +19,17 @@ public class ProductDaoImpl extends GenericDaoImpl<Product> implements ProductDa
 
     @Override
     public List<Product> getLimitedProductsWithOffset(int pageNumber,int pageSize) {
-        Query query=super.entityManager.createQuery("From Product");
+        EntityManager entityManager=super.entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+
+        Query query=entityManager.createQuery("From Product");
         query.setFirstResult((pageNumber-1) * pageSize);
         query.setMaxResults(pageSize);
-        return (List<Product>) query.getResultList();
+        List<Product> products=(List<Product>) query.getResultList();
+
+        entityManager.getTransaction().commit();
+        entityManager.close();
+        return products;
     }
 
 }

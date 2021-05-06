@@ -6,6 +6,7 @@ import by.itacademy.shop.entities.GenericEntity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
@@ -14,54 +15,94 @@ import java.util.List;
 
 public abstract class GenericDaoImpl<T extends GenericEntity<Long>> implements GenericDao<T> {
     protected EntityManagerFactory entityManagerFactory;
-    protected EntityManager entityManager;
+//    protected EntityManager entityManager;
 
     private Class<T> classForFind;
 
     protected GenericDaoImpl(Class<T> classForFind){
-        this.setUp();
+        this.emfCr();
         this.classForFind=classForFind;
     }
-    @Transactional
     public T create(T entity) {
-        this.entityManager.getTransaction().begin();
-        this.entityManager.persist(entity);
-        this.entityManager.getTransaction().commit();
+        this.setUp();
+        EntityManager entityManager=this.entityManagerFactory.createEntityManager();
+
+        entityManager.getTransaction().begin();
+        entityManager.persist(entity);
+        entityManager.getTransaction().commit();
+
+        entityManager.close();
         return entity;
     }
 
     public T find(long id) {
-        this.entityManager.getTransaction().begin();
-        T result=this.entityManager.find(this.getClassForFind(),id);
-        this.entityManager.getTransaction().commit();
+        this.setUp();
+        EntityManager entityManager=this.entityManagerFactory.createEntityManager();
+
+        entityManager.getTransaction().begin();
+        T result=entityManager.find(this.getClassForFind(),id);
+        entityManager.getTransaction().commit();
+
+        entityManager.close();
         return result;
     }
 
     public void update(T entity) {
-        this.entityManager.getTransaction().begin();
-        this.entityManager.merge(entity);
-        this.entityManager.getTransaction().commit();
+        this.setUp();
+        EntityManager entityManager=this.entityManagerFactory.createEntityManager();
+
+        entityManager.getTransaction().begin();
+        entityManager.merge(entity);
+        entityManager.getTransaction().commit();
+
+        entityManager.close();
     }
 
     public void delete(T entity) {
-        this.entityManager.getTransaction().begin();
-        this.entityManager.remove(entity);
-        this.entityManager.getTransaction().commit();
+        this.setUp();
+        EntityManager entityManager=this.entityManagerFactory.createEntityManager();
+
+        entityManager.getTransaction().begin();
+        entityManager.remove(entity);
+//        this.entityManager.flush();
+        entityManager.getTransaction().commit();
+
+        entityManager.close();
+    }
+    public void delete(long id) {
+        this.setUp();
+        EntityManager entityManager=this.entityManagerFactory.createEntityManager();
+
+        entityManager.getTransaction().begin();
+        T result=entityManager.find(this.getClassForFind(),id);
+        entityManager.remove(result);
+        entityManager.getTransaction().commit();
+
+        entityManager.close();
     }
 
     public List<T> findAll() {
+        this.setUp();
+        EntityManager entityManager=this.entityManagerFactory.createEntityManager();
+
         CriteriaBuilder cb= entityManager.getCriteriaBuilder();
         CriteriaQuery<T> cq=cb.createQuery(getClassForFind());
         Root<T> root=cq.from(getClassForFind());
+
+        entityManager.close();
         return entityManager.createQuery(cq).getResultList();
     }
 
-    private void setUp(){
+    private void emfCr(){
         this.entityManagerFactory= Persistence.createEntityManagerFactory("by.itacademy.shop.hibernate.jpa");
-        this.entityManager=this.entityManagerFactory.createEntityManager();
+    }
+
+    private void setUp(){
+
+//        this.entityManager=this.entityManagerFactory.createEntityManager();
     }
     private void tearDown(){
-        this.entityManager.close();
+//        this.entityManager.close();
         this.entityManagerFactory.close();
     }
 

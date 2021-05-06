@@ -14,5 +14,7 @@ public interface GenericDao<T extends GenericEntity<Long>> {
 
     void delete(T entity);
 
+    void delete(long id);
+
     List<T> findAll();
 }

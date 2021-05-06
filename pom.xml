@@ -22,4 +22,7 @@
         <spring.version>5.3.6</spring.version>
     </properties>
 
+    <dependencyManagement>
+        <!--TODO: Make dependency management-->
+    </dependencyManagement>
 </project>
