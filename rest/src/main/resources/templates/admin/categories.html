@@ -23,7 +23,7 @@
         <nav class="header__menu">
             <ul class="nav justify-content-end me-5">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
+                    <a class="nav-link" th:href="@{/}">Main</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Features</a>
@@ -90,35 +90,46 @@
                     </form>
                     <table class="table">
                         <thead>
-                        <tr>
-                            <th scope="col">Id</th>
-                            <th scope="col">Title</th>
-                            <th scope="col">Update</th>
-                            <th scope="col">Delete</th>
-                        </tr>
+                            <tr>
+                                <th scope="col-3">About</th>
+                                <th scope="col">Delete</th>
+                            </tr>
                         </thead>
                         <tbody>
-                        <tr th:each="subCategory: ${parentCategory.subcategories}">
-                            <form th:action="@{/categories/update}" method="post"  >
-                                <th scope="row">
-                                    <input type="text" style="width:auto;" class="form-control " th:name="id" th:value="${subCategory.id}" disabled >
-                                </th>
-                                <td>
-                                    <input type="text" class="form-control" th:name="title" th:value="${subCategory.title}">
+                            <tr th:each="subCategory: ${parentCategory.subcategories}">
+                                <td scope="col-3" >
+                                        <form th:action="@{/categories/update}" method="post"  >
+                                            <table>
+                                                <thead>
+                                                    <tr>
+                                                        <th scope="col">Id</th>
+                                                        <th scope="col">Title</th>
+                                                        <th scope="col">Update</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>
+                                                            <label for="idText" th:utext="${subCategory.id}"></label>
+                                                            <input id="idText" type="hidden" style="width:auto;" class="form-control " th:name="id" th:value="${subCategory.id}" >
+                                                        </td>
+                                                        <td>
+                                                            <input type="hidden" th:name="parentCategoryId" th:value="${subCategory.parentCategoryId}">
+                                                            <input type="text" class="form-control" th:name="title" th:value="${subCategory.title}">
+                                                        </td>
+                                                        <td><input type="submit" class="btn btn-success" value="Update"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </form>
                                 </td>
                                 <td>
-                                    <input type="hidden" th:name="id" th:value="${subCategory.parentCategoryDto.id}">
-                                    <input type="submit" class="btn btn-success" value="Update">
+                                    <form th:action="@{/categories/delete}" method="post"  >
+                                        <input type="hidden" th:name="id" th:value="${subCategory.id}">
+                                        <input type="submit" class="btn btn-success" value="Delete">
+                                    </form>
                                 </td>
-                            </form>
-                            <td>
-                                    <!-- TODO: change to form-->
-                                <form th:action="@{/categories/delete}" method="post"  >
-                                    <input type="hidden" th:name="id" th:value="${subCategory.id}">
-                                    <input type="submit" class="btn btn-success" value="Delete">
-                                </form>
-                            </td>
-                        </tr>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

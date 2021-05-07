@@ -83,6 +83,7 @@ public class CategoryMapper {
         return CategoryDto.builder().
                 id(source.getId()).
                 title((source.getTitle()!=null) ? objectMapper.writeValueAsString(source.getTitle()): null).
+                parentCategoryId((source.getParentCategory()!=null)?source.getParentCategory().getId() : null).
                 build();
     }
     public Category mapCategoryDtoToCategory(CategoryDto source) throws JsonProcessingException {
