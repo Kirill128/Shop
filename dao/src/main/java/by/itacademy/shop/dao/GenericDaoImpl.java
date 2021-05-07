@@ -84,13 +84,16 @@ public abstract class GenericDaoImpl<T extends GenericEntity<Long>> implements G
     public List<T> findAll() {
         this.setUp();
         EntityManager entityManager=this.entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
 
         CriteriaBuilder cb= entityManager.getCriteriaBuilder();
         CriteriaQuery<T> cq=cb.createQuery(getClassForFind());
         Root<T> root=cq.from(getClassForFind());
+        List<T> result=entityManager.createQuery(cq).getResultList();
 
+        entityManager.getTransaction().commit();
         entityManager.close();
-        return entityManager.createQuery(cq).getResultList();
+        return result;
     }
 
     private void emfCr(){

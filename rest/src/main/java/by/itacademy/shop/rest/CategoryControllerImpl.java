@@ -31,9 +31,10 @@ public class CategoryControllerImpl {
         }
         modelAndView.addObject("parentCategories",parentCategoryDtos);
         modelAndView.addObject("newCategoryDtos",newCategories);
+        modelAndView.addObject("newParentCategory",new CategoryDto());
         return modelAndView;
     }
-    @PostMapping(value = "/")
+    @PostMapping(value = "/create")
     public ModelAndView createCategory(@ModelAttribute CategoryDto category) throws JsonProcessingException {
         this.categoryService.createCategory(category);
         return new ModelAndView("redirect:/categories/");

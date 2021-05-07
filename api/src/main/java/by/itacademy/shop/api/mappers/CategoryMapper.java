@@ -88,12 +88,17 @@ public class CategoryMapper {
     }
     public Category mapCategoryDtoToCategory(CategoryDto source) throws JsonProcessingException {
         ObjectMapper objectMapper=new ObjectMapper();
+        Category parentCategory=null;
+        if(source.getParentCategoryDto()==null){
+            if(source.getParentCategoryId()!=null){
+                parentCategory=Category.builder().id(source.getParentCategoryId()).build();
+            }
+        }else
+            parentCategory=CategoryMapper.mapParentCategoryDtoToCategory(source.getParentCategoryDto());
         return Category.builder().
                 id(source.getId()).
                 title( (source.getTitle()!=null) ? objectMapper.readValue(source.getTitle(),new TypeReference<HashMap<String, String>>(){}) : null).
-                parentCategory((source.getParentCategoryDto()==null) ?
-                        Category.builder().id(source.getParentCategoryId()).build() :
-                        CategoryMapper.mapParentCategoryDtoToCategory(source.getParentCategoryDto())).
+                parentCategory(parentCategory).
                 build();
     }
     public List<CategoryDto> mapCategoriesToCategoryDtos(List<Category> source) throws JsonProcessingException {

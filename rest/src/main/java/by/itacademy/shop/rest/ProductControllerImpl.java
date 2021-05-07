@@ -66,7 +66,7 @@ public class ProductControllerImpl {
         return modelAndView;
     }
 
-    @PostMapping("/")
+    @PostMapping("/create")
     public ModelAndView createProduct(ProductDto product){
         return null;
     }
@@ -78,12 +78,12 @@ public class ProductControllerImpl {
     }
 
 
-    @PutMapping("/")
+    @PostMapping("/update")
     public ModelAndView update(@RequestBody ProductDto product){
         return null;
     }
 
-    @DeleteMapping("/{id}")
+    @PostMapping("/delete")
     public ModelAndView delete(@PathVariable int id){
         return null;
     }

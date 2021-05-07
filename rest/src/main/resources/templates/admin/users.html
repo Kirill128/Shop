@@ -39,12 +39,11 @@
         <div class="row">
             <div class="col-3 sidebar-nav">
                 <div class="list-group mt-3 mb-3">
-                    <a href="#" class="list-group-item list-group-item-action">Users Managment</a>
-                    <a href="#" class="list-group-item list-group-item-action">Products Managment</a>
-                    <a href="#" class="list-group-item list-group-item-action">Provider Managment</a>
-                    <a href="#" class="list-group-item list-group-item-action">Category Managment</a>
-                    <a href="#" class="list-group-item list-group-item-action">Photo Managment</a>
-                    <a href="#" class="list-group-item list-group-item-action">..</a>
+                        <a th:href="@{/users/}" class="list-group-item list-group-item-action active">Users Managment</a>
+                        <a th:href="@{/products/}" class="list-group-item list-group-item-action">Products Managment</a>
+                        <a th:href="@{/providers/}" class="list-group-item list-group-item-action ">Providers Managment</a>
+                        <a th:href="@{/categories/}" class="list-group-item list-group-item-action " >Category Managment</a>
+                        <a th:href="@{/photos/}" class="list-group-item list-group-item-action">Photo Managment</a>
                 </div>
             </div>
             <div class="col main-content">
@@ -113,7 +112,7 @@
         </div>
     </div>
 </main>
-<footer class="fixed-bottom footer">
+<footer class="bottom-0 footer">
     <div class="footer__info">+375259999999, г. Гродно, le.le999@mail.com</div>
 </footer>
 </body>

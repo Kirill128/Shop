@@ -5,9 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <script src="../../static/js/popper.min.js"></script> -->
-    <link rel="stylesheet" href="/static/css/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="/static/css/my/general.css">
-    <link rel="stylesheet" href="/static/css/my/users.css">
+    <link rel="stylesheet" th:href="@{/static/css/bootstrap/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/static/css/my/general.css}">
+    <link rel="stylesheet" th:href="@{/static/css/my/users.css}">
     <title>Document</title>
 </head>
 <body>
@@ -39,50 +39,68 @@
             <div class="row">
                 <div class="col-3 sidebar-nav" >
                     <div class="list-group ">
-                        <a href="#" class="list-group-item list-group-item-action">Users Managment</a>
-                        <a href="#" class="list-group-item list-group-item-action">Products Managment</a>
-                        <a href="#" class="list-group-item list-group-item-action active">Providers Managment</a>
-                        <a href="#" class="list-group-item list-group-item-action">Category Managment</a>
-                        <a href="#" class="list-group-item list-group-item-action">Photo Managment</a>
-                        <a href="#" class="list-group-item list-group-item-action">..</a>
+                        <a th:href="@{/users/}" class="list-group-item list-group-item-action">Users Managment</a>
+                        <a th:href="@{/products/}" class="list-group-item list-group-item-action">Products Managment</a>
+                        <a th:href="@{/providers/}" class="list-group-item list-group-item-action active">Providers Managment</a>
+                        <a th:href="@{/categories/}" class="list-group-item list-group-item-action">Category Managment</a>
+                        <a th:href="@{/photos/}" class="list-group-item list-group-item-action">Photo Managment</a>
                     </div>
                 </div>
                 <div class="col main-content">
-                    <ul class="nav nav-tabs">
-                        <li class="nav-item">
+
+                    <h6>ADD NEW PROVIDER</h6>
+                    <form th:action="@{/providers/create}" method="POST" >
+                        <input type="text" class="form-control" th:value="${newProvider.name}" th:name="name">
+                        <button  class="btn btn-primary" type="submit">Save New Provider</button>
+                    </form>
                             <table class="table">
                                 <thead>
                                      <tr>
-                                         <th scope="col">Id</th>
-                                         <th scope="col">Name</th>
-                                         <th scope="col" >Update</th>
+                                         <th scope="col">About</th>
                                          <th scope="col">Delete</th>
                                      </tr>
                                  </thead>
                                  <tbody>
-                                    <tr>
-                                        <form action="#" method="POST" >
-                                           <th scope="row">1</th>
-                                           <td>
-                                               <input type="text" value="Name" class="form-control"> 
-                                           </td>
-                                           <td>
-                                               <input type="submit" class="btn btn-success" value="Update">
-                                           </td>
-                                           <td>
-                                               <input type="submit" class="btn btn-danger" value="Delete" >
-                                           </td>
-                                       </form>
-                                    </tr>
+                                 <tr th:each="provider: ${providers}">
+                                     <td scope="col-3" >
+                                         <form th:action="@{/providers/update}" method="post"  >
+                                             <table>
+                                                 <thead>
+                                                 <tr>
+                                                     <th scope="col">Id</th>
+                                                     <th scope="col">Title</th>
+                                                     <th scope="col">Update</th>
+                                                 </tr>
+                                                 </thead>
+                                                 <tbody>
+                                                 <tr>
+                                                     <td>
+                                                         <label for="idText" th:utext="${provider.id}"></label>
+                                                         <input id="idText" type="hidden" style="width:auto;" class="form-control " th:name="id" th:value="${provider.id}" >
+                                                     </td>
+                                                     <td>
+                                                         <input type="text" class="form-control" th:name="name" th:value="${provider.name}">
+                                                     </td>
+                                                     <td><input type="submit" class="btn btn-success" value="Update"></td>
+                                                 </tr>
+                                                 </tbody>
+                                             </table>
+                                         </form>
+                                     </td>
+                                     <td>
+                                         <form th:action="@{/providers/delete}" method="post"  >
+                                             <input type="hidden" th:name="id" th:value="${provider.id}">
+                                             <input type="submit" class="btn btn-success" value="Delete">
+                                         </form>
+                                     </td>
                                  </tbody>
                             </table>
-                        </li>
-                    </ul>
+
                 </div>
             </div>
         </div>
     </main>
-    <footer class="fixed-bottom footer">
+    <footer class="bottom-0 footer">
         <div class="footer__info">+375259999999, г. Гродно, le.le999@mail.com</div>
     </footer>   
 </body>
