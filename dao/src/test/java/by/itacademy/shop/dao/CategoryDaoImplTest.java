@@ -12,38 +12,38 @@ import java.util.Map;
 class CategoryDaoImplTest {
 
 
-//    @Test
-//    public void create(){
-//        CategoryDao categoryDao=new CategoryDaoImpl();
-//        Map<String,String> attr=new HashMap<>();
-//        attr.put("some","test");
-//        Category category= Category.builder()
-//                .parentCategory(categoryDao.find(1L))
-//                .title(attr)
-//                .build();
-//        categoryDao.create(category);
-//    }
-//
-//    @Test
-//    public void find(){
-//        CategoryDao categoryDao=new CategoryDaoImpl();
-//        Category category=categoryDao.find(200L);
-//        for(Category category1: category.getSubCategories()){
-//            System.out.println("//////////////////////////////////////////////");
-//            System.out.println(category1);
-//        }
-//    }
-//
-//
-//    @Test
-//    public void update() {
-//        CategoryDao categoryDao=new CategoryDaoImpl();
-//        Category category= Category.builder()
-//                .id(200L)
-//                .parentCategory(categoryDao.find(5L))
-//                .build();
-//        categoryDao.update(category);
-//    }
+    @Test
+    public void create(){
+        CategoryDao categoryDao=new CategoryDaoImpl();
+        Map<String,String> attr=new HashMap<>();
+        attr.put("some","test");
+        Category category= Category.builder()
+                .parentCategory(categoryDao.find(1L))
+                .title(attr)
+                .build();
+        categoryDao.create(category);
+    }
+
+    @Test
+    public void find(){
+        CategoryDao categoryDao=new CategoryDaoImpl();
+        Category category=categoryDao.find(200L);
+        for(Category category1: category.getSubCategories()){
+            System.out.println("//////////////////////////////////////////////");
+            System.out.println(category1);
+        }
+    }
+
+
+    @Test
+    public void update() {
+        CategoryDao categoryDao=new CategoryDaoImpl();
+        Category category= Category.builder()
+                .id(200L)
+                .parentCategory(categoryDao.find(5L))
+                .build();
+        categoryDao.update(category);
+    }
 
     @Test
     @BeforeAll

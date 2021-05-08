@@ -1,6 +1,6 @@
 package by.itacademy.shop.api.services;
 
-import by.itacademy.shop.api.dto.admin.OrderDto;
+import by.itacademy.shop.api.dto.user.OrderDto;
 
 import java.util.List;
 

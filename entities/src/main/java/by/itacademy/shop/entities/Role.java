@@ -18,7 +18,7 @@ public class Role extends GenericEntity<Long>{
     @Column(name = "name")
     private String name;
 
-    @ManyToMany(fetch = FetchType.LAZY,mappedBy = "roles",cascade = CascadeType.ALL)
+    @ManyToMany(fetch = FetchType.LAZY,mappedBy = "roles",cascade = CascadeType.REMOVE)
     private List<User> users;
 
     @Override

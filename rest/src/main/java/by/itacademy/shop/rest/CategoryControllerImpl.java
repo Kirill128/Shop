@@ -1,10 +1,8 @@
 package by.itacademy.shop.rest;
 
-import by.itacademy.shop.api.dto.admin.category.CategoryDto;
-import by.itacademy.shop.api.dto.admin.category.ParentCategoryDto;
-import by.itacademy.shop.api.mappers.CategoryMapper;
+import by.itacademy.shop.api.dto.admin.CategoryDto;
+import by.itacademy.shop.api.dto.admin.ParentCategoryDto;
 import by.itacademy.shop.api.services.CategoryService;
-import by.itacademy.shop.entities.Category;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;

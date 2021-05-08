@@ -1,19 +1,29 @@
 package by.itacademy.shop.services;
 
-import by.itacademy.shop.api.dto.admin.PhotoDto;
-import by.itacademy.shop.api.dto.admin.UserDto;
+import by.itacademy.shop.api.dao.PhotoDao;
+import by.itacademy.shop.api.dto.forall.GuestProductPhotoDto;
+import by.itacademy.shop.api.dto.user.UserDto;
 import by.itacademy.shop.api.services.PhotoService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 public class PhotoServiceImpl implements PhotoService {
+    private PhotoDao photoDao;
+
+    @Autowired
+    public PhotoServiceImpl(PhotoDao photoDao) {
+        this.photoDao = photoDao;
+    }
+
+
     @Override
-    public PhotoDto createPhoto(PhotoDto user) {
+    public GuestProductPhotoDto createPhoto(GuestProductPhotoDto photoDto) {
         return null;
     }
 
     @Override
-    public PhotoDto find(long id) {
+    public GuestProductPhotoDto find(long id) {
         return null;
     }
 
@@ -28,7 +38,7 @@ public class PhotoServiceImpl implements PhotoService {
     }
 
     @Override
-    public List<PhotoDto> getAllPhotos() {
+    public List<GuestProductPhotoDto> getAllPhotos() {
         return null;
     }
 }

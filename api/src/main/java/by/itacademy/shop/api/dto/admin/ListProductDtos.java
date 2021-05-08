@@ -1,4 +1,4 @@
-package by.itacademy.shop.api.dto.admin.lists;
+package by.itacademy.shop.api.dto.admin;
 
 import by.itacademy.shop.api.dto.admin.ProductDto;
 import lombok.*;

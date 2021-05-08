@@ -1,15 +1,14 @@
-package by.itacademy.shop.api.dto.admin;
+package by.itacademy.shop.api.dto.forall;
 
 import lombok.*;
-
 
 @Getter
 @Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class RoleDto {
+public class GuestSubCategoryDto {
     private Long id;
-    private String name;
 
+    private String title;
 }

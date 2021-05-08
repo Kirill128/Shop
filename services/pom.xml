@@ -22,18 +22,18 @@
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
             <scope>compile</scope>
-            <version>3.15</version>
+            <version>${poi.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
             <scope>compile</scope>
-            <version>3.15</version>
+            <version>${poi-ooxml.version}</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>RELEASE</version>
+            <version>${junit.version}</version>
             <scope>compile</scope>
         </dependency>
     </dependencies>

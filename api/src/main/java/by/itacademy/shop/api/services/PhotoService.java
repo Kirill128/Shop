@@ -1,15 +1,15 @@
 package by.itacademy.shop.api.services;
 
-import by.itacademy.shop.api.dto.admin.PhotoDto;
-import by.itacademy.shop.api.dto.admin.UserDto;
+import by.itacademy.shop.api.dto.forall.GuestProductPhotoDto;
+import by.itacademy.shop.api.dto.user.UserDto;
 
 import java.util.List;
 
 public interface PhotoService {
-    PhotoDto createPhoto(PhotoDto user);
-    PhotoDto find(long id);
+    GuestProductPhotoDto createPhoto(GuestProductPhotoDto photoDto);
+    GuestProductPhotoDto find(long id);
     void update(UserDto user);
     void delete(long id);
 
-    List<PhotoDto> getAllPhotos();
+    List<GuestProductPhotoDto> getAllPhotos();
 }

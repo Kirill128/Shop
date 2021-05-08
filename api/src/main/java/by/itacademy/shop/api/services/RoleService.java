@@ -1,6 +1,6 @@
 package by.itacademy.shop.api.services;
 
-import by.itacademy.shop.api.dto.admin.RoleDto;
+import by.itacademy.shop.api.dto.user.RoleDto;
 
 import java.util.List;
 

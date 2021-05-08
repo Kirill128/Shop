@@ -65,38 +65,27 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="parentCategory : ${parentCategories}">
-                        <td scope="col-3" >
+                    <tr th:each="parentCategory : ${parentCategories}" >
+                        <th scope="col-3" >
+                            <label for="idTextPar" class="form-control " th:utext="${parentCategory.id}"></label>
+                        </th>
+                        <td>
+                            <input type="text" class="form-control"  th:value="${inputTitle}">
+                        </td>
+                        <td>
                             <form th:action="@{/categories/update}" method="post"  >
-                                <table>
-                                    <thead>
-                                    <tr>
-                                        <th scope="col">Id</th>
-                                        <th scope="col">Title</th>
-                                        <th scope="col">Update</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>
-                                            <label for="idTextPar" th:utext="${parentCategory.id}"></label>
-                                            <input id="idTextPar" type="hidden" style="width:auto;" class="form-control " th:name="id" th:value="${parentCategory.id}" >
-                                        </td>
-                                        <td>
-                                            <input type="text" class="form-control" th:name="title" th:value="${parentCategory.title}">
-                                        </td>
-                                        <td><input type="submit" class="btn btn-success" value="Update"></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                                <input type="hidden" id="idTextPar" th:name="id" th:value="${parentCategory.id}" >
+                                <input type="hidden"                th:name="title" th:value="${inputTitle}">
+                                <input type="submit" th:id="'parentCatUpd'+${parentCategory.id}" class="btn btn-success" value="Update">
                             </form>
                         </td>
                         <td>
                             <form th:action="@{/categories/delete}" method="post"  >
                                 <input type="hidden" th:name="id" th:value="${parentCategory.id}">
-                                <input type="submit" class="btn btn-success" value="Delete">
+                                <input type="submit"  class="btn btn-success" value="Delete">
                             </form>
                         </td>
+
                     </tr>
                     </tbody>
                 </table>

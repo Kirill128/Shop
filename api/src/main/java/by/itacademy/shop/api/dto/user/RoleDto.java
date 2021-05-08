@@ -1,4 +1,4 @@
-package by.itacademy.shop.api.dto.admin;
+package by.itacademy.shop.api.dto.user;
 
 import lombok.*;
 
@@ -8,7 +8,8 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProviderDto {
+public class RoleDto {
+
     private Long id;
 
     private String name;

@@ -1,6 +1,6 @@
 package by.itacademy.shop.converter;
 
-import by.itacademy.shop.entities.Status;
+import by.itacademy.shop.forentity.Status;
 
 import javax.persistence.AttributeConverter;
 

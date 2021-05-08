@@ -1,4 +1,4 @@
-package by.itacademy.shop.api.dto;
+package by.itacademy.shop.api.dto.forall;
 
 import lombok.*;
 

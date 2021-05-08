@@ -1,6 +1,6 @@
 package by.itacademy.shop.api.services;
 
-import by.itacademy.shop.api.dto.GuestProductDto;
+import by.itacademy.shop.api.dto.forall.GuestProductDto;
 import by.itacademy.shop.api.dto.admin.ProductDto;
 import by.itacademy.shop.locale.Lang;
 import com.fasterxml.jackson.core.JsonProcessingException;

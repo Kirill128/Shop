@@ -1,6 +1,7 @@
 package by.itacademy.shop.entities;
 
 import by.itacademy.shop.converter.StatusConverter;
+import by.itacademy.shop.forentity.Status;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +10,6 @@ import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 @Getter

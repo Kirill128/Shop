@@ -1,6 +1,6 @@
 package by.itacademy.shop.dao;
 
-import by.itacademy.shop.entities.Status;
+import by.itacademy.shop.forentity.Status;
 import org.junit.jupiter.api.Test;
 
 public class StatusTest {

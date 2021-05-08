@@ -1,11 +1,20 @@
 package by.itacademy.shop.services;
 
-import by.itacademy.shop.api.dto.admin.OrderDto;
+import by.itacademy.shop.api.dao.OrderDao;
+import by.itacademy.shop.api.dto.user.OrderDto;
 import by.itacademy.shop.api.services.OrderService;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.List;
 
 public class OrderServiceImpl implements OrderService {
+    private OrderDao orderDao;
+
+    @Autowired
+    public OrderServiceImpl(OrderDao orderDao) {
+        this.orderDao = orderDao;
+    }
+
     @Override
     public OrderDto createOrder(OrderDto user) {
         return null;

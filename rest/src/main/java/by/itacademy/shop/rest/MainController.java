@@ -1,7 +1,7 @@
 package by.itacademy.shop.rest;
 
-import by.itacademy.shop.api.dto.GuestParentCategoryDto;
-import by.itacademy.shop.api.dto.GuestProductDto;
+import by.itacademy.shop.api.dto.forall.GuestParentCategoryDto;
+import by.itacademy.shop.api.dto.forall.GuestProductDto;
 import by.itacademy.shop.api.services.CategoryService;
 import by.itacademy.shop.api.services.ProductService;
 import by.itacademy.shop.locale.Lang;

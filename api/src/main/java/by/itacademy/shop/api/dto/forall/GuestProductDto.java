@@ -1,4 +1,4 @@
-package by.itacademy.shop.api.dto;
+package by.itacademy.shop.api.dto.forall;
 
 import by.itacademy.shop.entities.Category;
 import by.itacademy.shop.entities.Photo;

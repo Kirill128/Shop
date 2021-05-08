@@ -1,4 +1,4 @@
-package by.itacademy.shop.api.dto;
+package by.itacademy.shop.api.dto.forall;
 
 import lombok.*;
 
@@ -7,8 +7,10 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class GuestSubCategoryDto {
+public class GuestProductPhotoDto {
+
+    private String url;
+
     private Long id;
 
-    private String title;
 }

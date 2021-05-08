@@ -7,7 +7,13 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class PhotoDto {
-    private String url;
+public class CategoryDto {
     private Long id;
+
+    private String title;
+
+    private Long parentCategoryId;
+
+    private ParentCategoryDto parentCategoryDto;
+
 }

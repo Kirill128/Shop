@@ -1,19 +1,16 @@
 package by.itacademy.shop.services;
 
 import by.itacademy.shop.api.dao.CategoryDao;
-import by.itacademy.shop.api.dto.GuestParentCategoryDto;
-import by.itacademy.shop.api.dto.admin.category.CategoryDto;
-import by.itacademy.shop.api.dto.admin.category.ParentCategoryDto;
+import by.itacademy.shop.api.dto.forall.GuestParentCategoryDto;
+import by.itacademy.shop.api.dto.admin.CategoryDto;
+import by.itacademy.shop.api.dto.admin.ParentCategoryDto;
 import by.itacademy.shop.api.mappers.CategoryMapper;
 import by.itacademy.shop.api.services.CategoryService;
-import by.itacademy.shop.entities.Category;
 import by.itacademy.shop.locale.Lang;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityManager;
-import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -53,12 +50,10 @@ public class CategoryServiceImpl implements CategoryService {
         this.categoryDao.update(CategoryMapper.mapCategoryDtoToCategory(user));
     }
 
+    //TODO: make better with Transactions
     @Override
-
     public void delete(long id) {
        this.categoryDao.delete(id);
-//        Category category=this.categoryDao.find(id);
-//        this.categoryDao.delete(category);
 
     }
 

@@ -96,16 +96,18 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr th:each="user:${userList}">
-                        <td th:text="${user.id}"></td>
-                        <td th:text="${user.name}"></td>
-                        <td th:text="${user.email}"></td>
-                        <td th:text="${user.phone}"></td>
-                        <td th:text="${user.password}"></td>
-                        <td>
-                            <input type="submit" class="btn btn-danger">
-                        </td>
-                    </tr>
+                        <form th:action="@{/users/delete}">
+                            <tr th:each="user:${userList}">
+                                <td th:text="${user.id}"></td>
+                                <td th:text="${user.name}"></td>
+                                <td th:text="${user.email}"></td>
+                                <td th:text="${user.phone}"></td>
+                                <td th:text="${user.password}"></td>
+                                <td>
+                                    <input type="submit" class="btn btn-danger">
+                                </td>
+                            </tr>
+                        </form>
                     </tbody>
                 </table>
             </div>

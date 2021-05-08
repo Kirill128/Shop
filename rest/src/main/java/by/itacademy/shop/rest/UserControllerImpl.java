@@ -1,6 +1,6 @@
 package by.itacademy.shop.rest;
 
-import by.itacademy.shop.api.dto.admin.UserDto;
+import by.itacademy.shop.api.dto.user.UserDto;
 import by.itacademy.shop.api.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,13 +17,13 @@ public class UserControllerImpl {
     public UserControllerImpl(UserService userService) {
         this.userService = userService;
     }
-    //--------------------
 
-    //--------------------
+
     @GetMapping("/{id}")
     public ModelAndView find(@PathVariable int id){
+        ModelAndView modelAndView=new ModelAndView();
         UserDto userDto=this.userService.find(id);
-        return null;
+        return modelAndView;
     }
 
     @GetMapping("/")
@@ -33,17 +33,23 @@ public class UserControllerImpl {
         return modelAndView;
     }
 
-    @PostMapping("/")
+    @PostMapping("/create")
     public ModelAndView createUser(UserDto user){
-        return null;
+        ModelAndView modelAndView=new ModelAndView();
+
+        return modelAndView;
     }
 
-    @PutMapping("/")
+    @PostMapping("/update")
     public ModelAndView update(@RequestBody UserDto user){
-        return null;
+        ModelAndView modelAndView=new ModelAndView();
+
+        return modelAndView;
     }
-    @DeleteMapping("/{id}}")
+    @PostMapping("/delete")
     public ModelAndView delete(@PathVariable int id){
-        return null;
+        ModelAndView modelAndView=new ModelAndView();
+
+        return modelAndView;
     }
 }

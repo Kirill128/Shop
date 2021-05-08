@@ -1,8 +1,8 @@
 package by.itacademy.shop.api.services;
 
-import by.itacademy.shop.api.dto.GuestParentCategoryDto;
-import by.itacademy.shop.api.dto.admin.category.CategoryDto;
-import by.itacademy.shop.api.dto.admin.category.ParentCategoryDto;
+import by.itacademy.shop.api.dto.forall.GuestParentCategoryDto;
+import by.itacademy.shop.api.dto.admin.CategoryDto;
+import by.itacademy.shop.api.dto.admin.ParentCategoryDto;
 import by.itacademy.shop.locale.Lang;
 import com.fasterxml.jackson.core.JsonProcessingException;
 

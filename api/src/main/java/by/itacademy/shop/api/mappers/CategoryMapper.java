@@ -1,9 +1,9 @@
 package by.itacademy.shop.api.mappers;
 
-import by.itacademy.shop.api.dto.GuestParentCategoryDto;
-import by.itacademy.shop.api.dto.GuestSubCategoryDto;
-import by.itacademy.shop.api.dto.admin.category.CategoryDto;
-import by.itacademy.shop.api.dto.admin.category.ParentCategoryDto;
+import by.itacademy.shop.api.dto.forall.GuestParentCategoryDto;
+import by.itacademy.shop.api.dto.forall.GuestSubCategoryDto;
+import by.itacademy.shop.api.dto.admin.CategoryDto;
+import by.itacademy.shop.api.dto.admin.ParentCategoryDto;
 import by.itacademy.shop.entities.Category;
 import by.itacademy.shop.locale.Lang;
 import com.fasterxml.jackson.core.JsonProcessingException;

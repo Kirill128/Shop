@@ -1,5 +1,6 @@
-package by.itacademy.shop.api.dto.admin.category;
+package by.itacademy.shop.api.dto.admin;
 
+import by.itacademy.shop.api.dto.admin.CategoryDto;
 import lombok.*;
 
 import java.util.List;

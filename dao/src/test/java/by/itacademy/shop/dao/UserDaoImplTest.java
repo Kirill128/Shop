@@ -57,27 +57,5 @@ class UserDaoImplTest {
         UserDao userDao=new UserDaoImpl();
         userDao.findAll().stream().forEach(System.out::println);
     }
-    /*
-    @Test
-    public void create(){
 
-    }
-    @Test
-    public void find(){
-
-    }
-    @Test
-    public void update() {
-
-    }
-    @Test
-    public void delete(){
-
-    }
-
-    @Test
-    public void findAll(){
-
-    }
-    */
 }

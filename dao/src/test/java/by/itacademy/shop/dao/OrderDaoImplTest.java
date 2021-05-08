@@ -1,18 +1,12 @@
 package by.itacademy.shop.dao;
 
 import by.itacademy.shop.api.dao.OrderDao;
-import by.itacademy.shop.api.dao.ProductOrderDao;
 import by.itacademy.shop.api.dao.UserDao;
 import by.itacademy.shop.entities.Order;
-import by.itacademy.shop.entities.Status;
-import liquibase.pro.packaged.U;
+import by.itacademy.shop.forentity.Status;
 import org.junit.jupiter.api.Test;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class OrderDaoImplTest {
     @Test
