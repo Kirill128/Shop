@@ -2,7 +2,10 @@ package by.itacademy.shop.api.mappers;
 
 import by.itacademy.shop.api.dto.forall.GuestProductDto;
 import by.itacademy.shop.api.dto.admin.ProductDto;
+import by.itacademy.shop.entities.Category;
+import by.itacademy.shop.entities.Photo;
 import by.itacademy.shop.entities.Product;
+import by.itacademy.shop.entities.Provider;
 import by.itacademy.shop.locale.Lang;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -42,9 +45,9 @@ public class ProductMapper {
                 shortDescription(mapper.writeValueAsString(product.getShortDescription())).
                 price(product.getPrice()).
                 quantityInStorage(product.getQuantityInStorage()).
-                category(product.getCategory()).
-                photo(product.getPhoto()).
-                provider(product.getProvider()).
+                categoryId(product.getCategory().getId()).
+                photoId((product.getPhoto()!=null) ? product.getPhoto().getId(): null).
+                providerId((product.getProvider()!=null) ? product.getProvider().getId() : null).
                 build();
     }
     public List<ProductDto> mapProductsToProductDtos(List<Product> products) throws JsonProcessingException {
@@ -58,6 +61,9 @@ public class ProductMapper {
 
     public Product mapProductDtoToProduct(ProductDto product) throws JsonProcessingException {
         ObjectMapper mapper=new ObjectMapper();
+        Category category= Category.builder().id(product.getCategoryId()).build();
+        Photo photo = (product.getPhotoId()!=null) ? Photo.builder().id(product.getPhotoId()).build() : null;
+        Provider provider= (product.getProviderId()!=null) ? Provider.builder().id(product.getProviderId()).build() : null ;
         return Product.builder().
                 id(product.getId()).
                 barcode(product.getBarcode()).
@@ -65,9 +71,9 @@ public class ProductMapper {
                 shortDescription(mapper.readValue(product.getShortDescription(),new TypeReference<HashMap<String, String>>(){})).
                 price(product.getPrice()).
                 quantityInStorage(product.getQuantityInStorage()).
-                category(product.getCategory()).
-                photo(product.getPhoto()).
-                provider(product.getProvider()).
+                category(category).
+                photo(photo).
+                provider(provider).
                 build();
     }
     public List<Product> mapProductDtosToProducts(List<ProductDto> products) throws JsonProcessingException {

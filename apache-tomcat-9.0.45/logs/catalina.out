@@ -133,3 +133,1000 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 17-Apr-2021 11:09:06.015 INFO [Thread-3] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
 17-Apr-2021 11:09:06.066 INFO [Thread-3] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
 17-Apr-2021 11:09:06.118 INFO [Thread-3] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+NOTE: Picked up JDK_JAVA_OPTIONS:  --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+10-May-2021 15:01:35.308 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.45
+10-May-2021 15:01:35.312 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 30 2021 10:29:04 UTC
+10-May-2021 15:01:35.313 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.45.0
+10-May-2021 15:01:35.313 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+10-May-2021 15:01:35.313 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.11.16-arch1-1
+10-May-2021 15:01:35.313 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+10-May-2021 15:01:35.313 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-11-openjdk
+10-May-2021 15:01:35.313 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           11.0.11+9
+10-May-2021 15:01:35.313 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+10-May-2021 15:01:35.314 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /home/kirill/Programming/Shop/apache-tomcat-9.0.45
+10-May-2021 15:01:35.314 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /home/kirill/Programming/Shop/apache-tomcat-9.0.45
+10-May-2021 15:01:35.336 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+10-May-2021 15:01:35.336 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+10-May-2021 15:01:35.337 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+10-May-2021 15:01:35.337 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+10-May-2021 15:01:35.337 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+10-May-2021 15:01:35.337 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/home/kirill/Programming/Shop/apache-tomcat-9.0.45/conf/logging.properties
+10-May-2021 15:01:35.338 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+10-May-2021 15:01:35.338 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+10-May-2021 15:01:35.338 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+10-May-2021 15:01:35.338 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+10-May-2021 15:01:35.338 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+10-May-2021 15:01:35.339 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/home/kirill/Programming/Shop/apache-tomcat-9.0.45
+10-May-2021 15:01:35.339 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/home/kirill/Programming/Shop/apache-tomcat-9.0.45
+10-May-2021 15:01:35.339 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/home/kirill/Programming/Shop/apache-tomcat-9.0.45/temp
+10-May-2021 15:01:35.341 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib64:/lib64:/lib:/usr/lib]
+10-May-2021 15:01:35.806 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+10-May-2021 15:01:35.860 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [826] milliseconds
+10-May-2021 15:01:35.947 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+10-May-2021 15:01:35.947 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.45]
+10-May-2021 15:01:35.959 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/kirill/Programming/Shop/apache-tomcat-9.0.45/webapps/shop]
+10-May-2021 15:01:38.323 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+ERROR StatusLogger No log4j2 configuration file found. Using default configuration: logging only errors to the console.
+10-May-2021 15:01:42.926 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/kirill/Programming/Shop/apache-tomcat-9.0.45/webapps/shop] has finished in [6,967] ms
+10-May-2021 15:01:42.927 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/kirill/Programming/Shop/apache-tomcat-9.0.45/webapps/docs]
+10-May-2021 15:01:42.947 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/kirill/Programming/Shop/apache-tomcat-9.0.45/webapps/docs] has finished in [20] ms
+10-May-2021 15:01:42.948 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/kirill/Programming/Shop/apache-tomcat-9.0.45/webapps/manager]
+10-May-2021 15:01:42.984 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/kirill/Programming/Shop/apache-tomcat-9.0.45/webapps/manager] has finished in [36] ms
+10-May-2021 15:01:42.984 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/kirill/Programming/Shop/apache-tomcat-9.0.45/webapps/host-manager]
+10-May-2021 15:01:43.008 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/kirill/Programming/Shop/apache-tomcat-9.0.45/webapps/host-manager] has finished in [24] ms
+10-May-2021 15:01:43.008 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/kirill/Programming/Shop/apache-tomcat-9.0.45/webapps/examples]
+10-May-2021 15:01:43.203 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/kirill/Programming/Shop/apache-tomcat-9.0.45/webapps/examples] has finished in [195] ms
+10-May-2021 15:01:43.203 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/kirill/Programming/Shop/apache-tomcat-9.0.45/webapps/ROOT]
+10-May-2021 15:01:43.222 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/kirill/Programming/Shop/apache-tomcat-9.0.45/webapps/ROOT] has finished in [18] ms
+10-May-2021 15:01:43.229 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+10-May-2021 15:01:43.240 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [7379] milliseconds
+Hibernate: 
+    select
+        category0_.id as id1_0_,
+        category0_.parent_id as parent_i3_0_,
+        category0_.title as title2_0_ 
+    from
+        category category0_ 
+    where
+        category0_.parent_id is null
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        product0_.id as id1_2_,
+        product0_.attributes as attribut2_2_,
+        product0_.barcode as barcode3_2_,
+        product0_.category_id as category7_2_,
+        product0_.photo_id as photo_id8_2_,
+        product0_.price as price4_2_,
+        product0_.provider_id as provider9_2_,
+        product0_.quantity_in_storage as quantity5_2_,
+        product0_.short_description as short_de6_2_ 
+    from
+        product product0_ limit ?
+Hibernate: 
+    select
+        user0_.id as id1_7_,
+        user0_.email as email2_7_,
+        user0_.name as name3_7_,
+        user0_.password as password4_7_,
+        user0_.phone as phone5_7_ 
+    from
+        shop_user user0_ 
+    where
+        user0_.email=?
+Hibernate: 
+    select
+        orders0_.user_id as user_id5_6_0_,
+        orders0_.id as id1_6_0_,
+        orders0_.id as id1_6_1_,
+        orders0_.price as price2_6_1_,
+        orders0_.status as status3_6_1_,
+        orders0_.submit_time as submit_t4_6_1_,
+        orders0_.user_id as user_id5_6_1_ 
+    from
+        shop_order orders0_ 
+    where
+        orders0_.user_id=?
+Hibernate: 
+    select
+        roles0_.user_id as user_id1_8_0_,
+        roles0_.role_id as role_id2_8_0_,
+        role1_.id as id1_5_1_,
+        role1_.name as name2_5_1_ 
+    from
+        user_role roles0_ 
+    inner join
+        role role1_ 
+            on roles0_.role_id=role1_.id 
+    where
+        roles0_.user_id=?
+Hibernate: 
+    select
+        provider0_.id as id1_4_,
+        provider0_.name as name2_4_ 
+    from
+        provider provider0_
+Hibernate: 
+    select
+        product0_.id as id1_2_,
+        product0_.attributes as attribut2_2_,
+        product0_.barcode as barcode3_2_,
+        product0_.category_id as category7_2_,
+        product0_.photo_id as photo_id8_2_,
+        product0_.price as price4_2_,
+        product0_.provider_id as provider9_2_,
+        product0_.quantity_in_storage as quantity5_2_,
+        product0_.short_description as short_de6_2_ 
+    from
+        product product0_
+Hibernate: 
+    select
+        category0_.id as id1_0_,
+        category0_.parent_id as parent_i3_0_,
+        category0_.title as title2_0_ 
+    from
+        category category0_ 
+    where
+        category0_.parent_id is not null
+Hibernate: 
+    select
+        category0_.id as id1_0_0_,
+        category0_.parent_id as parent_i3_0_0_,
+        category0_.title as title2_0_0_,
+        category1_.id as id1_0_1_,
+        category1_.parent_id as parent_i3_0_1_,
+        category1_.title as title2_0_1_ 
+    from
+        category category0_ 
+    left outer join
+        category category1_ 
+            on category0_.parent_id=category1_.id 
+    where
+        category0_.id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        provider0_.id as id1_4_,
+        provider0_.name as name2_4_ 
+    from
+        provider provider0_
+Hibernate: 
+    select
+        category0_.id as id1_0_,
+        category0_.parent_id as parent_i3_0_,
+        category0_.title as title2_0_ 
+    from
+        category category0_ 
+    where
+        category0_.parent_id is null
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        subcategor0_.parent_id as parent_i3_0_0_,
+        subcategor0_.id as id1_0_0_,
+        subcategor0_.id as id1_0_1_,
+        subcategor0_.parent_id as parent_i3_0_1_,
+        subcategor0_.title as title2_0_1_ 
+    from
+        category subcategor0_ 
+    where
+        subcategor0_.parent_id=?
+Hibernate: 
+    select
+        user0_.id as id1_7_,
+        user0_.email as email2_7_,
+        user0_.name as name3_7_,
+        user0_.password as password4_7_,
+        user0_.phone as phone5_7_ 
+    from
+        shop_user user0_
+Hibernate: 
+    select
+        orders0_.user_id as user_id5_6_0_,
+        orders0_.id as id1_6_0_,
+        orders0_.id as id1_6_1_,
+        orders0_.price as price2_6_1_,
+        orders0_.status as status3_6_1_,
+        orders0_.submit_time as submit_t4_6_1_,
+        orders0_.user_id as user_id5_6_1_ 
+    from
+        shop_order orders0_ 
+    where
+        orders0_.user_id=?
+Hibernate: 
+    select
+        orders0_.user_id as user_id5_6_0_,
+        orders0_.id as id1_6_0_,
+        orders0_.id as id1_6_1_,
+        orders0_.price as price2_6_1_,
+        orders0_.status as status3_6_1_,
+        orders0_.submit_time as submit_t4_6_1_,
+        orders0_.user_id as user_id5_6_1_ 
+    from
+        shop_order orders0_ 
+    where
+        orders0_.user_id=?
+Hibernate: 
+    select
+        orders0_.user_id as user_id5_6_0_,
+        orders0_.id as id1_6_0_,
+        orders0_.id as id1_6_1_,
+        orders0_.price as price2_6_1_,
+        orders0_.status as status3_6_1_,
+        orders0_.submit_time as submit_t4_6_1_,
+        orders0_.user_id as user_id5_6_1_ 
+    from
+        shop_order orders0_ 
+    where
+        orders0_.user_id=?
+Hibernate: 
+    select
+        orders0_.user_id as user_id5_6_0_,
+        orders0_.id as id1_6_0_,
+        orders0_.id as id1_6_1_,
+        orders0_.price as price2_6_1_,
+        orders0_.status as status3_6_1_,
+        orders0_.submit_time as submit_t4_6_1_,
+        orders0_.user_id as user_id5_6_1_ 
+    from
+        shop_order orders0_ 
+    where
+        orders0_.user_id=?
+Hibernate: 
+    select
+        roles0_.user_id as user_id1_8_0_,
+        roles0_.role_id as role_id2_8_0_,
+        role1_.id as id1_5_1_,
+        role1_.name as name2_5_1_ 
+    from
+        user_role roles0_ 
+    inner join
+        role role1_ 
+            on roles0_.role_id=role1_.id 
+    where
+        roles0_.user_id=?
+Hibernate: 
+    select
+        roles0_.user_id as user_id1_8_0_,
+        roles0_.role_id as role_id2_8_0_,
+        role1_.id as id1_5_1_,
+        role1_.name as name2_5_1_ 
+    from
+        user_role roles0_ 
+    inner join
+        role role1_ 
+            on roles0_.role_id=role1_.id 
+    where
+        roles0_.user_id=?
+Hibernate: 
+    select
+        roles0_.user_id as user_id1_8_0_,
+        roles0_.role_id as role_id2_8_0_,
+        role1_.id as id1_5_1_,
+        role1_.name as name2_5_1_ 
+    from
+        user_role roles0_ 
+    inner join
+        role role1_ 
+            on roles0_.role_id=role1_.id 
+    where
+        roles0_.user_id=?
+Hibernate: 
+    select
+        roles0_.user_id as user_id1_8_0_,
+        roles0_.role_id as role_id2_8_0_,
+        role1_.id as id1_5_1_,
+        role1_.name as name2_5_1_ 
+    from
+        user_role roles0_ 
+    inner join
+        role role1_ 
+            on roles0_.role_id=role1_.id 
+    where
+        roles0_.user_id=?
+10-May-2021 15:04:22.120 INFO [Thread-3] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+10-May-2021 15:04:22.131 INFO [Thread-3] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+10-May-2021 15:04:22.198 WARNING [Thread-3] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [shop] registered the JDBC driver [org.postgresql.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+10-May-2021 15:04:22.212 INFO [Thread-3] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+10-May-2021 15:04:22.230 INFO [Thread-3] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]

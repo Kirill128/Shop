@@ -7,6 +7,7 @@ import by.itacademy.shop.api.mappers.ProductMapper;
 import by.itacademy.shop.api.services.ProductService;
 import by.itacademy.shop.entities.Product;
 import by.itacademy.shop.locale.Lang;
+import by.itacademy.shop.utils.ExelFilesWorker;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
@@ -16,15 +17,18 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.*;
 
 @Service
+@Transactional
+
 public class ProductServiceImpl implements ProductService {
     private ProductDao productDao;
-    @Autowired
+
     public ProductServiceImpl(ProductDao productDao) {
         this.productDao = productDao;
     }
@@ -91,49 +95,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<ProductDto> parseXLSOrXlSXFile(MultipartFile file,Lang lang) throws IOException {
-        Workbook workbook= (file.getContentType().equals(".xls"))? new HSSFWorkbook(file.getInputStream()):new XSSFWorkbook(file.getInputStream());
-        int quantityInStorageCellNum=8;
-        int shortDescrCellNum=3;
-        int barcodeCellNum=5;
-        int priceCellNum=11;
-        ObjectMapper objectMapper=new ObjectMapper();
-//        Workbook workbook=new XSSFWorkbook(inputStream);
-        List<ProductDto> productDtoList=new LinkedList<>();
-        Iterator<Sheet> sheetIterator=workbook.sheetIterator();
-        while(sheetIterator.hasNext()){
-            Sheet currentSheet=sheetIterator.next();
-            Iterator<Row> rowIterator= currentSheet.rowIterator();
-
-            while(rowIterator.hasNext()){
-                Row currentRow=rowIterator.next();
-                ProductDto productDto=new ProductDto();
-
-                Map<String,String> shortDescr=new HashMap<>();
-                String shortDescrString=currentRow.getCell(shortDescrCellNum).getStringCellValue();
-                if(shortDescrString.isEmpty())continue;
-                shortDescr.put(lang.value,shortDescrString);
-
-                Long barcode=-1L;
-                Double price=-1.0;
-                double quantity=0.0;
-                try {
-                    barcode = (long) (currentRow.getCell(barcodeCellNum).getNumericCellValue());
-                    price = currentRow.getCell(priceCellNum).getNumericCellValue();
-                    quantity=currentRow.getCell(quantityInStorageCellNum).getNumericCellValue();
-                }catch (Exception e){
-                    continue;
-
-                }
-                productDto.setBarcode(barcode.toString());
-                productDto.setShortDescription(objectMapper.writeValueAsString(shortDescr));
-                productDto.setAttributes(null);
-                productDto.setCategory(null);
-                productDto.setQuantityInStorage((int)quantity);
-                productDto.setPrice(price);
-                productDtoList.add(productDto);
-            }
-        }
-        return productDtoList;
+        return ExelFilesWorker.parseXLSOrXlSXFile(file,lang);
     }
 
 

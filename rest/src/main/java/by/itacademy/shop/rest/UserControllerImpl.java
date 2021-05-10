@@ -8,46 +8,37 @@ import org.springframework.web.servlet.ModelAndView;
 
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/user")
 public class UserControllerImpl {
 
     private UserService userService;
 
-    @Autowired
     public UserControllerImpl(UserService userService) {
         this.userService = userService;
     }
 
-
-    @GetMapping("/{id}")
-    public ModelAndView find(@PathVariable int id){
+    @PostMapping("/info")
+    public ModelAndView find(@ModelAttribute UserDto user){
         ModelAndView modelAndView=new ModelAndView();
-        UserDto userDto=this.userService.find(id);
-        return modelAndView;
-    }
-
-    @GetMapping("/")
-    public ModelAndView findAllUsers(){
-        ModelAndView modelAndView=new ModelAndView("/admin/users");
-        modelAndView.addObject("userList",this.userService.getAllUsers());
+        UserDto userDto=this.userService.find(user.getId());
         return modelAndView;
     }
 
     @PostMapping("/create")
-    public ModelAndView createUser(UserDto user){
+    public ModelAndView createUser(@ModelAttribute UserDto user){
         ModelAndView modelAndView=new ModelAndView();
 
         return modelAndView;
     }
 
     @PostMapping("/update")
-    public ModelAndView update(@RequestBody UserDto user){
+    public ModelAndView update(@ModelAttribute UserDto user){
         ModelAndView modelAndView=new ModelAndView();
 
         return modelAndView;
     }
     @PostMapping("/delete")
-    public ModelAndView delete(@PathVariable int id){
+    public ModelAndView delete(@ModelAttribute UserDto user){
         ModelAndView modelAndView=new ModelAndView();
 
         return modelAndView;

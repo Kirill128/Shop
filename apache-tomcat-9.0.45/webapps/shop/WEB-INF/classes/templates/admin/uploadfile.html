@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script th:src="@{/static/js/popper.min.js}"></script>
+  <script th:src="@{/static/js/bootstrap.min.js}"></script>
+  <link rel="stylesheet" th:href="@{/static/css/bootstrap/bootstrap.min.css}">
+  <link rel="stylesheet" th:href="@{/static/css/my/general.css}">
+  <title>Document</title>
+</head>
+<body>
+<header class="header">
+  <div class="header__body">
+    <div class="header__user">
+      <div class="user__body">
+        <div class="user__img"></div>
+        <div class="user__name">Kirill Lysyakov</div>
+      </div>
+    </div>
+    <nav class="header__menu">
+      <ul class="nav justify-content-end me-5">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<main>
+
+      <div class="col main-content mt-3">
+
+          <form th:action="@{/admin/products/create/list}" method="post" th:object="${listProductDtos}">
+              <input type="submit"   class="btn btn-primary">
+                  <table class="table">
+                  <thead>
+                      <tr>
+                        <th scope="col">Short Description</th>
+                        <th scope="col">Barcode</th>
+                        <th scope="col">Quantity in storage</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Provider</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                         <tr th:each="product,itemStat : *{productDtoList}">
+                             <td>
+                                 <input type="text"  class="form-control" th:field="*{productDtoList[__${itemStat.index}__].shortDescription}">
+                             </td>
+                             <td>
+                                 <input type="text"  class="form-control" th:field="*{productDtoList[__${itemStat.index}__].barcode}" >
+                             </td>
+                             <td>
+                                 <input type="text" class="form-control" th:field="*{productDtoList[__${itemStat.index}__].quantityInStorage}">
+                             </td>
+                             <td>
+                                 <input type="text"  class="form-control" th:field="*{productDtoList[__${itemStat.index}__].price}">
+                             </td>
+                             <td>
+                                 <select class="form-select w-auto" th:field="*{productDtoList[__${itemStat.index}__].categoryId}">
+                                     <option th:each="subCategory : ${subCategories}" th:value="${subCategory.id}" th:utext="${subCategory.title}"
+                                             th:selected="${subCategory.id==product.categoryId}"></option>
+                                 </select>
+                             </td>
+                             <td>
+                                 <select class="form-select w-auto"  th:field="*{productDtoList[__${itemStat.index}__].providerId}">
+                                     <option th:each="provider : ${providers}" th:value="${provider.id}" th:utext="${provider.name}"
+                                             th:selected="${provider.id==product.providerId}"></option>
+                                 </select>
+                             </td>
+                         </tr>
+                  </tbody>
+                </table>
+          </form>
+      </div>
+    </div>
+  </div>
+</main>
+<footer class="bottom-0 footer">
+  <div class="footer__info">+375259999999, г. Гродно, le.le999@mail.com</div>
+</footer>
+</body>
+</html>

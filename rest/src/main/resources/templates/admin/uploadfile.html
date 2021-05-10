@@ -38,72 +38,49 @@
 
       <div class="col main-content mt-3">
 
-        <table class="table">
-          <thead>
-              <tr>
-                <th scope="col">Id</th>
-                <th scope="col">Short Description</th>
-                <th scope="col">Barcode</th>
-                <th scope="col">Quantity in storage</th>
-                <th scope="col">Price</th>
-                <th scope="col">Category</th>
-                <th scope="col">Photo</th>
-                <th scope="col">Provider</th>
-                <th scope="col">Attributes</th>
-                <th scope="col">Delete</th>
-              </tr>
-          </thead>
-          <tbody>
-             <form th:action="@{/products/list}" method="POST" th:object="${listProductDtos}">
-                <tr th:each="product,itemStat : *{productDtoList}">
-                    <th scope="row"  th:utext="${product.id}"></th>
-                    <td>
-                      <input type="text"  th:field="*{productDtoList[__${itemStat.index}__].shortDescription}" class="form-control" >
-                    </td>
-                    <td>
-                      <input type="text" th:field="*{productDtoList[__${itemStat.index}__].barcode}" class="form-control" >
-                    </td>
-                    <td>
-                      <input type="text" th:field="*{productDtoList[__${itemStat.index}__].quantityInStorage}" class="form-control"   >
-                    </td>
-                    <td>
-                      <input type="text" th:field="*{productDtoList[__${itemStat.index}__].price}"  class="form-control">
-                    </td>
-
-                    <td>
-                      <select  class="form-select w-auto" >
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
-                    </td>
-                    <td>
-                      <select class="form-select w-auto" >
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
-                    </td>
-                    <td>
-                      <select class="form-select w-auto" >
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                      </select>
-                    </td>
-                    <!--TODO: Something to show attributes -->
-                    <td>
-                      <input type="submit" class="btn btn-primary" value="Open">
-                    </td>
-                    <td>
-                      <input type="submit" class="btn btn-danger" value="Delete" >
-                    </td>
-                </tr>
-                 <input type="submit" value="Save Changes">
-            </form>
-          </tbody>
-        </table>
-
+          <form th:action="@{/admin/products/create/list}" method="post" th:object="${listProductDtos}">
+              <input type="submit"   class="btn btn-primary">
+                  <table class="table">
+                  <thead>
+                      <tr>
+                        <th scope="col">Short Description</th>
+                        <th scope="col">Barcode</th>
+                        <th scope="col">Quantity in storage</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Category</th>
+                        <th scope="col">Provider</th>
+                      </tr>
+                  </thead>
+                  <tbody>
+                         <tr th:each="product,itemStat : *{productDtoList}">
+                             <td>
+                                 <input type="text"  class="form-control" th:field="*{productDtoList[__${itemStat.index}__].shortDescription}">
+                             </td>
+                             <td>
+                                 <input type="text"  class="form-control" th:field="*{productDtoList[__${itemStat.index}__].barcode}" >
+                             </td>
+                             <td>
+                                 <input type="text" class="form-control" th:field="*{productDtoList[__${itemStat.index}__].quantityInStorage}">
+                             </td>
+                             <td>
+                                 <input type="text"  class="form-control" th:field="*{productDtoList[__${itemStat.index}__].price}">
+                             </td>
+                             <td>
+                                 <select class="form-select w-auto" th:field="*{productDtoList[__${itemStat.index}__].categoryId}">
+                                     <option th:each="subCategory : ${subCategories}" th:value="${subCategory.id}" th:utext="${subCategory.title}"
+                                             th:selected="${subCategory.id==product.categoryId}"></option>
+                                 </select>
+                             </td>
+                             <td>
+                                 <select class="form-select w-auto"  th:field="*{productDtoList[__${itemStat.index}__].providerId}">
+                                     <option th:each="provider : ${providers}" th:value="${provider.id}" th:utext="${provider.name}"
+                                             th:selected="${provider.id==product.providerId}"></option>
+                                 </select>
+                             </td>
+                         </tr>
+                  </tbody>
+                </table>
+          </form>
       </div>
     </div>
   </div>

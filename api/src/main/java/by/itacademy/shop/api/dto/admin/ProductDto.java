@@ -1,8 +1,5 @@
 package by.itacademy.shop.api.dto.admin;
 
-import by.itacademy.shop.entities.Category;
-import by.itacademy.shop.entities.Photo;
-import by.itacademy.shop.entities.Provider;
 import lombok.*;
 
 import java.util.Map;
@@ -26,11 +23,11 @@ public class ProductDto {
 
     private Integer quantityInStorage;
 
-    private Category category;
+    private long categoryId;
 
-    private Photo photo;
+    private Long photoId;
 
-    private Provider provider;
+    private Long providerId;
 
 
     @Override
@@ -42,9 +39,9 @@ public class ProductDto {
                 ", shortDescription=" + shortDescription +
                 ", price=" + price +
                 ", quantityInStorage=" + quantityInStorage +
-                ", category=" + category +
-                ", photo=" + photo +
-                ", provider=" + provider +
+                ", category=" + categoryId +
+                ", photo=" + photoId +
+                ", provider=" + providerId +
                 '}';
     }
 

@@ -16,14 +16,18 @@ public class CategoryDaoImpl extends GenericDaoImpl<Category> implements Categor
 
     @Override
     public List<Category> getParentCategories() {
-        EntityManager entityManager=super.entityManagerFactory.createEntityManager();
-        entityManager.getTransaction().begin();
 
         Query query=entityManager.createQuery("From Category c_21 where c_21.parentCategory=null ");
         List<Category> categoryList=query.getResultList();
 
-        entityManager.getTransaction().commit();
-        entityManager.close();
+        return categoryList;
+    }
+
+    @Override
+    public List<Category> getSubcategories() {
+        Query query=entityManager.createQuery("From Category c_21 where c_21.parentCategory!=null ");
+        List<Category> categoryList=query.getResultList();
+
         return categoryList;
     }
 }

@@ -87,6 +87,7 @@
 		<addForeignKeyConstraint baseTableName="product" baseColumnNames="provider_id" constraintName="fk_product_provider" referencedTableName="provider"
 								 referencedColumnNames="id" onDelete="SET NULL"/>
 	</changeSet>
+
 	<changeSet author="kirill" id="9">
 		<createTable tableName="shop_order">
 			<column autoIncrement="true" name="id" type="int">
@@ -116,4 +117,5 @@
 		</createTable>
 	</changeSet>
 
+<!--	<include file="src/main/resources/db.changelog/db.changelog-initialization-functionsandtriggers.xml" />-->
 </databaseChangeLog>

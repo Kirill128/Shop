@@ -7,6 +7,6 @@
 <!--        <include file="src/main/resources/db.changelog/db.changelog-droptables-test.xml" />-->
 
         <include file="src/main/resources/db.changelog/db.changelog-initialization.xml" />
-    <include file="src/main/resources/db.changelog/db.changelog-set-default-entities.xml" />
+        <include file="src/main/resources/db.changelog/db.changelog-set-default-entities.xml" />
 
 </databaseChangeLog>

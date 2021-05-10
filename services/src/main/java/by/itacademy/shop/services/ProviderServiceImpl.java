@@ -7,14 +7,15 @@ import by.itacademy.shop.api.services.ProviderService;
 import by.itacademy.shop.entities.Provider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class ProviderServiceImpl implements ProviderService {
     private ProviderDao providerDao;
 
-    @Autowired
     public ProviderServiceImpl(ProviderDao providerDao) {
         this.providerDao = providerDao;
     }
@@ -36,7 +37,8 @@ public class ProviderServiceImpl implements ProviderService {
 
     @Override
     public void delete(long id) {
-        this.providerDao.delete(id);
+        Provider provider=this.providerDao.find(id);
+        this.providerDao.delete(provider);
     }
 
     @Override

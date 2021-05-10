@@ -19,4 +19,5 @@ public interface CategoryService {
     void delete(long id);
     List<CategoryDto> getAllCategoriesFullInfo() throws JsonProcessingException;
     List<ParentCategoryDto> getParentCategoriesFullInfo() throws JsonProcessingException;
+    List<CategoryDto> getSubCategoriesFullInfo() throws JsonProcessingException;
 }

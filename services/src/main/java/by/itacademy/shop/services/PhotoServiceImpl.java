@@ -2,43 +2,59 @@ package by.itacademy.shop.services;
 
 import by.itacademy.shop.api.dao.PhotoDao;
 import by.itacademy.shop.api.dto.forall.GuestProductPhotoDto;
-import by.itacademy.shop.api.dto.user.UserDto;
+import by.itacademy.shop.api.mappers.PhotoMapper;
 import by.itacademy.shop.api.services.PhotoService;
-import org.springframework.beans.factory.annotation.Autowired;
+import by.itacademy.shop.entities.Photo;
+import by.itacademy.shop.utils.ImageUploader;
+import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.transaction.Transactional;
+import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 
+@Service
+@Transactional
 public class PhotoServiceImpl implements PhotoService {
+
     private PhotoDao photoDao;
 
-    @Autowired
     public PhotoServiceImpl(PhotoDao photoDao) {
         this.photoDao = photoDao;
     }
 
-
     @Override
-    public GuestProductPhotoDto createPhoto(GuestProductPhotoDto photoDto) {
-        return null;
+    public GuestProductPhotoDto createPhoto( MultipartFile file)throws IOException {
+        String filePath= ImageUploader.updateOrCreateImg(file,null);
+        Photo photo=Photo.builder().url(filePath).build();
+        return PhotoMapper.mapProductPhotoToGuestProductPhotoDto(this.photoDao.create(photo));
     }
 
     @Override
     public GuestProductPhotoDto find(long id) {
-        return null;
-    }
-
-    @Override
-    public void update(UserDto user) {
+        return PhotoMapper.mapProductPhotoToGuestProductPhotoDto(this.photoDao.find(id));
 
     }
 
     @Override
-    public void delete(long id) {
+    public void update(GuestProductPhotoDto photoDto, MultipartFile file) throws IOException {
+        String filePath= ImageUploader.updateOrCreateImg(file,photoDto.getUrl());
+        photoDto.setUrl(filePath);
+        this.photoDao.update(PhotoMapper.mapGuestProductPhotoDtoToPhoto(photoDto));
+    }
 
+    @Override
+    public void delete(long id) throws IOException {
+        Photo foundGuestProdDto=this.photoDao.find(id);
+        Files.deleteIfExists(Paths.get(foundGuestProdDto.getUrl()));
+        Photo photo=this.photoDao.find(id);
+        this.photoDao.delete(photo);
     }
 
     @Override
     public List<GuestProductPhotoDto> getAllPhotos() {
-        return null;
+        return PhotoMapper.mapProductPhotosToGuestProductPhotoDtos(this.photoDao.findAll());
     }
 }

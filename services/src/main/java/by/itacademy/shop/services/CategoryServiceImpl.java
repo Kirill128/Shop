@@ -6,18 +6,19 @@ import by.itacademy.shop.api.dto.admin.CategoryDto;
 import by.itacademy.shop.api.dto.admin.ParentCategoryDto;
 import by.itacademy.shop.api.mappers.CategoryMapper;
 import by.itacademy.shop.api.services.CategoryService;
+import by.itacademy.shop.entities.Category;
 import by.itacademy.shop.locale.Lang;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
 @Service
+@Transactional
 public class CategoryServiceImpl implements CategoryService {
     private CategoryDao categoryDao;
 
-    @Autowired
     public CategoryServiceImpl(CategoryDao categoryDao) {
         this.categoryDao = categoryDao;
     }
@@ -50,11 +51,10 @@ public class CategoryServiceImpl implements CategoryService {
         this.categoryDao.update(CategoryMapper.mapCategoryDtoToCategory(user));
     }
 
-    //TODO: make better with Transactions
     @Override
     public void delete(long id) {
-       this.categoryDao.delete(id);
-
+        Category category=this.categoryDao.find(id);
+       this.categoryDao.delete(category);
     }
 
     @Override
@@ -65,5 +65,10 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public List<ParentCategoryDto> getParentCategoriesFullInfo() throws JsonProcessingException {
         return CategoryMapper.mapCategoriesToParentCategoryDtos(this.categoryDao.getParentCategories());
+    }
+
+    @Override
+    public List<CategoryDto> getSubCategoriesFullInfo() throws JsonProcessingException {
+        return CategoryMapper.mapCategoriesToCategoryDtos(this.categoryDao.getSubcategories());
     }
 }

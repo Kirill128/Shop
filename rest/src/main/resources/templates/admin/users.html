@@ -39,11 +39,11 @@
         <div class="row">
             <div class="col-3 sidebar-nav">
                 <div class="list-group mt-3 mb-3">
-                        <a th:href="@{/users/}" class="list-group-item list-group-item-action active">Users Managment</a>
-                        <a th:href="@{/products/}" class="list-group-item list-group-item-action">Products Managment</a>
-                        <a th:href="@{/providers/}" class="list-group-item list-group-item-action ">Providers Managment</a>
-                        <a th:href="@{/categories/}" class="list-group-item list-group-item-action " >Category Managment</a>
-                        <a th:href="@{/photos/}" class="list-group-item list-group-item-action">Photo Managment</a>
+                        <a th:href="@{/admin/users}" class="list-group-item list-group-item-action active">Users Managment</a>
+                        <a th:href="@{/admin/products}" class="list-group-item list-group-item-action">Products Managment</a>
+                        <a th:href="@{/admin/providers}" class="list-group-item list-group-item-action ">Providers Managment</a>
+                        <a th:href="@{/admin/categories}" class="list-group-item list-group-item-action " >Category Managment</a>
+                        <a th:href="@{/admin/photos}" class="list-group-item list-group-item-action">Photo Managment</a>
                 </div>
             </div>
             <div class="col main-content">
@@ -96,7 +96,6 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <form th:action="@{/users/delete}">
                             <tr th:each="user:${userList}">
                                 <td th:text="${user.id}"></td>
                                 <td th:text="${user.name}"></td>
@@ -104,10 +103,12 @@
                                 <td th:text="${user.phone}"></td>
                                 <td th:text="${user.password}"></td>
                                 <td>
-                                    <input type="submit" class="btn btn-danger">
+                                    <form th:action="@{/admin/users/delete}" method="post">
+                                        <input type="hidden" th:value="${user.id}" th:name="id">
+    1                                   <input type="submit" class="btn btn-danger">
+                                    </form>
                                 </td>
                             </tr>
-                        </form>
                     </tbody>
                 </table>
             </div>

@@ -4,14 +4,18 @@ import by.itacademy.shop.api.dao.RoleDao;
 import by.itacademy.shop.api.dto.user.RoleDto;
 import by.itacademy.shop.api.mappers.RoleMapper;
 import by.itacademy.shop.api.services.RoleService;
+import by.itacademy.shop.entities.Role;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+@Service
+@Transactional
 public class RoleServiceImpl implements RoleService {
     private RoleDao roleDao;
 
-    @Autowired
     public RoleServiceImpl(RoleDao roleDao) {
         this.roleDao = roleDao;
     }
@@ -33,7 +37,8 @@ public class RoleServiceImpl implements RoleService {
 
     @Override
     public void delete(long id) {
-        this.roleDao.delete(id);
+        Role role=this.roleDao.find(id);
+        this.roleDao.delete(role);
     }
 
     @Override

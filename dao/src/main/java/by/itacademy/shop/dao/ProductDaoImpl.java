@@ -19,16 +19,12 @@ public class ProductDaoImpl extends GenericDaoImpl<Product> implements ProductDa
 
     @Override
     public List<Product> getLimitedProductsWithOffset(int pageNumber,int pageSize) {
-        EntityManager entityManager=super.entityManagerFactory.createEntityManager();
-        entityManager.getTransaction().begin();
 
         Query query=entityManager.createQuery("From Product");
         query.setFirstResult((pageNumber-1) * pageSize);
         query.setMaxResults(pageSize);
         List<Product> products=(List<Product>) query.getResultList();
 
-        entityManager.getTransaction().commit();
-        entityManager.close();
         return products;
     }
 

@@ -1,10 +1,10 @@
 package by.itacademy.shop.configuration;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -16,14 +16,16 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
 @Configuration
-@ComponentScan("by.itacademy.shop")
+@ComponentScan("by.itacademy.shop.rest")
+@Import({ServiceConfiguration.class,ShopSecurityConfigurerAdapter.class})
 @EnableWebMvc
 public class RestConfiguration implements WebMvcConfigurer {
     private final ApplicationContext applicationContext;
-    @Autowired
+
     public RestConfiguration(ApplicationContext applicationContext){
         this.applicationContext=applicationContext;
     }
+
     @Bean
     public CommonsMultipartResolver multipartResolver(){
         CommonsMultipartResolver commonsMultipartResolver=new CommonsMultipartResolver();
