@@ -40,6 +40,7 @@
         <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
         <tomcat-dbcp.version>9.0.1</tomcat-dbcp.version>
         <liquibase-core.version>4.3.1</liquibase-core.version>
+        <aspect.version>1.8.9</aspect.version>
     </properties>
 
     <dependencyManagement>

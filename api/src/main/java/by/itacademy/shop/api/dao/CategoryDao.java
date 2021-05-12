@@ -1,5 +1,6 @@
 package by.itacademy.shop.api.dao;
 
+import by.itacademy.shop.api.dto.forall.SimplePage;
 import by.itacademy.shop.entities.Category;
 
 import java.util.List;

@@ -1,5 +1,6 @@
 package by.itacademy.shop.rest;
 
+import by.itacademy.shop.api.annotations.Loggable;
 import by.itacademy.shop.api.constants.Constants;
 import by.itacademy.shop.api.dto.forall.GuestParentCategoryDto;
 import by.itacademy.shop.api.dto.forall.GuestProductDto;
@@ -8,6 +9,7 @@ import by.itacademy.shop.api.dto.forall.SimplePage;
 import by.itacademy.shop.api.services.CategoryService;
 import by.itacademy.shop.api.services.ProductService;
 import by.itacademy.shop.utilenum.SortDirection;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.lang.Nullable;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -29,12 +31,13 @@ public class ProductSearchController {
     }
 
     @GetMapping("/pages/{num}")
+    @Loggable
     public ModelAndView getProductsPageGuest(@PathVariable int num,
                                              @Nullable @RequestParam SortDirection sortDirection,
                                              @Nullable @RequestParam String sortBy,
                                              @Nullable @RequestParam String partOfName,
                                              @Nullable @RequestParam Long categoryId,
-                                             Authentication authentication) {
+                                             Authentication authentication) throws JsonProcessingException {
         ModelAndView modelAndView=new ModelAndView("/product");
         List<GuestParentCategoryDto> categoryDtos=this.categoryService.getParentCategories(Constants.GLOBAL_LANG);
         ProductSearchCriteria productSearchCriteria=ProductSearchCriteria.builder()

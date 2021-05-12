@@ -4,9 +4,11 @@ import  by.itacademy.shop.api.dao.ProductDao;
 import by.itacademy.shop.api.dto.forall.ProductSearchCriteria;
 import by.itacademy.shop.api.dto.forall.SimplePage;
 import by.itacademy.shop.entities.Product;
+import by.itacademy.shop.utilenum.Lang;
 import by.itacademy.shop.utilenum.SortDirection;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -18,15 +20,14 @@ import java.util.Objects;
 
 
 @Repository
-
 public class ProductDaoImpl extends GenericDaoImpl<Product> implements ProductDao{
 
     public ProductDaoImpl() {
         super(Product.class);
     }
 
-    @Override
-    public SimplePage<Product> getProductsPageByCriteria(ProductSearchCriteria productSearchCriteria) {
+//    @Override
+    public SimplePage<Product> getProductsPageByCriteriaD(ProductSearchCriteria productSearchCriteria) {
         CriteriaBuilder criteriaBuilder=entityManager.getCriteriaBuilder();
         CriteriaQuery<Product> cq=criteriaBuilder.createQuery(Product.class);
         Root<Product> root=cq.from(Product.class);
@@ -82,4 +83,24 @@ public class ProductDaoImpl extends GenericDaoImpl<Product> implements ProductDa
         return entityManager.createQuery(countQuery).getSingleResult();
     }
 
+    @Override
+    public SimplePage<Product> getProductsPageByCriteria(ProductSearchCriteria productSearchCriteria, Lang lang){
+        StringBuilder resultQuery=new StringBuilder(30);
+
+        resultQuery.append("SELECT * FROM product AS p");
+        String wherePart="where p.short_description ->> '"+lang.value+"' like '%"+productSearchCriteria.getPartOfName()+"%'";
+        if(productSearchCriteria.getPartOfName()!=null)resultQuery.append(wherePart);
+
+        if(productSearchCriteria.getSortBy()!=null && productSearchCriteria.getSortDirection()!=null) {
+            resultQuery.append(" order by p." + productSearchCriteria.getSortBy() + " ");
+            resultQuery.append((productSearchCriteria.getSortDirection().equals(SortDirection.INCREASE)) ? "asc" : "desc");
+        }
+
+        resultQuery.append(" LIMIT "+productSearchCriteria.getPageSize());
+        resultQuery.append(" OFFSET "+(productSearchCriteria.getPageNum()*productSearchCriteria.getPageSize()));
+        resultQuery.append(";");
+        Query query= entityManager.createNativeQuery(resultQuery.toString());
+//        long allCount=() ? entityManager.createQuery("select count(p.id) from Product p "+wherePart).getFirstResult();
+        return new SimplePage<>(query.getResultList(),-1);
+    }
 }

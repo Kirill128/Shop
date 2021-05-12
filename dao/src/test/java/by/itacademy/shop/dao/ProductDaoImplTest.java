@@ -68,11 +68,11 @@ class ProductDaoImplTest {
 
     @Test
     public void getLimitedProductsWithOffset() {
-        ProductDao productDao=new ProductDaoImpl();
-        SimplePage<Product> productList=productDao.getProductsPageByCriteria(ProductSearchCriteria.builder()
-                .pageSize(10)
-                .pageNum(1)
-                .build());
+//        ProductDao productDao=new ProductDaoImpl();
+//        SimplePage<Product> productList=productDao.getProductsPageByCriteria(ProductSearchCriteria.builder()
+//                .pageSize(10)
+//                .pageNum(1)
+//                .build());
 
     }
 

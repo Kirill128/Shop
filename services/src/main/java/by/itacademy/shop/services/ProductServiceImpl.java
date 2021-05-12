@@ -1,5 +1,6 @@
 package by.itacademy.shop.services;
 
+import by.itacademy.shop.api.annotations.Loggable;
 import by.itacademy.shop.api.dao.ProductDao;
 import by.itacademy.shop.api.dto.forall.GuestProductDto;
 import by.itacademy.shop.api.dto.admin.ProductDto;
@@ -20,7 +21,6 @@ import java.util.*;
 
 @Service
 @Transactional
-
 public class ProductServiceImpl implements ProductService {
     private ProductDao productDao;
 
@@ -41,9 +41,10 @@ public class ProductServiceImpl implements ProductService {
 
 
     }
+    @Loggable
     @Override
     public SimplePage<GuestProductDto> getProductsPageByCriteria(ProductSearchCriteria searchCriteria, Lang lang) {
-        SimplePage<Product> oldPage=this.productDao.getProductsPageByCriteria(searchCriteria);
+        SimplePage<Product> oldPage=this.productDao.getProductsPageByCriteria(searchCriteria,lang);
         SimplePage<GuestProductDto> newPage=new SimplePage<>();
         newPage.setCountInDb(oldPage.getCountInDb());
         newPage.setResults(ProductMapper.mapProductsToGuestProductDtos(oldPage.getResults(),lang));
@@ -59,9 +60,10 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public SimplePage<ProductDto> getProductsPageByCriteria(ProductSearchCriteria searchCriteria) throws JsonProcessingException {
+    @Loggable
+    public SimplePage<ProductDto> getProductsPageByCriteriaAdmin(ProductSearchCriteria searchCriteria,Lang lang) throws JsonProcessingException {
 
-        SimplePage<Product> daoPage=this.productDao.getProductsPageByCriteria(searchCriteria);
+        SimplePage<Product> daoPage=this.productDao.getProductsPageByCriteria(searchCriteria,lang);
         SimplePage<ProductDto> newPage=new SimplePage<>();
         newPage.setResults(ProductMapper.mapProductsToProductDtos(daoPage.getResults()));
         newPage.setCountInDb(daoPage.getCountInDb());

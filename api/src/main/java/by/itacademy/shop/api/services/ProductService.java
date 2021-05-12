@@ -23,7 +23,7 @@ public interface ProductService {
     ProductDto createProduct(ProductDto user) throws JsonProcessingException;
     ProductDto findFullInfo(long id) throws JsonProcessingException;
     List<ProductDto> getAllProducts() throws JsonProcessingException;
-    SimplePage<ProductDto> getProductsPageByCriteria(ProductSearchCriteria productSearchCriteria) throws JsonProcessingException;
+    SimplePage<ProductDto> getProductsPageByCriteriaAdmin(ProductSearchCriteria productSearchCriteria,Lang lang) throws JsonProcessingException;
     void update(ProductDto user) throws JsonProcessingException;
     void delete(long id);
     List<ProductDto> parseXLSOrXlSXFile(MultipartFile file,Lang lang) throws IOException;
