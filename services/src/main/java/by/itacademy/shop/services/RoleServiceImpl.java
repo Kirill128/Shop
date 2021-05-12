@@ -31,6 +31,11 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
+    public RoleDto findByName(String name) {
+        return RoleMapper.mapRoleToRoleDto(this.roleDao.findByName(name));
+    }
+
+    @Override
     public void update(RoleDto roleDto) {
         this.roleDao.update(RoleMapper.mapRoleDtoToRole(roleDto));
     }

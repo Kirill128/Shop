@@ -1,4 +1,4 @@
-package by.itacademy.shop.locale;
+package by.itacademy.shop.utilenum;
 
 public enum Lang {
     RU("RU"),

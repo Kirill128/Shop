@@ -3,19 +3,14 @@ package by.itacademy.shop.services;
 import by.itacademy.shop.api.dao.ProductDao;
 import by.itacademy.shop.api.dto.forall.GuestProductDto;
 import by.itacademy.shop.api.dto.admin.ProductDto;
+import by.itacademy.shop.api.dto.forall.ProductSearchCriteria;
+import by.itacademy.shop.api.dto.forall.SimplePage;
 import by.itacademy.shop.api.mappers.ProductMapper;
 import by.itacademy.shop.api.services.ProductService;
 import by.itacademy.shop.entities.Product;
-import by.itacademy.shop.locale.Lang;
+import by.itacademy.shop.utilenum.Lang;
 import by.itacademy.shop.utils.ExelFilesWorker;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -47,8 +42,12 @@ public class ProductServiceImpl implements ProductService {
 
     }
     @Override
-    public List<GuestProductDto> getLimitedProductsWithOffset(int pageNum, int pageSize, Lang lang) {
-        return ProductMapper.mapProductsToGuestProductDtos(this.productDao.getLimitedProductsWithOffset(pageNum,pageSize),lang);
+    public SimplePage<GuestProductDto> getProductsPageByCriteria(ProductSearchCriteria searchCriteria, Lang lang) {
+        SimplePage<Product> oldPage=this.productDao.getProductsPageByCriteria(searchCriteria);
+        SimplePage<GuestProductDto> newPage=new SimplePage<>();
+        newPage.setCountInDb(oldPage.getCountInDb());
+        newPage.setResults(ProductMapper.mapProductsToGuestProductDtos(oldPage.getResults(),lang));
+        return newPage;
     }
 
     //----------------------------------Admin ---------------------------------------------------
@@ -60,8 +59,14 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<ProductDto> getLimitedProductsWithOffset(int pageNum, int pageSize) throws JsonProcessingException {
-        return ProductMapper.mapProductsToProductDtos(this.productDao.getLimitedProductsWithOffset(pageNum,pageSize));
+    public SimplePage<ProductDto> getProductsPageByCriteria(ProductSearchCriteria searchCriteria) throws JsonProcessingException {
+
+        SimplePage<Product> daoPage=this.productDao.getProductsPageByCriteria(searchCriteria);
+        SimplePage<ProductDto> newPage=new SimplePage<>();
+        newPage.setResults(ProductMapper.mapProductsToProductDtos(daoPage.getResults()));
+        newPage.setCountInDb(daoPage.getCountInDb());
+
+        return newPage;
     }
     @Override
     public void update(ProductDto product) throws JsonProcessingException {

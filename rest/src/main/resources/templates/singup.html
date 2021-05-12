@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{static/css/my/signinsignup.css}">
+    <title>Sing UP</title>
+</head>
+<body>
+    <div class="container">
+        <div class="container__body">
+<!--            <div class="container__login">    -->
+<!--                <div class="container__title title">Sign In</div>-->
+
+<!--                <form action="/login" method="post">-->
+<!--                    <div class="container__input">-->
+<!--                        <div class="input-login">-->
+<!--                            <div class="input-login__title title">Input Email</div>-->
+<!--                            <input type="text" id="username" name="username" required autofocus>-->
+<!--                        </div>-->
+<!--                        <div class="input-passwd">-->
+<!--                            <div class="input-passwd__title title">Input Password</div>-->
+<!--                            <input type="password" id="password" name="password" required >-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    <button type="button" class="btn btn-primary">Log In</button>-->
+<!--                </form>-->
+
+<!--            </div>-->
+            <div class="container__signup">    
+                <div class="container__title title">Sign Up</div>
+                <form th:action="@{/user/create}" method="post">
+                    <div class="container__input ">
+                        <div class="input-login">
+                            <div class="input-login__title title">Input Email</div>
+                            <input type="email" th:value="${newUser.email}" th:name="email" required>
+                        </div>
+                        <div class="input-passwd">
+                            <div class="input-passwd__title title">Input Password</div>
+                            <input type="password" th:value="${newUser.password}" th:name="password" required>
+                        </div>
+                        <div class="input-email">
+                            <div class="input-email__title title">Input Name</div>
+                            <input type="text" th:value="${newUser.name}" th:name="name" required>
+                        </div>
+                        <div class="input-email">
+                            <div class="input-email__title title">Input Phone</div>
+                            <input type="tel" th:value="${newUser.phone}" th:name="phone" required>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Sign Up</button>
+                </form>
+            </div>
+            <div class="container__invite"></div>
+        </div>    
+    </div>
+</body>
+</html>

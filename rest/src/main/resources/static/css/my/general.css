@@ -43,12 +43,18 @@ a{
     grid-column:1/2;
     justify-self:right;
 }
+.user__info {
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+}
 .user__name {
     text-align: left;
     padding: 5px 0px 0px 20px;
-    font-size: 18px;
     text-transform: uppercase;
-
+}
+.user__account a :hover{
+    color:black;
 }
 .header__menu {
 }

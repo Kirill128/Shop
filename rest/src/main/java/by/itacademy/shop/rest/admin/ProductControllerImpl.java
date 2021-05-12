@@ -1,5 +1,6 @@
 package by.itacademy.shop.rest.admin;
 
+import by.itacademy.shop.api.constants.Constants;
 import by.itacademy.shop.api.dto.admin.*;
 import by.itacademy.shop.api.dto.forall.GuestParentCategoryDto;
 import by.itacademy.shop.api.dto.forall.GuestProductDto;
@@ -38,7 +39,7 @@ public class ProductControllerImpl {
         List<CategoryDto> subCategories=this.categoryService.getSubCategoriesFullInfo();
         List<ProviderDto> providerDtos=this.providerService.getAllProviders();
 
-        ModelAndView modelAndView=new ModelAndView("/admin/products");
+        ModelAndView modelAndView=new ModelAndView(Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS);
 
         modelAndView.addObject("products",productDtos);
         modelAndView.addObject("subCategories",subCategories);
@@ -50,7 +51,7 @@ public class ProductControllerImpl {
 
     @PostMapping(value="/upload-file")
     public ModelAndView uploadProductsFile(@ModelAttribute ProductDto defValues, @RequestParam("exelFile") MultipartFile exelFile) throws IOException {
-        List<ProductDto> productDtos=this.productService.parseXLSOrXlSXFile(exelFile, MainController.GLOBAL_LANG);
+        List<ProductDto> productDtos=this.productService.parseXLSOrXlSXFile(exelFile, Constants.GLOBAL_LANG);
         List<CategoryDto> subCategories=this.categoryService.getSubCategoriesFullInfo();
         List<ProviderDto> providerDtos=this.providerService.getAllProviders();
         for(ProductDto productDto : productDtos){
@@ -58,10 +59,10 @@ public class ProductControllerImpl {
             productDto.setProviderId(defValues.getProviderId());
         }
         ListProductDtos list=new ListProductDtos(productDtos);
-        ModelAndView modelAndView=new ModelAndView("/admin/uploadfile");
+        ModelAndView modelAndView=new ModelAndView(Constants.ROLE_ADMIN_ACCOUNT_UPLOAD_FILE);
 
         modelAndView.addObject("listProductDtos",list);
-        modelAndView.addObject("lang",MainController.GLOBAL_LANG);
+        modelAndView.addObject("lang",Constants.GLOBAL_LANG);
         modelAndView.addObject("subCategories",subCategories);
         modelAndView.addObject("providers",providerDtos);
 
@@ -72,26 +73,26 @@ public class ProductControllerImpl {
     public ModelAndView createProduct(@ModelAttribute ProductDto product,@RequestParam("imgPrCr") MultipartFile img) throws IOException {
         this.photoService.createPhoto(img);
         this.productService.createProduct(product);
-        return new ModelAndView("redirect:/admin/products");
+        return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS);
     }
 
     @PostMapping("/create/list")
     public ModelAndView createProduct(@ModelAttribute ListProductDtos products) throws JsonProcessingException {
         this.productService.createProducts(products.getProductDtoList());
-        return new ModelAndView("redirect:/admin/products");
+        return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS);
     }
 
 
     @PostMapping("/update")
     public ModelAndView update(@ModelAttribute ProductDto product) throws JsonProcessingException {
         this.productService.update(product);
-        return new ModelAndView("redirect:/admin/products");
+        return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS);
     }
 
     @PostMapping("/delete")
     public ModelAndView delete(@ModelAttribute ProductDto product){
         this.productService.delete(product.getId());
-        return new ModelAndView("redirect:/admin/products");
+        return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS);
     }
 
     @InitBinder

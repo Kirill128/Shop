@@ -27,6 +27,7 @@ public class ShopSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter 
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .and()
                 .formLogin()
+                .defaultSuccessUrl("/")
                 .and()
                 .logout().logoutSuccessUrl("/");
     }

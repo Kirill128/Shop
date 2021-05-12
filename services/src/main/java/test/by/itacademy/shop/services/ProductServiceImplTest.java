@@ -3,13 +3,11 @@ package test.by.itacademy.shop.services;
 import by.itacademy.shop.api.dao.ProductDao;
 import by.itacademy.shop.api.services.ProductService;
 import by.itacademy.shop.dao.ProductDaoImpl;
-import by.itacademy.shop.locale.Lang;
+import by.itacademy.shop.utilenum.Lang;
 import by.itacademy.shop.services.ProductServiceImpl;
 import org.junit.Test;
 import org.junit.Before; 
 import org.junit.After;
-
-import java.io.FileInputStream;
 
 /** 
 * ProductServiceImpl Tester. 

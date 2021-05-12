@@ -11,7 +11,7 @@
 			</column>
 			<column name="name" type="VARCHAR(255)"/>
 			<column name="email" type="VARCHAR(255)" >
-				<constraints nullable="false"/>
+				<constraints nullable="false" />
 			</column>
 			<column name="phone" type="VARCHAR(255)"/>
 			<column name="password" type="VARCHAR(255)" >
@@ -86,6 +86,7 @@
 								 referencedColumnNames="id" onDelete="SET DEFAULT"/>
 		<addForeignKeyConstraint baseTableName="product" baseColumnNames="provider_id" constraintName="fk_product_provider" referencedTableName="provider"
 								 referencedColumnNames="id" onDelete="SET NULL"/>
+
 	</changeSet>
 
 	<changeSet author="kirill" id="9">

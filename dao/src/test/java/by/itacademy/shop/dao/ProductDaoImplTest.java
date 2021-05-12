@@ -4,9 +4,9 @@ import by.itacademy.shop.api.dao.CategoryDao;
 import by.itacademy.shop.api.dao.PhotoDao;
 import by.itacademy.shop.api.dao.ProductDao;
 import by.itacademy.shop.api.dao.ProviderDao;
-import by.itacademy.shop.entities.Photo;
+import by.itacademy.shop.api.dto.forall.ProductSearchCriteria;
+import by.itacademy.shop.api.dto.forall.SimplePage;
 import by.itacademy.shop.entities.Product;
-import by.itacademy.shop.locale.Lang;
 import org.junit.jupiter.api.Test;
 
 import javax.transaction.Transactional;
@@ -69,8 +69,10 @@ class ProductDaoImplTest {
     @Test
     public void getLimitedProductsWithOffset() {
         ProductDao productDao=new ProductDaoImpl();
-        List<Product> productList=productDao.getLimitedProductsWithOffset(1,10);
-        productList.stream().forEach(System.out::println);
+        SimplePage<Product> productList=productDao.getProductsPageByCriteria(ProductSearchCriteria.builder()
+                .pageSize(10)
+                .pageNum(1)
+                .build());
 
     }
 

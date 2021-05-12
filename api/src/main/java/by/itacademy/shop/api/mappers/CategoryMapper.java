@@ -5,7 +5,7 @@ import by.itacademy.shop.api.dto.forall.GuestSubCategoryDto;
 import by.itacademy.shop.api.dto.admin.CategoryDto;
 import by.itacademy.shop.api.dto.admin.ParentCategoryDto;
 import by.itacademy.shop.entities.Category;
-import by.itacademy.shop.locale.Lang;
+import by.itacademy.shop.utilenum.Lang;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

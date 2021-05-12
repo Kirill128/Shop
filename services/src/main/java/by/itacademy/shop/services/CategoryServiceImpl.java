@@ -7,7 +7,7 @@ import by.itacademy.shop.api.dto.admin.ParentCategoryDto;
 import by.itacademy.shop.api.mappers.CategoryMapper;
 import by.itacademy.shop.api.services.CategoryService;
 import by.itacademy.shop.entities.Category;
-import by.itacademy.shop.locale.Lang;
+import by.itacademy.shop.utilenum.Lang;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

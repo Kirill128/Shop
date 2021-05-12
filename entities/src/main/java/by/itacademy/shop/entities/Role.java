@@ -21,11 +21,4 @@ public class Role extends GenericEntity<Long>{
     @ManyToMany(fetch = FetchType.LAZY,mappedBy = "roles",cascade = CascadeType.REMOVE)
     private List<User> users;
 
-    @Override
-    public String toString() {
-        return "Role{" +
-                "id=" + id +
-                ", name='" + name +
-                '}';
-    }
 }

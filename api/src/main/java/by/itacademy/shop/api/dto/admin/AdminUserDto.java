@@ -1,5 +1,6 @@
-package by.itacademy.shop.api.dto.user;
+package by.itacademy.shop.api.dto.admin;
 
+import by.itacademy.shop.api.dto.user.RoleDto;
 import lombok.*;
 
 import java.util.List;
@@ -9,7 +10,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDto {
+public class AdminUserDto {
         private Long id;
         private String name;
         private String email;

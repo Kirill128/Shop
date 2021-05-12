@@ -31,12 +31,6 @@ public class AdminUserControllerImpl {
         return modelAndView;
     }
 
-    @PostMapping("/create")
-    public ModelAndView createUser(UserDto user){
-        ModelAndView modelAndView=new ModelAndView();
-
-        return modelAndView;
-    }
 
     @PostMapping("/update")
     public ModelAndView update(@RequestBody UserDto user){

@@ -2,7 +2,7 @@ package by.itacademy.shop.api.mappers;
 
 import by.itacademy.shop.api.dto.user.ProductOrderDto;
 import by.itacademy.shop.entities.ProductOrder;
-import by.itacademy.shop.locale.Lang;
+import by.itacademy.shop.utilenum.Lang;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
