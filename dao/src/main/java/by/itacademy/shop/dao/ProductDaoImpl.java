@@ -1,11 +1,17 @@
 package by.itacademy.shop.dao;
 
+import by.itacademy.shop.api.dao.CategoryDao;
+import by.itacademy.shop.api.dao.PhotoDao;
 import  by.itacademy.shop.api.dao.ProductDao;
+import by.itacademy.shop.api.dao.ProviderDao;
 import by.itacademy.shop.api.dto.forall.ProductSearchCriteria;
 import by.itacademy.shop.api.dto.forall.SimplePage;
 import by.itacademy.shop.entities.Product;
 import by.itacademy.shop.utilenum.Lang;
 import by.itacademy.shop.utilenum.SortDirection;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.Query;
@@ -14,17 +20,30 @@ import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.math.BigDecimal;
+import java.util.*;
 
 
 @Repository
+@Slf4j
 public class ProductDaoImpl extends GenericDaoImpl<Product> implements ProductDao{
 
-    public ProductDaoImpl() {
+    private CategoryDao categoryDao;
+    private ProviderDao providerDao;
+    private PhotoDao photoDao;
+
+    public ProductDaoImpl( CategoryDao categoryDao, ProviderDao providerDao, PhotoDao photoDao) {
         super(Product.class);
+        this.categoryDao = categoryDao;
+        this.providerDao = providerDao;
+        this.photoDao = photoDao;
     }
+
+//    public ProductDaoImpl() {
+//        super(Product.class);
+//    }
+
+
 
 //    @Override
     public SimplePage<Product> getProductsPageByCriteriaD(ProductSearchCriteria productSearchCriteria) {
@@ -85,7 +104,8 @@ public class ProductDaoImpl extends GenericDaoImpl<Product> implements ProductDa
 
     @Override
     public SimplePage<Product> getProductsPageByCriteria(ProductSearchCriteria productSearchCriteria, Lang lang){
-        StringBuilder resultQuery=new StringBuilder(30);
+
+        StringBuilder resultQuery=new StringBuilder(40);
 
         resultQuery.append("SELECT * FROM product AS p");
         String wherePart="where p.short_description ->> '"+lang.value+"' like '%"+productSearchCriteria.getPartOfName()+"%'";
@@ -101,6 +121,33 @@ public class ProductDaoImpl extends GenericDaoImpl<Product> implements ProductDa
         resultQuery.append(";");
         Query query= entityManager.createNativeQuery(resultQuery.toString());
 //        long allCount=() ? entityManager.createQuery("select count(p.id) from Product p "+wherePart).getFirstResult();
-        return new SimplePage<>(query.getResultList(),-1);
+        return new SimplePage<>(castList(query.getResultList()),-1);
+    }
+    private List<Product> castList(List<Object> source) {
+        List<Product> result = new ArrayList<>(source.size());
+        ObjectMapper objectMapper=new ObjectMapper();
+        Iterator itr = source.iterator();
+            while (itr.hasNext()) {
+                try{
+
+                    Object[] obj = (Object[]) itr.next();
+                    result.add(Product.builder()
+                            .id(Long.valueOf((Integer)obj[0]))
+                            .shortDescription((objectMapper.readValue(objectMapper.writeValueAsString(obj[1]),new TypeReference<HashMap<String, String>>(){})))
+                            .barcode((String)obj[2])
+                            .quantityInStorage((Integer) obj[3])
+                            .price(((BigDecimal)obj[4]).doubleValue())
+                            .attributes((objectMapper.readValue(objectMapper.writeValueAsString(obj[5]),new TypeReference<HashMap<String, String>>(){})))
+                            .category((obj[6]!=null)?this.categoryDao.find(Long.valueOf((Integer)obj[6])):null)
+                            .photo((obj[7]!=null)?this.photoDao.find(Long.valueOf((Integer)obj[7])):null)
+                            .provider((obj[8]!=null)?this.providerDao.find(Long.valueOf((Integer)obj[8])):null)
+                            .build()
+                    );
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+
+        return result;
     }
 }

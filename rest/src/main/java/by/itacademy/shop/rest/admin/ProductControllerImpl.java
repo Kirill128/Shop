@@ -1,14 +1,12 @@
 package by.itacademy.shop.rest.admin;
 
+import by.itacademy.shop.api.annotations.ExceptionCatchable;
 import by.itacademy.shop.api.constants.Constants;
 import by.itacademy.shop.api.dto.admin.*;
-import by.itacademy.shop.api.dto.forall.GuestParentCategoryDto;
-import by.itacademy.shop.api.dto.forall.GuestProductDto;
 import by.itacademy.shop.api.services.CategoryService;
 import by.itacademy.shop.api.services.PhotoService;
 import by.itacademy.shop.api.services.ProductService;
 import by.itacademy.shop.api.services.ProviderService;
-import by.itacademy.shop.rest.MainController;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
@@ -34,6 +32,7 @@ public class ProductControllerImpl {
     }
 
     @GetMapping
+    @ExceptionCatchable
     public ModelAndView findAllProductsFullInfo() throws JsonProcessingException {
         List<ProductDto> productDtos=this.productService.getAllProducts();
         List<CategoryDto> subCategories=this.categoryService.getSubCategoriesFullInfo();
@@ -50,6 +49,7 @@ public class ProductControllerImpl {
     }
 
     @PostMapping(value="/upload-file")
+    @ExceptionCatchable
     public ModelAndView uploadProductsFile(@ModelAttribute ProductDto defValues, @RequestParam("exelFile") MultipartFile exelFile) throws IOException {
         List<ProductDto> productDtos=this.productService.parseXLSOrXlSXFile(exelFile, Constants.GLOBAL_LANG);
         List<CategoryDto> subCategories=this.categoryService.getSubCategoriesFullInfo();
@@ -70,6 +70,7 @@ public class ProductControllerImpl {
     }
 
     @PostMapping("/create")
+    @ExceptionCatchable
     public ModelAndView createProduct(@ModelAttribute ProductDto product,@RequestParam("imgPrCr") MultipartFile img) throws IOException {
         this.photoService.createPhoto(img);
         this.productService.createProduct(product);
@@ -77,6 +78,7 @@ public class ProductControllerImpl {
     }
 
     @PostMapping("/create/list")
+    @ExceptionCatchable
     public ModelAndView createProduct(@ModelAttribute ListProductDtos products) throws JsonProcessingException {
         this.productService.createProducts(products.getProductDtoList());
         return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS);
@@ -84,12 +86,14 @@ public class ProductControllerImpl {
 
 
     @PostMapping("/update")
+    @ExceptionCatchable
     public ModelAndView update(@ModelAttribute ProductDto product) throws JsonProcessingException {
         this.productService.update(product);
         return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS);
     }
 
     @PostMapping("/delete")
+    @ExceptionCatchable
     public ModelAndView delete(@ModelAttribute ProductDto product){
         this.productService.delete(product.getId());
         return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS);

@@ -6,7 +6,6 @@ import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -17,7 +16,7 @@ import java.util.Properties;
 
 
 @Configuration
-@ComponentScan("by.itacademy.shop.dao")
+@ComponentScan(basePackages = {"by.itacademy.shop.dao","by.itacademy.shop.api"})
 @EnableTransactionManagement
 @EnableAspectJAutoProxy
 @PropertySource(value = "classpath:/META-INF/persistence.properties")

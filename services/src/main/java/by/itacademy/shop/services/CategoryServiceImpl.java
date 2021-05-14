@@ -1,6 +1,6 @@
 package by.itacademy.shop.services;
 
-import by.itacademy.shop.api.annotations.Loggable;
+import by.itacademy.shop.api.annotations.ExceptionCatchable;
 import by.itacademy.shop.api.dao.CategoryDao;
 import by.itacademy.shop.api.dto.forall.GuestParentCategoryDto;
 import by.itacademy.shop.api.dto.admin.CategoryDto;
@@ -31,7 +31,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    @Loggable
+    @ExceptionCatchable
     public List<GuestParentCategoryDto> getParentCategories(Lang lang) {
         return CategoryMapper.mapCategoriesToGuestCategoryDtos(this.categoryDao.getParentCategories(),lang);
     }

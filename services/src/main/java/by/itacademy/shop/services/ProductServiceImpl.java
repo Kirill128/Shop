@@ -1,6 +1,5 @@
 package by.itacademy.shop.services;
 
-import by.itacademy.shop.api.annotations.Loggable;
 import by.itacademy.shop.api.dao.ProductDao;
 import by.itacademy.shop.api.dto.forall.GuestProductDto;
 import by.itacademy.shop.api.dto.admin.ProductDto;
@@ -41,7 +40,6 @@ public class ProductServiceImpl implements ProductService {
 
 
     }
-    @Loggable
     @Override
     public SimplePage<GuestProductDto> getProductsPageByCriteria(ProductSearchCriteria searchCriteria, Lang lang) {
         SimplePage<Product> oldPage=this.productDao.getProductsPageByCriteria(searchCriteria,lang);
@@ -60,7 +58,6 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    @Loggable
     public SimplePage<ProductDto> getProductsPageByCriteriaAdmin(ProductSearchCriteria searchCriteria,Lang lang) throws JsonProcessingException {
 
         SimplePage<Product> daoPage=this.productDao.getProductsPageByCriteria(searchCriteria,lang);
