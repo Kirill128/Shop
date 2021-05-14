@@ -16,7 +16,7 @@ import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 
 @Configuration
-@ComponentScan("by.itacademy.shop.rest")
+@ComponentScan(basePackages = {"by.itacademy.shop.rest","by.itacademy.shop.aspects"})
 @Import({ServiceConfiguration.class,ShopSecurityConfigurerAdapter.class})
 @EnableWebMvc
 public class RestConfiguration implements WebMvcConfigurer {

@@ -1,19 +1,12 @@
 package by.itacademy.shop.rest;
 
-import by.itacademy.shop.api.constants.Constants;
-import by.itacademy.shop.api.dto.forall.GuestParentCategoryDto;
-import by.itacademy.shop.api.dto.forall.GuestProductDto;
-import by.itacademy.shop.api.dto.forall.ProductSearchCriteria;
-import by.itacademy.shop.api.dto.forall.SimplePage;
 import by.itacademy.shop.api.dto.user.UserDto;
 import by.itacademy.shop.api.services.CategoryService;
 import by.itacademy.shop.api.services.ProductService;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("/")
@@ -30,6 +23,11 @@ public class MainController {
     @GetMapping
     public ModelAndView getMainPage(Authentication authentication){
         return new ModelAndView("redirect:/products/pages/1");
+    }
+
+    @GetMapping("/errors/404")
+    public ModelAndView getNoPagesFount(){
+        return new ModelAndView("/errors/404");
     }
 
     @GetMapping("/sing-up")
