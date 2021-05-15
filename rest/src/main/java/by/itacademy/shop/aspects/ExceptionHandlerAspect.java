@@ -18,24 +18,13 @@ import java.util.Arrays;
 public class ExceptionHandlerAspect {
 
     @Pointcut("@annotation(by.itacademy.shop.api.annotations.ExceptionCatchable)")
-    public void makeLog(){}
+    public void catchExc(){}
 
-    @Around("makeLog()")
+    @Around("catchExc()")
     public Object logAroundAdvise(ProceedingJoinPoint joinPoint) {
-
-//        log.info("\n\n\n\n"+joinPoint.getSignature()+" was executed !!!!! ARGS:"+ Arrays.toString(joinPoint.getArgs())+"\n\n\n\n");
-        System.out.println("\n\n"+joinPoint.getSignature()+" was executed !!!!! ARGS:"+ Arrays.toString(joinPoint.getArgs())+"\n\n");
         try {
            Object o;
            o = joinPoint.proceed();
-           if(o instanceof ModelAndView){
-               ModelAndView returned=(ModelAndView)o;
-               System.out.println("RETURN ModelAndView");
-               System.out.println("MODEL MAP: "+(returned.getModelMap()));
-               System.out.println("VIEW: "+(returned.getViewName()));
-           }else{
-               System.out.println("UNKNOWN RETURNED VALUE!");
-           }
            return o;
         }
         catch(JsonProcessingException e){
@@ -52,8 +41,6 @@ public class ExceptionHandlerAspect {
             System.out.println(e.getMessage());
             e.printStackTrace();
             return new ModelAndView("/errors/500");
-//            log.error("ERROR WAS MADE!!!!!!!!!!!!!");
-//            log.error(e.getMessage());
         }
     }
 }

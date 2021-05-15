@@ -1,5 +1,6 @@
 package by.itacademy.shop.api.dto.forall;
 
+import java.util.List;
 import java.util.Map;
 
 import by.itacademy.shop.utilenum.SortDirection;
@@ -19,6 +20,7 @@ public class ProductSearchCriteria {
 
     private Map<String,String> attributesCriteria;
     private String partOfName;
+    private List<String> partsOfName;
     private Long categoryId;
 
 }

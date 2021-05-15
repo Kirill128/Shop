@@ -1,5 +1,6 @@
 package by.itacademy.shop.rest;
 
+import by.itacademy.shop.api.annotations.Loggable;
 import by.itacademy.shop.api.constants.Constants;
 import by.itacademy.shop.api.dto.forall.GuestParentCategoryDto;
 import by.itacademy.shop.api.dto.forall.GuestProductDto;
@@ -29,32 +30,29 @@ public class ProductSearchController {
     }
 
     @GetMapping("/pages/{num}")
+    @Loggable
     public ModelAndView getProductsPageGuest(@PathVariable int num,
-                                             @Nullable @RequestParam SortDirection sortDirection,
-                                             @Nullable @RequestParam String sortBy,
-                                             @Nullable @RequestParam String partOfName,
-                                             @Nullable @RequestParam Long categoryId,
+                                             @Nullable @RequestParam Long category_id,
+                                             ProductSearchCriteria fromFrontSearchCriteria,
                                              Authentication authentication) {
         ModelAndView modelAndView=new ModelAndView("/product");
         List<GuestParentCategoryDto> categoryDtos=this.categoryService.getParentCategories(Constants.GLOBAL_LANG);
-        ProductSearchCriteria productSearchCriteria=ProductSearchCriteria.builder()
-                .pageNum(num)
-                .pageSize(Constants.PRODUCT_PAGE_SIZE)
-                .categoryId(categoryId)
-                .sortBy(sortBy)
-                .sortDirection(sortDirection)
-                .partOfName(partOfName)
-                .build();
-        SimplePage<GuestProductDto> simplePage=this.productService.getProductsPageByCriteria(productSearchCriteria,Constants.GLOBAL_LANG);
+
+        if(category_id!=null)fromFrontSearchCriteria.setCategoryId(category_id);
+        fromFrontSearchCriteria.setPageNum(num);
+        fromFrontSearchCriteria.setPageSize(Constants.PRODUCT_PAGE_SIZE);
+
+        SimplePage<GuestProductDto> simplePage=this.productService.getProductsPageByCriteria(fromFrontSearchCriteria,Constants.GLOBAL_LANG);
         modelAndView.addObject("products",simplePage.getResults());
         modelAndView.addObject("allProdCount",simplePage.getCountInDb());
         modelAndView.addObject("categories",categoryDtos);
-        modelAndView.addObject("searchCriteria",productSearchCriteria);
-
+        modelAndView.addObject("searchCriteria",fromFrontSearchCriteria);
+        //TODO: send category_id to thymleaf product!!!
         this.changeModelAndViewIfAuth(modelAndView,authentication);
 
         return modelAndView;
     }
+    //TODO: make in thymleaf
     private void changeModelAndViewIfAuth(ModelAndView modelAndView,Authentication authentication){
         boolean isAuth;
         if(authentication==null)isAuth=false;

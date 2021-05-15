@@ -42,6 +42,7 @@ public class ProductServiceImpl implements ProductService {
     }
     @Override
     public SimplePage<GuestProductDto> getProductsPageByCriteria(ProductSearchCriteria searchCriteria, Lang lang) {
+//        searchCriteria.setPartsOfName(searchCriteria.getPartOfName().split());
         SimplePage<Product> oldPage=this.productDao.getProductsPageByCriteria(searchCriteria,lang);
         SimplePage<GuestProductDto> newPage=new SimplePage<>();
         newPage.setCountInDb(oldPage.getCountInDb());

@@ -33,23 +33,4 @@ public enum Status  {
         return Optional.ofNullable(LOOKUP.get(value)).orElseThrow(()->new IllegalArgumentException("Unknown value "+value));
     }
 }
-//<changeSet id="4" author="kirill">
-//        <insert tableName="status">
-//            <column name="description" value='{"RU":"Оплачено"}'/>
-//        </insert>
-//        <insert tableName="status">
-//            <column name="description" value='{"RU":"Ожидается оплата"}'/>
-//        </insert>
-//        <insert tableName="status">
-//            <column name="description" value='{"RU":"Получено"}'/>
-//        </insert>
-//        <insert tableName="status">
-//            <column name="description" value='{"RU":"Товар в пути"}'/>
-//        </insert>
-//        <insert tableName="status">
-//            <column name="description" value='{"RU":"Есть пункте выдачи"}'/>
-//        </insert>
-//        <insert tableName="status">
-//            <column name="description" value='{"RU":"Нет в пункте выдачи"}'/>
-//        </insert>
-//    </changeSet>
+

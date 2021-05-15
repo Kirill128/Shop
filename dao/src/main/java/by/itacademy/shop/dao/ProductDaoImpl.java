@@ -39,13 +39,6 @@ public class ProductDaoImpl extends GenericDaoImpl<Product> implements ProductDa
         this.photoDao = photoDao;
     }
 
-//    public ProductDaoImpl() {
-//        super(Product.class);
-//    }
-
-
-
-//    @Override
     public SimplePage<Product> getProductsPageByCriteriaD(ProductSearchCriteria productSearchCriteria) {
         CriteriaBuilder criteriaBuilder=entityManager.getCriteriaBuilder();
         CriteriaQuery<Product> cq=criteriaBuilder.createQuery(Product.class);
@@ -104,18 +97,21 @@ public class ProductDaoImpl extends GenericDaoImpl<Product> implements ProductDa
 
     @Override
     public SimplePage<Product> getProductsPageByCriteria(ProductSearchCriteria productSearchCriteria, Lang lang){
-
         StringBuilder resultQuery=new StringBuilder(40);
 
-        resultQuery.append("SELECT * FROM product AS p");
-        String wherePart="where p.short_description ->> '"+lang.value+"' like '%"+productSearchCriteria.getPartOfName()+"%'";
-        if(productSearchCriteria.getPartOfName()!=null)resultQuery.append(wherePart);
+        resultQuery.append("SELECT * FROM product AS p ");
 
-        if(productSearchCriteria.getSortBy()!=null && productSearchCriteria.getSortDirection()!=null) {
-            resultQuery.append(" order by p." + productSearchCriteria.getSortBy() + " ");
-            resultQuery.append((productSearchCriteria.getSortDirection().equals(SortDirection.INCREASE)) ? "asc" : "desc");
+        String whereName=" LOWER(p.short_description ->> '"+lang.value+"') LIKE LOWER('%"+productSearchCriteria.getPartOfName()+"%') ";
+        String whereCategory = " p.category_id = "+productSearchCriteria.getCategoryId()+" ";
+        if(productSearchCriteria.getPartOfName()!=null || productSearchCriteria.getCategoryId()!=null){
+            resultQuery.append(" WHERE ");
+            if(productSearchCriteria.getPartOfName()!=null)resultQuery.append(whereName);
+            if(productSearchCriteria.getCategoryId()!=null)resultQuery.append(whereCategory);
         }
-
+        if(productSearchCriteria.getSortBy()!=null && productSearchCriteria.getSortDirection()!=null) {
+            resultQuery.append(" ORDER BY p.").append(productSearchCriteria.getSortBy()).append(" ");
+            resultQuery.append((productSearchCriteria.getSortDirection().equals(SortDirection.INCREASE)) ? "ASC" : "DESC");
+        }
         resultQuery.append(" LIMIT "+productSearchCriteria.getPageSize());
         resultQuery.append(" OFFSET "+(productSearchCriteria.getPageNum()*productSearchCriteria.getPageSize()));
         resultQuery.append(";");
@@ -123,13 +119,14 @@ public class ProductDaoImpl extends GenericDaoImpl<Product> implements ProductDa
 //        long allCount=() ? entityManager.createQuery("select count(p.id) from Product p "+wherePart).getFirstResult();
         return new SimplePage<>(castList(query.getResultList()),-1);
     }
+
+
     private List<Product> castList(List<Object> source) {
         List<Product> result = new ArrayList<>(source.size());
         ObjectMapper objectMapper=new ObjectMapper();
-        Iterator itr = source.iterator();
+        Iterator<Object> itr = source.iterator();
             while (itr.hasNext()) {
                 try{
-
                     Object[] obj = (Object[]) itr.next();
                     result.add(Product.builder()
                             .id(Long.valueOf((Integer)obj[0]))
@@ -138,10 +135,10 @@ public class ProductDaoImpl extends GenericDaoImpl<Product> implements ProductDa
                             .quantityInStorage((Integer) obj[3])
                             .price(((BigDecimal)obj[4]).doubleValue())
                             .attributes((objectMapper.readValue(objectMapper.writeValueAsString(obj[5]),new TypeReference<HashMap<String, String>>(){})))
-                            .category((obj[6]!=null)?this.categoryDao.find(Long.valueOf((Integer)obj[6])):null)
-                            .photo((obj[7]!=null)?this.photoDao.find(Long.valueOf((Integer)obj[7])):null)
-                            .provider((obj[8]!=null)?this.providerDao.find(Long.valueOf((Integer)obj[8])):null)
-                            .build()
+                            .category((obj[6]!=null)?this.categoryDao.find((Integer)obj[6]):null)
+                            .photo((obj[7]!=null)?this.photoDao.find((Integer)obj[7]):null)
+                            .provider((obj[8]!=null)?this.providerDao.find((Integer)obj[8]):null)
+                            .build()//TODO: MAKE JOIN
                     );
                 }catch (Exception e){
                     e.printStackTrace();

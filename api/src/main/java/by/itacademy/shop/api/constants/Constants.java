@@ -9,7 +9,8 @@ public class Constants {
     public static final String ROLE_ADMIN="ROLE_ADMIN";
     public static final String NEW_USER_DEFAULT_ROLE=ROLE_USER;
 
-    public static final String ROLE_ADMIN_ACCOUNT_PRODUCTS="/admin/products";
+    private static final String ADMIN="/admin";
+    public static final String ROLE_ADMIN_ACCOUNT_PRODUCTS=ADMIN+"/products";
     public static final String ROLE_ADMIN_ACCOUNT_PROVIDERS="/admin/providers";
     public static final String ROLE_ADMIN_ACCOUNT_PHOTOS="/admin/photos";
     public static final String ROLE_ADMIN_ACCOUNT_CATEGORIES="/admin/categories";

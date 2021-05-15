@@ -56,8 +56,8 @@ public class RestConfiguration implements WebMvcConfigurer {
     public void configureViewResolvers(ViewResolverRegistry registry) {
         ThymeleafViewResolver resolver = new ThymeleafViewResolver();
         resolver.setTemplateEngine(templateEngine());
-        resolver.setForceContentType(true); // <- this was added
-        resolver.setContentType("text/html; charset=UTF-8"); // <- this was added
+        resolver.setForceContentType(true);
+        resolver.setContentType("text/html; charset=UTF-8");
         resolver.setCharacterEncoding("UTF-8");
         registry.viewResolver(resolver);
     }
@@ -65,19 +65,4 @@ public class RestConfiguration implements WebMvcConfigurer {
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
     }
-
-//    @Override
-//    public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
-//        super.configureMessageConverters(converters);
-//        converters.add(responseBodyConverter());
-//    }
-//    @Bean
-//    public HttpMessageConverter<String> responseBodyConverter() {
-//        StringHttpMessageConverter converter = new StringHttpMessageConverter(StandardCharsets.UTF_8);
-//        converter.setSupportedMediaTypes(Arrays.asList(new MediaType("text", "plain", Charset.forName("UTF-8"))));
-//        return converter;
-//    }
-
-
-
 }

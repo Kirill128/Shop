@@ -48,7 +48,6 @@ public class ExelFilesWorker {
                     quantity=currentRow.getCell(quantityInStorageCellNum).getNumericCellValue();
                 }catch (Exception e){
                     continue;
-
                 }
                 productDto.setBarcode(barcode.toString());
                 productDto.setShortDescription(objectMapper.writeValueAsString(shortDescr));

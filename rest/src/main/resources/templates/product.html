@@ -72,6 +72,7 @@
                                     <label class="form-label" for="searchName">Search</label>
                                     <input type="search" id="searchName" class="form-control"
                                            th:value="${searchCriteria.partOfName}" th:name="partOfName"/>
+                                    <input type="hidden" th:value="${searchCriteria.categoryId}" th:name="categoryId">
                                 </div>
                                 <button type="submit" class="btn btn-primary">
                                     <i class="fas fa-search"></i>
@@ -79,7 +80,7 @@
                             </div>
 
                             <div class="products__sort">
-                                <select class="form-select w-auto"  th:value="${searchCriteria.sortDirection}" th:name="sortDirection"/>>
+                                <select class="form-select w-auto"  th:value="${searchCriteria.sortDirection}" th:name="sortDirection" >
                                     <option th:each="sort : ${T(by.itacademy.shop.utilenum.SortDirection).values()}"
                                             th:value="${sort}" th:utext="${sort.name()}"></option>
                                 </select>
@@ -97,6 +98,7 @@
                             <img th:src="@{/static/img/unnamed.jpg}" class="card-img-top" alt="#">
                             <div class="card-body">
                                 <p class="card-text" th:utext="${product.shortDescription}"></p>
+                                <p class="card-text text-uppercase fw-bold" th:utext="${product.price}+' р.'"></p>
                             </div>
                         </div>
                     </div>

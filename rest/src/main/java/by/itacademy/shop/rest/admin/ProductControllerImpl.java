@@ -1,6 +1,7 @@
 package by.itacademy.shop.rest.admin;
 
 import by.itacademy.shop.api.annotations.ExceptionCatchable;
+import by.itacademy.shop.api.annotations.Loggable;
 import by.itacademy.shop.api.constants.Constants;
 import by.itacademy.shop.api.dto.admin.*;
 import by.itacademy.shop.api.services.CategoryService;
@@ -50,6 +51,7 @@ public class ProductControllerImpl {
 
     @PostMapping(value="/upload-file")
     @ExceptionCatchable
+    @Loggable
     public ModelAndView uploadProductsFile(@ModelAttribute ProductDto defValues, @RequestParam("exelFile") MultipartFile exelFile) throws IOException {
         List<ProductDto> productDtos=this.productService.parseXLSOrXlSXFile(exelFile, Constants.GLOBAL_LANG);
         List<CategoryDto> subCategories=this.categoryService.getSubCategoriesFullInfo();
@@ -71,6 +73,7 @@ public class ProductControllerImpl {
 
     @PostMapping("/create")
     @ExceptionCatchable
+    @Loggable
     public ModelAndView createProduct(@ModelAttribute ProductDto product,@RequestParam("imgPrCr") MultipartFile img) throws IOException {
         this.photoService.createPhoto(img);
         this.productService.createProduct(product);
@@ -79,6 +82,7 @@ public class ProductControllerImpl {
 
     @PostMapping("/create/list")
     @ExceptionCatchable
+    @Loggable
     public ModelAndView createProduct(@ModelAttribute ListProductDtos products) throws JsonProcessingException {
         this.productService.createProducts(products.getProductDtoList());
         return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS);
@@ -87,6 +91,7 @@ public class ProductControllerImpl {
 
     @PostMapping("/update")
     @ExceptionCatchable
+    @Loggable
     public ModelAndView update(@ModelAttribute ProductDto product) throws JsonProcessingException {
         this.productService.update(product);
         return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS);
@@ -94,6 +99,7 @@ public class ProductControllerImpl {
 
     @PostMapping("/delete")
     @ExceptionCatchable
+    @Loggable
     public ModelAndView delete(@ModelAttribute ProductDto product){
         this.productService.delete(product.getId());
         return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS);

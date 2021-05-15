@@ -11,24 +11,25 @@
         <div class="container__body">
             <div class="container__signup">    
                 <div class="container__title title">Sign Up</div>
-                <form th:action="@{/user/create}" method="post">
+                <form th:action="@{/user/create}" th:method="POST" th:object="${newUser}">
                     <div class="container__input ">
                         <div class="input-login">
                             <div class="input-login__title title">Input Email</div>
-                            <input type="email" th:value="${newUser.email}" th:name="email" required>
-<!--                            <div th:if="${#fields.hasErrors('email')}" th:errors="${newUser.email}" ></div>-->
+                            <input type="email" th:field="*{email}" required>
+                            <div th:if="${#fields.hasErrors('email')}" th:errors="*{email}" ></div>
                         </div>
                         <div class="input-passwd">
                             <div class="input-passwd__title title">Input Password</div>
-                            <input type="password" th:value="${newUser.password}" th:name="password" required>
+                            <input type="password" th:field="*{password}"  required>
                         </div>
                         <div class="input-email">
                             <div class="input-email__title title">Input Name</div>
-                            <input type="text" th:value="${newUser.name}" th:name="name" required>
+                            <input type="text" th:field="*{name}" required>
                         </div>
                         <div class="input-email">
                             <div class="input-email__title title">Input Phone</div>
-                            <input type="tel" th:value="${newUser.phone}" th:name="phone" required>
+                            <input type="tel" th:field="*{phone}" required>
+                            <div th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}" ></div>
                         </div>
                     </div>
                     <button class="btn btn-primary" type="submit">Sign Up</button>

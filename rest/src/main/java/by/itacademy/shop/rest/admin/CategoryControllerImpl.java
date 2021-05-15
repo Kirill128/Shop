@@ -1,6 +1,7 @@
 package by.itacademy.shop.rest.admin;
 
 import by.itacademy.shop.api.annotations.ExceptionCatchable;
+import by.itacademy.shop.api.annotations.Loggable;
 import by.itacademy.shop.api.dto.admin.CategoryDto;
 import by.itacademy.shop.api.dto.admin.ParentCategoryDto;
 import by.itacademy.shop.api.services.CategoryService;
@@ -36,17 +37,20 @@ public class CategoryControllerImpl {
     }
     @PostMapping(value = "/create")
     @ExceptionCatchable
+    @Loggable
     public ModelAndView createCategory(@ModelAttribute CategoryDto category) throws JsonProcessingException {
         this.categoryService.createCategory(category);
         return new ModelAndView("redirect:/admin/categories");
     }
     @PostMapping(value = "/update")
     @ExceptionCatchable
+    @Loggable
     public ModelAndView updateCategory(@ModelAttribute CategoryDto category) throws JsonProcessingException {
         this.categoryService.update(category);
         return new ModelAndView("redirect:/admin/categories");
     }
     @PostMapping("/delete")
+    @Loggable
     public ModelAndView deleteCategory(@ModelAttribute CategoryDto categoryDto){
         this.categoryService.delete(categoryDto.getId());
         return new ModelAndView("redirect:/admin/categories");

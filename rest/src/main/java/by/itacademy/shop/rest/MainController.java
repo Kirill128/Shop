@@ -31,7 +31,7 @@ public class MainController {
     }
 
     @GetMapping("/sing-up")
-    public ModelAndView singUp( ){
+    public ModelAndView singUp(){
         ModelAndView modelAndView=new ModelAndView("/singup");
         modelAndView.addObject("newUser",new UserDto());
         return modelAndView;

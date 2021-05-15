@@ -1,5 +1,6 @@
 package by.itacademy.shop.rest.admin;
 
+import by.itacademy.shop.api.annotations.Loggable;
 import by.itacademy.shop.api.dto.admin.ProviderDto;
 import by.itacademy.shop.api.services.ProviderService;
 import org.springframework.web.bind.annotation.*;
@@ -26,18 +27,21 @@ public class ProviderControllerImpl {
     }
 
     @PostMapping("/create")
+    @Loggable
     public ModelAndView createProvider(@ModelAttribute ProviderDto providerDto){
         ModelAndView modelAndView=new ModelAndView("redirect:/admin/providers");
         this.providerService.createProvider(providerDto);
         return modelAndView;
     }
     @PostMapping("/update")
+    @Loggable
     public ModelAndView updateProvider(@ModelAttribute ProviderDto providerDto){
         ModelAndView modelAndView=new ModelAndView("redirect:/admin/providers");
         this.providerService.update(providerDto);
         return modelAndView;
     }
     @PostMapping("/delete")
+    @Loggable
     public ModelAndView deleteProvider(@ModelAttribute ProviderDto providerDto){
         ModelAndView modelAndView=new ModelAndView("redirect:/admin/providers");
         this.providerService.delete(providerDto.getId());

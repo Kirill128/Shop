@@ -1,6 +1,7 @@
 package by.itacademy.shop.rest.admin;
 
 import by.itacademy.shop.api.annotations.ExceptionCatchable;
+import by.itacademy.shop.api.annotations.Loggable;
 import by.itacademy.shop.api.dto.forall.GuestProductPhotoDto;
 import by.itacademy.shop.api.services.PhotoService;
 import org.springframework.web.bind.annotation.*;
@@ -34,6 +35,7 @@ public class PhotoControllerIml {
     }
     @PostMapping("/create")
     @ExceptionCatchable
+    @Loggable
     public ModelAndView createPhoto(@RequestParam("imageFileCr") MultipartFile photoFile) throws IOException {
         this.photoService.createPhoto(photoFile);
         return new ModelAndView("redirect:/admin/photos");
@@ -41,12 +43,14 @@ public class PhotoControllerIml {
 
     @PostMapping("/update")
     @ExceptionCatchable
+    @Loggable
     public ModelAndView updatePhoto(@ModelAttribute GuestProductPhotoDto photoDto,@RequestParam("imageFileUpd") MultipartFile photoFile) throws IOException {
         this.photoService.update(photoDto,photoFile);
         return new ModelAndView("redirect:/admin/photos");
     }
     @PostMapping("/delete")
     @ExceptionCatchable
+    @Loggable
     public ModelAndView deletePhoto(@ModelAttribute GuestProductPhotoDto photoDto) throws IOException {
         this.photoService.delete(photoDto.getId());
         return new ModelAndView("redirect:/admin/photos");
