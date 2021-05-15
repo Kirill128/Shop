@@ -6,6 +6,7 @@ import  by.itacademy.shop.api.dao.ProductDao;
 import by.itacademy.shop.api.dao.ProviderDao;
 import by.itacademy.shop.api.dto.forall.ProductSearchCriteria;
 import by.itacademy.shop.api.dto.forall.SimplePage;
+import by.itacademy.shop.dao.nativequeryhelper.NativeQueryStringBuilder;
 import by.itacademy.shop.entities.Product;
 import by.itacademy.shop.utilenum.Lang;
 import by.itacademy.shop.utilenum.SortDirection;
@@ -96,30 +97,30 @@ public class ProductDaoImpl extends GenericDaoImpl<Product> implements ProductDa
     }
 
     @Override
-    public SimplePage<Product> getProductsPageByCriteria(ProductSearchCriteria productSearchCriteria, Lang lang){
-        StringBuilder resultQuery=new StringBuilder(40);
-
-        resultQuery.append("SELECT * FROM product AS p ");
-
-        String whereName=" LOWER(p.short_description ->> '"+lang.value+"') LIKE LOWER('%"+productSearchCriteria.getPartOfName()+"%') ";
-        String whereCategory = " p.category_id = "+productSearchCriteria.getCategoryId()+" ";
-        if(productSearchCriteria.getPartOfName()!=null || productSearchCriteria.getCategoryId()!=null){
-            resultQuery.append(" WHERE ");
-            if(productSearchCriteria.getPartOfName()!=null)resultQuery.append(whereName);
-            if(productSearchCriteria.getCategoryId()!=null)resultQuery.append(whereCategory);
-        }
-        if(productSearchCriteria.getSortBy()!=null && productSearchCriteria.getSortDirection()!=null) {
-            resultQuery.append(" ORDER BY p.").append(productSearchCriteria.getSortBy()).append(" ");
-            resultQuery.append((productSearchCriteria.getSortDirection().equals(SortDirection.INCREASE)) ? "ASC" : "DESC");
-        }
-        resultQuery.append(" LIMIT "+productSearchCriteria.getPageSize());
-        resultQuery.append(" OFFSET "+(productSearchCriteria.getPageNum()*productSearchCriteria.getPageSize()));
-        resultQuery.append(";");
-        Query query= entityManager.createNativeQuery(resultQuery.toString());
+    public SimplePage<Product> getProductsPageByCriteria(ProductSearchCriteria productSearchCriteria){
+        NativeQueryStringBuilder nativeQueryStringBuilder=new NativeQueryStringBuilder()
+                .select("*")
+                .from("product as p")
+                .join("LEFT","category as c","p.category_id=c.id")
+                .join("LEFT","provider as pr","p.provider_id=pr.id")
+                .join("LEFT","photo as ph","p.photo_id=ph.id")
+                .orderBy(productSearchCriteria.getSortBy())
+                .limitOffset(productSearchCriteria.getPageNum(),productSearchCriteria.getPageSize());
+        String name=this.createNameForFind(productSearchCriteria.getPartsOfName());
+        if(!name.equals("%"))
+            nativeQueryStringBuilder.where(
+                String.format("LOWER(p.short_description ->> '%s' LIKE LOWER(%S))",productSearchCriteria.getLang().value,name)
+            );
+        Query query= entityManager.createNativeQuery(nativeQueryStringBuilder.build());
 //        long allCount=() ? entityManager.createQuery("select count(p.id) from Product p "+wherePart).getFirstResult();
         return new SimplePage<>(castList(query.getResultList()),-1);
     }
 
+    private String createNameForFind(List<String> source){
+        StringBuilder searchName=new StringBuilder("%");
+        source.forEach((e)-> searchName.append(e).append("%"));
+        return searchName.toString();
+    }
 
     private List<Product> castList(List<Object> source) {
         List<Product> result = new ArrayList<>(source.size());

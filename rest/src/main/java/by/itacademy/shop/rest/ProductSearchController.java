@@ -38,11 +38,15 @@ public class ProductSearchController {
         ModelAndView modelAndView=new ModelAndView("/product");
         List<GuestParentCategoryDto> categoryDtos=this.categoryService.getParentCategories(Constants.GLOBAL_LANG);
 
-        if(category_id!=null)fromFrontSearchCriteria.setCategoryId(category_id);
+        if(category_id!=null){
+            fromFrontSearchCriteria.setCategoryId(category_id);
+        }
+        if(fromFrontSearchCriteria.getLang()==null) {
+            fromFrontSearchCriteria.setLang(Constants.GLOBAL_LANG);
+        }
         fromFrontSearchCriteria.setPageNum(num);
         fromFrontSearchCriteria.setPageSize(Constants.PRODUCT_PAGE_SIZE);
-
-        SimplePage<GuestProductDto> simplePage=this.productService.getProductsPageByCriteria(fromFrontSearchCriteria,Constants.GLOBAL_LANG);
+        SimplePage<GuestProductDto> simplePage=this.productService.getProductsPageByCriteria(fromFrontSearchCriteria);
         modelAndView.addObject("products",simplePage.getResults());
         modelAndView.addObject("allProdCount",simplePage.getCountInDb());
         modelAndView.addObject("categories",categoryDtos);

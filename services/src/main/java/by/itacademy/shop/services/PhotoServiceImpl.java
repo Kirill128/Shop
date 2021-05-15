@@ -7,9 +7,9 @@ import by.itacademy.shop.api.services.PhotoService;
 import by.itacademy.shop.entities.Photo;
 import by.itacademy.shop.utils.ImageUploader;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import javax.transaction.Transactional;
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;

@@ -15,7 +15,7 @@ public interface ProductService {
 
     //Users
     List<GuestProductDto> getAllProducts(Lang lang);
-    SimplePage<GuestProductDto> getProductsPageByCriteria(ProductSearchCriteria productSearchCriteria,Lang lang);
+    SimplePage<GuestProductDto> getProductsPageByCriteria(ProductSearchCriteria productSearchCriteria);
     GuestProductDto find(long id, Lang lang);
 
 
@@ -23,7 +23,7 @@ public interface ProductService {
     ProductDto createProduct(ProductDto user) throws JsonProcessingException;
     ProductDto findFullInfo(long id) throws JsonProcessingException;
     List<ProductDto> getAllProducts() throws JsonProcessingException;
-    SimplePage<ProductDto> getProductsPageByCriteriaAdmin(ProductSearchCriteria productSearchCriteria,Lang lang) throws JsonProcessingException;
+    SimplePage<ProductDto> getProductsPageByCriteriaAdmin(ProductSearchCriteria productSearchCriteria) throws JsonProcessingException;
     void update(ProductDto user) throws JsonProcessingException;
     void delete(long id);
     List<ProductDto> parseXLSOrXlSXFile(MultipartFile file,Lang lang) throws IOException;

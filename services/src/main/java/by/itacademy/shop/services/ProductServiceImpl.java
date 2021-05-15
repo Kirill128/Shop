@@ -41,12 +41,12 @@ public class ProductServiceImpl implements ProductService {
 
     }
     @Override
-    public SimplePage<GuestProductDto> getProductsPageByCriteria(ProductSearchCriteria searchCriteria, Lang lang) {
-//        searchCriteria.setPartsOfName(searchCriteria.getPartOfName().split());
-        SimplePage<Product> oldPage=this.productDao.getProductsPageByCriteria(searchCriteria,lang);
+    public SimplePage<GuestProductDto> getProductsPageByCriteria(ProductSearchCriteria searchCriteria) {
+//        searchCriteria.setPartsOfName(searchCriteria.getPartOfName().split(""));
+        SimplePage<Product> oldPage=this.productDao.getProductsPageByCriteria(searchCriteria);
         SimplePage<GuestProductDto> newPage=new SimplePage<>();
         newPage.setCountInDb(oldPage.getCountInDb());
-        newPage.setResults(ProductMapper.mapProductsToGuestProductDtos(oldPage.getResults(),lang));
+        newPage.setResults(ProductMapper.mapProductsToGuestProductDtos(oldPage.getResults(),searchCriteria.getLang()));
         return newPage;
     }
 
@@ -59,9 +59,9 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public SimplePage<ProductDto> getProductsPageByCriteriaAdmin(ProductSearchCriteria searchCriteria,Lang lang) throws JsonProcessingException {
+    public SimplePage<ProductDto> getProductsPageByCriteriaAdmin(ProductSearchCriteria searchCriteria) throws JsonProcessingException {
 
-        SimplePage<Product> daoPage=this.productDao.getProductsPageByCriteria(searchCriteria,lang);
+        SimplePage<Product> daoPage=this.productDao.getProductsPageByCriteria(searchCriteria);
         SimplePage<ProductDto> newPage=new SimplePage<>();
         newPage.setResults(ProductMapper.mapProductsToProductDtos(daoPage.getResults()));
         newPage.setCountInDb(daoPage.getCountInDb());

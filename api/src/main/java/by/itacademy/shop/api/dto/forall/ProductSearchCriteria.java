@@ -3,6 +3,7 @@ package by.itacademy.shop.api.dto.forall;
 import java.util.List;
 import java.util.Map;
 
+import by.itacademy.shop.utilenum.Lang;
 import by.itacademy.shop.utilenum.SortDirection;
 import lombok.*;
 
@@ -23,4 +24,5 @@ public class ProductSearchCriteria {
     private List<String> partsOfName;
     private Long categoryId;
 
+    private Lang lang;
 }

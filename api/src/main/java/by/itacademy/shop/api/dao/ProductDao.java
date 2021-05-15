@@ -6,5 +6,5 @@ import by.itacademy.shop.entities.Product;
 import by.itacademy.shop.utilenum.Lang;
 
 public interface ProductDao extends GenericDao<Product> {
-    SimplePage<Product> getProductsPageByCriteria(ProductSearchCriteria productSearchCriteria, Lang lang);
+    SimplePage<Product> getProductsPageByCriteria(ProductSearchCriteria productSearchCriteria);
 }
