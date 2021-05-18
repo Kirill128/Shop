@@ -1,5 +1,6 @@
 package by.itacademy.shop.api.dto.user;
 
+import by.itacademy.shop.api.dto.admin.RoleDto;
 import lombok.*;
 
 
@@ -30,5 +31,7 @@ public class UserDto {
         private String password;
 
         private List<RoleDto> roles;
+
+        private List<OrderDto>  orders;
 
 }

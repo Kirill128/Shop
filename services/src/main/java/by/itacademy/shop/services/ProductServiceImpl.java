@@ -40,9 +40,10 @@ public class ProductServiceImpl implements ProductService {
 
 
     }
+
     @Override
     public SimplePage<GuestProductDto> getProductsPageByCriteria(ProductSearchCriteria searchCriteria) {
-//        searchCriteria.setPartsOfName(searchCriteria.getPartOfName().split(""));
+        if(searchCriteria.getPartOfName()!=null)searchCriteria.setPartsOfName(Arrays.asList(searchCriteria.getPartOfName().split("\\s+")));
         SimplePage<Product> oldPage=this.productDao.getProductsPageByCriteria(searchCriteria);
         SimplePage<GuestProductDto> newPage=new SimplePage<>();
         newPage.setCountInDb(oldPage.getCountInDb());
@@ -51,7 +52,6 @@ public class ProductServiceImpl implements ProductService {
     }
 
     //----------------------------------Admin ---------------------------------------------------
-
 
     @Override
     public List<ProductDto> getAllProducts() throws JsonProcessingException {
@@ -102,6 +102,5 @@ public class ProductServiceImpl implements ProductService {
     public List<ProductDto> parseXLSOrXlSXFile(MultipartFile file,Lang lang) throws IOException {
         return ExelFilesWorker.parseXLSOrXlSXFile(file,lang);
     }
-
 
 }

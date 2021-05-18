@@ -1,11 +1,10 @@
 package by.itacademy.shop.services;
 
 import by.itacademy.shop.api.dao.RoleDao;
-import by.itacademy.shop.api.dto.user.RoleDto;
+import by.itacademy.shop.api.dto.admin.RoleDto;
 import by.itacademy.shop.api.mappers.RoleMapper;
 import by.itacademy.shop.api.services.RoleService;
 import by.itacademy.shop.entities.Role;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

@@ -10,10 +10,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/admin/providers")
-public class ProviderControllerImpl {
+public class ProviderController {
     private ProviderService providerService;
 
-    public ProviderControllerImpl(ProviderService providerService) {
+    public ProviderController(ProviderService providerService) {
         this.providerService = providerService;
     }
 

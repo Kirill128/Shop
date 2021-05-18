@@ -5,7 +5,6 @@ import by.itacademy.shop.entities.ProductOrder;
 import org.springframework.stereotype.Repository;
 
 @Repository
-
 public class ProductOrderDaoImpl extends GenericDaoImpl<ProductOrder> implements ProductOrderDao {
     public ProductOrderDaoImpl() {
         super(ProductOrder.class);

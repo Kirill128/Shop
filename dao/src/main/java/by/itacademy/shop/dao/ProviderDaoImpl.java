@@ -5,7 +5,6 @@ import by.itacademy.shop.entities.Provider;
 import org.springframework.stereotype.Repository;
 
 @Repository
-
 public class ProviderDaoImpl extends GenericDaoImpl<Provider> implements ProviderDao {
     public ProviderDaoImpl() {
         super(Provider.class);

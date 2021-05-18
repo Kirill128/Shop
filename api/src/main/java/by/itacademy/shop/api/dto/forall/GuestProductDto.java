@@ -20,8 +20,8 @@ public class GuestProductDto {
 
     private Double price;
 
-    private Category category;
+    private GuestSubCategoryDto category;
 
-    private Photo photo;
+    private GuestProductPhotoDto photo;
 
 }

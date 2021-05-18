@@ -20,23 +20,25 @@ import java.util.stream.Collectors;
 @UtilityClass
 public class ProductMapper {
     public GuestProductDto mapProductToGuestProductDto(Product product, Lang lang){
+        if(product==null)return null;
         return GuestProductDto.builder().
                 id(product.getId()).
                 attributes(product.getAttributes()).
                 shortDescription(product.getShortDescription().get(lang.value)).
                 price(product.getPrice()).
-                category(product.getCategory()).
-                photo(product.getPhoto()).
+                category(CategoryMapper.mapCategoryToGuestSubCategoryDto(product.getCategory(),lang)).
+                photo(PhotoMapper.mapProductPhotoToGuestProductPhotoDto(product.getPhoto())).
                 build();
     }
 
-
     public List<GuestProductDto> mapProductsToGuestProductDtos(List<Product> products,Lang lang){
+        if(products==null)return new ArrayList<>();
         return products.stream().map(e-> ProductMapper.mapProductToGuestProductDto(e,lang)).collect(Collectors.toList());
     }
 
     //---------------Product Dto
     public ProductDto mapProductToProductDto(Product product) throws JsonProcessingException {
+        if(product==null)return null;
         ObjectMapper mapper=new ObjectMapper();
         return ProductDto.builder().
                 id(product.getId()).
@@ -46,11 +48,12 @@ public class ProductMapper {
                 price(product.getPrice()).
                 quantityInStorage(product.getQuantityInStorage()).
                 categoryId(product.getCategory().getId()).
-                photoId((product.getPhoto()!=null) ? product.getPhoto().getId(): null).
+                photoId((product.getPhoto()!=null) ? product.getPhoto().getId() : null).
                 providerId((product.getProvider()!=null) ? product.getProvider().getId() : null).
                 build();
     }
     public List<ProductDto> mapProductsToProductDtos(List<Product> products) throws JsonProcessingException {
+        if(products==null)return new ArrayList<>();
         List<ProductDto> result=new ArrayList<>(products.size());
         for(Product product: products){
             result.add(ProductMapper.mapProductToProductDto(product));
@@ -60,6 +63,7 @@ public class ProductMapper {
 
 
     public Product mapProductDtoToProduct(ProductDto product) throws JsonProcessingException {
+        if(product==null)return null;
         ObjectMapper mapper=new ObjectMapper();
         Category category= Category.builder().id(product.getCategoryId()).build();
         Photo photo = (product.getPhotoId()!=null) ? Photo.builder().id(product.getPhotoId()).build() : null;
@@ -77,6 +81,7 @@ public class ProductMapper {
                 build();
     }
     public List<Product> mapProductDtosToProducts(List<ProductDto> products) throws JsonProcessingException {
+        if(products==null)return new ArrayList<>();
         List<Product> result = new ArrayList<>(products.size());
         for (ProductDto product : products) {
             result.add(ProductMapper.mapProductDtoToProduct(product));

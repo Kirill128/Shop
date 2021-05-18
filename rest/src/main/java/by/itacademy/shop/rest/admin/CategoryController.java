@@ -14,10 +14,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/admin/categories")
-public class CategoryControllerImpl {
+public class CategoryController {
     private CategoryService categoryService;
 
-    public CategoryControllerImpl(CategoryService categoryService) {
+    public CategoryController(CategoryService categoryService) {
         this.categoryService = categoryService;
     }
 

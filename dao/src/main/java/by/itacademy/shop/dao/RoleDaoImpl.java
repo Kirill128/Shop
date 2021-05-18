@@ -12,7 +12,6 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 @Repository
-
 public class RoleDaoImpl extends GenericDaoImpl<Role> implements RoleDao {
     public RoleDaoImpl() {
         super(Role.class);

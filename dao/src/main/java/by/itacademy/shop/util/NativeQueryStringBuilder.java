@@ -1,4 +1,4 @@
-package by.itacademy.shop.dao.nativequeryhelper;
+package by.itacademy.shop.util;
 
 import java.util.Arrays;
 import java.util.LinkedList;
@@ -41,6 +41,25 @@ public class NativeQueryStringBuilder {
         this.where.add(input);
         return this;
     }
+    public NativeQueryStringBuilder and(){
+        int index=this.where.size()-1;
+        if(index>=0)
+            this.where.set(index,this.where.get(index)+" AND ");
+        return this;
+    }
+    public NativeQueryStringBuilder or(){
+        int index=this.where.size()-1;
+        if(index>=0)
+            this.where.set(index,this.where.get(index)+" OR ");
+        return this;
+    }
+    public NativeQueryStringBuilder addBordersToExistingWhere(){
+        int index=this.where.size()-1;
+        if(index<0)return this;
+        this.where.set(index,this.where.get(index)+")");
+        this.where.set(0,"("+this.where.get(0));
+        return this;
+    }
     public NativeQueryStringBuilder orderBy(String input){
         this.orderBy=input;
         return this;
@@ -55,9 +74,9 @@ public class NativeQueryStringBuilder {
                 .append(" SELECT ").append(this.concatStringsAppendingCommas(this.select))
                 .append(" FROM ").append(this.from)
                 .append(this.concatStrings(this.joins));
-        if(!this.where.isEmpty())resString.append(" WHERE ").append(this.concatStringsAppendingCommas(this.where));
-        if(!this.orderBy.isEmpty() && this.orderBy!=null)resString.append(" ORDER BY ").append(this.orderBy);
-        if(!this.limitOffset.isEmpty() && this.limitOffset!=null)resString.append(this.limitOffset);
+        if(!this.where.isEmpty())resString.append(" WHERE ").append(this.concatStrings(this.where));
+        if(this.orderBy!=null && !this.orderBy.isEmpty())resString.append(" ORDER BY ").append(this.orderBy);
+        if(this.limitOffset!=null && !this.limitOffset.isEmpty())resString.append(this.limitOffset);
         resString.append(";");
         return resString.toString();
     }
@@ -76,5 +95,6 @@ public class NativeQueryStringBuilder {
         source.stream().forEach((e)-> builder.append(" "+e+" "));
         return builder.toString();
     }
+
 
 }

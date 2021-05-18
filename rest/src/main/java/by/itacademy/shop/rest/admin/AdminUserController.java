@@ -1,6 +1,7 @@
 package by.itacademy.shop.rest.admin;
 
 import by.itacademy.shop.api.annotations.Loggable;
+import by.itacademy.shop.api.dto.admin.AdminUserDto;
 import by.itacademy.shop.api.dto.user.UserDto;
 import by.itacademy.shop.api.services.UserService;
 import org.springframework.web.bind.annotation.*;
@@ -9,11 +10,11 @@ import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping("/admin/users")
-public class AdminUserControllerImpl {
+public class AdminUserController {
 
     private UserService userService;
 
-    public AdminUserControllerImpl(UserService userService) {
+    public AdminUserController(UserService userService) {
         this.userService = userService;
     }
 
@@ -21,7 +22,7 @@ public class AdminUserControllerImpl {
     @GetMapping("/{id}")
     public ModelAndView find(@PathVariable int id){
         ModelAndView modelAndView=new ModelAndView();
-        UserDto userDto=this.userService.find(id);
+//        AdminUserDto userDto=this.userService.findFullInfo(id);
         return modelAndView;
     }
 

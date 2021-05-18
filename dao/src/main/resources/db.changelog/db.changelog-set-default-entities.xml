@@ -9,24 +9,24 @@
             <column name="name" value="anna"/>
             <column name="email" value="anna@gmail.com"/>
             <column name="phone" value="+37525999999"/>
-            <column name="password" value="$2y$16$AsoFDDS2H25GsooDB6SleuH91WaC1WkSEihIvjfSUQN30uyXU5cSy"/>
+            <column name="password" value="$2y$10$Rt6HnH4RlMWffgini.qvM.iz1Xt3FOAlQlo8OQ.87bnOu2gu8dSSa"/>
         </insert>
         <insert tableName="shop_user">
             <column name="name" value="bob"/>
             <column name="email" value="bob@gmail.com"/>
-            <column name="password" value="$2y$16$AsoFDDS2H25GsooDB6SleuH91WaC1WkSEihIvjfSUQN30uyXU5cSy"/>
+            <column name="password" value="$2y$10$Rt6HnH4RlMWffgini.qvM.iz1Xt3FOAlQlo8OQ.87bnOu2gu8dSSa"/>
             <column name="phone" value="+37525999999"/>
         </insert>
         <insert tableName="shop_user">
             <column name="name" value="kata"/>
             <column name="email" value="kata@gmail.com"/>
-            <column name="password" value="$2y$16$AsoFDDS2H25GsooDB6SleuH91WaC1WkSEihIvjfSUQN30uyXU5cSy"/>
+            <column name="password" value="$2y$10$Rt6HnH4RlMWffgini.qvM.iz1Xt3FOAlQlo8OQ.87bnOu2gu8dSSa"/>
             <column name="phone" value="+37525999999"/>
         </insert>
         <insert tableName="shop_user">
             <column name="name" value="sella"/>
             <column name="email" value="sella@gmail.com"/>
-            <column name="password" value="$2y$16$AsoFDDS2H25GsooDB6SleuH91WaC1WkSEihIvjfSUQN30uyXU5cSy"/>
+            <column name="password" value="$2y$10$Rt6HnH4RlMWffgini.qvM.iz1Xt3FOAlQlo8OQ.87bnOu2gu8dSSa"/>
             <column name="phone" value="+37525999999"/>
         </insert>
     </changeSet>

@@ -4,7 +4,7 @@ import by.itacademy.shop.api.dao.CategoryDao;
 import by.itacademy.shop.api.dao.PhotoDao;
 import by.itacademy.shop.api.dao.ProductDao;
 import by.itacademy.shop.api.dao.ProviderDao;
-import by.itacademy.shop.dao.nativequeryhelper.NativeQueryStringBuilder;
+import by.itacademy.shop.util.NativeQueryStringBuilder;
 import by.itacademy.shop.entities.Product;
 import org.junit.jupiter.api.Test;
 

@@ -47,11 +47,11 @@ public class ProductSearchController {
         fromFrontSearchCriteria.setPageNum(num);
         fromFrontSearchCriteria.setPageSize(Constants.PRODUCT_PAGE_SIZE);
         SimplePage<GuestProductDto> simplePage=this.productService.getProductsPageByCriteria(fromFrontSearchCriteria);
+
         modelAndView.addObject("products",simplePage.getResults());
         modelAndView.addObject("allProdCount",simplePage.getCountInDb());
         modelAndView.addObject("categories",categoryDtos);
         modelAndView.addObject("searchCriteria",fromFrontSearchCriteria);
-        //TODO: send category_id to thymleaf product!!!
         this.changeModelAndViewIfAuth(modelAndView,authentication);
 
         return modelAndView;

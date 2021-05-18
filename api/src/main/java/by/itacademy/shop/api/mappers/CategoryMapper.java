@@ -21,17 +21,20 @@ public class CategoryMapper {
     //-------------------------------GuestSubCategoryDto------------------------------------------for users
 
     public GuestSubCategoryDto mapCategoryToGuestSubCategoryDto(Category category, Lang lang){
+        if(category==null)return null;
         return GuestSubCategoryDto.builder().
                 id(category.getId()).
                 title(category.getTitle().get(lang.value)).
                 build();
     }
     public List<GuestSubCategoryDto> mapCategoriesToSubCategoryDtos(List<Category> categories,Lang lang){
+        if(categories==null)return new ArrayList<>();
         return categories.stream().map(e-> mapCategoryToGuestSubCategoryDto(e,lang)).collect(Collectors.toList());
     }
     //-------------------------------GuestParentCategoryDto------------------------------------------for users
 
     public GuestParentCategoryDto mapCategoryToGuestCategoryDto(Category category, Lang lang) {
+        if(category==null)return null;
         return GuestParentCategoryDto.builder().
                 id(category.getId()).
                 title(category.getTitle().get(lang.value)).
@@ -40,20 +43,23 @@ public class CategoryMapper {
     }
 
     public List<GuestParentCategoryDto> mapCategoriesToGuestCategoryDtos(List<Category> categoryList, Lang lang) {
+        if(categoryList==null)return new ArrayList<>();
         return categoryList.stream().map((e) -> CategoryMapper.mapCategoryToGuestCategoryDto(e, lang)).collect(Collectors.toList());
     }
 
 
     //----------------------------ParentCategoryDto----------------------------------------------for admin
     public ParentCategoryDto mapCategoryToParentCategoryDto(Category category) throws JsonProcessingException {
+        if(category==null)return null;
         ObjectMapper mapper=new ObjectMapper();
         return ParentCategoryDto.builder().
                 id(category.getId()).
                 title( (category.getTitle()!=null)? mapper.writeValueAsString(category.getTitle()) : null).
-                subcategories( (category.getSubCategories()!=null)? CategoryMapper.mapCategoriesToCategoryDtos(category.getSubCategories()) : null).
+                subcategories( CategoryMapper.mapCategoriesToCategoryDtos(category.getSubCategories()) ).
                 build();
     }
     public Category mapParentCategoryDtoToCategory(ParentCategoryDto category) throws JsonProcessingException {
+        if(category==null)return null;
         ObjectMapper objectMapper=new ObjectMapper();
         return Category.builder().
                 id(category.getId()).
@@ -62,6 +68,7 @@ public class CategoryMapper {
     }
 
     public List<ParentCategoryDto> mapCategoriesToParentCategoryDtos(List<Category> categories) throws JsonProcessingException {
+        if(categories==null)return new ArrayList<>();
         List<ParentCategoryDto> result=new ArrayList<>(categories.size());
         for(Category cat: categories){
             result.add(CategoryMapper.mapCategoryToParentCategoryDto(cat));
@@ -69,6 +76,7 @@ public class CategoryMapper {
         return result;
     }
     public List<Category> mapParentCategoryDtosToCategories(List<ParentCategoryDto> categories) throws JsonProcessingException {
+        if(categories==null)return new ArrayList<>();
         List<Category> result=new ArrayList<>(categories.size());
         for(ParentCategoryDto cat: categories){
             result.add(CategoryMapper.mapParentCategoryDtoToCategory(cat));
@@ -79,6 +87,7 @@ public class CategoryMapper {
     //----------------------------CategoryDto----------------------------------------------for admin
 
     public CategoryDto mapCategoryToCategoryDto(Category source) throws JsonProcessingException {
+        if(source==null)return null;
         ObjectMapper objectMapper=new ObjectMapper();
         return CategoryDto.builder().
                 id(source.getId()).
@@ -87,6 +96,7 @@ public class CategoryMapper {
                 build();
     }
     public Category mapCategoryDtoToCategory(CategoryDto source) throws JsonProcessingException {
+        if(source==null)return null;
         ObjectMapper objectMapper=new ObjectMapper();
         Category parentCategory=null;
         if(source.getParentCategoryDto()==null){
@@ -102,6 +112,7 @@ public class CategoryMapper {
                 build();
     }
     public List<CategoryDto> mapCategoriesToCategoryDtos(List<Category> source) throws JsonProcessingException {
+        if(source==null)return new ArrayList<>();
         List<CategoryDto> result = new ArrayList<>(source.size());
         for (Category category : source) {
             result.add(CategoryMapper.mapCategoryToCategoryDto(category));
@@ -109,6 +120,7 @@ public class CategoryMapper {
         return result;
     }
     public List<Category> mapCategoryDtosToCategories(List<CategoryDto> source) throws JsonProcessingException {
+        if(source==null)return new ArrayList<>();
         List<Category> result = new ArrayList<>(source.size());
         for (CategoryDto category : source) {
             result.add(CategoryMapper.mapCategoryDtoToCategory(category));

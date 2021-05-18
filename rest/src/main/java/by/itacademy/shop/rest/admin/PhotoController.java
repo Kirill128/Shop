@@ -13,10 +13,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/admin/photos")
-public class PhotoControllerIml {
+public class PhotoController {
     private PhotoService photoService;
 
-    public PhotoControllerIml(PhotoService photoService) {
+    public PhotoController(PhotoService photoService) {
         this.photoService = photoService;
     }
 

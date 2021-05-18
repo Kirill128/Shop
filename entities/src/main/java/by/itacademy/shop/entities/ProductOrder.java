@@ -29,12 +29,4 @@ public class ProductOrder extends GenericEntity<Long> {
 
     private Double price;
 
-    @Override
-    public String toString() {
-        return "ProductOrder{" +
-                "id=" + id +
-                ", quantity=" + quantity +
-                ", price=" + price +
-                '}';
-    }
 }

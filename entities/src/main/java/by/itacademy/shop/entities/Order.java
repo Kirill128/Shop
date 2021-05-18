@@ -31,18 +31,10 @@ public class Order  extends GenericEntity<Long>{
     @Column(name="submit_time")
     private LocalDateTime submitTime;
 
+    @Column(name="price")
     private Double price;
 
-    @OneToMany(fetch = FetchType.LAZY,mappedBy = "order")
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "order",cascade = CascadeType.REMOVE)
     private List<ProductOrder> productOrder;
 
-    @Override
-    public String toString() {
-        return "Order{" +
-                "id=" + id +
-                ", status=" + status +
-                ", submitTime=" + submitTime +
-                ", price=" + price +
-                '}';
-    }
 }

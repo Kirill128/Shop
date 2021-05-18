@@ -19,13 +19,13 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/admin/products")
-public class ProductControllerImpl {
+public class ProductController {
     private ProductService productService;
     private CategoryService categoryService;
     private ProviderService providerService;
     private PhotoService photoService;
 
-    public ProductControllerImpl(ProductService productService, CategoryService categoryService, ProviderService providerService, PhotoService photoService) {
+    public ProductController(ProductService productService, CategoryService categoryService, ProviderService providerService, PhotoService photoService) {
         this.productService = productService;
         this.categoryService = categoryService;
         this.providerService = providerService;

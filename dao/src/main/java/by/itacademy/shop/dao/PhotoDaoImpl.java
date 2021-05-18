@@ -6,7 +6,6 @@ import by.itacademy.shop.entities.Product;
 import org.springframework.stereotype.Repository;
 
 @Repository
-
 public class PhotoDaoImpl extends GenericDaoImpl<Photo> implements PhotoDao {
 
     public PhotoDaoImpl() {

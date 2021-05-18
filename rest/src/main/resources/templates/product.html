@@ -95,11 +95,15 @@
                 <div class="products__items" >
                     <div class="products__item" th:each="product : ${products}">
                         <div class="card w-100" >
-                            <img th:src="@{/static/img/unnamed.jpg}" class="card-img-top" alt="#">
-                            <div class="card-body">
-                                <p class="card-text" th:utext="${product.shortDescription}"></p>
-                                <p class="card-text text-uppercase fw-bold" th:utext="${product.price}+' р.'"></p>
-                            </div>
+                            <form th:action="@{/user/add-order}" method="post">
+                                <img th:src="@{/static/img/unnamed.jpg}" class="card-img-top" alt="#">
+                                <div class="card-body">
+                                    <p class="card-text" th:utext="${product.shortDescription}"></p>
+                                    <p class="card-text text-uppercase fw-bold" th:utext="${product.price}+' р.'"></p>
+                                    <input type="hidden" th:value="${product.id}" th:name="id">
+                                    <input type="submit" value="Add to orders list">
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

@@ -14,10 +14,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class ShopSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter {
 
     private UserService userService;
+    private PasswordEncoder passwordEncoder;
 
-    @Autowired
-    public void setUserService(UserService userService) {
+    public ShopSecurityConfigurerAdapter(UserService userService, PasswordEncoder passwordEncoder) {
         this.userService = userService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
@@ -35,13 +36,10 @@ public class ShopSecurityConfigurerAdapter extends WebSecurityConfigurerAdapter 
     @Bean
     public DaoAuthenticationProvider daoAuthenticationProvider(){
         DaoAuthenticationProvider provider=new DaoAuthenticationProvider();
-        provider.setPasswordEncoder(passwordEncoder());
+        provider.setPasswordEncoder(this.passwordEncoder);
         provider.setUserDetailsService(this.userService);
         return provider;
     }
 
-    @Bean
-    public PasswordEncoder passwordEncoder(){
-        return new BCryptPasswordEncoder(16);
-    }
+
 }
