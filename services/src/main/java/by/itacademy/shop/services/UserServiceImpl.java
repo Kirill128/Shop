@@ -10,12 +10,21 @@ import by.itacademy.shop.api.services.UserService;
 import by.itacademy.shop.entities.*;
 import by.itacademy.shop.forentity.Status;
 import by.itacademy.shop.utilenum.Lang;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -30,7 +39,12 @@ public class UserServiceImpl implements UserService{
     private ProductOrderDao productOrderDao;
     private PasswordEncoder passwordEncoder;
 
-    public UserServiceImpl(UserDao userDao, ProductDao productDao, RoleDao roleDao, OrderDao orderDao, ProductOrderDao productOrderDao, PasswordEncoder passwordEncoder) {
+    public UserServiceImpl(UserDao userDao,
+                           ProductDao productDao,
+                           RoleDao roleDao,
+                           OrderDao orderDao,
+                           ProductOrderDao productOrderDao,
+                           PasswordEncoder passwordEncoder) {
         this.userDao = userDao;
         this.productDao = productDao;
         this.roleDao = roleDao;
@@ -38,6 +52,7 @@ public class UserServiceImpl implements UserService{
         this.productOrderDao = productOrderDao;
         this.passwordEncoder = passwordEncoder;
     }
+
 
     //---------------------------------CRUD----------------------------------------------------
 

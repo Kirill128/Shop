@@ -34,6 +34,7 @@ public class ProductController {
 
     @GetMapping
     @ExceptionCatchable
+    @Loggable
     public ModelAndView findAllProductsFullInfo() throws JsonProcessingException {
         List<ProductDto> productDtos=this.productService.getAllProducts();
         List<CategoryDto> subCategories=this.categoryService.getSubCategoriesFullInfo();

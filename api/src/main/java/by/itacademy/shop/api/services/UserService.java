@@ -3,6 +3,7 @@ package by.itacademy.shop.api.services;
 import by.itacademy.shop.api.dto.admin.AdminUserDto;
 import by.itacademy.shop.api.dto.user.UserDto;
 import by.itacademy.shop.utilenum.Lang;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;

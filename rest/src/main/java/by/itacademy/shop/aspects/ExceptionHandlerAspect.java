@@ -1,7 +1,7 @@
 package by.itacademy.shop.aspects;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
-import lombok.extern.slf4j.Slf4j;
+import org.apache.log4j.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -10,12 +10,13 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
-import java.util.Arrays;
 
-@Slf4j
 @Aspect
 @Component
 public class ExceptionHandlerAspect {
+
+    private static Logger logger = Logger.getLogger(ExceptionHandlerAspect.class);
+
 
     @Pointcut("@annotation(by.itacademy.shop.api.annotations.ExceptionCatchable)")
     public void catchExc(){}
@@ -28,17 +29,17 @@ public class ExceptionHandlerAspect {
            return o;
         }
         catch(JsonProcessingException e){
-            System.out.println(e.getMessage());
+            logger.error(e.getMessage());
             e.printStackTrace();
             return new ModelAndView("/errors/json-parse-error");
         }
         catch(IOException e){
-            System.out.println(e.getMessage());
+            logger.error(e.getMessage());
             e.printStackTrace();
             return new ModelAndView("/errors/post-file-error");
         }
         catch (Throwable e) {
-            System.out.println(e.getMessage());
+            logger.error(e.getMessage());
             e.printStackTrace();
             return new ModelAndView("/errors/500");
         }

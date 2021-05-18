@@ -39,4 +39,9 @@ public class RoleMapper {
         if(roles==null)return new ArrayList<>();
         return roles.stream().map(e->new SimpleGrantedAuthority(e.getName())).collect(Collectors.toList());
     }
+    public List<? extends GrantedAuthority> mapRoleDtosToAuthorities(Collection<RoleDto> roles){
+        if(roles==null)return new ArrayList<>();
+        return roles.stream().map(e->new SimpleGrantedAuthority(e.getName())).collect(Collectors.toList());
+    }
+
 }

@@ -21,9 +21,16 @@
                             <span th:utext="${userName}"></span>
                         </div>
                         <div class="user__account">
-                            <a th:href="@{/logout}" th:if="${userAuthenticated}" th:utext="'Log out'"  ></a>
-                            <a th:href="@{/login}" th:unless="${userAuthenticated}" th:utext="'Sing in'" ></a>
-                            <a th:href="@{/sing-up}" th:unless="${userAuthenticated}" th:utext="'Sing up'" ></a>
+                            <div th:if="${authentication!=null}" class="m-2">
+                                <p th:utext="${authentication.name}"></p>
+                                <a th:href="@{/logout}"  th:utext="'Log out'"  ></a>
+                                <a th:href="@{/user/account}" th:utext="'Account'"></a>
+                            </div>
+                            <div th:if="${authentication==null}" class="m-2">
+                                <p  th:utext="'GUEST'"></p>
+                                <a th:href="@{/login}" th:utext="'Sing in'" ></a>
+                                <a th:href="@{/sing-up}"  th:utext="'Sing up'" ></a>
+                            </div>
                         </div>
                     </div>
 
@@ -33,12 +40,6 @@
                 <ul class="nav justify-content-end me-5">
                     <li class="nav-item">
                         <a class="nav-link" th:href="@{/}">Main Page</a>
-                    </li>
-                    <li class="nav-item">
-                        <!--                                <a class="nav-link" th:href="@{}">Account</a>-->
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
                     </li>
                 </ul>
             </nav>
@@ -110,7 +111,23 @@
 
                 <div class="btn-toolbar " role="toolbar" aria-label="Toolbar with button groups">
                     <div class="btn-group me-2" role="group" aria-label="First group">
-                        <button type="button" class="btn btn-primary">1</button>
+                        <form th:action="@{'/products/pages/previous'}" method="post" th:if="${searchCriteria.pageNum!=1}">
+                            <input type="hidden" th:value="${searchCriteria.pageNum}" th:name="pageNum">
+                            <input type="hidden" th:value="${searchCriteria.partOfName}" th:name="partOfName"/>
+                            <input type="hidden" th:value="${searchCriteria.categoryId}" th:name="categoryId">
+                            <input type="hidden"  th:value="${searchCriteria.sortDirection}" th:name="sortDirection">
+                            <input type="hidden"  th:value="${searchCriteria.sortBy}" th:name="sortBy">
+                            <button type="submit"  class="btn btn-primary">Previous</button>
+                        </form>
+
+                        <form th:action="@{'/products/pages/next'}" method="post" th:if="${!lastPage}" >
+                            <input type="hidden" th:value="${searchCriteria.pageNum}" th:name="pageNum">
+                            <input type="hidden" th:value="${searchCriteria.partOfName}" th:name="partOfName"/>
+                            <input type="hidden" th:value="${searchCriteria.categoryId}" th:name="categoryId">
+                            <input type="hidden"  th:value="${searchCriteria.sortDirection}" th:name="sortDirection">
+                            <input type="hidden"  th:value="${searchCriteria.sortBy}" th:name="sortBy">
+                            <button type="submit" class="btn btn-primary">Next</button>
+                        </form>
                     </div>
                 </div>
             </section>

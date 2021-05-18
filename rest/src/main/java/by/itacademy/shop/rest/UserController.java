@@ -35,12 +35,6 @@ public class UserController {
         return modelAndView;
     }
 
-    @PostMapping("/create")
-    @Loggable
-    public ModelAndView createUser(@ModelAttribute UserDto user){
-        this.userService.createUser(user,Constants.GLOBAL_LANG);
-        return new ModelAndView("redirect:"+Constants.MAIN_PAGE);
-    }
     @PostMapping("/update")
     @Loggable
     public ModelAndView update(@ModelAttribute UserDto user){

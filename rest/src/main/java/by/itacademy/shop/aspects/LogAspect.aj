@@ -1,21 +1,29 @@
 package by.itacademy.shop.aspects;
 
-import lombok.extern.slf4j.Slf4j;
-import org.aspectj.lang.JoinPoint;
+import org.apache.log4j.Logger;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
-@Slf4j
 @Aspect
 @Component
 public class LogAspect {
-    @Pointcut("@annotation(by.itacademy.shop.api.annotations.ExceptionCatchable)")
+    private static Logger logger = Logger.getLogger(LogAspect.class);
+
+    @Pointcut("@annotation(by.itacademy.shop.api.annotations.Loggable)")
     public void makeLog(){}
 
-    @Before("makeLog()")
-    public void logBefore(JoinPoint joinPoint){
-        System.out.println("Method '"+joinPoint.getSignature()+"("+joinPoint.getArgs()+")"+"' was executed !!");
+    @Around("makeLog()")
+    public Object logBefore(ProceedingJoinPoint joinPoint){
+        try{
+            Object o=joinPoint.proceed();
+            logger.info("\n\n\nIt WORKS\n\n\n");
+            System.out.println("\n\n\nIt WORKS\n\n\n");
+            return o;
+        }catch (Throwable e){
+            return null;
+        }
     }
 }
