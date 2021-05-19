@@ -1,51 +1,59 @@
 package by.itacademy.shop.rest.admin;
 
-import by.itacademy.shop.api.annotations.Loggable;
+import by.itacademy.shop.api.annotations.ExceptionCatchable;
+import by.itacademy.shop.api.annotations.Log;
+import by.itacademy.shop.api.constants.Constants;
 import by.itacademy.shop.api.dto.admin.AdminUserDto;
-import by.itacademy.shop.api.dto.user.UserDto;
+import by.itacademy.shop.api.services.RoleService;
 import by.itacademy.shop.api.services.UserService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-
 @RestController
-@RequestMapping("/admin/users")
+@RequestMapping(Constants.ROLE_ADMIN_ACCOUNT_USERS)
 public class AdminUserController {
 
-    private UserService userService;
+    private final UserService userService;
+    private final RoleService roleService;
 
-    public AdminUserController(UserService userService) {
+    public AdminUserController(UserService userService, RoleService roleService) {
         this.userService = userService;
+        this.roleService = roleService;
     }
 
-
     @GetMapping("/{id}")
-    public ModelAndView find(@PathVariable int id){
-        ModelAndView modelAndView=new ModelAndView();
-//        AdminUserDto userDto=this.userService.findFullInfo(id);
-        return modelAndView;
+    @ExceptionCatchable
+    public ModelAndView find(@PathVariable int id) throws JsonProcessingException {
+        return new ModelAndView("/admin/user-account")
+                .addObject("user",this.userService.findFullInfo(id));
     }
 
     @GetMapping
-    public ModelAndView findAllUsers(){
-        ModelAndView modelAndView=new ModelAndView("/admin/users");
-        modelAndView.addObject("userList",this.userService.getAllUsers());
-        return modelAndView;
+    @ExceptionCatchable
+    public ModelAndView findAllUsers() throws JsonProcessingException {
+        return new ModelAndView("/admin/users")
+                .addObject("userList",this.userService.getAllUsers())
+                .addObject("allRoles",this.roleService.getAllRoles());
     }
 
-
-    @PostMapping("/update")
-    @Loggable
-    public ModelAndView update(@RequestBody UserDto user){
-        ModelAndView modelAndView=new ModelAndView();
-
-        return modelAndView;
+    @ExceptionCatchable
+    @PostMapping("/set-role")
+    public ModelAndView setRole(@ModelAttribute AdminUserDto adminUserDto) throws JsonProcessingException {
+        this.userService.setRole(adminUserDto);
+        return new ModelAndView("redirect:"+ Constants.ROLE_ADMIN_ACCOUNT_USERS);
     }
+    @ExceptionCatchable
+    @PostMapping("/delete-role")
+    public ModelAndView deleteRole(@ModelAttribute AdminUserDto adminUserDto) throws JsonProcessingException {
+        this.userService.deleteRole(adminUserDto);
+        return new ModelAndView("redirect:"+ Constants.ROLE_ADMIN_ACCOUNT_USERS);
+    }
+
     @PostMapping("/delete")
-    @Loggable
-    public ModelAndView delete(@PathVariable int id){
-        ModelAndView modelAndView=new ModelAndView();
-
-        return modelAndView;
+    @Log
+    public ModelAndView delete(@ModelAttribute AdminUserDto adminUserDto){
+        this.userService.delete(adminUserDto.getId());
+        return new ModelAndView("redirect:"+ Constants.ROLE_ADMIN_ACCOUNT_USERS);
     }
 }

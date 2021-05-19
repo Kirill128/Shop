@@ -17,9 +17,6 @@
 
                     <div class="user__img"></div>
                     <div class="user__info" >
-                        <div class="user__name">
-                            <span th:utext="${userName}"></span>
-                        </div>
                         <div class="user__account">
                             <div th:if="${authentication!=null}" class="m-2">
                                 <p th:utext="${authentication.name}"></p>

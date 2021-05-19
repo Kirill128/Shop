@@ -1,7 +1,8 @@
 package by.itacademy.shop.rest.admin;
 
-import by.itacademy.shop.api.annotations.Loggable;
-import by.itacademy.shop.api.dto.admin.ProviderDto;
+import by.itacademy.shop.api.annotations.Log;
+import by.itacademy.shop.api.constants.Constants;
+import by.itacademy.shop.api.dto.admin.AdminProviderDto;
 import by.itacademy.shop.api.services.ProviderService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -9,43 +10,38 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @RestController
-@RequestMapping("/admin/providers")
+@RequestMapping(Constants.ROLE_ADMIN_ACCOUNT_PROVIDERS)
 public class ProviderController {
-    private ProviderService providerService;
+    private final ProviderService providerService;
 
     public ProviderController(ProviderService providerService) {
         this.providerService = providerService;
     }
 
-    @GetMapping
+    @GetMapping(Constants.ROLE_ADMIN_ACCOUNT_PROVIDERS_ROOT)
     public ModelAndView getProviders(){
-        ModelAndView modelAndView=new ModelAndView("/admin/providers");
-        List<ProviderDto> providerDtos=this.providerService.getAllProviders();
-        modelAndView.addObject("providers",providerDtos);
-        modelAndView.addObject("newProvider",new ProviderDto());
-        return modelAndView;
+        return new ModelAndView("/admin/providers")
+                .addObject("providers",this.providerService.getAllProviders())
+                .addObject("newProvider",new AdminProviderDto());
     }
 
-    @PostMapping("/create")
-    @Loggable
-    public ModelAndView createProvider(@ModelAttribute ProviderDto providerDto){
-        ModelAndView modelAndView=new ModelAndView("redirect:/admin/providers");
+    @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_PROVIDERS_CREATE)
+    @Log
+    public ModelAndView createProvider(@ModelAttribute AdminProviderDto providerDto){
         this.providerService.createProvider(providerDto);
-        return modelAndView;
+        return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PROVIDERS);
     }
-    @PostMapping("/update")
-    @Loggable
-    public ModelAndView updateProvider(@ModelAttribute ProviderDto providerDto){
-        ModelAndView modelAndView=new ModelAndView("redirect:/admin/providers");
+    @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_PROVIDERS_UPDATE)
+    @Log
+    public ModelAndView updateProvider(@ModelAttribute AdminProviderDto providerDto){
         this.providerService.update(providerDto);
-        return modelAndView;
+        return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PROVIDERS);
     }
-    @PostMapping("/delete")
-    @Loggable
-    public ModelAndView deleteProvider(@ModelAttribute ProviderDto providerDto){
-        ModelAndView modelAndView=new ModelAndView("redirect:/admin/providers");
+    @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_PROVIDERS_DELETE)
+    @Log
+    public ModelAndView deleteProvider(@ModelAttribute AdminProviderDto providerDto){
         this.providerService.delete(providerDto.getId());
-        return modelAndView;
+        return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PROVIDERS);
     }
 
 }

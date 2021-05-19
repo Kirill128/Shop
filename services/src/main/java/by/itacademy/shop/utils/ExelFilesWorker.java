@@ -1,6 +1,6 @@
 package by.itacademy.shop.utils;
 
-import by.itacademy.shop.api.dto.admin.ProductDto;
+import by.itacademy.shop.api.dto.admin.AdminProductDto;
 import by.itacademy.shop.utilenum.Lang;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.experimental.UtilityClass;
@@ -17,14 +17,14 @@ import java.util.*;
 @UtilityClass
 public class ExelFilesWorker {
 
-    public  List<ProductDto> parseXLSOrXlSXFile(MultipartFile file, Lang lang) throws IOException {
+    public  List<AdminProductDto> parseXLSOrXlSXFile(MultipartFile file, Lang lang) throws IOException {
         Workbook workbook= (file.getContentType().equals(".xls"))? new HSSFWorkbook(file.getInputStream()):new XSSFWorkbook(file.getInputStream());
         int quantityInStorageCellNum=8;
         int shortDescrCellNum=3;
         int barcodeCellNum=5;
         int priceCellNum=11;
         ObjectMapper objectMapper=new ObjectMapper();
-        List<ProductDto> productDtoList=new LinkedList<>();
+        List<AdminProductDto> productDtoList=new LinkedList<>();
         Iterator<Sheet> sheetIterator=workbook.sheetIterator();
         while(sheetIterator.hasNext()){
             Sheet currentSheet=sheetIterator.next();
@@ -32,7 +32,7 @@ public class ExelFilesWorker {
 
             while(rowIterator.hasNext()){
                 Row currentRow=rowIterator.next();
-                ProductDto productDto=new ProductDto();
+                AdminProductDto productDto=new AdminProductDto();
 
                 Map<String,String> shortDescr=new HashMap<>();
                 String shortDescrString=currentRow.getCell(shortDescrCellNum).getStringCellValue();

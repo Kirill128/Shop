@@ -1,8 +1,8 @@
 package by.itacademy.shop.rest;
 
-import by.itacademy.shop.api.annotations.Loggable;
+import by.itacademy.shop.api.annotations.Log;
 import by.itacademy.shop.api.constants.Constants;
-import by.itacademy.shop.api.dto.admin.ProductDto;
+import by.itacademy.shop.api.dto.admin.AdminProductDto;
 import by.itacademy.shop.api.dto.user.UserDto;
 import by.itacademy.shop.api.services.UserService;
 import org.springframework.web.bind.annotation.*;
@@ -11,44 +11,39 @@ import org.springframework.web.servlet.ModelAndView;
 import java.security.Principal;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping(Constants.ROLE_USER_ACCOUNT_USER)
 public class UserController {
 
-    private UserService userService;
+    private final UserService userService;
 
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
 
-    @GetMapping("/account")
+    @GetMapping(Constants.ROLE_USER_ACCOUNT_USER_ACCOUNT)
     public ModelAndView aboutUser(Principal principal){
-        ModelAndView modelAndView=new ModelAndView("/user/account");
-        UserDto userDto=this.userService.findByEmail(principal.getName(),Constants.GLOBAL_LANG);
-        modelAndView.addObject("user",userDto);
-        return modelAndView;
+        return new ModelAndView("/user/account")
+                .addObject("user",
+                        this.userService.findByEmail(principal.getName(),Constants.GLOBAL_LANG)
+                );
     }
-    @GetMapping("/orders")
-    public ModelAndView userOrders(@ModelAttribute UserDto user){
-        ModelAndView modelAndView=new ModelAndView();
-
-        return modelAndView;
-    }
-
-    @PostMapping("/update")
-    @Loggable
+    @PostMapping(Constants.ROLE_USER_ACCOUNT_USER_UPDATE)
+    @Log
     public ModelAndView update(@ModelAttribute UserDto user){
-        return new ModelAndView("redirect:"+Constants.MAIN_PAGE);
+        return new ModelAndView("redirect:"+Constants.ROLE_USER_ACCOUNT_USER_ACCOUNT);
     }
-    @PostMapping("/delete")
-    @Loggable
+    @PostMapping(Constants.ROLE_USER_ACCOUNT_USER_DELETE)
+    @Log
     public ModelAndView delete(@ModelAttribute UserDto user){
-        return new ModelAndView("redirect:"+Constants.MAIN_PAGE);
+        return new ModelAndView("redirect:"+Constants.ROLE_USER_ACCOUNT_USER_ACCOUNT);
     }
 
-    @PostMapping("/add-order")
-    @Loggable
-    public void addProductToUserOrdersList(@ModelAttribute ProductDto productDto,Principal principal){
+    @PostMapping(Constants.ROLE_USER_ACCOUNT_USER_ADD_ORDER)
+    @Log
+    public ModelAndView addProductToUserOrdersList(@ModelAttribute AdminProductDto productDto, Principal principal){
         this.userService.addProductToUserOrderList(principal.getName(),productDto.getId());
+        return new ModelAndView("redirect:"+Constants.ROLE_USER_ACCOUNT_USER_ACCOUNT);
+
     }
 }

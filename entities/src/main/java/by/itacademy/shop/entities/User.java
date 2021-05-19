@@ -7,6 +7,7 @@ import org.hibernate.annotations.Fetch;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -30,21 +31,11 @@ public class User extends GenericEntity<Long> {
     @JoinTable(name = "user_role",
             joinColumns = {@JoinColumn(name="user_id") },
             inverseJoinColumns = {@JoinColumn(name="role_id")})
-    private List<Role> roles;
+    private Set<Role> roles;
 
     @OneToMany(fetch = FetchType.EAGER,mappedBy = "user")
     private List<Order> orders;
 
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", password='" + password + '\'' +
-                ", roles=" + roles +
-                '}';
-    }
+
 }
 

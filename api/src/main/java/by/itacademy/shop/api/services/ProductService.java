@@ -1,7 +1,7 @@
 package by.itacademy.shop.api.services;
 
 import by.itacademy.shop.api.dto.forall.GuestProductDto;
-import by.itacademy.shop.api.dto.admin.ProductDto;
+import by.itacademy.shop.api.dto.admin.AdminProductDto;
 import by.itacademy.shop.api.dto.forall.ProductSearchCriteria;
 import by.itacademy.shop.api.dto.forall.SimplePage;
 import by.itacademy.shop.utilenum.Lang;
@@ -20,13 +20,13 @@ public interface ProductService {
 
 
     //Admin
-    ProductDto createProduct(ProductDto user) throws JsonProcessingException;
-    ProductDto findFullInfo(long id) throws JsonProcessingException;
-    List<ProductDto> getAllProducts() throws JsonProcessingException;
-    SimplePage<ProductDto> getProductsPageByCriteriaAdmin(ProductSearchCriteria productSearchCriteria) throws JsonProcessingException;
-    void update(ProductDto user) throws JsonProcessingException;
+    AdminProductDto createProduct(AdminProductDto user) throws JsonProcessingException;
+    AdminProductDto findFullInfo(long id) throws JsonProcessingException;
+    List<AdminProductDto> getAllProducts() throws JsonProcessingException;
+    SimplePage<AdminProductDto> getProductsPageByCriteriaAdmin(ProductSearchCriteria productSearchCriteria) throws JsonProcessingException;
+    void update(AdminProductDto user) throws JsonProcessingException;
     void delete(long id);
-    List<ProductDto> parseXLSOrXlSXFile(MultipartFile file,Lang lang) throws IOException;
-    List<ProductDto> createProducts(List<ProductDto> productDtos) throws JsonProcessingException;
+    List<AdminProductDto> parseXLSOrXlSXFile(MultipartFile file, Lang lang) throws IOException;
+    List<AdminProductDto> createProducts(List<AdminProductDto> productDtos) throws JsonProcessingException;
 
 }

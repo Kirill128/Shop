@@ -1,8 +1,8 @@
 package by.itacademy.shop.api.services;
 
 import by.itacademy.shop.api.dto.forall.GuestParentCategoryDto;
-import by.itacademy.shop.api.dto.admin.CategoryDto;
-import by.itacademy.shop.api.dto.admin.ParentCategoryDto;
+import by.itacademy.shop.api.dto.admin.AdminCategoryDto;
+import by.itacademy.shop.api.dto.admin.AdminParentCategoryDto;
 import by.itacademy.shop.utilenum.Lang;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
@@ -13,11 +13,11 @@ public interface CategoryService {
     List<GuestParentCategoryDto> getParentCategories(Lang lang);
 
     //Admin
-    CategoryDto createCategory(CategoryDto user) throws JsonProcessingException;
-    CategoryDto findFullInfo(long id) throws JsonProcessingException;
-    void update(CategoryDto user) throws JsonProcessingException;
+    AdminCategoryDto createCategory(AdminCategoryDto user) throws JsonProcessingException;
+    AdminCategoryDto findFullInfo(long id) throws JsonProcessingException;
+    void update(AdminCategoryDto user) throws JsonProcessingException;
     void delete(long id);
-    List<CategoryDto> getAllCategoriesFullInfo() throws JsonProcessingException;
-    List<ParentCategoryDto> getParentCategoriesFullInfo() throws JsonProcessingException;
-    List<CategoryDto> getSubCategoriesFullInfo() throws JsonProcessingException;
+    List<AdminCategoryDto> getAllCategoriesFullInfo() throws JsonProcessingException;
+    List<AdminParentCategoryDto> getParentCategoriesFullInfo() throws JsonProcessingException;
+    List<AdminCategoryDto> getSubCategoriesFullInfo() throws JsonProcessingException;
 }

@@ -17,7 +17,7 @@ import java.util.Properties;
 @Configuration
 @ComponentScan(basePackages = {"by.itacademy.shop.dao","by.itacademy.shop.api"})
 @EnableTransactionManagement
-@EnableAspectJAutoProxy
+
 @PropertySource(value = "classpath:/META-INF/persistence.properties")
 @Slf4j
 public class DaoConfiguration {

@@ -1,8 +1,10 @@
 package by.itacademy.shop.api.dto.admin;
 
+import by.itacademy.shop.api.dto.user.OrderDto;
 import lombok.*;
 
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -15,6 +17,7 @@ public class AdminUserDto {
         private String email;
         private String phone;
         private String password;
-        private List<RoleDto> roles;
-
+        private Set<AdminRoleDto> roles;
+        private List<AdminOrderDto> orders;
+        private Long roleForActionId;
 }

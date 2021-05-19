@@ -9,7 +9,7 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class ProductDto {
+public class AdminProductDto {
 
     private Long id;
 

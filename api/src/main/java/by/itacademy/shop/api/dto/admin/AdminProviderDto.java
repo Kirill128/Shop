@@ -8,7 +8,7 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProviderDto {
+public class AdminProviderDto {
     private Long id;
 
     private String name;

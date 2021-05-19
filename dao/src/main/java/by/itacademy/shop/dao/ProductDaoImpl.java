@@ -79,7 +79,7 @@ public class ProductDaoImpl extends GenericDaoImpl<Product> implements ProductDa
             );
         }
         if (productSearchCriteria.getCategoryId() != null) {
-            nativeQueryStringBuilder.and().where(String.format("p.category_id=%d", productSearchCriteria.getCategoryId()));
+            nativeQueryStringBuilder.and().where(String.format("p.category_id=%d",productSearchCriteria.getCategoryId()));
         }
         if (productSearchCriteria.getSortBy() != null) {
             StringBuilder orderByStr = new StringBuilder(productSearchCriteria.getSortBy());

@@ -7,13 +7,12 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class CategoryDto {
+public class AdminProductOrderDto {
     private Long id;
 
-    private String title;
+    private AdminProductDto product;
 
-    private Long parentCategoryId;
+    private Integer quantity;
 
-    private ParentCategoryDto parentCategoryDto;
-
+    private Double price;
 }

@@ -1,14 +1,14 @@
 package by.itacademy.shop.api.services;
 
-import by.itacademy.shop.api.dto.admin.ProviderDto;
+import by.itacademy.shop.api.dto.admin.AdminProviderDto;
 
 import java.util.List;
 
 public interface ProviderService {
-    ProviderDto createProvider(ProviderDto user);
-    ProviderDto find(long id);
-    void update(ProviderDto user);
+    AdminProviderDto createProvider(AdminProviderDto user);
+    AdminProviderDto find(long id);
+    void update(AdminProviderDto user);
     void delete(long id);
 
-    List<ProviderDto> getAllProviders();
+    List<AdminProviderDto> getAllProviders();
 }

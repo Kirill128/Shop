@@ -17,7 +17,6 @@ public class ExceptionHandlerAspect {
 
     private static Logger logger = Logger.getLogger(ExceptionHandlerAspect.class);
 
-
     @Pointcut("@annotation(by.itacademy.shop.api.annotations.ExceptionCatchable)")
     public void catchExc(){}
 

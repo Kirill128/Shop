@@ -10,22 +10,15 @@ import by.itacademy.shop.api.services.UserService;
 import by.itacademy.shop.entities.*;
 import by.itacademy.shop.forentity.Status;
 import by.itacademy.shop.utilenum.Lang;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.context.SecurityContextHolder;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.web.authentication.WebAuthenticationDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -58,13 +51,16 @@ public class UserServiceImpl implements UserService{
 
     @Override
     public UserDto createUser(UserDto user, Lang lang) {
+        User mayExists = this.userDao.findByEmail(user.getEmail());
+        if (mayExists != null){
+            return UserMapper.mapUserToUserDto(mayExists, lang);
+        }
         User newUser= UserMapper.mapUserDtoToUser(user);
         newUser.setPassword(this.passwordEncoder.encode(user.getPassword()));
         Role role=this.roleDao.findByName(Constants.NEW_USER_DEFAULT_ROLE);
-        List<Role> startRoles = Stream.of(role).collect(Collectors.toList());
+        Set<Role> startRoles = Stream.of(role).collect(Collectors.toSet());
         newUser.setRoles(startRoles);
-        this.userDao.create(newUser);
-        return UserMapper.mapUserToUserDto(newUser,lang);
+        return UserMapper.mapUserToUserDto(this.userDao.create(newUser),lang);
     }
 
     @Override
@@ -73,7 +69,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public AdminUserDto findFullInfo(long id) {
+    public AdminUserDto findFullInfo(long id) throws JsonProcessingException {
         return UserMapper.mapUserToAdminUserDto(this.userDao.find(id));
     }
 
@@ -81,6 +77,21 @@ public class UserServiceImpl implements UserService{
     public UserDto findByEmail(String email,Lang lang) {
         return UserMapper.mapUserToUserDto(this.userDao.findByEmail(email),lang);
     }
+
+    @Override
+    public void setRole(AdminUserDto userDto) {
+        User foundUser=this.userDao.find(userDto.getId());
+        foundUser.getRoles().add(this.roleDao.find(userDto.getRoleForActionId()));
+        this.userDao.update(foundUser);
+    }
+
+    @Override
+    public void deleteRole(AdminUserDto userDto) {
+        User foundUser=this.userDao.find(userDto.getId());
+        foundUser.getRoles().removeIf((e)-> e.getId().equals(userDto.getRoleForActionId()));
+        this.userDao.update(foundUser);
+    }
+
 
     @Override
     public void update(UserDto user) {
@@ -94,7 +105,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public List<AdminUserDto> getAllUsers() {
+    public List<AdminUserDto> getAllUsers() throws JsonProcessingException {
         return UserMapper.mapUsersToAdminUserDtos(this.userDao.findAll());
     }
 

@@ -1,15 +1,16 @@
 package by.itacademy.shop.api.services;
 
-import by.itacademy.shop.api.dto.admin.RoleDto;
+import by.itacademy.shop.api.dto.admin.AdminRoleDto;
 
 import java.util.List;
+import java.util.Set;
 
 public interface RoleService {
-    RoleDto createRole(RoleDto user);
-    RoleDto find(long id);
-    RoleDto findByName(String name);
-    void update(RoleDto user);
+    AdminRoleDto createRole(AdminRoleDto user);
+    AdminRoleDto find(long id);
+    AdminRoleDto findByName(String name);
+    void update(AdminRoleDto user);
     void delete(long id);
 
-    List<RoleDto> getAllRoles();
+    Set<AdminRoleDto> getAllRoles();
 }

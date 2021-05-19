@@ -2,8 +2,8 @@ package by.itacademy.shop.api.mappers;
 
 import by.itacademy.shop.api.dto.forall.GuestParentCategoryDto;
 import by.itacademy.shop.api.dto.forall.GuestSubCategoryDto;
-import by.itacademy.shop.api.dto.admin.CategoryDto;
-import by.itacademy.shop.api.dto.admin.ParentCategoryDto;
+import by.itacademy.shop.api.dto.admin.AdminCategoryDto;
+import by.itacademy.shop.api.dto.admin.AdminParentCategoryDto;
 import by.itacademy.shop.entities.Category;
 import by.itacademy.shop.utilenum.Lang;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -49,16 +49,16 @@ public class CategoryMapper {
 
 
     //----------------------------ParentCategoryDto----------------------------------------------for admin
-    public ParentCategoryDto mapCategoryToParentCategoryDto(Category category) throws JsonProcessingException {
+    public AdminParentCategoryDto mapCategoryToParentCategoryDto(Category category) throws JsonProcessingException {
         if(category==null)return null;
         ObjectMapper mapper=new ObjectMapper();
-        return ParentCategoryDto.builder().
+        return AdminParentCategoryDto.builder().
                 id(category.getId()).
                 title( (category.getTitle()!=null)? mapper.writeValueAsString(category.getTitle()) : null).
                 subcategories( CategoryMapper.mapCategoriesToCategoryDtos(category.getSubCategories()) ).
                 build();
     }
-    public Category mapParentCategoryDtoToCategory(ParentCategoryDto category) throws JsonProcessingException {
+    public Category mapParentCategoryDtoToCategory(AdminParentCategoryDto category) throws JsonProcessingException {
         if(category==null)return null;
         ObjectMapper objectMapper=new ObjectMapper();
         return Category.builder().
@@ -67,18 +67,18 @@ public class CategoryMapper {
                 build();
     }
 
-    public List<ParentCategoryDto> mapCategoriesToParentCategoryDtos(List<Category> categories) throws JsonProcessingException {
+    public List<AdminParentCategoryDto> mapCategoriesToParentCategoryDtos(List<Category> categories) throws JsonProcessingException {
         if(categories==null)return new ArrayList<>();
-        List<ParentCategoryDto> result=new ArrayList<>(categories.size());
+        List<AdminParentCategoryDto> result=new ArrayList<>(categories.size());
         for(Category cat: categories){
             result.add(CategoryMapper.mapCategoryToParentCategoryDto(cat));
         }
         return result;
     }
-    public List<Category> mapParentCategoryDtosToCategories(List<ParentCategoryDto> categories) throws JsonProcessingException {
+    public List<Category> mapParentCategoryDtosToCategories(List<AdminParentCategoryDto> categories) throws JsonProcessingException {
         if(categories==null)return new ArrayList<>();
         List<Category> result=new ArrayList<>(categories.size());
-        for(ParentCategoryDto cat: categories){
+        for(AdminParentCategoryDto cat: categories){
             result.add(CategoryMapper.mapParentCategoryDtoToCategory(cat));
         }
         return result;
@@ -86,16 +86,16 @@ public class CategoryMapper {
 
     //----------------------------CategoryDto----------------------------------------------for admin
 
-    public CategoryDto mapCategoryToCategoryDto(Category source) throws JsonProcessingException {
+    public AdminCategoryDto mapCategoryToCategoryDto(Category source) throws JsonProcessingException {
         if(source==null)return null;
         ObjectMapper objectMapper=new ObjectMapper();
-        return CategoryDto.builder().
+        return AdminCategoryDto.builder().
                 id(source.getId()).
                 title((source.getTitle()!=null) ? objectMapper.writeValueAsString(source.getTitle()): null).
                 parentCategoryId((source.getParentCategory()!=null)?source.getParentCategory().getId() : null).
                 build();
     }
-    public Category mapCategoryDtoToCategory(CategoryDto source) throws JsonProcessingException {
+    public Category mapCategoryDtoToCategory(AdminCategoryDto source) throws JsonProcessingException {
         if(source==null)return null;
         ObjectMapper objectMapper=new ObjectMapper();
         Category parentCategory=null;
@@ -111,18 +111,18 @@ public class CategoryMapper {
                 parentCategory(parentCategory).
                 build();
     }
-    public List<CategoryDto> mapCategoriesToCategoryDtos(List<Category> source) throws JsonProcessingException {
+    public List<AdminCategoryDto> mapCategoriesToCategoryDtos(List<Category> source) throws JsonProcessingException {
         if(source==null)return new ArrayList<>();
-        List<CategoryDto> result = new ArrayList<>(source.size());
+        List<AdminCategoryDto> result = new ArrayList<>(source.size());
         for (Category category : source) {
             result.add(CategoryMapper.mapCategoryToCategoryDto(category));
         }
         return result;
     }
-    public List<Category> mapCategoryDtosToCategories(List<CategoryDto> source) throws JsonProcessingException {
+    public List<Category> mapCategoryDtosToCategories(List<AdminCategoryDto> source) throws JsonProcessingException {
         if(source==null)return new ArrayList<>();
         List<Category> result = new ArrayList<>(source.size());
-        for (CategoryDto category : source) {
+        for (AdminCategoryDto category : source) {
             result.add(CategoryMapper.mapCategoryDtoToCategory(category));
         }
         return result;

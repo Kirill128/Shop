@@ -1,7 +1,7 @@
 package by.itacademy.shop.api.mappers;
 
 import by.itacademy.shop.api.dto.forall.GuestProductDto;
-import by.itacademy.shop.api.dto.admin.ProductDto;
+import by.itacademy.shop.api.dto.admin.AdminProductDto;
 import by.itacademy.shop.entities.Category;
 import by.itacademy.shop.entities.Photo;
 import by.itacademy.shop.entities.Product;
@@ -37,10 +37,10 @@ public class ProductMapper {
     }
 
     //---------------Product Dto
-    public ProductDto mapProductToProductDto(Product product) throws JsonProcessingException {
+    public AdminProductDto mapProductToProductDto(Product product) throws JsonProcessingException {
         if(product==null)return null;
         ObjectMapper mapper=new ObjectMapper();
-        return ProductDto.builder().
+        return AdminProductDto.builder().
                 id(product.getId()).
                 barcode(product.getBarcode()).
                 attributes(product.getAttributes()).
@@ -52,9 +52,9 @@ public class ProductMapper {
                 providerId((product.getProvider()!=null) ? product.getProvider().getId() : null).
                 build();
     }
-    public List<ProductDto> mapProductsToProductDtos(List<Product> products) throws JsonProcessingException {
+    public List<AdminProductDto> mapProductsToProductDtos(List<Product> products) throws JsonProcessingException {
         if(products==null)return new ArrayList<>();
-        List<ProductDto> result=new ArrayList<>(products.size());
+        List<AdminProductDto> result=new ArrayList<>(products.size());
         for(Product product: products){
             result.add(ProductMapper.mapProductToProductDto(product));
         }
@@ -62,7 +62,7 @@ public class ProductMapper {
     }
 
 
-    public Product mapProductDtoToProduct(ProductDto product) throws JsonProcessingException {
+    public Product mapProductDtoToProduct(AdminProductDto product) throws JsonProcessingException {
         if(product==null)return null;
         ObjectMapper mapper=new ObjectMapper();
         Category category= Category.builder().id(product.getCategoryId()).build();
@@ -80,10 +80,10 @@ public class ProductMapper {
                 provider(provider).
                 build();
     }
-    public List<Product> mapProductDtosToProducts(List<ProductDto> products) throws JsonProcessingException {
+    public List<Product> mapProductDtosToProducts(List<AdminProductDto> products) throws JsonProcessingException {
         if(products==null)return new ArrayList<>();
         List<Product> result = new ArrayList<>(products.size());
-        for (ProductDto product : products) {
+        for (AdminProductDto product : products) {
             result.add(ProductMapper.mapProductDtoToProduct(product));
         }
         return result;

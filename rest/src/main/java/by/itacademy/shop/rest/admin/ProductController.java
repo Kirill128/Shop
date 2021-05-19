@@ -1,7 +1,7 @@
 package by.itacademy.shop.rest.admin;
 
 import by.itacademy.shop.api.annotations.ExceptionCatchable;
-import by.itacademy.shop.api.annotations.Loggable;
+import by.itacademy.shop.api.annotations.Log;
 import by.itacademy.shop.api.constants.Constants;
 import by.itacademy.shop.api.dto.admin.*;
 import by.itacademy.shop.api.services.CategoryService;
@@ -18,12 +18,12 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-@RequestMapping("/admin/products")
+@RequestMapping(Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS)
 public class ProductController {
-    private ProductService productService;
-    private CategoryService categoryService;
-    private ProviderService providerService;
-    private PhotoService photoService;
+    private final ProductService productService;
+    private final CategoryService categoryService;
+    private final ProviderService providerService;
+    private final PhotoService photoService;
 
     public ProductController(ProductService productService, CategoryService categoryService, ProviderService providerService, PhotoService photoService) {
         this.productService = productService;
@@ -32,76 +32,63 @@ public class ProductController {
         this.photoService = photoService;
     }
 
-    @GetMapping
+    @GetMapping(Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS_ROOT)
     @ExceptionCatchable
-    @Loggable
+    @Log
     public ModelAndView findAllProductsFullInfo() throws JsonProcessingException {
-        List<ProductDto> productDtos=this.productService.getAllProducts();
-        List<CategoryDto> subCategories=this.categoryService.getSubCategoriesFullInfo();
-        List<ProviderDto> providerDtos=this.providerService.getAllProviders();
-
-        ModelAndView modelAndView=new ModelAndView(Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS);
-
-        modelAndView.addObject("products",productDtos);
-        modelAndView.addObject("subCategories",subCategories);
-        modelAndView.addObject("providers",providerDtos);
-        modelAndView.addObject("productToCreate",new ProductDto());
-
-        return modelAndView;
+        return new ModelAndView(Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS)
+                .addObject("products",this.productService.getAllProducts())
+                .addObject("subCategories",this.categoryService.getSubCategoriesFullInfo())
+                .addObject("providers",this.providerService.getAllProviders())
+                .addObject("productToCreate",new AdminProductDto());
     }
 
-    @PostMapping(value="/upload-file")
+    @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS_UPLOAD_FILE)
     @ExceptionCatchable
-    @Loggable
-    public ModelAndView uploadProductsFile(@ModelAttribute ProductDto defValues, @RequestParam("exelFile") MultipartFile exelFile) throws IOException {
-        List<ProductDto> productDtos=this.productService.parseXLSOrXlSXFile(exelFile, Constants.GLOBAL_LANG);
-        List<CategoryDto> subCategories=this.categoryService.getSubCategoriesFullInfo();
-        List<ProviderDto> providerDtos=this.providerService.getAllProviders();
-        for(ProductDto productDto : productDtos){
+    @Log
+    public ModelAndView uploadProductsFile(@ModelAttribute AdminProductDto defValues, @RequestParam("exelFile") MultipartFile exelFile) throws IOException {
+        List<AdminProductDto> productDtos=this.productService.parseXLSOrXlSXFile(exelFile, Constants.GLOBAL_LANG);
+        for(AdminProductDto productDto : productDtos){
             productDto.setCategoryId(defValues.getCategoryId());
             productDto.setProviderId(defValues.getProviderId());
         }
-        ListProductDtos list=new ListProductDtos(productDtos);
-        ModelAndView modelAndView=new ModelAndView(Constants.ROLE_ADMIN_ACCOUNT_UPLOAD_FILE);
-
-        modelAndView.addObject("listProductDtos",list);
-        modelAndView.addObject("lang",Constants.GLOBAL_LANG);
-        modelAndView.addObject("subCategories",subCategories);
-        modelAndView.addObject("providers",providerDtos);
-
-        return modelAndView;
+        return new ModelAndView("/admin/uploadfile")
+                .addObject("listProductDtos",new AdminListProductDtos(productDtos))
+                .addObject("lang",Constants.GLOBAL_LANG)
+                .addObject("subCategories",this.categoryService.getSubCategoriesFullInfo())
+                .addObject("providers",this.providerService.getAllProviders());
     }
 
-    @PostMapping("/create")
+    @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS_CREATE)
     @ExceptionCatchable
-    @Loggable
-    public ModelAndView createProduct(@ModelAttribute ProductDto product,@RequestParam("imgPrCr") MultipartFile img) throws IOException {
+    @Log
+    public ModelAndView createProduct(@ModelAttribute AdminProductDto product, @RequestParam("imgPrCr") MultipartFile img) throws IOException {
         this.photoService.createPhoto(img);
         this.productService.createProduct(product);
         return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS);
     }
 
-    @PostMapping("/create/list")
+    @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS_CREATE_LIST)
     @ExceptionCatchable
-    @Loggable
-    public ModelAndView createProduct(@ModelAttribute ListProductDtos products) throws JsonProcessingException {
+    @Log
+    public ModelAndView createProduct(@ModelAttribute AdminListProductDtos products) throws JsonProcessingException {
         this.productService.createProducts(products.getProductDtoList());
         return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS);
     }
 
 
-    @PostMapping("/update")
+    @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS_UPDATE)
     @ExceptionCatchable
-    @Loggable
-    public ModelAndView update(@ModelAttribute ProductDto product) throws JsonProcessingException {
+    @Log
+    public ModelAndView update(@ModelAttribute AdminProductDto product) throws JsonProcessingException {
         this.productService.update(product);
         return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS);
     }
 
-    @PostMapping("/delete")
+    @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS_DELETE)
     @ExceptionCatchable
-    @Loggable
-    public ModelAndView delete(@ModelAttribute ProductDto product){
+    @Log
+    public ModelAndView delete(@ModelAttribute AdminProductDto product){
         this.productService.delete(product.getId());
         return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS);
     }

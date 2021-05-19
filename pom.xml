@@ -21,7 +21,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven-war-plugin.version>2.2</maven-war-plugin.version>
-        <spring.version>5.2.14.RELEASE</spring.version>
+        <spring.version>5.2.15.RELEASE</spring.version>
         <spring-security.version>5.3.9.RELEASE</spring-security.version>
         <lombok.version>1.18.18</lombok.version>
         <hibernate-core.version>5.4.29.Final</hibernate-core.version>
@@ -40,7 +40,7 @@
         <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
         <tomcat-dbcp.version>9.0.1</tomcat-dbcp.version>
         <liquibase-core.version>4.3.1</liquibase-core.version>
-        <aspect.version>1.9.2</aspect.version>
+        <aspect.version>1.9.6</aspect.version>
         <hibernate-validator.version>6.1.6.Final</hibernate-validator.version>
         <jakarta.validation-api.version>2.0.2</jakarta.validation-api.version>
 

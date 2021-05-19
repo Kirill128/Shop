@@ -19,12 +19,10 @@
                     <div class="user__img"></div>
                     <div class="user__info" >
                         <div class="user__name">
-                            <span th:utext="${userName}"></span>
+                            <span th:utext="${user.name}"></span>
                         </div>
                         <div class="user__account">
-                            <a th:href="@{/logout}" th:if="${userAuthenticated}" th:utext="'Log out'"  ></a>
-                            <a th:href="@{/login}" th:unless="${userAuthenticated}" th:utext="'Sing in'" ></a>
-                            <a th:href="@{/sing-up}" th:unless="${userAuthenticated}" th:utext="'Sing up'" ></a>
+                            <a th:href="@{/logout}"  th:utext="'Log out'"  ></a>
                         </div>
                     </div>
 
@@ -42,13 +40,14 @@
 
     <main class="main">
         <div class="main__body container" >
-            <h1 class="row" th:utext="${user.name}"></h1>
-            <h2 class="row" th:utext="${user.email}"></h2>
-            <h2 class="row" th:utext="${user.phone}"></h2>
-            <h2 class="row" >ORDERS</h2>
-            <div class="row" th:each="order : ${user.orders}" >
-                <h5 >Order status: <span th:utext="${order.status.toString()}"></span></h5>
-                <h5 >Order price: <span th:utext="${order.price}"></span></h5>
+            <h1 class="row mt-3" th:utext="${user.name}"></h1>
+            <h2 class="row mt-3" th:utext="${user.email}"></h2>
+            <h2 class="row mt-3" th:utext="${user.phone}"></h2>
+            <a th:if="${user.isAdmin()}" th:href="@{/admin/products}" th:utext="'GO TO ADMIN PAGE'"></a>
+            <h2 class="row mt-3" >ORDERS</h2>
+            <div class="row mt-3" th:each="order : ${user.orders}" >
+                <h5 class="mt-3">Order status: <span th:utext="${order.status.toString()}"></span></h5>
+                <h5 class="mt-3">Order price: <span th:utext="${order.price}"></span></h5>
                 <table class="table">
                     <thead>
                         <th scope="col">Photo</th>

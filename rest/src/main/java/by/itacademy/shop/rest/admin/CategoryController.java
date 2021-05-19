@@ -1,9 +1,10 @@
 package by.itacademy.shop.rest.admin;
 
 import by.itacademy.shop.api.annotations.ExceptionCatchable;
-import by.itacademy.shop.api.annotations.Loggable;
-import by.itacademy.shop.api.dto.admin.CategoryDto;
-import by.itacademy.shop.api.dto.admin.ParentCategoryDto;
+import by.itacademy.shop.api.annotations.Log;
+import by.itacademy.shop.api.constants.Constants;
+import by.itacademy.shop.api.dto.admin.AdminCategoryDto;
+import by.itacademy.shop.api.dto.admin.AdminParentCategoryDto;
 import by.itacademy.shop.api.services.CategoryService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.web.bind.annotation.*;
@@ -13,9 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/admin/categories")
+@RequestMapping(Constants.ROLE_ADMIN_ACCOUNT_CATEGORIES)
 public class CategoryController {
-    private CategoryService categoryService;
+    private final CategoryService categoryService;
 
     public CategoryController(CategoryService categoryService) {
         this.categoryService = categoryService;
@@ -24,35 +25,37 @@ public class CategoryController {
     @GetMapping
     @ExceptionCatchable
     public ModelAndView showCategories() throws JsonProcessingException {
-        ModelAndView modelAndView=new ModelAndView("/admin/categories");
-        List<ParentCategoryDto> parentCategoryDtos=this.categoryService.getParentCategoriesFullInfo();
-        List<CategoryDto> newCategories=new ArrayList(parentCategoryDtos.size());
-        for(ParentCategoryDto parentCategoryDto : parentCategoryDtos){
-            newCategories.add( CategoryDto.builder().parentCategoryId(parentCategoryDto.getId()).build() );
+        List<AdminParentCategoryDto> parentCategoryDtos=this.categoryService.getParentCategoriesFullInfo();
+        List<AdminCategoryDto> newCategories=new ArrayList(parentCategoryDtos.size());
+        for(AdminParentCategoryDto parentCategoryDto : parentCategoryDtos){
+            newCategories.add( AdminCategoryDto.builder().parentCategoryId(parentCategoryDto.getId()).build() );
         }
-        modelAndView.addObject("parentCategories",parentCategoryDtos);
-        modelAndView.addObject("newCategoryDtos",newCategories);
-        modelAndView.addObject("newParentCategory",new CategoryDto());
-        return modelAndView;
+        return new ModelAndView("/admin/categories")
+                .addObject("parentCategories",parentCategoryDtos)
+                .addObject("newCategoryDtos",newCategories)
+                .addObject("newParentCategory",new AdminCategoryDto());
     }
+
     @PostMapping(value = "/create")
     @ExceptionCatchable
-    @Loggable
-    public ModelAndView createCategory(@ModelAttribute CategoryDto category) throws JsonProcessingException {
+    @Log
+    public ModelAndView createCategory(@ModelAttribute AdminCategoryDto category) throws JsonProcessingException {
         this.categoryService.createCategory(category);
-        return new ModelAndView("redirect:/admin/categories");
+        return new ModelAndView("redirect:"+ Constants.ROLE_ADMIN_ACCOUNT_CATEGORIES);
     }
+
     @PostMapping(value = "/update")
     @ExceptionCatchable
-    @Loggable
-    public ModelAndView updateCategory(@ModelAttribute CategoryDto category) throws JsonProcessingException {
+    @Log
+    public ModelAndView updateCategory(@ModelAttribute AdminCategoryDto category) throws JsonProcessingException {
         this.categoryService.update(category);
-        return new ModelAndView("redirect:/admin/categories");
+        return new ModelAndView("redirect:"+ Constants.ROLE_ADMIN_ACCOUNT_CATEGORIES);
     }
+
     @PostMapping("/delete")
-    @Loggable
-    public ModelAndView deleteCategory(@ModelAttribute CategoryDto categoryDto){
+    @Log
+    public ModelAndView deleteCategory(@ModelAttribute AdminCategoryDto categoryDto){
         this.categoryService.delete(categoryDto.getId());
-        return new ModelAndView("redirect:/admin/categories");
+        return new ModelAndView("redirect:"+ Constants.ROLE_ADMIN_ACCOUNT_CATEGORIES);
     }
 }

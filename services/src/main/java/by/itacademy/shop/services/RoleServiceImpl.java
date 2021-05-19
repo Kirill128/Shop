@@ -1,14 +1,16 @@
 package by.itacademy.shop.services;
 
 import by.itacademy.shop.api.dao.RoleDao;
-import by.itacademy.shop.api.dto.admin.RoleDto;
+import by.itacademy.shop.api.dto.admin.AdminRoleDto;
 import by.itacademy.shop.api.mappers.RoleMapper;
 import by.itacademy.shop.api.services.RoleService;
 import by.itacademy.shop.entities.Role;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Service
 @Transactional
@@ -20,22 +22,22 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public RoleDto createRole(RoleDto roleDto) {
+    public AdminRoleDto createRole(AdminRoleDto roleDto) {
         return RoleMapper.mapRoleToRoleDto(this.roleDao.create(RoleMapper.mapRoleDtoToRole(roleDto)));
     }
 
     @Override
-    public RoleDto find(long id) {
+    public AdminRoleDto find(long id) {
         return RoleMapper.mapRoleToRoleDto(this.roleDao.find(id));
     }
 
     @Override
-    public RoleDto findByName(String name) {
+    public AdminRoleDto findByName(String name) {
         return RoleMapper.mapRoleToRoleDto(this.roleDao.findByName(name));
     }
 
     @Override
-    public void update(RoleDto roleDto) {
+    public void update(AdminRoleDto roleDto) {
         this.roleDao.update(RoleMapper.mapRoleDtoToRole(roleDto));
     }
 
@@ -46,7 +48,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public List<RoleDto> getAllRoles() {
-        return RoleMapper.mapRolesToRoleDtos(this.roleDao.findAll());
+    public Set<AdminRoleDto> getAllRoles() {
+        return RoleMapper.mapRolesToRoleDtos(new HashSet<>(this.roleDao.findAll()));
     }
 }

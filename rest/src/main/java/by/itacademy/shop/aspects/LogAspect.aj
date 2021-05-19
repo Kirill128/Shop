@@ -10,17 +10,36 @@ import org.springframework.stereotype.Component;
 @Aspect
 @Component
 public class LogAspect {
-    private static Logger logger = Logger.getLogger(LogAspect.class);
+//    private static Logger logger = Logger.getLogger(LogAspect.class);
+//
+//    @Pointcut("@annotation(by.itacademy.shop.api.annotations.Loggable)")
+//    public void makeLog(){}
+//
+//    @Around("makeLog()")
+//    public Object logBefore(ProceedingJoinPoint joinPoint){
+//        try{
+//            Object o=joinPoint.proceed();
+//            logger.info("\n\n\nIt WORKS\n\n\n");
+//            System.out.println("\n\n\nIt WORKS\n\n\n");
+//            return o;
+//        }catch (Throwable e){
+//            return null;
+//        }
+//    }
 
-    @Pointcut("@annotation(by.itacademy.shop.api.annotations.Loggable)")
-    public void makeLog(){}
+    private static Logger log = Logger.getLogger(LogAspect.class);
 
-    @Around("makeLog()")
-    public Object logBefore(ProceedingJoinPoint joinPoint){
+
+    @Pointcut("@annotation(by.itacademy.shop.api.annotations.Log)")
+    public void catchExc(){}
+
+    @Around("catchExc()")
+    public Object logAroundAdvise(ProceedingJoinPoint joinPoint) {
         try{
-            Object o=joinPoint.proceed();
-            logger.info("\n\n\nIt WORKS\n\n\n");
-            System.out.println("\n\n\nIt WORKS\n\n\n");
+            Object o;
+            o = joinPoint.proceed();
+            log.error("\n\n\nSome log LOGASPECT\n\n\n");
+        System.out.println("\n\n\nSome log LOGASPECT\n\n\n");
             return o;
         }catch (Throwable e){
             return null;

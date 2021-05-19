@@ -1,10 +1,7 @@
 package by.itacademy.shop.configuration;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.*;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
@@ -17,6 +14,7 @@ import org.thymeleaf.templatemode.TemplateMode;
 
 @Configuration
 @ComponentScan(basePackages = {"by.itacademy.shop.rest","by.itacademy.shop.aspects"})
+@EnableAspectJAutoProxy
 @Import({ServiceConfiguration.class,ShopSecurityConfigurerAdapter.class})
 @EnableWebMvc
 public class RestConfiguration implements WebMvcConfigurer {

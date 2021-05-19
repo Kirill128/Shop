@@ -1,11 +1,10 @@
 package by.itacademy.shop.services;
 
 import by.itacademy.shop.api.dao.ProviderDao;
-import by.itacademy.shop.api.dto.admin.ProviderDto;
+import by.itacademy.shop.api.dto.admin.AdminProviderDto;
 import by.itacademy.shop.api.mappers.ProviderMapper;
 import by.itacademy.shop.api.services.ProviderService;
 import by.itacademy.shop.entities.Provider;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,17 +20,17 @@ public class ProviderServiceImpl implements ProviderService {
     }
 
     @Override
-    public ProviderDto createProvider(ProviderDto providerDto) {
+    public AdminProviderDto createProvider(AdminProviderDto providerDto) {
         return ProviderMapper.mapProviderToProviderDto(this.providerDao.create(ProviderMapper.mapProviderDtoToProvider(providerDto)));
     }
 
     @Override
-    public ProviderDto find(long id) {
+    public AdminProviderDto find(long id) {
         return ProviderMapper.mapProviderToProviderDto(this.providerDao.find(id));
     }
 
     @Override
-    public void update(ProviderDto providerDto) {
+    public void update(AdminProviderDto providerDto) {
         this.providerDao.update(ProviderMapper.mapProviderDtoToProvider(providerDto));
     }
 
@@ -42,7 +41,7 @@ public class ProviderServiceImpl implements ProviderService {
     }
 
     @Override
-    public List<ProviderDto> getAllProviders() {
+    public List<AdminProviderDto> getAllProviders() {
         return ProviderMapper.mapProvidersToProviderDtos(this.providerDao.findAll());
     }
 }

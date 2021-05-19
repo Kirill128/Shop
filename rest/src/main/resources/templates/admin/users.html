@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://thymeleaf.org">
+<html lang="en" >
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,43 +41,6 @@
                 </div>
             </div>
             <div class="col main-content">
-                <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#createUser">
-                    Create New User
-                </button>
-                <!-- Modal -->
-                <div class="modal fade" id="createUser" tabindex="-1" aria-labelledby="staticBackdropLabel"
-                     aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="staticBackdropLabel">Input Data </h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                        aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <h5>Popover in a modal</h5>
-                                <p>This
-                                    <a href="#" role="button" class="btn btn-secondary popover-test"
-                                       title="Popover title"
-                                       data-bs-content="Popover body content is set in this attribute.">
-                                        button
-                                    </a> triggers a popover on click.</p>
-                                <hr>
-                                <h5>Tooltips in a modal</h5>
-                                <p>
-                                    <a href="#" class="tooltip-test" title="Tooltip">
-                                        This link
-                                    </a> and <a href="#" class="tooltip-test" title="Tooltip">
-                                    that link
-                                </a> have tooltips on hover.</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 <table class="table mt-3">
                     <thead>
                     <tr>
@@ -86,20 +49,45 @@
                         <th scope="col">Email</th>
                         <th scope="col">Phone</th>
                         <th scope="col">Password</th>
+                        <th scope="col">Orders</th>
+                        <th scope="col">Roles</th>
                         <th scope="col">Action</th>
                     </tr>
                     </thead>
                     <tbody>
                             <tr th:each="user:${userList}">
-                                <td th:text="${user.id}"></td>
-                                <td th:text="${user.name}"></td>
-                                <td th:text="${user.email}"></td>
-                                <td th:text="${user.phone}"></td>
-                                <td th:text="${user.password}"></td>
+                                <td th:utext="${user.id}"></td>
+                                <td th:utext="${user.name}"></td>
+                                <td th:utext="${user.email}"></td>
+                                <td th:utext="${user.phone}"></td>
+                                <td th:utext="${user.password}"></td>
+                                <td>
+                                    <a th:href="@{'/admin/users/'+${user.id}}" th:utext="'Orders'"></a>
+                                </td>
+                                <td>
+                                    <div th:each="role : ${user.roles}" >
+                                        <form th:action="@{/admin/users/delete-role}" method="post">
+                                            <div th:utext="${role.name}"></div>
+                                            <input type="hidden" th:value="${user.id}" th:name="id">
+                                            <input type="hidden" th:value="${role.id}" th:name="roleForActionId">
+                                            <input type="submit" class="btn btn-warning" value="Delete Role">
+                                        </form>
+                                    </div>
+                                    <form th:action="@{/admin/users/set-role}" method="post">
+                                        <input type="hidden" th:value="${user.id}" th:name="id">
+                                        <select  class="form-select w-auto" th:value="${user.roleForActionId}"
+                                                 th:name="roleForActionId" >
+                                            <option th:each="curRole : ${allRoles}" th:value="${curRole.id}"
+                                            th:utext="${curRole.name}">
+                                            </option>
+                                        </select>
+                                        <input type="submit" class="btn btn-primary" value="Add Role" >
+                                    </form>
+                                </td>
                                 <td>
                                     <form th:action="@{/admin/users/delete}" method="post">
                                         <input type="hidden" th:value="${user.id}" th:name="id">
-    1                                   <input type="submit" class="btn btn-danger">
+    1                                   <input type="submit" class="btn btn-danger" value="Delete User">
                                     </form>
                                 </td>
                             </tr>

@@ -1,4 +1,4 @@
-package by.itacademy.shop.api.dto.user;
+package by.itacademy.shop.api.dto.admin;
 
 import by.itacademy.shop.forentity.Status;
 import lombok.*;
@@ -11,15 +11,10 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class OrderDto {
+public class AdminOrderDto {
     private Long id;
-
     private Status status;
-
     private LocalDateTime submitTime;
-
     private Double price;
-
-    private List<ProductOrderDto> productOrder;
-
+    private List<AdminProductOrderDto> productOrder;
 }

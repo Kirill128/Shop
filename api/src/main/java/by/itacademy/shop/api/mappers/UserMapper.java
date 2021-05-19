@@ -1,10 +1,12 @@
 package by.itacademy.shop.api.mappers;
 
+import by.itacademy.shop.api.constants.Constants;
 import by.itacademy.shop.api.dto.admin.AdminUserDto;
 import by.itacademy.shop.api.dto.user.UserDto;
 import by.itacademy.shop.entities.Order;
 import by.itacademy.shop.entities.User;
 import by.itacademy.shop.utilenum.Lang;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.experimental.UtilityClass;
 
 import java.util.ArrayList;
@@ -21,8 +23,8 @@ public class UserMapper {
                 email(source.getEmail()).
                 phone(source.getPhone()).
                 password(source.getPassword()).
-                roles(RoleMapper.mapRolesToRoleDtos(source.getRoles())).
                 orders(OrderMapper.mapOrdersToOrdersDto(source.getOrders(),lang)).
+                isAdmin(source.getRoles().stream().anyMatch(e->e.getName().equals(Constants.ROLE_ADMIN))).
                 build();
     }
     public User mapUserDtoToUser(UserDto source){
@@ -33,7 +35,6 @@ public class UserMapper {
                 email(source.getEmail()).
                 phone(source.getPhone()).
                 password(source.getPassword()).
-                roles(RoleMapper.mapRoleDtosToRoles(source.getRoles())).
                 build();
     }
     public List<UserDto> mapUsersToUserDtos(List<User> source,Lang lang){
@@ -45,7 +46,7 @@ public class UserMapper {
         return source.stream().map(UserMapper::mapUserDtoToUser).collect(Collectors.toList());
     }
 
-    public AdminUserDto mapUserToAdminUserDto(User source){
+    public AdminUserDto mapUserToAdminUserDto(User source) throws JsonProcessingException {
         if(source==null)return null;
         return AdminUserDto.builder().
                 id(source.getId()).
@@ -54,10 +55,15 @@ public class UserMapper {
                 phone(source.getPhone()).
                 password(source.getPassword()).
                 roles(RoleMapper.mapRolesToRoleDtos(source.getRoles())).
+                orders(OrderMapper.mapOrdersToAdminOrderDtos(source.getOrders())).
                 build();
     }
-    public List<AdminUserDto> mapUsersToAdminUserDtos(List<User> source){
-        if(source==null)return new ArrayList<>();
-        return source.stream().map(UserMapper::mapUserToAdminUserDto).collect(Collectors.toList());
+    public List<AdminUserDto> mapUsersToAdminUserDtos(List<User> source) throws JsonProcessingException {
+        ArrayList<AdminUserDto> res=new ArrayList<>();
+        if(source==null)return res;
+        for(User user : source){
+            res.add(UserMapper.mapUserToAdminUserDto(user));
+        }
+        return res;
     }
 }
