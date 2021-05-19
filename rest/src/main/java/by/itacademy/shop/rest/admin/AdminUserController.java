@@ -22,14 +22,14 @@ public class AdminUserController {
         this.roleService = roleService;
     }
 
-    @GetMapping("/{id}")
+    @GetMapping(Constants.ROLE_ADMIN_ACCOUNT_USERS_ID)
     @ExceptionCatchable
     public ModelAndView find(@PathVariable int id) throws JsonProcessingException {
         return new ModelAndView("/admin/user-account")
                 .addObject("user",this.userService.findFullInfo(id));
     }
 
-    @GetMapping
+    @GetMapping(Constants.ROLE_ADMIN_ACCOUNT_USERS_ROOT)
     @ExceptionCatchable
     public ModelAndView findAllUsers() throws JsonProcessingException {
         return new ModelAndView("/admin/users")
@@ -38,19 +38,19 @@ public class AdminUserController {
     }
 
     @ExceptionCatchable
-    @PostMapping("/set-role")
+    @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_USERS_SET_ROLE)
     public ModelAndView setRole(@ModelAttribute AdminUserDto adminUserDto) throws JsonProcessingException {
         this.userService.setRole(adminUserDto);
         return new ModelAndView("redirect:"+ Constants.ROLE_ADMIN_ACCOUNT_USERS);
     }
     @ExceptionCatchable
-    @PostMapping("/delete-role")
-    public ModelAndView deleteRole(@ModelAttribute AdminUserDto adminUserDto) throws JsonProcessingException {
+    @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_USERS_DELETE_ROLE)
+    public ModelAndView deleteRoleFromUser(@ModelAttribute AdminUserDto adminUserDto) throws JsonProcessingException {
         this.userService.deleteRole(adminUserDto);
         return new ModelAndView("redirect:"+ Constants.ROLE_ADMIN_ACCOUNT_USERS);
     }
 
-    @PostMapping("/delete")
+    @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_USERS_DELETE)
     @Log
     public ModelAndView delete(@ModelAttribute AdminUserDto adminUserDto){
         this.userService.delete(adminUserDto.getId());

@@ -22,7 +22,7 @@ public class CategoryController {
         this.categoryService = categoryService;
     }
 
-    @GetMapping
+    @GetMapping(Constants.ROLE_ADMIN_ACCOUNT_CATEGORIES_ROOT)
     @ExceptionCatchable
     public ModelAndView showCategories() throws JsonProcessingException {
         List<AdminParentCategoryDto> parentCategoryDtos=this.categoryService.getParentCategoriesFullInfo();
@@ -36,7 +36,7 @@ public class CategoryController {
                 .addObject("newParentCategory",new AdminCategoryDto());
     }
 
-    @PostMapping(value = "/create")
+    @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_CATEGORIES_CREATE)
     @ExceptionCatchable
     @Log
     public ModelAndView createCategory(@ModelAttribute AdminCategoryDto category) throws JsonProcessingException {
@@ -44,7 +44,7 @@ public class CategoryController {
         return new ModelAndView("redirect:"+ Constants.ROLE_ADMIN_ACCOUNT_CATEGORIES);
     }
 
-    @PostMapping(value = "/update")
+    @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_CATEGORIES_UPDATE)
     @ExceptionCatchable
     @Log
     public ModelAndView updateCategory(@ModelAttribute AdminCategoryDto category) throws JsonProcessingException {
@@ -52,7 +52,7 @@ public class CategoryController {
         return new ModelAndView("redirect:"+ Constants.ROLE_ADMIN_ACCOUNT_CATEGORIES);
     }
 
-    @PostMapping("/delete")
+    @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_CATEGORIES_DELETE)
     @Log
     public ModelAndView deleteCategory(@ModelAttribute AdminCategoryDto categoryDto){
         this.categoryService.delete(categoryDto.getId());

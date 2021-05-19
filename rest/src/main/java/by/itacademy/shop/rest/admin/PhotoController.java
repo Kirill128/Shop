@@ -21,12 +21,12 @@ public class PhotoController {
         this.photoService = photoService;
     }
 
-    @GetMapping
+    @GetMapping(Constants.ROLE_ADMIN_ACCOUNT_PHOTOS_ROOT)
     public ModelAndView getAllPhoto(){
         return new ModelAndView("/admin/photos")
                 .addObject("photos",this.photoService.getAllPhotos());
     }
-    @PostMapping("/create")
+    @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_PHOTOS_CREATE)
     @ExceptionCatchable
     @Log
     public ModelAndView createPhoto(@RequestParam("imageFileCr") MultipartFile photoFile) throws IOException {
@@ -34,7 +34,7 @@ public class PhotoController {
         return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PHOTOS);
     }
 
-    @PostMapping("/update")
+    @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_PHOTOS_UPDATE)
     @ExceptionCatchable
     @Log
     public ModelAndView updatePhoto(@ModelAttribute GuestProductPhotoDto photoDto,@RequestParam("imageFileUpd") MultipartFile photoFile) throws IOException {
@@ -42,7 +42,7 @@ public class PhotoController {
         return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PHOTOS);
     }
 
-    @PostMapping("/delete")
+    @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_PHOTOS_DELETE)
     @ExceptionCatchable
     @Log
     public ModelAndView deletePhoto(@ModelAttribute GuestProductPhotoDto photoDto) throws IOException {

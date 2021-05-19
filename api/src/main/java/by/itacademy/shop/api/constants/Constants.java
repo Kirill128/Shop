@@ -35,15 +35,23 @@ public class Constants {
     public static final String ROLE_ADMIN_ACCOUNT_PROVIDERS_DELETE=DELETE;
 
     public static final String ROLE_ADMIN_ACCOUNT_PHOTOS=ADMIN+"/photos";
-    public static final String ROLE_ADMIN_ACCOUNT_PHOTOS_ROOT=ADMIN+"/photos";
-    public static final String ROLE_ADMIN_ACCOUNT_PHOTOS_CREATE=ADMIN+"/photos";
-    public static final String ROLE_ADMIN_ACCOUNT_PHOTOS_UPDATE=ADMIN+"/photos";
-    public static final String ROLE_ADMIN_ACCOUNT_PHOTOS_DELETE=ADMIN+"/photos";
-
+    public static final String ROLE_ADMIN_ACCOUNT_PHOTOS_ROOT=ROOT;
+    public static final String ROLE_ADMIN_ACCOUNT_PHOTOS_CREATE=CREATE;
+    public static final String ROLE_ADMIN_ACCOUNT_PHOTOS_UPDATE=UPDATE;
+    public static final String ROLE_ADMIN_ACCOUNT_PHOTOS_DELETE=DELETE;
 
     public static final String ROLE_ADMIN_ACCOUNT_CATEGORIES=ADMIN+"/categories";
+    public static final String ROLE_ADMIN_ACCOUNT_CATEGORIES_ROOT=ROOT;
+    public static final String ROLE_ADMIN_ACCOUNT_CATEGORIES_CREATE=CREATE;
+    public static final String ROLE_ADMIN_ACCOUNT_CATEGORIES_UPDATE=UPDATE;
+    public static final String ROLE_ADMIN_ACCOUNT_CATEGORIES_DELETE=DELETE;
 
     public static final String ROLE_ADMIN_ACCOUNT_USERS=ADMIN+"/users";
+    public static final String ROLE_ADMIN_ACCOUNT_USERS_ID="/{id}";
+    public static final String ROLE_ADMIN_ACCOUNT_USERS_ROOT=ROOT;
+    public static final String ROLE_ADMIN_ACCOUNT_USERS_SET_ROLE="/set-role";
+    public static final String ROLE_ADMIN_ACCOUNT_USERS_DELETE_ROLE="/delete-role";
+    public static final String ROLE_ADMIN_ACCOUNT_USERS_DELETE=DELETE;
 
 
     public static final String ROLE_GUEST_MAIN="";
