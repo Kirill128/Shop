@@ -5,7 +5,6 @@ import org.apache.log4j.Logger;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
-import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -18,10 +17,7 @@ public class LogExceptionHandlerAspect {
 
     private static Logger logger = Logger.getLogger(LogExceptionHandlerAspect.class);
 
-    @Pointcut("@annotation(by.itacademy.shop.api.annotations.LogExceptionCatchable)")
-    public void catchExc(){}
-
-    @Around("catchExc()")
+    @Around("@annotation(by.itacademy.shop.api.annotations.LogExceptionCatchable)")
     public Object logAroundAdvise(ProceedingJoinPoint joinPoint) {
         String errorStr="ERROR WAS MADE !!!!!! MESSAGE: '%s' ";
         try {

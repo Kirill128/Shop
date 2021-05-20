@@ -57,8 +57,7 @@
             </plugins>
         </pluginManagement>
     </build>
-
     <dependencyManagement>
-        <!--TODO: Make dependency management-->
+
     </dependencyManagement>
 </project>

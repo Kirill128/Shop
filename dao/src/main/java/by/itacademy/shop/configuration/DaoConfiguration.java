@@ -1,6 +1,7 @@
 package by.itacademy.shop.configuration;
 
 import by.itacademy.shop.api.constants.Constants;
+import liquibase.integration.spring.SpringLiquibase;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,6 @@ import java.util.Properties;
 @Configuration
 @ComponentScan(basePackages = {"by.itacademy.shop.dao","by.itacademy.shop.api"})
 @EnableTransactionManagement
-
 @PropertySource(value = "classpath:/META-INF/persistence.properties")
 @Slf4j
 public class DaoConfiguration {

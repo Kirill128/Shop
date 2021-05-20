@@ -18,6 +18,8 @@ public class Constants {
     public static final String NEW_USER_DEFAULT_ROLE=ROLE_USER;
     //------------------Mappings----------------------------
     public static final String REDIRECT="redirect:";
+    public static final String PRODUCTS="/products";
+
 
     private static final String ROOT="";
     private static final String CREATE="/create";
@@ -26,7 +28,7 @@ public class Constants {
 
     private static final String ADMIN="/admin";
 
-    private static final String ROLE_ADMIN_ACCOUNT_PRODUCTS=ADMIN+"/products";
+    private static final String ROLE_ADMIN_ACCOUNT_PRODUCTS=ADMIN+PRODUCTS;
     public static final String ROLE_ADMIN_ACCOUNT_PRODUCTS_ROOT=ROLE_ADMIN_ACCOUNT_PRODUCTS+ROOT;
     public static final String ROLE_ADMIN_ACCOUNT_PRODUCTS_UPLOAD_FILE=ROLE_ADMIN_ACCOUNT_PRODUCTS+"/upload-file";
     public static final String ROLE_ADMIN_ACCOUNT_PRODUCTS_CREATE=ROLE_ADMIN_ACCOUNT_PRODUCTS+CREATE;
@@ -64,7 +66,7 @@ public class Constants {
     public static final String ROLE_GUEST_MAIN_ROOT=ROLE_GUEST_MAIN+ROOT;
     public static final String ROLE_GUEST_MAIN_SIGN_UP=ROLE_GUEST_MAIN+"/sing-up";
 
-    private static final String ROLE_GUEST_PRODUCT_SEARCH="/products";
+    private static final String ROLE_GUEST_PRODUCT_SEARCH=PRODUCTS;
     public static final String ROLE_GUEST_PRODUCT_SEARCH_PAGES=ROLE_GUEST_PRODUCT_SEARCH+"/pages";
     public static final String ROLE_GUEST_PRODUCT_SEARCH_PAGES_NUM=ROLE_GUEST_PRODUCT_SEARCH_PAGES+"/{num}";
     public static final String ROLE_GUEST_PRODUCT_SEARCH_PAGES_NEXT=ROLE_GUEST_PRODUCT_SEARCH_PAGES+"/next";
