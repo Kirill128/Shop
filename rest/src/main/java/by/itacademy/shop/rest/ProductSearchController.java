@@ -1,6 +1,6 @@
 package by.itacademy.shop.rest;
 
-import by.itacademy.shop.api.annotations.Log;
+import by.itacademy.shop.api.annotations.LogExceptionCatchable;
 import by.itacademy.shop.api.constants.Constants;
 import by.itacademy.shop.api.dto.forall.GuestParentCategoryDto;
 import by.itacademy.shop.api.dto.forall.GuestProductDto;
@@ -28,7 +28,7 @@ public class ProductSearchController {
     }
 
     @GetMapping(Constants.ROLE_GUEST_PRODUCT_SEARCH_PAGES_NUM)
-    @Log
+    @LogExceptionCatchable
     public ModelAndView getProductsPageGuest(@PathVariable int num,
                                              @Nullable @RequestParam Long categoryId,
                                              ProductSearchCriteria fromFrontSearchCriteria,
@@ -51,7 +51,9 @@ public class ProductSearchController {
                 .addObject("searchCriteria",fromFrontSearchCriteria)
                 .addObject("authentication",authentication);
     }
+
     @PostMapping(Constants.ROLE_GUEST_PRODUCT_SEARCH_PAGES_NEXT)
+    @LogExceptionCatchable
     public ModelAndView getNextProductsPageGuest(@ModelAttribute ProductSearchCriteria productSearchCriteria){
         productSearchCriteria.setPageNum(productSearchCriteria.getPageNum()+1);
         return new ModelAndView("redirect:"+
@@ -59,7 +61,9 @@ public class ProductSearchController {
                 Constants.ROLE_GUEST_PRODUCT_SEARCH_PAGES +
                 productSearchCriteria.getPageNum());
     }
+
     @PostMapping(Constants.ROLE_GUEST_PRODUCT_SEARCH_PAGES_PREVIOUS)
+    @LogExceptionCatchable
     public ModelAndView getPreviousProductsPageGuest(@ModelAttribute ProductSearchCriteria productSearchCriteria){
         if(productSearchCriteria.getPageNum()>1)productSearchCriteria.setPageNum(productSearchCriteria.getPageNum()-1);
         return new ModelAndView("redirect:"+

@@ -1,7 +1,6 @@
 package by.itacademy.shop.rest.admin;
 
-import by.itacademy.shop.api.annotations.ExceptionCatchable;
-import by.itacademy.shop.api.annotations.Log;
+import by.itacademy.shop.api.annotations.LogExceptionCatchable;
 import by.itacademy.shop.api.constants.Constants;
 import by.itacademy.shop.api.dto.admin.AdminUserDto;
 import by.itacademy.shop.api.services.RoleService;
@@ -23,35 +22,35 @@ public class AdminUserController {
     }
 
     @GetMapping(Constants.ROLE_ADMIN_ACCOUNT_USERS_ID)
-    @ExceptionCatchable
+    @LogExceptionCatchable
     public ModelAndView find(@PathVariable int id) throws JsonProcessingException {
         return new ModelAndView("/admin/user-account")
                 .addObject("user",this.userService.findFullInfo(id));
     }
 
     @GetMapping(Constants.ROLE_ADMIN_ACCOUNT_USERS_ROOT)
-    @ExceptionCatchable
+    @LogExceptionCatchable
     public ModelAndView findAllUsers() throws JsonProcessingException {
         return new ModelAndView("/admin/users")
                 .addObject("userList",this.userService.getAllUsers())
                 .addObject("allRoles",this.roleService.getAllRoles());
     }
 
-    @ExceptionCatchable
+    @LogExceptionCatchable
     @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_USERS_SET_ROLE)
-    public ModelAndView setRole(@ModelAttribute AdminUserDto adminUserDto) throws JsonProcessingException {
+    public ModelAndView setRole(@ModelAttribute AdminUserDto adminUserDto)  {
         this.userService.setRole(adminUserDto);
         return new ModelAndView("redirect:"+ Constants.ROLE_ADMIN_ACCOUNT_USERS);
     }
-    @ExceptionCatchable
+    @LogExceptionCatchable
     @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_USERS_DELETE_ROLE)
-    public ModelAndView deleteRoleFromUser(@ModelAttribute AdminUserDto adminUserDto) throws JsonProcessingException {
+    public ModelAndView deleteRoleFromUser(@ModelAttribute AdminUserDto adminUserDto)  {
         this.userService.deleteRole(adminUserDto);
         return new ModelAndView("redirect:"+ Constants.ROLE_ADMIN_ACCOUNT_USERS);
     }
 
     @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_USERS_DELETE)
-    @Log
+    @LogExceptionCatchable
     public ModelAndView delete(@ModelAttribute AdminUserDto adminUserDto){
         this.userService.delete(adminUserDto.getId());
         return new ModelAndView("redirect:"+ Constants.ROLE_ADMIN_ACCOUNT_USERS);

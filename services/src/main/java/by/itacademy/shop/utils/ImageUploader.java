@@ -42,7 +42,7 @@ public class ImageUploader {
         String filePath=new StringBuilder(fileUrl.getPath()).append(fileName).toString();
         newFile=new File(filePath);
         while(newFile.exists()) {
-            fileName=UUID.randomUUID()+file.getOriginalFilename();;
+            fileName=UUID.randomUUID()+file.getOriginalFilename();
             filePath=new StringBuilder(fileUrl.getPath()).append(fileName).toString();
             newFile=new File(filePath);
         }

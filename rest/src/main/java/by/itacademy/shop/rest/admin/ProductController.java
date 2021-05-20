@@ -1,7 +1,6 @@
 package by.itacademy.shop.rest.admin;
 
-import by.itacademy.shop.api.annotations.ExceptionCatchable;
-import by.itacademy.shop.api.annotations.Log;
+import by.itacademy.shop.api.annotations.LogExceptionCatchable;
 import by.itacademy.shop.api.constants.Constants;
 import by.itacademy.shop.api.dto.admin.*;
 import by.itacademy.shop.api.services.CategoryService;
@@ -33,8 +32,7 @@ public class ProductController {
     }
 
     @GetMapping(Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS_ROOT)
-    @ExceptionCatchable
-    @Log
+    @LogExceptionCatchable
     public ModelAndView findAllProductsFullInfo() throws JsonProcessingException {
         return new ModelAndView(Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS)
                 .addObject("products",this.productService.getAllProducts())
@@ -44,9 +42,10 @@ public class ProductController {
     }
 
     @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS_UPLOAD_FILE)
-    @ExceptionCatchable
-    @Log
-    public ModelAndView uploadProductsFile(@ModelAttribute AdminProductDto defValues, @RequestParam("exelFile") MultipartFile exelFile) throws IOException {
+    @LogExceptionCatchable
+    public ModelAndView uploadProductsFile(@ModelAttribute AdminProductDto defValues,
+                                           @RequestParam("exelFile") MultipartFile exelFile,
+                                           @ModelAttribute AdminExelFileMetadata fileMetadata) throws IOException {
         List<AdminProductDto> productDtos=this.productService.parseXLSOrXlSXFile(exelFile, Constants.GLOBAL_LANG);
         for(AdminProductDto productDto : productDtos){
             productDto.setCategoryId(defValues.getCategoryId());
@@ -56,12 +55,12 @@ public class ProductController {
                 .addObject("listProductDtos",new AdminListProductDtos(productDtos))
                 .addObject("lang",Constants.GLOBAL_LANG)
                 .addObject("subCategories",this.categoryService.getSubCategoriesFullInfo())
-                .addObject("providers",this.providerService.getAllProviders());
+                .addObject("providers",this.providerService.getAllProviders())
+                .addObject("fileMetadata",new AdminExelFileMetadata());
     }
 
     @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS_CREATE)
-    @ExceptionCatchable
-    @Log
+    @LogExceptionCatchable
     public ModelAndView createProduct(@ModelAttribute AdminProductDto product, @RequestParam("imgPrCr") MultipartFile img) throws IOException {
         this.photoService.createPhoto(img);
         this.productService.createProduct(product);
@@ -69,8 +68,7 @@ public class ProductController {
     }
 
     @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS_CREATE_LIST)
-    @ExceptionCatchable
-    @Log
+    @LogExceptionCatchable
     public ModelAndView createProduct(@ModelAttribute AdminListProductDtos products) throws JsonProcessingException {
         this.productService.createProducts(products.getProductDtoList());
         return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS);
@@ -78,16 +76,14 @@ public class ProductController {
 
 
     @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS_UPDATE)
-    @ExceptionCatchable
-    @Log
+    @LogExceptionCatchable
     public ModelAndView update(@ModelAttribute AdminProductDto product) throws JsonProcessingException {
         this.productService.update(product);
         return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS);
     }
 
     @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS_DELETE)
-    @ExceptionCatchable
-    @Log
+    @LogExceptionCatchable
     public ModelAndView delete(@ModelAttribute AdminProductDto product){
         this.productService.delete(product.getId());
         return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS);

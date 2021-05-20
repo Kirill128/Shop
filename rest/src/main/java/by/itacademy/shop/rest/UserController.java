@@ -1,6 +1,6 @@
 package by.itacademy.shop.rest;
 
-import by.itacademy.shop.api.annotations.Log;
+import by.itacademy.shop.api.annotations.LogExceptionCatchable;
 import by.itacademy.shop.api.constants.Constants;
 import by.itacademy.shop.api.dto.admin.AdminProductDto;
 import by.itacademy.shop.api.dto.user.UserDto;
@@ -22,6 +22,7 @@ public class UserController {
 
 
     @GetMapping(Constants.ROLE_USER_ACCOUNT_USER_ACCOUNT)
+    @LogExceptionCatchable
     public ModelAndView aboutUser(Principal principal){
         return new ModelAndView("/user/account")
                 .addObject("user",
@@ -29,18 +30,18 @@ public class UserController {
                 );
     }
     @PostMapping(Constants.ROLE_USER_ACCOUNT_USER_UPDATE)
-    @Log
+    @LogExceptionCatchable
     public ModelAndView update(@ModelAttribute UserDto user){
         return new ModelAndView("redirect:"+Constants.ROLE_USER_ACCOUNT_USER_ACCOUNT);
     }
     @PostMapping(Constants.ROLE_USER_ACCOUNT_USER_DELETE)
-    @Log
+    @LogExceptionCatchable
     public ModelAndView delete(@ModelAttribute UserDto user){
         return new ModelAndView("redirect:"+Constants.ROLE_USER_ACCOUNT_USER_ACCOUNT);
     }
 
     @PostMapping(Constants.ROLE_USER_ACCOUNT_USER_ADD_ORDER)
-    @Log
+    @LogExceptionCatchable
     public ModelAndView addProductToUserOrdersList(@ModelAttribute AdminProductDto productDto, Principal principal){
         this.userService.addProductToUserOrderList(principal.getName(),productDto.getId());
         return new ModelAndView("redirect:"+Constants.ROLE_USER_ACCOUNT_USER_ACCOUNT);

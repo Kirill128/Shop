@@ -98,7 +98,12 @@
                         <select class="form-select w-auto"  th:value="${productToCreate.providerId}" th:name="providerId">
                             <option th:each="provider : ${providers}" th:value="${provider.id}" th:utext="${provider.name}"></option>
                         </select>
-                        <input type="file" class="form-control" accept=".xls,.xlsx" name="exelFile" id="fileUpload" >
+                        <input type="file" class="form-control" accept=".xls,.xlsx" name="exelFile" id="fileUpload">
+<!--                        <input type="text" th:value="${fileMetadata.shortDescriptionColumn}" th:name="shortDescriptionColumn">-->
+<!--                        <input type="text" th:value="${fileMetadata.barcodeColumn}" th:name="barcodeColumn">-->
+<!--                        <input type="text" th:value="${fileMetadata.quantityColumn}" th:name="quantityColumn">-->
+<!--                        <input type="text" th:value="${fileMetadata.priceColumn}" th:name="priceColumn">-->
+<!--                        <input type="text" th:value="${fileMetadata.photoColumn}" th:name="photoColumn">-->
                         <input type="submit" value="Send" class="btn btn-light border-dark" >
                     </form>  
                     <table class="table">

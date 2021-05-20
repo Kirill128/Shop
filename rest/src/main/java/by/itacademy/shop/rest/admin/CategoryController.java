@@ -1,7 +1,6 @@
 package by.itacademy.shop.rest.admin;
 
-import by.itacademy.shop.api.annotations.ExceptionCatchable;
-import by.itacademy.shop.api.annotations.Log;
+import by.itacademy.shop.api.annotations.LogExceptionCatchable;
 import by.itacademy.shop.api.constants.Constants;
 import by.itacademy.shop.api.dto.admin.AdminCategoryDto;
 import by.itacademy.shop.api.dto.admin.AdminParentCategoryDto;
@@ -23,7 +22,7 @@ public class CategoryController {
     }
 
     @GetMapping(Constants.ROLE_ADMIN_ACCOUNT_CATEGORIES_ROOT)
-    @ExceptionCatchable
+    @LogExceptionCatchable
     public ModelAndView showCategories() throws JsonProcessingException {
         List<AdminParentCategoryDto> parentCategoryDtos=this.categoryService.getParentCategoriesFullInfo();
         List<AdminCategoryDto> newCategories=new ArrayList(parentCategoryDtos.size());
@@ -37,23 +36,20 @@ public class CategoryController {
     }
 
     @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_CATEGORIES_CREATE)
-    @ExceptionCatchable
-    @Log
+    @LogExceptionCatchable
     public ModelAndView createCategory(@ModelAttribute AdminCategoryDto category) throws JsonProcessingException {
         this.categoryService.createCategory(category);
         return new ModelAndView("redirect:"+ Constants.ROLE_ADMIN_ACCOUNT_CATEGORIES);
     }
 
     @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_CATEGORIES_UPDATE)
-    @ExceptionCatchable
-    @Log
+    @LogExceptionCatchable
     public ModelAndView updateCategory(@ModelAttribute AdminCategoryDto category) throws JsonProcessingException {
         this.categoryService.update(category);
         return new ModelAndView("redirect:"+ Constants.ROLE_ADMIN_ACCOUNT_CATEGORIES);
     }
 
     @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_CATEGORIES_DELETE)
-    @Log
     public ModelAndView deleteCategory(@ModelAttribute AdminCategoryDto categoryDto){
         this.categoryService.delete(categoryDto.getId());
         return new ModelAndView("redirect:"+ Constants.ROLE_ADMIN_ACCOUNT_CATEGORIES);

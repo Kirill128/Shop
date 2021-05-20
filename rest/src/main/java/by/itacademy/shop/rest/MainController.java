@@ -1,6 +1,6 @@
 package by.itacademy.shop.rest;
 
-import by.itacademy.shop.api.annotations.Log;
+import by.itacademy.shop.api.annotations.LogExceptionCatchable;
 import by.itacademy.shop.api.constants.Constants;
 import by.itacademy.shop.api.dto.user.UserDto;
 import by.itacademy.shop.api.services.UserService;
@@ -17,7 +17,7 @@ public class MainController {
     }
 
     @GetMapping(Constants.ROLE_GUEST_MAIN_ROOT)
-    @Log
+    @LogExceptionCatchable
     public ModelAndView getMainPage(){
         return new ModelAndView("redirect:" +
                 Constants.ROLE_GUEST_PRODUCT_SEARCH +
@@ -31,7 +31,7 @@ public class MainController {
                 .addObject("newUser",new UserDto());
     }
     @PostMapping(Constants.ROLE_GUEST_MAIN_SIGN_UP)
-    @Log
+    @LogExceptionCatchable
     public ModelAndView createUser(@ModelAttribute UserDto user){
         this.userService.createUser(user, Constants.GLOBAL_LANG);
         return new ModelAndView("redirect:"+Constants.ROLE_GUEST_MAIN);

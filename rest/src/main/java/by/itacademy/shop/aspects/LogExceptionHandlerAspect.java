@@ -10,14 +10,15 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 @Aspect
 @Component
-public class ExceptionHandlerAspect {
+public class LogExceptionHandlerAspect {
 
-    private static Logger logger = Logger.getLogger(ExceptionHandlerAspect.class);
+    private static Logger logger = Logger.getLogger(LogExceptionHandlerAspect.class);
 
-    @Pointcut("@annotation(by.itacademy.shop.api.annotations.ExceptionCatchable)")
+    @Pointcut("@annotation(by.itacademy.shop.api.annotations.LogExceptionCatchable)")
     public void catchExc(){}
 
     @Around("catchExc()")
@@ -25,6 +26,7 @@ public class ExceptionHandlerAspect {
         try {
            Object o;
            o = joinPoint.proceed();
+           logger.info(String.format("Method \"%s\" (%s) was executed ! ",joinPoint.getSignature(), Arrays.toString(joinPoint.getArgs())));
            return o;
         }
         catch(JsonProcessingException e){
