@@ -48,3 +48,6 @@ body{
 }
 .input-email__title {
 }
+.warning{
+    color: red;
+}

@@ -33,7 +33,7 @@ public class UserController {
     }
     @PostMapping(Constants.ROLE_USER_ACCOUNT_USER_DELETE)
     public ModelAndView delete(@ModelAttribute UserDto user){
-        return new ModelAndView(Constants.REDIRECT+Constants.ROLE_USER_ACCOUNT_USER_ACCOUNT);
+        return new ModelAndView(Constants.REDIRECT+Constants.ROLE_GUEST_MAIN_ROOT);
     }
 
     @PostMapping(Constants.ROLE_USER_ACCOUNT_USER_ADD_ORDER)

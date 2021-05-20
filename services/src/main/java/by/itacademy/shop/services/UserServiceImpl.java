@@ -17,6 +17,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.NoResultException;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -46,21 +47,22 @@ public class UserServiceImpl implements UserService{
         this.passwordEncoder = passwordEncoder;
     }
 
-
     //---------------------------------CRUD----------------------------------------------------
 
     @Override
     public UserDto createUser(UserDto user, Lang lang) {
-        User mayExists = this.userDao.findByEmail(user.getEmail());
-        if (mayExists != null){
-            return UserMapper.mapUserToUserDto(mayExists, lang);
+        try{
+            this.userDao.findByEmail(user.getEmail());
+            return null;
+        }catch (NoResultException e){
+            User newUser= UserMapper.mapUserDtoToUser(user);
+            newUser.setPassword(this.passwordEncoder.encode(user.getPassword()));
+            Role role=this.roleDao.findByName(Constants.NEW_USER_DEFAULT_ROLE);
+            Set<Role> startRoles = Stream.of(role).collect(Collectors.toSet());
+            newUser.setRoles(startRoles);
+            return UserMapper.mapUserToUserDto(this.userDao.create(newUser),lang);
         }
-        User newUser= UserMapper.mapUserDtoToUser(user);
-        newUser.setPassword(this.passwordEncoder.encode(user.getPassword()));
-        Role role=this.roleDao.findByName(Constants.NEW_USER_DEFAULT_ROLE);
-        Set<Role> startRoles = Stream.of(role).collect(Collectors.toSet());
-        newUser.setRoles(startRoles);
-        return UserMapper.mapUserToUserDto(this.userDao.create(newUser),lang);
+
     }
 
     @Override

@@ -21,7 +21,7 @@ public class Constants {
     public static final String PRODUCTS="/products";
 
 
-    private static final String ROOT="";
+    private static final String ROOT="/";
     private static final String CREATE="/create";
     private static final String UPDATE="/update";
     private static final String DELETE="/delete";
