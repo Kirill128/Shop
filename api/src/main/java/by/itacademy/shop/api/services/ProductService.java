@@ -1,7 +1,7 @@
 package by.itacademy.shop.api.services;
 
-import by.itacademy.shop.api.dto.forall.GuestProductDto;
 import by.itacademy.shop.api.dto.admin.AdminProductDto;
+import by.itacademy.shop.api.dto.forall.GuestProductDto;
 import by.itacademy.shop.api.dto.forall.ProductSearchCriteria;
 import by.itacademy.shop.api.dto.forall.SimplePage;
 import by.itacademy.shop.utilenum.Lang;

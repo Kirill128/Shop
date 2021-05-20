@@ -1,5 +1,6 @@
 package by.itacademy.shop.configuration;
 
+import by.itacademy.shop.api.constants.Constants;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,14 +54,14 @@ public class DaoConfiguration {
         emFactory.setJpaVendorAdapter(new HibernateJpaVendorAdapter());
 
         Properties properties=new Properties();
-        properties.setProperty("hibernate.dialect", environment.getRequiredProperty("hibernate.dialect"));
-        properties.setProperty("hibernate.show_sql", environment.getRequiredProperty("hibernate.show_sql"));
-        properties.setProperty("hibernate.format_sql",environment.getRequiredProperty("hibernate.format_sql"));
+        properties.setProperty(Constants.HIBERNATE_DIALECT, environment.getRequiredProperty(Constants.HIBERNATE_DIALECT));
+        properties.setProperty(Constants.HIBERNATE_SHOW_SQL, environment.getRequiredProperty(Constants.HIBERNATE_SHOW_SQL));
+        properties.setProperty(Constants.HIBERNATE_FORMAT_SQL,environment.getRequiredProperty(Constants.HIBERNATE_FORMAT_SQL));
         emFactory.setJpaProperties(properties);
 
-        log.info("hibernate.dialect =",environment.getRequiredProperty("hibernate.dialect"));
-        log.info("hibernate.show_sql =",environment.getRequiredProperty("hibernate.show_sql"));
-        log.info("hibernate.format_sql =",environment.getRequiredProperty("hibernate.format_sql"));
+        log.info(Constants.HIBERNATE_DIALECT+" =",environment.getRequiredProperty(Constants.HIBERNATE_DIALECT));
+        log.info(Constants.HIBERNATE_SHOW_SQL+" =",environment.getRequiredProperty(Constants.HIBERNATE_SHOW_SQL));
+        log.info(Constants.HIBERNATE_FORMAT_SQL+" =",environment.getRequiredProperty(Constants.HIBERNATE_FORMAT_SQL));
 
         return emFactory;
     }

@@ -1,8 +1,6 @@
 package by.itacademy.shop.api.services;
 
 import by.itacademy.shop.api.dto.forall.GuestProductPhotoDto;
-import by.itacademy.shop.api.dto.user.UserDto;
-import com.sun.org.apache.xpath.internal.operations.Mult;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;

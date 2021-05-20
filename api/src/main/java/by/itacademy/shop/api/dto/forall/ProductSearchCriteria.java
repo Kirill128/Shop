@@ -1,11 +1,11 @@
 package by.itacademy.shop.api.dto.forall;
 
-import java.util.List;
-import java.util.Map;
-
 import by.itacademy.shop.utilenum.Lang;
 import by.itacademy.shop.utilenum.SortDirection;
 import lombok.*;
+
+import java.util.List;
+import java.util.Map;
 
 @Getter
 @Setter

@@ -26,8 +26,7 @@ public abstract class GenericDaoImpl<T extends GenericEntity<Long>> implements G
     }
 
     public T find(long id) {
-        T result=entityManager.find(this.getClassForFind(),id);
-        return result;
+        return entityManager.find(this.getClassForFind(),id);
     }
 
     public void update(T entity) {
@@ -42,10 +41,8 @@ public abstract class GenericDaoImpl<T extends GenericEntity<Long>> implements G
     public List<T> findAll() {
         CriteriaBuilder cb= entityManager.getCriteriaBuilder();
         CriteriaQuery<T> cq=cb.createQuery(getClassForFind());
-        Root<T> root=cq.from(getClassForFind());
-        List<T> result=entityManager.createQuery(cq).getResultList();
-
-        return result;
+        cq.from(getClassForFind());
+        return entityManager.createQuery(cq).getResultList();
     }
 
     public Class<T> getClassForFind() {

@@ -1,8 +1,8 @@
 package by.itacademy.shop.services;
 
 import by.itacademy.shop.api.dao.ProductDao;
-import by.itacademy.shop.api.dto.forall.GuestProductDto;
 import by.itacademy.shop.api.dto.admin.AdminProductDto;
+import by.itacademy.shop.api.dto.forall.GuestProductDto;
 import by.itacademy.shop.api.dto.forall.ProductSearchCriteria;
 import by.itacademy.shop.api.dto.forall.SimplePage;
 import by.itacademy.shop.api.mappers.ProductMapper;
@@ -16,7 +16,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Service
 @Transactional
@@ -43,7 +45,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public SimplePage<GuestProductDto> getProductsPageByCriteria(ProductSearchCriteria searchCriteria) {
-        if(searchCriteria.getPartOfName()!=null)searchCriteria.setPartsOfName(Arrays.asList(searchCriteria.getPartOfName().split("\\s+")));
+        if(searchCriteria.getPartOfName()!=null){
+            searchCriteria.setPartsOfName(Arrays.asList(searchCriteria.getPartOfName().split("\\s+")));
+        }
         SimplePage<Product> oldPage=this.productDao.getProductsPageByCriteria(searchCriteria);
         SimplePage<GuestProductDto> newPage=new SimplePage<>();
         newPage.setCountInDb(oldPage.getCountInDb());
@@ -60,7 +64,6 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public SimplePage<AdminProductDto> getProductsPageByCriteriaAdmin(ProductSearchCriteria searchCriteria) throws JsonProcessingException {
-
         SimplePage<Product> daoPage=this.productDao.getProductsPageByCriteria(searchCriteria);
         SimplePage<AdminProductDto> newPage=new SimplePage<>();
         newPage.setResults(ProductMapper.mapProductsToProductDtos(daoPage.getResults()));

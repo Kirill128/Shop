@@ -3,7 +3,6 @@ package by.itacademy.shop.api.mappers;
 import by.itacademy.shop.api.constants.Constants;
 import by.itacademy.shop.api.dto.admin.AdminUserDto;
 import by.itacademy.shop.api.dto.user.UserDto;
-import by.itacademy.shop.entities.Order;
 import by.itacademy.shop.entities.User;
 import by.itacademy.shop.utilenum.Lang;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -39,7 +38,7 @@ public class UserMapper {
     }
     public List<UserDto> mapUsersToUserDtos(List<User> source,Lang lang){
         if(source==null)return new ArrayList<>();
-        return source.stream().map((e)->UserMapper.mapUserToUserDto(e,lang)).collect(Collectors.toList());
+        return source.stream().map(e->UserMapper.mapUserToUserDto(e,lang)).collect(Collectors.toList());
     }
     public List<User> mapUserDtosToUsers(List<UserDto> source){
         if(source==null)return new ArrayList<>();

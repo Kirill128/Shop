@@ -1,7 +1,5 @@
 package by.itacademy.shop.api.dto.forall;
 
-import by.itacademy.shop.entities.Category;
-import by.itacademy.shop.entities.Photo;
 import lombok.*;
 
 import java.util.Map;

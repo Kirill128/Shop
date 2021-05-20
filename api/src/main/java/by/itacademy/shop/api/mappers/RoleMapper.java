@@ -33,11 +33,11 @@ public class RoleMapper {
         if(source==null)return new HashSet<>();
         return source.stream().map(RoleMapper::mapRoleDtoToRole).collect(Collectors.toSet());
     }
-    public List<? extends GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){
+    public List<GrantedAuthority> mapRolesToAuthorities(Collection<Role> roles){
         if(roles==null)return new ArrayList<>();
         return roles.stream().map(e->new SimpleGrantedAuthority(e.getName())).collect(Collectors.toList());
     }
-    public List<? extends GrantedAuthority> mapRoleDtosToAuthorities(Collection<AdminRoleDto> roles){
+    public List<GrantedAuthority> mapRoleDtosToAuthorities(Collection<AdminRoleDto> roles){
         if(roles==null)return new ArrayList<>();
         return roles.stream().map(e->new SimpleGrantedAuthority(e.getName())).collect(Collectors.toList());
     }

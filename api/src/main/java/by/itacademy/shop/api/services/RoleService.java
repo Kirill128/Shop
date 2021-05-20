@@ -2,7 +2,6 @@ package by.itacademy.shop.api.services;
 
 import by.itacademy.shop.api.dto.admin.AdminRoleDto;
 
-import java.util.List;
 import java.util.Set;
 
 public interface RoleService {

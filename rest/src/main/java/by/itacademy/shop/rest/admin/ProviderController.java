@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @RestController
-@RequestMapping(Constants.ROLE_ADMIN_ACCOUNT_PROVIDERS)
+@RequestMapping
 public class ProviderController {
     private final ProviderService providerService;
 
@@ -17,7 +17,6 @@ public class ProviderController {
     }
 
     @GetMapping(Constants.ROLE_ADMIN_ACCOUNT_PROVIDERS_ROOT)
-    @LogExceptionCatchable
     public ModelAndView getProviders(){
         return new ModelAndView("/admin/providers")
                 .addObject("providers",this.providerService.getAllProviders())
@@ -28,19 +27,19 @@ public class ProviderController {
     @LogExceptionCatchable
     public ModelAndView createProvider(@ModelAttribute AdminProviderDto providerDto){
         this.providerService.createProvider(providerDto);
-        return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PROVIDERS);
+        return new ModelAndView(Constants.REDIRECT+Constants.ROLE_ADMIN_ACCOUNT_PROVIDERS_ROOT);
     }
     @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_PROVIDERS_UPDATE)
     @LogExceptionCatchable
     public ModelAndView updateProvider(@ModelAttribute AdminProviderDto providerDto){
         this.providerService.update(providerDto);
-        return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PROVIDERS);
+        return new ModelAndView(Constants.REDIRECT+Constants.ROLE_ADMIN_ACCOUNT_PROVIDERS_ROOT);
     }
     @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_PROVIDERS_DELETE)
     @LogExceptionCatchable
     public ModelAndView deleteProvider(@ModelAttribute AdminProviderDto providerDto){
         this.providerService.delete(providerDto.getId());
-        return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PROVIDERS);
+        return new ModelAndView(Constants.REDIRECT+Constants.ROLE_ADMIN_ACCOUNT_PROVIDERS_ROOT);
     }
 
 }

@@ -1,7 +1,7 @@
 package by.itacademy.shop.api.mappers;
 
-import by.itacademy.shop.api.dto.forall.GuestProductDto;
 import by.itacademy.shop.api.dto.admin.AdminProductDto;
+import by.itacademy.shop.api.dto.forall.GuestProductDto;
 import by.itacademy.shop.entities.Category;
 import by.itacademy.shop.entities.Photo;
 import by.itacademy.shop.entities.Product;

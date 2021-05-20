@@ -92,7 +92,7 @@ public class NativeQueryStringBuilder {
     }
     private String concatStrings(List<String> source){
         StringBuilder builder=new StringBuilder();
-        source.stream().forEach((e)-> builder.append(" "+e+" "));
+        source.forEach(e -> builder.append(" ").append(e).append(" "));
         return builder.toString();
     }
 

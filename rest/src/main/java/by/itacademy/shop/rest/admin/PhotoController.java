@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.io.IOException;
 
 @RestController
-@RequestMapping(Constants.ROLE_ADMIN_ACCOUNT_PHOTOS)
+@RequestMapping
 public class PhotoController {
     private final PhotoService photoService;
 
@@ -20,7 +20,6 @@ public class PhotoController {
     }
 
     @GetMapping(Constants.ROLE_ADMIN_ACCOUNT_PHOTOS_ROOT)
-    @LogExceptionCatchable
     public ModelAndView getAllPhoto(){
         return new ModelAndView("/admin/photos")
                 .addObject("photos",this.photoService.getAllPhotos());
@@ -29,20 +28,20 @@ public class PhotoController {
     @LogExceptionCatchable
     public ModelAndView createPhoto(@RequestParam("imageFileCr") MultipartFile photoFile) throws IOException {
         this.photoService.createPhoto(photoFile);
-        return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PHOTOS);
+        return new ModelAndView(Constants.REDIRECT+Constants.ROLE_ADMIN_ACCOUNT_PHOTOS_ROOT);
     }
 
     @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_PHOTOS_UPDATE)
     @LogExceptionCatchable
     public ModelAndView updatePhoto(@ModelAttribute GuestProductPhotoDto photoDto,@RequestParam("imageFileUpd") MultipartFile photoFile) throws IOException {
         this.photoService.update(photoDto,photoFile);
-        return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PHOTOS);
+        return new ModelAndView(Constants.REDIRECT+Constants.ROLE_ADMIN_ACCOUNT_PHOTOS_ROOT);
     }
 
     @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_PHOTOS_DELETE)
     @LogExceptionCatchable
     public ModelAndView deletePhoto(@ModelAttribute GuestProductPhotoDto photoDto) throws IOException {
         this.photoService.delete(photoDto.getId());
-        return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PHOTOS);
+        return new ModelAndView(Constants.REDIRECT+Constants.ROLE_ADMIN_ACCOUNT_PHOTOS_ROOT);
     }
 }

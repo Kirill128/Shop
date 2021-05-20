@@ -1,45 +1,32 @@
 package by.itacademy.shop.dao;
 
-import by.itacademy.shop.api.dao.CategoryDao;
-import by.itacademy.shop.api.dao.PhotoDao;
 import by.itacademy.shop.api.dao.ProductDao;
-import by.itacademy.shop.api.dao.ProviderDao;
 import by.itacademy.shop.api.dto.forall.ProductSearchCriteria;
 import by.itacademy.shop.api.dto.forall.SimplePage;
 import by.itacademy.shop.entities.Category;
 import by.itacademy.shop.entities.Photo;
+import by.itacademy.shop.entities.Product;
 import by.itacademy.shop.entities.Provider;
 import by.itacademy.shop.util.NativeQueryStringBuilder;
-import by.itacademy.shop.entities.Product;
 import by.itacademy.shop.utilenum.SortDirection;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.Query;
-import javax.persistence.TypedQuery;
-import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
-import javax.persistence.criteria.Root;
 import java.math.BigDecimal;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 
 
 @Repository
 public class ProductDaoImpl extends GenericDaoImpl<Product> implements ProductDao {
 
-    private CategoryDao categoryDao;
-    private ProviderDao providerDao;
-    private PhotoDao photoDao;
-
-    public ProductDaoImpl(CategoryDao categoryDao, ProviderDao providerDao, PhotoDao photoDao) {
+    public ProductDaoImpl() {
         super(Product.class);
-        this.categoryDao = categoryDao;
-        this.providerDao = providerDao;
-        this.photoDao = photoDao;
     }
 
     @Override
@@ -149,7 +136,7 @@ public class ProductDaoImpl extends GenericDaoImpl<Product> implements ProductDa
         if (source == null) {
             return searchName.toString();
         }
-        source.forEach((e) -> searchName.append(e).append("%"));
+        source.forEach( e -> searchName.append(e).append("%"));
         return searchName.toString();
     }
 }

@@ -13,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping(Constants.ROLE_ADMIN_ACCOUNT_CATEGORIES)
+@RequestMapping
 public class CategoryController {
     private final CategoryService categoryService;
 
@@ -22,10 +22,9 @@ public class CategoryController {
     }
 
     @GetMapping(Constants.ROLE_ADMIN_ACCOUNT_CATEGORIES_ROOT)
-    @LogExceptionCatchable
     public ModelAndView showCategories() throws JsonProcessingException {
         List<AdminParentCategoryDto> parentCategoryDtos=this.categoryService.getParentCategoriesFullInfo();
-        List<AdminCategoryDto> newCategories=new ArrayList(parentCategoryDtos.size());
+        List<AdminCategoryDto> newCategories=new ArrayList<>(parentCategoryDtos.size());
         for(AdminParentCategoryDto parentCategoryDto : parentCategoryDtos){
             newCategories.add( AdminCategoryDto.builder().parentCategoryId(parentCategoryDto.getId()).build() );
         }
@@ -39,19 +38,19 @@ public class CategoryController {
     @LogExceptionCatchable
     public ModelAndView createCategory(@ModelAttribute AdminCategoryDto category) throws JsonProcessingException {
         this.categoryService.createCategory(category);
-        return new ModelAndView("redirect:"+ Constants.ROLE_ADMIN_ACCOUNT_CATEGORIES);
+        return new ModelAndView(Constants.REDIRECT+ Constants.ROLE_ADMIN_ACCOUNT_CATEGORIES_ROOT);
     }
 
     @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_CATEGORIES_UPDATE)
     @LogExceptionCatchable
     public ModelAndView updateCategory(@ModelAttribute AdminCategoryDto category) throws JsonProcessingException {
         this.categoryService.update(category);
-        return new ModelAndView("redirect:"+ Constants.ROLE_ADMIN_ACCOUNT_CATEGORIES);
+        return new ModelAndView(Constants.REDIRECT+ Constants.ROLE_ADMIN_ACCOUNT_CATEGORIES_ROOT);
     }
 
     @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_CATEGORIES_DELETE)
     public ModelAndView deleteCategory(@ModelAttribute AdminCategoryDto categoryDto){
         this.categoryService.delete(categoryDto.getId());
-        return new ModelAndView("redirect:"+ Constants.ROLE_ADMIN_ACCOUNT_CATEGORIES);
+        return new ModelAndView(Constants.REDIRECT+ Constants.ROLE_ADMIN_ACCOUNT_CATEGORIES_ROOT);
     }
 }

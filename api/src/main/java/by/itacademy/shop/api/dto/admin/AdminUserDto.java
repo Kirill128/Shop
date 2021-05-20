@@ -1,6 +1,5 @@
 package by.itacademy.shop.api.dto.admin;
 
-import by.itacademy.shop.api.dto.user.OrderDto;
 import lombok.*;
 
 import java.util.List;

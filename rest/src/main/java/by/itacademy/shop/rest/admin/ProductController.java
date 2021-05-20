@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.util.List;
 
 @RestController
-@RequestMapping(Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS)
+@RequestMapping
 public class ProductController {
     private final ProductService productService;
     private final CategoryService categoryService;
@@ -34,7 +34,7 @@ public class ProductController {
     @GetMapping(Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS_ROOT)
     @LogExceptionCatchable
     public ModelAndView findAllProductsFullInfo() throws JsonProcessingException {
-        return new ModelAndView(Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS)
+        return new ModelAndView("/admin/products")
                 .addObject("products",this.productService.getAllProducts())
                 .addObject("subCategories",this.categoryService.getSubCategoriesFullInfo())
                 .addObject("providers",this.providerService.getAllProviders())
@@ -64,14 +64,14 @@ public class ProductController {
     public ModelAndView createProduct(@ModelAttribute AdminProductDto product, @RequestParam("imgPrCr") MultipartFile img) throws IOException {
         this.photoService.createPhoto(img);
         this.productService.createProduct(product);
-        return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS);
+        return new ModelAndView(Constants.REDIRECT+Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS_ROOT);
     }
 
     @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS_CREATE_LIST)
     @LogExceptionCatchable
     public ModelAndView createProduct(@ModelAttribute AdminListProductDtos products) throws JsonProcessingException {
         this.productService.createProducts(products.getProductDtoList());
-        return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS);
+        return new ModelAndView(Constants.REDIRECT+Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS_ROOT);
     }
 
 
@@ -79,14 +79,14 @@ public class ProductController {
     @LogExceptionCatchable
     public ModelAndView update(@ModelAttribute AdminProductDto product) throws JsonProcessingException {
         this.productService.update(product);
-        return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS);
+        return new ModelAndView(Constants.REDIRECT+Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS_ROOT);
     }
 
     @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS_DELETE)
     @LogExceptionCatchable
     public ModelAndView delete(@ModelAttribute AdminProductDto product){
         this.productService.delete(product.getId());
-        return new ModelAndView("redirect:"+Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS);
+        return new ModelAndView(Constants.REDIRECT+Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS_ROOT);
     }
 
     @InitBinder

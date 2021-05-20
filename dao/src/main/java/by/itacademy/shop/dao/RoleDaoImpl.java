@@ -2,7 +2,6 @@ package by.itacademy.shop.dao;
 
 import by.itacademy.shop.api.dao.RoleDao;
 import by.itacademy.shop.entities.Role;
-import by.itacademy.shop.entities.User;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.TypedQuery;

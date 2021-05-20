@@ -1,6 +1,5 @@
 package by.itacademy.shop.rest;
 
-import by.itacademy.shop.api.annotations.LogExceptionCatchable;
 import by.itacademy.shop.api.constants.Constants;
 import by.itacademy.shop.api.dto.admin.AdminProductDto;
 import by.itacademy.shop.api.dto.user.UserDto;
@@ -11,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.security.Principal;
 
 @RestController
-@RequestMapping(Constants.ROLE_USER_ACCOUNT_USER)
+@RequestMapping
 public class UserController {
 
     private final UserService userService;
@@ -22,7 +21,6 @@ public class UserController {
 
 
     @GetMapping(Constants.ROLE_USER_ACCOUNT_USER_ACCOUNT)
-    @LogExceptionCatchable
     public ModelAndView aboutUser(Principal principal){
         return new ModelAndView("/user/account")
                 .addObject("user",
@@ -30,21 +28,18 @@ public class UserController {
                 );
     }
     @PostMapping(Constants.ROLE_USER_ACCOUNT_USER_UPDATE)
-    @LogExceptionCatchable
     public ModelAndView update(@ModelAttribute UserDto user){
-        return new ModelAndView("redirect:"+Constants.ROLE_USER_ACCOUNT_USER_ACCOUNT);
+        return new ModelAndView(Constants.REDIRECT+Constants.ROLE_USER_ACCOUNT_USER_ACCOUNT);
     }
     @PostMapping(Constants.ROLE_USER_ACCOUNT_USER_DELETE)
-    @LogExceptionCatchable
     public ModelAndView delete(@ModelAttribute UserDto user){
-        return new ModelAndView("redirect:"+Constants.ROLE_USER_ACCOUNT_USER_ACCOUNT);
+        return new ModelAndView(Constants.REDIRECT+Constants.ROLE_USER_ACCOUNT_USER_ACCOUNT);
     }
 
     @PostMapping(Constants.ROLE_USER_ACCOUNT_USER_ADD_ORDER)
-    @LogExceptionCatchable
     public ModelAndView addProductToUserOrdersList(@ModelAttribute AdminProductDto productDto, Principal principal){
         this.userService.addProductToUserOrderList(principal.getName(),productDto.getId());
-        return new ModelAndView("redirect:"+Constants.ROLE_USER_ACCOUNT_USER_ACCOUNT);
+        return new ModelAndView(Constants.REDIRECT+Constants.ROLE_USER_ACCOUNT_USER_ACCOUNT);
 
     }
 }

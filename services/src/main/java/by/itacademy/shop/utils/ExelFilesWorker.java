@@ -1,5 +1,6 @@
 package by.itacademy.shop.utils;
 
+import by.itacademy.shop.api.dto.admin.AdminExelFileMetadata;
 import by.itacademy.shop.api.dto.admin.AdminProductDto;
 import by.itacademy.shop.utilenum.Lang;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -15,11 +16,12 @@ import java.io.IOException;
 import java.util.*;
 
 @UtilityClass
-public class ExelFilesWorker {
+public class ExelFilesWorker {//78c25acf40d5237d790560c22b25428261a9a59e
 
     public  List<AdminProductDto> parseXLSOrXlSXFile(MultipartFile file, Lang lang) throws IOException {
+        if(file==null || file.getContentType()==null)return new ArrayList<>();
         Workbook workbook= (file.getContentType().equals(".xls"))? new HSSFWorkbook(file.getInputStream()):new XSSFWorkbook(file.getInputStream());
-        int quantityInStorageCellNum=8;
+        int quantityInStorageCellNum=1;
         int shortDescrCellNum=3;
         int barcodeCellNum=5;
         int priceCellNum=11;
@@ -36,7 +38,9 @@ public class ExelFilesWorker {
 
                 Map<String,String> shortDescr=new HashMap<>();
                 String shortDescrString=currentRow.getCell(shortDescrCellNum).getStringCellValue();
-                if(shortDescrString.isEmpty())continue;
+                if(shortDescrString.isEmpty()){
+                    continue;
+                }
                 shortDescr.put(lang.value,shortDescrString);
 
                 Long barcode=-1L;
@@ -52,7 +56,6 @@ public class ExelFilesWorker {
                 productDto.setBarcode(barcode.toString());
                 productDto.setShortDescription(objectMapper.writeValueAsString(shortDescr));
                 productDto.setAttributes(null);
-//                productDto.setCategoryId();
                 productDto.setQuantityInStorage((int)quantity);
                 productDto.setPrice(price);
                 productDtoList.add(productDto);

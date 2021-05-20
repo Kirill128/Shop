@@ -44,7 +44,7 @@ public class CategoryMapper {
 
     public List<GuestParentCategoryDto> mapCategoriesToGuestCategoryDtos(List<Category> categoryList, Lang lang) {
         if(categoryList==null)return new ArrayList<>();
-        return categoryList.stream().map((e) -> CategoryMapper.mapCategoryToGuestCategoryDto(e, lang)).collect(Collectors.toList());
+        return categoryList.stream().map(e-> CategoryMapper.mapCategoryToGuestCategoryDto(e, lang)).collect(Collectors.toList());
     }
 
 

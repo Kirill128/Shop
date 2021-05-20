@@ -88,7 +88,7 @@ public class UserServiceImpl implements UserService{
     @Override
     public void deleteRole(AdminUserDto userDto) {
         User foundUser=this.userDao.find(userDto.getId());
-        foundUser.getRoles().removeIf((e)-> e.getId().equals(userDto.getRoleForActionId()));
+        foundUser.getRoles().removeIf( e-> e.getId().equals(userDto.getRoleForActionId()));
         this.userDao.update(foundUser);
     }
 
@@ -156,7 +156,9 @@ public class UserServiceImpl implements UserService{
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         User foundUser=this.userDao.findByEmail(email);
-        if(foundUser==null)throw new UsernameNotFoundException(String.format("User whit Email '%s' not found!!",email));
+        if(foundUser==null) {
+            throw new UsernameNotFoundException(String.format("User whit Email '%s' not found!!",email));
+        }
         return  org.springframework.security.core.userdetails.User.builder().
                 username(foundUser.getEmail()).
                 password(foundUser.getPassword()).

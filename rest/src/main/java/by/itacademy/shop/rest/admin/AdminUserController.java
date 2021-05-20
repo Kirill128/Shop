@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @RestController
-@RequestMapping(Constants.ROLE_ADMIN_ACCOUNT_USERS)
+@RequestMapping
 public class AdminUserController {
 
     private final UserService userService;
@@ -40,19 +40,19 @@ public class AdminUserController {
     @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_USERS_SET_ROLE)
     public ModelAndView setRole(@ModelAttribute AdminUserDto adminUserDto)  {
         this.userService.setRole(adminUserDto);
-        return new ModelAndView("redirect:"+ Constants.ROLE_ADMIN_ACCOUNT_USERS);
+        return new ModelAndView(Constants.REDIRECT+ Constants.ROLE_ADMIN_ACCOUNT_USERS_ROOT);
     }
     @LogExceptionCatchable
     @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_USERS_DELETE_ROLE)
     public ModelAndView deleteRoleFromUser(@ModelAttribute AdminUserDto adminUserDto)  {
         this.userService.deleteRole(adminUserDto);
-        return new ModelAndView("redirect:"+ Constants.ROLE_ADMIN_ACCOUNT_USERS);
+        return new ModelAndView(Constants.REDIRECT+ Constants.ROLE_ADMIN_ACCOUNT_USERS_ROOT);
     }
 
     @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_USERS_DELETE)
     @LogExceptionCatchable
     public ModelAndView delete(@ModelAttribute AdminUserDto adminUserDto){
         this.userService.delete(adminUserDto.getId());
-        return new ModelAndView("redirect:"+ Constants.ROLE_ADMIN_ACCOUNT_USERS);
+        return new ModelAndView(Constants.REDIRECT+ Constants.ROLE_ADMIN_ACCOUNT_USERS_ROOT);
     }
 }

@@ -23,6 +23,7 @@ public class LogExceptionHandlerAspect {
 
     @Around("catchExc()")
     public Object logAroundAdvise(ProceedingJoinPoint joinPoint) {
+        String errorStr="ERROR WAS MADE !!!!!! MESSAGE: '%s' ";
         try {
            Object o;
            o = joinPoint.proceed();
@@ -30,18 +31,15 @@ public class LogExceptionHandlerAspect {
            return o;
         }
         catch(JsonProcessingException e){
-            logger.error(e.getMessage());
-            e.printStackTrace();
+            logger.error(String.format(errorStr,e.getMessage()));
             return new ModelAndView("/errors/json-parse-error");
         }
         catch(IOException e){
-            logger.error(e.getMessage());
-            e.printStackTrace();
+            logger.error(String.format(errorStr,e.getMessage()));
             return new ModelAndView("/errors/post-file-error");
         }
         catch (Throwable e) {
-            logger.error(e.getMessage());
-            e.printStackTrace();
+            logger.error(String.format(errorStr,e.getMessage()));
             return new ModelAndView("/errors/500");
         }
     }

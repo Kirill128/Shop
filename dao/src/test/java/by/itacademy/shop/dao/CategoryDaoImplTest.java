@@ -46,8 +46,7 @@ class CategoryDaoImplTest {
     }
 
     @Test
-    @BeforeAll
-    public static void delete(){
+    public void delete(){
         System.out.println("DELETE STARTED !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         CategoryDao categoryDao=new CategoryDaoImpl();
         Category category =categoryDao.find(23L);
