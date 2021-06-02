@@ -45,16 +45,32 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public SimplePage<GuestProductDto> getProductsPageByCriteria(ProductSearchCriteria searchCriteria) {
+        searchCriteria.setPageNum(Math.max(searchCriteria.getPageNum(), 1));
         if(searchCriteria.getPartOfName()!=null){
             searchCriteria.setPartsOfName(Arrays.asList(searchCriteria.getPartOfName().split("\\s+")));
         }
-        SimplePage<Product> oldPage=this.productDao.getProductsPageByCriteria(searchCriteria);
-        SimplePage<GuestProductDto> newPage=new SimplePage<>();
-        newPage.setCountInDb(oldPage.getCountInDb());
-        newPage.setResults(ProductMapper.mapProductsToGuestProductDtos(oldPage.getResults(),searchCriteria.getLang()));
-        return newPage;
-    }
+        SimplePage<Product> productPage=this.productDao.getProductsPageByCriteria(searchCriteria);
+        SimplePage<GuestProductDto> dtoPage=new SimplePage<>();
 
+        dtoPage.setNextPageNum(this.getNextPage(searchCriteria,productPage));
+        dtoPage.setPreviousPageNum(this.getPreviousPage(searchCriteria));
+        dtoPage.setCurrentPageNum(searchCriteria.getPageNum());
+
+        dtoPage.setResults(ProductMapper.mapProductsToGuestProductDtos(productPage.getResults(),searchCriteria.getLang()));
+        return dtoPage;
+    }
+    private int getNextPage(ProductSearchCriteria searchCriteria,SimplePage<Product> productPage){
+        if(productPage.getResults().size() < searchCriteria.getPageSize()){
+            return searchCriteria.getPageNum();
+        }
+        return searchCriteria.getPageNum()+1;
+    }
+    private int getPreviousPage(ProductSearchCriteria searchCriteria){
+        if(searchCriteria.getPageNum()>1){
+            return searchCriteria.getPageNum()-1;
+        }
+        return 1;
+    }
     //----------------------------------Admin ---------------------------------------------------
 
     @Override

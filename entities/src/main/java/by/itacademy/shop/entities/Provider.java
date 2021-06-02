@@ -26,12 +26,5 @@ public class Provider extends GenericEntity<Long>{
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "provider")
     private List<Product> products;
 
-    @Override
-    public String toString() {
-        return "Provider{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
-    }
 
 }

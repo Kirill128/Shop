@@ -26,12 +26,6 @@ public class Photo extends GenericEntity<Long>{
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "photo")
     private List<Product> products;
 
-    @Override
-    public String toString() {
-        return "Photo{" +
-                "id=" + id +
-                ", url='" + url + '\'' +
-                '}';
-    }
+
 
 }

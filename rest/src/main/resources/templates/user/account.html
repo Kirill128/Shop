@@ -43,7 +43,7 @@
             <h1 class="row mt-3" th:utext="${user.name}"></h1>
             <h2 class="row mt-3" th:utext="${user.email}"></h2>
             <h2 class="row mt-3" th:utext="${user.phone}"></h2>
-            <a th:if="${user.isAdmin()}" th:href="@{/admin/products}" th:utext="'GO TO ADMIN PAGE'"></a>
+            <a th:if="${user.isAdmin()}" th:href="@{/admin/products/}" th:utext="'GO TO ADMIN PAGE'"></a>
             <h2 class="row mt-3" >ORDERS</h2>
             <div class="row mt-3" th:each="order : ${user.orders}" >
                 <h5 class="mt-3">Order status: <span th:utext="${order.status.toString()}"></span></h5>

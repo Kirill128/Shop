@@ -44,12 +44,12 @@ public class ProductDaoImpl extends GenericDaoImpl<Product> implements ProductDa
                 .join("LEFT", "provider as pr", "p.provider_id=pr.id")
                 .join("LEFT", "photo as ph", "p.photo_id=ph.id")
                 .limitOffset(productSearchCriteria.getPageSize(),
-                        productSearchCriteria.getPageSize() * productSearchCriteria.getPageNum());
+                        productSearchCriteria.getPageSize() * (productSearchCriteria.getPageNum()-1));
 
         this.dynamicPartOfQuery(nativeQueryStringBuilder, productSearchCriteria);
 
         Query query = entityManager.createNativeQuery(nativeQueryStringBuilder.build());
-        return new SimplePage<>(castListObjectsToListProducts(query.getResultList()), -1);
+        return new SimplePage<>(castListObjectsToListProducts(query.getResultList()));
 
     }
 

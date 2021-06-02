@@ -28,7 +28,7 @@ public class ProductSearchController {
 
     @GetMapping(Constants.ROLE_GUEST_PRODUCT_SEARCH_PAGES_NUM)
     public ModelAndView getProductsPageGuest(@PathVariable int num,
-                                             @Nullable @RequestParam Long categoryId,
+                                             @Nullable @RequestParam("category_id") Long categoryId,
                                              ProductSearchCriteria fromFrontSearchCriteria,
                                              Authentication authentication) {
         List<GuestParentCategoryDto> categoryDtos=this.categoryService.getParentCategories(Constants.GLOBAL_LANG);
@@ -38,31 +38,17 @@ public class ProductSearchController {
         if(fromFrontSearchCriteria.getLang()==null) {
             fromFrontSearchCriteria.setLang(Constants.GLOBAL_LANG);
         }
-        fromFrontSearchCriteria.setPageNum((num>0)? num : 1);
+        fromFrontSearchCriteria.setPageNum(num);
         fromFrontSearchCriteria.setPageSize(Constants.PRODUCT_PAGE_SIZE);
         SimplePage<GuestProductDto> simplePage=this.productService.getProductsPageByCriteria(fromFrontSearchCriteria);
         return new ModelAndView("/product")
-                .addObject("lastPage", simplePage.getResults().size()<Constants.PRODUCT_PAGE_SIZE)
+                .addObject("nextPage",simplePage.getNextPageNum())
+                .addObject("currentPage",simplePage.getCurrentPageNum())
+                .addObject("previousPage",simplePage.getPreviousPageNum())
                 .addObject("products",simplePage.getResults())
-                .addObject("allProdCount",simplePage.getCountInDb())
                 .addObject("categories",categoryDtos)
                 .addObject("searchCriteria",fromFrontSearchCriteria)
                 .addObject("authentication",authentication);
     }
 
-    @PostMapping(Constants.ROLE_GUEST_PRODUCT_SEARCH_PAGES_NEXT)
-    public ModelAndView getNextProductsPageGuest(@ModelAttribute ProductSearchCriteria productSearchCriteria){
-        productSearchCriteria.setPageNum(productSearchCriteria.getPageNum()+1);
-        return new ModelAndView(Constants.REDIRECT+
-                Constants.ROLE_GUEST_PRODUCT_SEARCH_PAGES +
-                productSearchCriteria.getPageNum());
-    }
-
-    @PostMapping(Constants.ROLE_GUEST_PRODUCT_SEARCH_PAGES_PREVIOUS)
-    public ModelAndView getPreviousProductsPageGuest(@ModelAttribute ProductSearchCriteria productSearchCriteria){
-        if(productSearchCriteria.getPageNum()>1)productSearchCriteria.setPageNum(productSearchCriteria.getPageNum()-1);
-        return new ModelAndView(Constants.REDIRECT+
-                Constants.ROLE_GUEST_PRODUCT_SEARCH_PAGES +
-                productSearchCriteria.getPageNum());
-    }
 }

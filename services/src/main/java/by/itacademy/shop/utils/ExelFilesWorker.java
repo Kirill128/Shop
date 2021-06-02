@@ -18,13 +18,12 @@ import java.util.*;
 public class ExelFilesWorker {
 
     public  List<AdminProductDto> parseXLSOrXlSXFile(MultipartFile file, Lang lang) throws IOException {
-        if(file==null || file.getContentType()==null) {
-            return new ArrayList<>();
-        }
+
         Workbook workbook= (file.getContentType().equals(".xls")) ?
                 new HSSFWorkbook(file.getInputStream()) :
                 new XSSFWorkbook(file.getInputStream());
-        int quantityInStorageCellNum=1;
+
+        int quantityInStorageCellNum=8;
         int shortDescrCellNum=3;
         int barcodeCellNum=5;
         int priceCellNum=11;

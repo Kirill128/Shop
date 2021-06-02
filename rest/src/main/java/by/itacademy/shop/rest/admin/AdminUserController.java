@@ -22,14 +22,12 @@ public class AdminUserController {
     }
 
     @GetMapping(Constants.ROLE_ADMIN_ACCOUNT_USERS_ID)
-    @LogExceptionCatchable
     public ModelAndView find(@PathVariable int id) throws JsonProcessingException {
         return new ModelAndView("/admin/user-account")
                 .addObject("user",this.userService.findFullInfo(id));
     }
 
     @GetMapping(Constants.ROLE_ADMIN_ACCOUNT_USERS_ROOT)
-    @LogExceptionCatchable
     public ModelAndView findAllUsers() throws JsonProcessingException {
         return new ModelAndView("/admin/users")
                 .addObject("userList",this.userService.getAllUsers())

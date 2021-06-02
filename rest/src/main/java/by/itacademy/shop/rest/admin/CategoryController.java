@@ -49,6 +49,7 @@ public class CategoryController {
     }
 
     @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_CATEGORIES_DELETE)
+    @LogExceptionCatchable
     public ModelAndView deleteCategory(@ModelAttribute AdminCategoryDto categoryDto){
         this.categoryService.delete(categoryDto.getId());
         return new ModelAndView(Constants.REDIRECT+ Constants.ROLE_ADMIN_ACCOUNT_CATEGORIES_ROOT);

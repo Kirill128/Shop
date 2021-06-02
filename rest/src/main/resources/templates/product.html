@@ -80,10 +80,10 @@
                             <div class="products__sort">
                                 <select class="form-select w-auto"  th:value="${searchCriteria.sortDirection}" th:name="sortDirection" >
                                     <option th:each="sort : ${T(by.itacademy.shop.utilenum.SortDirection).values()}"
-                                            th:value="${sort}" th:utext="${sort.name()}"></option>
+                                            th:value="${sort}" th:utext="${sort.name()}" selected></option>
                                 </select>
                                 <select  class="form-select w-auto" th:value="${searchCriteria.sortBy}" th:name="sortBy" >
-                                    <option th:value="'price'" th:utext="Price"></option>
+                                    <option th:value="'price'" th:utext="Price" selected></option>
                                     <option th:value="'short_description'" th:utext="Description"></option>
                                 </select>
                             </div>
@@ -108,8 +108,7 @@
 
                 <div class="btn-toolbar " role="toolbar" aria-label="Toolbar with button groups">
                     <div class="btn-group me-2" role="group" aria-label="First group">
-                        <form th:action="@{'/products/pages/previous'}" method="post" th:if="${searchCriteria.pageNum!=1}">
-                            <input type="hidden" th:value="${searchCriteria.pageNum}" th:name="pageNum">
+                        <form th:action="@{'/products/pages/'+${previousPage}}" method="get" th:if="${previousPage!=currentPage}">
                             <input type="hidden" th:value="${searchCriteria.partOfName}" th:name="partOfName"/>
                             <input type="hidden" th:value="${searchCriteria.categoryId}" th:name="categoryId">
                             <input type="hidden"  th:value="${searchCriteria.sortDirection}" th:name="sortDirection">
@@ -117,8 +116,7 @@
                             <button type="submit"  class="btn btn-primary">Previous</button>
                         </form>
 
-                        <form th:action="@{'/products/pages/next'}" method="post" th:if="${!lastPage}" >
-                            <input type="hidden" th:value="${searchCriteria.pageNum}" th:name="pageNum">
+                        <form th:action="@{'/products/pages/'+${nextPage}}" method="get" th:if="${nextPage!=currentPage}" >
                             <input type="hidden" th:value="${searchCriteria.partOfName}" th:name="partOfName"/>
                             <input type="hidden" th:value="${searchCriteria.categoryId}" th:name="categoryId">
                             <input type="hidden"  th:value="${searchCriteria.sortDirection}" th:name="sortDirection">

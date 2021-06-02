@@ -12,4 +12,12 @@ import java.util.List;
 public class SimplePage<T> {
     private List<T> results;
     private long countInDb;
+
+    private int currentPageNum;
+    private int nextPageNum;
+    private int previousPageNum;
+
+    public SimplePage(List<T> results) {
+        this.results = results;
+    }
 }

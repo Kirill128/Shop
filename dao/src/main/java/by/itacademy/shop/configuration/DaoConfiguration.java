@@ -73,11 +73,11 @@ public class DaoConfiguration {
         return transactionManager;
     }
 
-//    @Bean
-//    public SpringLiquibase liquibase() {
-//        SpringLiquibase liquibase = new SpringLiquibase();
-//        liquibase.setChangeLog("classpath:/db.changelog/db.changelog-master.xml");
-//        liquibase.setDataSource(dataSource());
-//        return liquibase;
-//    }
+    @Bean
+    public SpringLiquibase liquibase() {
+        SpringLiquibase liquibase = new SpringLiquibase();
+        liquibase.setChangeLog("classpath:/db.changelog/db.changelog-master.xml");
+        liquibase.setDataSource(dataSource());
+        return liquibase;
+    }
 }

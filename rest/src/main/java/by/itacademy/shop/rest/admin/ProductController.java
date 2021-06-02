@@ -32,7 +32,6 @@ public class ProductController {
     }
 
     @GetMapping(Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS_ROOT)
-    @LogExceptionCatchable
     public ModelAndView findAllProductsFullInfo() throws JsonProcessingException {
         return new ModelAndView("/admin/products")
                 .addObject("products",this.productService.getAllProducts())
