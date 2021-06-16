@@ -5,6 +5,8 @@ import by.itacademy.shop.api.dto.admin.AdminProviderDto;
 import by.itacademy.shop.api.mappers.ProviderMapper;
 import by.itacademy.shop.api.services.ProviderService;
 import by.itacademy.shop.entities.Provider;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,7 +22,7 @@ public class ProviderServiceImpl implements ProviderService {
     }
 
     @Override
-    public AdminProviderDto createProvider(AdminProviderDto providerDto) {
+    public AdminProviderDto createProvider(AdminProviderDto providerDto) throws JsonProcessingException {
         return ProviderMapper.mapProviderToProviderDto(this.providerDao.create(ProviderMapper.mapProviderDtoToProvider(providerDto)));
     }
 

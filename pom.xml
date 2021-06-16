@@ -42,7 +42,7 @@
         <liquibase-core.version>4.3.1</liquibase-core.version>
         <aspect.version>1.9.6</aspect.version>
         <hibernate-validator.version>6.1.6.Final</hibernate-validator.version>
-
+        <spring-data-jpa.version>2.3.9.RELEASE</spring-data-jpa.version>
     </properties>
 
     <build>

@@ -2,11 +2,14 @@ package by.itacademy.shop.configuration;
 
 import by.itacademy.shop.api.constants.Constants;
 import liquibase.integration.spring.SpringLiquibase;
+import liquibase.pro.packaged.J;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
 import org.springframework.core.env.Environment;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -21,8 +24,8 @@ import java.util.Properties;
 @EnableTransactionManagement
 @PropertySource(value = "classpath:/META-INF/persistence.properties")
 @Slf4j
+@EnableJpaRepositories(basePackages = {"by.itacademy.shop.dao.productsdao"})
 public class DaoConfiguration {
-
     private Environment environment;
 
     @Autowired
@@ -79,5 +82,9 @@ public class DaoConfiguration {
         liquibase.setChangeLog("classpath:/db.changelog/db.changelog-master.xml");
         liquibase.setDataSource(dataSource());
         return liquibase;
+    }
+    @Bean
+    public JdbcTemplate jdbcTemplate(){
+        return new JdbcTemplate(dataSource());
     }
 }

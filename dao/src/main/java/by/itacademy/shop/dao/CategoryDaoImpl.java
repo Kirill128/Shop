@@ -2,6 +2,7 @@ package by.itacademy.shop.dao;
 
 import by.itacademy.shop.api.dao.CategoryDao;
 import by.itacademy.shop.entities.Category;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.Query;

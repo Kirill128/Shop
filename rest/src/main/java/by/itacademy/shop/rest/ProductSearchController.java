@@ -7,6 +7,7 @@ import by.itacademy.shop.api.dto.forall.ProductSearchCriteria;
 import by.itacademy.shop.api.dto.forall.SimplePage;
 import by.itacademy.shop.api.services.CategoryService;
 import by.itacademy.shop.api.services.ProductService;
+import org.springframework.context.annotation.Profile;
 import org.springframework.lang.Nullable;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;

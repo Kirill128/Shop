@@ -15,7 +15,7 @@ import org.thymeleaf.templatemode.TemplateMode;
 @Configuration
 @ComponentScan(basePackages = {"by.itacademy.shop.rest","by.itacademy.shop.aspects"})
 @EnableAspectJAutoProxy
-@Import({ServiceConfiguration.class,ShopSecurityConfigurerAdapter.class})
+@Import({ServiceConfiguration.class})//ShopSecurityConfigurerAdapter.class
 @EnableWebMvc
 public class RestConfiguration implements WebMvcConfigurer {
     private final ApplicationContext applicationContext;

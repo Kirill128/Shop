@@ -2,6 +2,7 @@ package by.itacademy.shop.dao;
 
 import by.itacademy.shop.api.dao.UserDao;
 import by.itacademy.shop.entities.User;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.TypedQuery;
@@ -11,6 +12,7 @@ import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 @Repository
+@Profile("release")
 public class UserDaoImpl extends GenericDaoImpl<User> implements UserDao {
     public UserDaoImpl() {
         super(User.class);

@@ -10,6 +10,7 @@ import by.itacademy.shop.api.services.CategoryService;
 import by.itacademy.shop.entities.Category;
 import by.itacademy.shop.utilenum.Lang;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 

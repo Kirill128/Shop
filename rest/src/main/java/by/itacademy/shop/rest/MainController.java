@@ -3,6 +3,8 @@ package by.itacademy.shop.rest;
 import by.itacademy.shop.api.constants.Constants;
 import by.itacademy.shop.api.dto.user.UserDto;
 import by.itacademy.shop.api.services.UserService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import org.springframework.context.annotation.Profile;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -11,6 +13,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping
+@Profile("release")
 public class MainController {
     private static final String SING_UP_TEMPLATE="/singup";
     private final UserService userService;
@@ -30,7 +33,7 @@ public class MainController {
                 .addObject("userDto",new UserDto());
     }
     @PostMapping(Constants.ROLE_GUEST_MAIN_SIGN_UP)
-    public ModelAndView createUser(@ModelAttribute @Valid UserDto user, BindingResult bindingResult){
+    public ModelAndView createUser(@ModelAttribute @Valid UserDto user, BindingResult bindingResult) throws JsonProcessingException {
         if(bindingResult.hasErrors()){
             return new ModelAndView(SING_UP_TEMPLATE);
         }

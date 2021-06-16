@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import java.util.List;
 
 public interface UserService extends UserDetailsService {
-    UserDto createUser(UserDto user, Lang lang);
+    UserDto createUser(UserDto user, Lang lang) throws JsonProcessingException;
     UserDto find(long id,Lang lang);
     AdminUserDto findFullInfo(long id) throws JsonProcessingException;
     UserDto findByEmail(String email,Lang lang);
@@ -20,5 +20,5 @@ public interface UserService extends UserDetailsService {
 
     List<AdminUserDto> getAllUsers() throws JsonProcessingException;
 
-    void addProductToUserOrderList(String email,long productId);
+    void addProductToUserOrderList(String email,long productId) throws JsonProcessingException;
 }

@@ -1,0 +1,12 @@
+.sidebar-nav{
+    background-color: #fadada;
+}
+.main-content{
+    background-color:rgb(255,255,191);
+}
+.nav-link{
+    color:black;
+}
+.active{
+    background-color: rgb(255,255,191);
+}

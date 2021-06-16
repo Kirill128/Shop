@@ -12,6 +12,7 @@ import by.itacademy.shop.utilenum.SortDirection;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.Query;
@@ -23,6 +24,7 @@ import java.util.List;
 
 
 @Repository
+@Profile("release")
 public class ProductDaoImpl extends GenericDaoImpl<Product> implements ProductDao {
 
     public ProductDaoImpl() {

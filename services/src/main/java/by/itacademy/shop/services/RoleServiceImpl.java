@@ -5,6 +5,8 @@ import by.itacademy.shop.api.dto.admin.AdminRoleDto;
 import by.itacademy.shop.api.mappers.RoleMapper;
 import by.itacademy.shop.api.services.RoleService;
 import by.itacademy.shop.entities.Role;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,6 +15,7 @@ import java.util.Set;
 
 @Service
 @Transactional
+@Profile("release")
 public class RoleServiceImpl implements RoleService {
     private RoleDao roleDao;
 
@@ -21,7 +24,7 @@ public class RoleServiceImpl implements RoleService {
     }
 
     @Override
-    public AdminRoleDto createRole(AdminRoleDto roleDto) {
+    public AdminRoleDto createRole(AdminRoleDto roleDto) throws JsonProcessingException {
         return RoleMapper.mapRoleToRoleDto(this.roleDao.create(RoleMapper.mapRoleDtoToRole(roleDto)));
     }
 

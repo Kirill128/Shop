@@ -1202,3 +1202,66 @@ NOTE: Picked up JDK_JAVA_OPTIONS:  --add-opens=java.base/java.lang=ALL-UNNAMED -
 21-May-2021 09:30:52.521 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [shop] registered the JDBC driver [org.postgresql.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
 21-May-2021 09:30:52.530 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
 21-May-2021 09:30:52.580 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]
+NOTE: Picked up JDK_JAVA_OPTIONS:  --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+07-Jun-2021 18:06:34.822 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.45
+07-Jun-2021 18:06:34.827 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 30 2021 10:29:04 UTC
+07-Jun-2021 18:06:34.827 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.45.0
+07-Jun-2021 18:06:34.827 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+07-Jun-2021 18:06:34.827 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.8.0-55-generic
+07-Jun-2021 18:06:34.827 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+07-Jun-2021 18:06:34.827 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-11-openjdk-amd64
+07-Jun-2021 18:06:34.827 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           11.0.11+9-Ubuntu-0ubuntu2.20.04
+07-Jun-2021 18:06:34.828 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Ubuntu
+07-Jun-2021 18:06:34.828 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /home/user/projects/Shop/apache-tomcat-9.0.45
+07-Jun-2021 18:06:34.828 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /home/user/projects/Shop/apache-tomcat-9.0.45
+07-Jun-2021 18:06:34.845 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+07-Jun-2021 18:06:34.845 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+07-Jun-2021 18:06:34.845 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+07-Jun-2021 18:06:34.845 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+07-Jun-2021 18:06:34.845 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+07-Jun-2021 18:06:34.845 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/home/user/projects/Shop/apache-tomcat-9.0.45/conf/logging.properties
+07-Jun-2021 18:06:34.846 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+07-Jun-2021 18:06:34.846 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+07-Jun-2021 18:06:34.846 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+07-Jun-2021 18:06:34.846 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+07-Jun-2021 18:06:34.846 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+07-Jun-2021 18:06:34.847 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/home/user/projects/Shop/apache-tomcat-9.0.45
+07-Jun-2021 18:06:34.847 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/home/user/projects/Shop/apache-tomcat-9.0.45
+07-Jun-2021 18:06:34.847 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/home/user/projects/Shop/apache-tomcat-9.0.45/temp
+07-Jun-2021 18:06:34.848 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+07-Jun-2021 18:06:35.118 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+07-Jun-2021 18:06:35.149 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [483] milliseconds
+07-Jun-2021 18:06:35.202 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+07-Jun-2021 18:06:35.203 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.45]
+07-Jun-2021 18:06:35.213 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/user/projects/Shop/apache-tomcat-9.0.45/webapps/docs]
+07-Jun-2021 18:06:35.384 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/user/projects/Shop/apache-tomcat-9.0.45/webapps/docs] has finished in [170] ms
+07-Jun-2021 18:06:35.384 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/user/projects/Shop/apache-tomcat-9.0.45/webapps/manager]
+07-Jun-2021 18:06:35.421 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/user/projects/Shop/apache-tomcat-9.0.45/webapps/manager] has finished in [37] ms
+07-Jun-2021 18:06:35.421 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/user/projects/Shop/apache-tomcat-9.0.45/webapps/ROOT]
+07-Jun-2021 18:06:35.435 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/user/projects/Shop/apache-tomcat-9.0.45/webapps/ROOT] has finished in [14] ms
+07-Jun-2021 18:06:35.435 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/user/projects/Shop/apache-tomcat-9.0.45/webapps/host-manager]
+07-Jun-2021 18:06:35.453 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/user/projects/Shop/apache-tomcat-9.0.45/webapps/host-manager] has finished in [18] ms
+07-Jun-2021 18:06:35.453 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/user/projects/Shop/apache-tomcat-9.0.45/webapps/shop]
+07-Jun-2021 18:06:36.902 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+07-Jun-2021 18:06:40.361 INFO [main] liquibase.lockservice.null Successfully acquired change log lock
+07-Jun-2021 18:06:40.366 INFO [main] liquibase.servicelocator.null Cannot load service: liquibase.parser.ChangeLogParser: liquibase.parser.core.json.JsonChangeLogParser Unable to get public no-arg constructor
+07-Jun-2021 18:06:40.369 INFO [main] liquibase.servicelocator.null Cannot load service: liquibase.parser.ChangeLogParser: liquibase.parser.core.yaml.YamlChangeLogParser Unable to get public no-arg constructor
+07-Jun-2021 18:06:40.930 INFO [main] liquibase.changelog.null Reading from public.databasechangelog
+07-Jun-2021 18:06:41.002 INFO [main] liquibase.servicelocator.null Cannot load service: liquibase.hub.HubService: Provider liquibase.hub.core.StandardHubService could not be instantiated
+07-Jun-2021 18:06:41.011 INFO [main] liquibase.lockservice.null Successfully released change log lock
+07-Jun-2021 18:06:41.628 INFO [main] liquibase.lockservice.null Successfully acquired change log lock
+07-Jun-2021 18:06:41.840 INFO [main] liquibase.changelog.null Reading from public.databasechangelog
+07-Jun-2021 18:06:41.864 INFO [main] liquibase.lockservice.null Successfully released change log lock
+07-Jun-2021 18:06:41.907 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/user/projects/Shop/apache-tomcat-9.0.45/webapps/shop] has finished in [6,454] ms
+07-Jun-2021 18:06:41.908 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/home/user/projects/Shop/apache-tomcat-9.0.45/webapps/examples]
+07-Jun-2021 18:06:42.020 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/home/user/projects/Shop/apache-tomcat-9.0.45/webapps/examples] has finished in [111] ms
+07-Jun-2021 18:06:42.032 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+07-Jun-2021 18:06:42.042 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [6892] milliseconds
+2021-06-07 18:06:44 INFO  LogExceptionHandlerAspect:26 - Method "List by.itacademy.shop.api.services.CategoryService.getParentCategories(Lang)" ([RU]) was executed ! 
+2021-06-07 18:07:05 INFO  LogExceptionHandlerAspect:26 - Method "List by.itacademy.shop.api.services.CategoryService.getParentCategories(Lang)" ([RU]) was executed ! 
+07-Jun-2021 18:07:18.915 INFO [main] org.apache.catalina.core.StandardServer.await A valid shutdown command was received via the shutdown port. Stopping the Server instance.
+07-Jun-2021 18:07:18.916 INFO [main] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["http-nio-8080"]
+07-Jun-2021 18:07:18.922 INFO [main] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+07-Jun-2021 18:07:18.960 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [shop] registered the JDBC driver [org.postgresql.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+07-Jun-2021 18:07:18.970 INFO [main] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["http-nio-8080"]
+07-Jun-2021 18:07:19.021 INFO [main] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["http-nio-8080"]

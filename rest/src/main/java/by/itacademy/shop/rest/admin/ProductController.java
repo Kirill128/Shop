@@ -8,6 +8,7 @@ import by.itacademy.shop.api.services.PhotoService;
 import by.itacademy.shop.api.services.ProductService;
 import by.itacademy.shop.api.services.ProviderService;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import org.springframework.context.annotation.Profile;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -29,6 +30,10 @@ public class ProductController {
         this.categoryService = categoryService;
         this.providerService = providerService;
         this.photoService = photoService;
+    }
+    @GetMapping
+    public String get(){
+        return "String";
     }
 
     @GetMapping(Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS_ROOT)

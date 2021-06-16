@@ -19,7 +19,7 @@ public class ShopSpringMvcDispatcherServletInitializer extends AbstractAnnotatio
     public void onStartup(ServletContext servletContext) throws ServletException {
         //create the root Spring application context
         AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
-        rootContext.register(RestConfiguration.class, ShopSecurityConfigurerAdapter.class);
+        rootContext.register(RestConfiguration.class);// ShopSecurityConfigurerAdapter.class
 
         servletContext.addListener(new ContextLoaderListener(rootContext));
 
@@ -45,7 +45,7 @@ public class ShopSpringMvcDispatcherServletInitializer extends AbstractAnnotatio
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{RestConfiguration.class,ShopSecurityConfigurerAdapter.class};
+        return new Class[]{RestConfiguration.class};//,ShopSecurityConfigurerAdapter.class
     }
 
     @Override

@@ -11,6 +11,7 @@ import by.itacademy.shop.entities.Product;
 import by.itacademy.shop.utilenum.Lang;
 import by.itacademy.shop.utils.ExelFilesWorker;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -22,6 +23,7 @@ import java.util.List;
 
 @Service
 @Transactional
+@Profile("!spring-data")
 public class ProductServiceImpl implements ProductService {
     private ProductDao productDao;
 

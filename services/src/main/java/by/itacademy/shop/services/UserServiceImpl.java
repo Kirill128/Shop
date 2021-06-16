@@ -11,6 +11,7 @@ import by.itacademy.shop.entities.*;
 import by.itacademy.shop.forentity.Status;
 import by.itacademy.shop.utilenum.Lang;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import org.springframework.context.annotation.Profile;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -25,6 +26,7 @@ import java.util.stream.Stream;
 
 @Service
 @Transactional
+@Profile("release")
 public class UserServiceImpl implements UserService{
     private UserDao userDao;
     private ProductDao productDao;
@@ -50,7 +52,7 @@ public class UserServiceImpl implements UserService{
     //---------------------------------CRUD----------------------------------------------------
 
     @Override
-    public UserDto createUser(UserDto user, Lang lang) {
+    public UserDto createUser(UserDto user, Lang lang) throws JsonProcessingException {
         try{
             this.userDao.findByEmail(user.getEmail());
             return null;
@@ -112,7 +114,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public void addProductToUserOrderList(String email, long productId) {
+    public void addProductToUserOrderList(String email, long productId) throws JsonProcessingException {
         User user=this.userDao.findByEmail(email);
         Product product=this.productDao.find(productId);
         for(Order order : user.getOrders()){
