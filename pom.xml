@@ -15,6 +15,8 @@
         <module>services</module>
         <module>rest</module>
         <module>entities-base</module>
+        <module>daomicroservice</module>
+        <module>daomicroservice-controller</module>
     </modules>
 
     <properties>
@@ -43,6 +45,7 @@
         <aspect.version>1.9.6</aspect.version>
         <hibernate-validator.version>6.1.6.Final</hibernate-validator.version>
         <spring-data-jpa.version>2.3.9.RELEASE</spring-data-jpa.version>
+        <p6spy.version>3.7.0</p6spy.version>
     </properties>
 
     <build>

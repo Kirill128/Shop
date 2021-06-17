@@ -2,6 +2,7 @@ package by.itacademy.shop.api.mappers;
 
 import by.itacademy.shop.api.dto.admin.AdminProductDto;
 import by.itacademy.shop.api.dto.forall.GuestProductDto;
+import by.itacademy.shop.api.dto.projections.ProductNativeFullView;
 import by.itacademy.shop.entities.Category;
 import by.itacademy.shop.entities.Photo;
 import by.itacademy.shop.entities.Product;
@@ -88,5 +89,22 @@ public class ProductMapper {
         }
         return result;
     }
-    //---------------
+    //---------------Product Native Guest View
+    public Product mapProductNativeFullViewToProduct(ProductNativeFullView source){
+        ObjectMapper mapper=new ObjectMapper();
+        return Product.builder()
+                .id(source.getId())
+                .shortDescription(source.getShortDescription())
+                .barcode(source.getBarcode())
+                .price(source.getPrice())
+                .quantityInStorage(source.getQuantityInStorage())
+                .category(source.getCategory())
+                .photo(source.getPhoto())
+                .provider(source.getProvider())
+                .attributes(source.getAttributes())
+                .build();
+    }
+    public List<Product> mapProductNativeFullViewsToProducts(List<ProductNativeFullView> source){
+        return source.stream().map(ProductMapper::mapProductNativeFullViewToProduct).collect(Collectors.toList());
+    }
 }

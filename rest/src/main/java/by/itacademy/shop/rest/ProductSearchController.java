@@ -7,6 +7,7 @@ import by.itacademy.shop.api.dto.forall.ProductSearchCriteria;
 import by.itacademy.shop.api.dto.forall.SimplePage;
 import by.itacademy.shop.api.services.CategoryService;
 import by.itacademy.shop.api.services.ProductService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.context.annotation.Profile;
 import org.springframework.lang.Nullable;
 import org.springframework.security.core.Authentication;
@@ -31,7 +32,7 @@ public class ProductSearchController {
     public ModelAndView getProductsPageGuest(@PathVariable int num,
                                              @Nullable @RequestParam("category_id") Long categoryId,
                                              ProductSearchCriteria fromFrontSearchCriteria,
-                                             Authentication authentication) {
+                                             Authentication authentication) throws JsonProcessingException {
         List<GuestParentCategoryDto> categoryDtos=this.categoryService.getParentCategories(Constants.GLOBAL_LANG);
         if(categoryId!=null){
             fromFrontSearchCriteria.setCategoryId(categoryId);

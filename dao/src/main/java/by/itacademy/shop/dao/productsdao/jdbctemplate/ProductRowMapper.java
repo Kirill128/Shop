@@ -13,7 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashMap;
 
-public class ProductMapper implements RowMapper<Product> {
+public class ProductRowMapper implements RowMapper<Product> {
     @SneakyThrows
     @Override
     public Product mapRow(ResultSet set, int i) throws SQLException {

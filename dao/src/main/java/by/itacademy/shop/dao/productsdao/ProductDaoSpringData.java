@@ -7,9 +7,11 @@ import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.stereotype.Repository;
 
 
-//spring: data & specification & graph ,
+//spring: data & specification
 @Repository
 @Profile("spring-data")
 public interface ProductDaoSpringData extends JpaRepository<Product,Long>, JpaSpecificationExecutor<Product> {
-//    List<Product> findAll(ProductSearchCriteria productSearchCriteria,Pageable pageable);
+
+
+
 }

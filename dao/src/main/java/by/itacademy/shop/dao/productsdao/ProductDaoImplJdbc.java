@@ -59,6 +59,7 @@ public class ProductDaoImplJdbc extends GenericDaoImpl<Product> implements Produ
         attributes.setType("jsonb");
 
         try(Connection connection=this.dataSource.getConnection()){
+
             shortDescr.setValue(mapper.writeValueAsString(entity.getShortDescription()));
             attributes.setValue(mapper.writeValueAsString(entity.getAttributes()));
             PreparedStatement statement=connection.prepareStatement("INSERT INTO product (short_description,barcode,"+

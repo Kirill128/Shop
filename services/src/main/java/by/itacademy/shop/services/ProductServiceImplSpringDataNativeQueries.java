@@ -6,14 +6,14 @@ import by.itacademy.shop.api.dto.forall.ProductSearchCriteria;
 import by.itacademy.shop.api.dto.forall.SimplePage;
 import by.itacademy.shop.api.mappers.ProductMapper;
 import by.itacademy.shop.api.services.ProductService;
-import by.itacademy.shop.dao.productsdao.ProductDaoSpringData;
-import by.itacademy.shop.dao.productsdao.jdbctemplate.ProductRowMapper;
+import by.itacademy.shop.dao.productsdao.ProductDaoSpringDataNativeQueriesWithProjections;
 import by.itacademy.shop.entities.Product;
 import by.itacademy.shop.specification.ProductSpecification;
 import by.itacademy.shop.utilenum.Lang;
 import by.itacademy.shop.utilenum.SortDirection;
 import by.itacademy.shop.utils.ExelFilesWorker;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.context.annotation.Profile;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -30,37 +30,39 @@ import java.util.stream.StreamSupport;
 
 @Service
 @Transactional
-@Profile("spring-data")
-public class ProductServiceImplSpringData implements ProductService {
-    private ProductDaoSpringData productDao;
+@Profile("spring-data-native-queries")
+public class ProductServiceImplSpringDataNativeQueries implements ProductService {
+   
+    private ProductDaoSpringDataNativeQueriesWithProjections productDao;
 
-    public ProductServiceImplSpringData(ProductDaoSpringData productDao) {
+    public ProductServiceImplSpringDataNativeQueries(ProductDaoSpringDataNativeQueriesWithProjections productDao) {
         this.productDao = productDao;
     }
 
-
     @Override
-    public List<GuestProductDto> getAllProducts(Lang lang) {
+    public List<GuestProductDto> getAllProducts(Lang lang) throws JsonProcessingException {
         return ProductMapper.mapProductsToGuestProductDtos(
-                StreamSupport.stream(this.productDao.findAll().spliterator(),false)
-                .collect(Collectors.toList()),lang);
+                ProductMapper.mapProductNativeFullViewsToProducts(this.productDao.findAllProd())
+                ,lang);
     }
 
     @Override
-    public SimplePage<GuestProductDto> getProductsPageByCriteria(ProductSearchCriteria searchCriteria) {
+    public SimplePage<GuestProductDto> getProductsPageByCriteria(ProductSearchCriteria searchCriteria) throws JsonProcessingException {
         searchCriteria.setPageNum(Math.max(searchCriteria.getPageNum(), 1));
         if(searchCriteria.getPartOfName()!=null){
             searchCriteria.setPartsOfName(Arrays.asList(searchCriteria.getPartOfName().split("\\s+")));
         }
         String sortBy=(searchCriteria.getSortBy()==null) ? "price" : searchCriteria.getSortBy();
 
-        SimplePage<Product> productPage=new SimplePage<>(this.productDao.findAll(
+        SimplePage<Product> productPage=new SimplePage<>(
+                ProductMapper.mapProductNativeFullViewsToProducts(
+                this.productDao.findAllProd(
                 Specification.where(ProductSpecification.categoryIdIs(searchCriteria))
                         .and(ProductSpecification.partsOfNameLikeCriteria(searchCriteria)),
                 PageRequest.of(searchCriteria.getPageNum()-1,searchCriteria.getPageSize(),
-                        (searchCriteria.getSortDirection()==SortDirection.INCREASE) ?
+                        (searchCriteria.getSortDirection()== SortDirection.INCREASE) ?
                                 Sort.Direction.ASC : Sort.Direction.DESC ,
-                        sortBy)).toList());
+                        sortBy)).toList()));
         SimplePage<GuestProductDto> dtoPage=new SimplePage<>();
 
         dtoPage.setNextPageNum(this.getNextPage(searchCriteria,productPage));
@@ -83,7 +85,6 @@ public class ProductServiceImplSpringData implements ProductService {
         return 1;
     }
 
-
     @Override
     public GuestProductDto find(long id, Lang lang) {
         return ProductMapper.mapProductToGuestProductDto(this.productDao.findById(id).get(),lang);
@@ -91,9 +92,8 @@ public class ProductServiceImplSpringData implements ProductService {
 
     @Override
     public AdminProductDto createProduct(AdminProductDto product) throws JsonProcessingException {
-        return ProductMapper.mapProductToProductDto(
-                this.productDao.save(ProductMapper.mapProductDtoToProduct(product))
-        );
+        return ProductMapper.mapProductToProductDto(this.productDao.save(ProductMapper.mapProductDtoToProduct(product)));
+
     }
 
     @Override
@@ -104,9 +104,7 @@ public class ProductServiceImplSpringData implements ProductService {
     @Override
     public List<AdminProductDto> getAllProducts() throws JsonProcessingException {
         return ProductMapper.mapProductsToProductDtos(
-                StreamSupport.stream(this.productDao.findAll().spliterator(),false)
-                        .collect(Collectors.toList())
-        );
+                ProductMapper.mapProductNativeFullViewsToProducts(this.productDao.findAllProd()));
     }
 
     @Override
@@ -116,7 +114,17 @@ public class ProductServiceImplSpringData implements ProductService {
 
     @Override
     public void update(AdminProductDto product) throws JsonProcessingException {
-        this.productDao.save(ProductMapper.mapProductDtoToProduct(product));
+        ObjectMapper mapper = new ObjectMapper();
+        Product productInDb=ProductMapper.mapProductDtoToProduct(product);
+        this.productDao.save(productInDb.getId(),
+                product.getShortDescription(),
+                product.getBarcode(),
+                product.getQuantityInStorage(),
+                product.getPrice(),
+                mapper.writeValueAsString(product.getAttributes()),
+                product.getCategoryId(),
+                product.getProviderId(),
+                product.getPhotoId());
     }
 
     @Override
@@ -136,4 +144,6 @@ public class ProductServiceImplSpringData implements ProductService {
                 .collect(Collectors.toList());
         return ProductMapper.mapProductsToProductDtos(result);
     }
+
+
 }

@@ -14,8 +14,8 @@ import java.util.List;
 public interface ProductService {
 
     //Users
-    List<GuestProductDto> getAllProducts(Lang lang);
-    SimplePage<GuestProductDto> getProductsPageByCriteria(ProductSearchCriteria productSearchCriteria);
+    List<GuestProductDto> getAllProducts(Lang lang) throws JsonProcessingException;
+    SimplePage<GuestProductDto> getProductsPageByCriteria(ProductSearchCriteria productSearchCriteria) throws JsonProcessingException;
     GuestProductDto find(long id, Lang lang);
 
 

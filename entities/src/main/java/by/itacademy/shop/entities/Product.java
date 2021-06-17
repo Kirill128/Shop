@@ -16,6 +16,16 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
+@NamedEntityGraphs({
+        @NamedEntityGraph(
+                name = "main-page-entity-graph",
+                attributeNodes = {
+                        @NamedAttributeNode(value = "category"),
+                        @NamedAttributeNode(value = "photo"),
+                        @NamedAttributeNode(value = "provider")
+                }
+        )
+})
 @Entity
 @Table(name = "product")
 public class Product extends GenericEntity<Long>{

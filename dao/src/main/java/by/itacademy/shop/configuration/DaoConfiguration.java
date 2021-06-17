@@ -41,6 +41,7 @@ public class DaoConfiguration {
         dataSource.setUsername(environment.getRequiredProperty("jdbc.user"));
         dataSource.setPassword(environment.getRequiredProperty("jdbc.password"));
 
+
         log.info("JDBC DRIVER =",environment.getRequiredProperty("jdbc.driver"));
         log.info("JDBC URL =",environment.getRequiredProperty("jdbc.url"));
         log.info("JDBC USER =",environment.getRequiredProperty("jdbc.user"));

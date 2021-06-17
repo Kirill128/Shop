@@ -23,7 +23,7 @@ import java.util.List;
 
 @Service
 @Transactional
-@Profile("!spring-data")
+@Profile({"!spring-data & !spring-data-jpql & !spring-data-native-queries"})
 public class ProductServiceImpl implements ProductService {
     private ProductDao productDao;
 

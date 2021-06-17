@@ -31,7 +31,7 @@ public class ProductDaoImplJdbcTemplate extends GenericDaoImpl<Product> implemen
     public SimplePage<Product> getProductsPageByCriteria(ProductSearchCriteria productSearchCriteria) {
     return new SimplePage<>(this.jdbcTemplate.query(
             ProductQueryBuilder.makeStringProductSearchNativeQuery(productSearchCriteria),
-            new ProductMapper()));
+            new ProductRowMapper()));
     }
 
     @Override
