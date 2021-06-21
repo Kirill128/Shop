@@ -1,8 +1,7 @@
 package by.itacademy.shop.configuration;
 
-import by.itacademy.shop.api.constants.Constants;
+import by.senla.microservices.constants.Constants;
 import liquibase.integration.spring.SpringLiquibase;
-import liquibase.pro.packaged.J;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 import org.springframework.beans.factory.annotation.Autowired;

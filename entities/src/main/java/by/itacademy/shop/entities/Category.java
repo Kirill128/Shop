@@ -27,7 +27,7 @@ public class Category extends GenericEntity<Long>{
     @JoinColumn(name = "parent_id")
     private Category parentCategory;
 
-    @OneToMany(fetch = FetchType.EAGER,mappedBy = "parentCategory",cascade = CascadeType.REMOVE)
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "parentCategory",cascade = CascadeType.REMOVE)
     private List<Category> subCategories;
 
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "category",cascade = CascadeType.ALL)

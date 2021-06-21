@@ -1,11 +1,11 @@
-package by.itacademy.shop.api.constants;
+package by.senla.daomicroservice.constants;
 
-import by.itacademy.shop.utilenum.Lang;
+import by.senla.microservices.constants.Lang;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public class Constants {
-    public static final Lang GLOBAL_LANG=Lang.RU;
+    public static final Lang GLOBAL_LANG= Lang.RU;
     public static final int PRODUCT_PAGE_SIZE=20;
 
     public static final String HIBERNATE_DIALECT="hibernate.dialect";

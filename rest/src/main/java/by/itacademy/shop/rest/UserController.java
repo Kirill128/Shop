@@ -1,9 +1,9 @@
 package by.itacademy.shop.rest;
 
-import by.itacademy.shop.api.constants.Constants;
 import by.itacademy.shop.api.dto.admin.AdminProductDto;
 import by.itacademy.shop.api.dto.user.UserDto;
 import by.itacademy.shop.api.services.UserService;
+import by.senla.microservices.constants.Constants;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.context.annotation.Profile;
 import org.springframework.web.bind.annotation.*;

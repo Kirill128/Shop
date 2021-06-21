@@ -1,6 +1,5 @@
 package by.itacademy.shop.services;
 
-import by.itacademy.shop.api.constants.Constants;
 import by.itacademy.shop.api.dao.*;
 import by.itacademy.shop.api.dto.admin.AdminUserDto;
 import by.itacademy.shop.api.dto.user.UserDto;
@@ -9,7 +8,8 @@ import by.itacademy.shop.api.mappers.UserMapper;
 import by.itacademy.shop.api.services.UserService;
 import by.itacademy.shop.entities.*;
 import by.itacademy.shop.forentity.Status;
-import by.itacademy.shop.utilenum.Lang;
+import by.senla.microservices.constants.Constants;
+import by.senla.microservices.constants.Lang;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.context.annotation.Profile;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -78,7 +78,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public UserDto findByEmail(String email,Lang lang) {
+    public UserDto findByEmail(String email, Lang lang) {
         return UserMapper.mapUserToUserDto(this.userDao.findByEmail(email),lang);
     }
 

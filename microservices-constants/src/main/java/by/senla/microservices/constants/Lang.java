@@ -1,4 +1,4 @@
-package by.itacademy.shop.utilenum;
+package by.senla.microservices.constants;
 
 public enum Lang {
     RU("RU"),

@@ -7,7 +7,7 @@ import by.itacademy.shop.entities.Category;
 import by.itacademy.shop.entities.Photo;
 import by.itacademy.shop.entities.Product;
 import by.itacademy.shop.entities.Provider;
-import by.itacademy.shop.utilenum.Lang;
+import by.senla.microservices.constants.Lang;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

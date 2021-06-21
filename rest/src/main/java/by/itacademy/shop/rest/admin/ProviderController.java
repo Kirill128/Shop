@@ -1,9 +1,10 @@
 package by.itacademy.shop.rest.admin;
 
 import by.itacademy.shop.api.annotations.LogExceptionCatchable;
-import by.itacademy.shop.api.constants.Constants;
+
 import by.itacademy.shop.api.dto.admin.AdminProviderDto;
 import by.itacademy.shop.api.services.ProviderService;
+import by.senla.microservices.constants.Constants;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.context.annotation.Profile;
 import org.springframework.web.bind.annotation.*;

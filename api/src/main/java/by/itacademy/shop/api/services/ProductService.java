@@ -4,7 +4,7 @@ import by.itacademy.shop.api.dto.admin.AdminProductDto;
 import by.itacademy.shop.api.dto.forall.GuestProductDto;
 import by.itacademy.shop.api.dto.forall.ProductSearchCriteria;
 import by.itacademy.shop.api.dto.forall.SimplePage;
-import by.itacademy.shop.utilenum.Lang;
+import by.senla.microservices.constants.Lang;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.web.multipart.MultipartFile;
 

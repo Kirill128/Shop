@@ -3,7 +3,7 @@ package by.itacademy.shop.api.services;
 import by.itacademy.shop.api.dto.admin.AdminCategoryDto;
 import by.itacademy.shop.api.dto.admin.AdminParentCategoryDto;
 import by.itacademy.shop.api.dto.forall.GuestParentCategoryDto;
-import by.itacademy.shop.utilenum.Lang;
+import by.senla.microservices.constants.Lang;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 import java.util.List;

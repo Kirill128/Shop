@@ -1,7 +1,7 @@
 package by.itacademy.shop.utils;
 
 import by.itacademy.shop.api.dto.admin.AdminProductDto;
-import by.itacademy.shop.utilenum.Lang;
+import by.senla.microservices.constants.Lang;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.experimental.UtilityClass;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;

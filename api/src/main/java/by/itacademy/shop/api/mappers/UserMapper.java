@@ -1,10 +1,10 @@
 package by.itacademy.shop.api.mappers;
 
-import by.itacademy.shop.api.constants.Constants;
 import by.itacademy.shop.api.dto.admin.AdminUserDto;
 import by.itacademy.shop.api.dto.user.UserDto;
 import by.itacademy.shop.entities.User;
-import by.itacademy.shop.utilenum.Lang;
+import by.senla.microservices.constants.Constants;
+import by.senla.microservices.constants.Lang;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.experimental.UtilityClass;
 
