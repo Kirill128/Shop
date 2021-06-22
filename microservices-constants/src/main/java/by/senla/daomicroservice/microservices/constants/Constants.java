@@ -78,7 +78,7 @@ public class Constants {
     public static final String ROLE_USER_ACCOUNT_USER_ADD_ORDER=ROLE_USER_ACCOUNT_USER+"/add-order";
 
     //Dao microservice MAPPINGS
-    public static final String DAO_MICROSERVICE_URL="http://localhost:8081/daomicroservice";
+    public static final String DAO_MICROSERVICE_URL="http://localhost:8081/";
 
     public static final String DEFAULT_CREATE="/";
     public static final String DEFAULT_UPDATE="/";
