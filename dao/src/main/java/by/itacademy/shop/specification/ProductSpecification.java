@@ -2,7 +2,7 @@ package by.itacademy.shop.specification;
 
 import by.itacademy.shop.api.dto.forall.ProductSearchCriteria;
 import by.itacademy.shop.entities.Product;
-import by.senla.microservices.constants.Lang;
+import by.senla.daomicroservice.microservices.constants.Lang;
 import org.springframework.data.jpa.domain.Specification;
 
 import java.util.List;

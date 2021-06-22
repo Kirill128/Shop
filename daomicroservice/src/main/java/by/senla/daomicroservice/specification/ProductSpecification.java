@@ -1,7 +1,7 @@
 package by.senla.daomicroservice.specification;
 
 import by.senla.daomicroservice.dto.ProductSearchCriteria;
-import by.senla.microservices.constants.Lang;
+import by.senla.daomicroservice.microservices.constants.Lang;
 import by.senla.daomicroservice.entities.Product;
 import org.springframework.data.jpa.domain.Specification;
 

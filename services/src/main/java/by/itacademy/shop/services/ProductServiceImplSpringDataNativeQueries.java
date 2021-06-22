@@ -11,7 +11,7 @@ import by.itacademy.shop.entities.Product;
 import by.itacademy.shop.specification.ProductSpecification;
 import by.itacademy.shop.utilenum.SortDirection;
 import by.itacademy.shop.utils.ExelFilesWorker;
-import by.senla.microservices.constants.Lang;
+import by.senla.daomicroservice.microservices.constants.Lang;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.context.annotation.Profile;

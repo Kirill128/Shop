@@ -1,11 +1,11 @@
 package by.senla.daomicroservice.util.mappers;
 
 import by.senla.daomicroservice.entities.Category;
-import by.senla.microservices.constants.Lang;
-import by.senla.microservices.dto.admin.AdminCategoryDto;
-import by.senla.microservices.dto.admin.AdminParentCategoryDto;
-import by.senla.microservices.dto.forall.GuestParentCategoryDto;
-import by.senla.microservices.dto.forall.GuestSubCategoryDto;
+import by.senla.daomicroservice.microservices.constants.Lang;
+import by.senla.daomicroservice.microservices.dto.admin.AdminCategoryDto;
+import by.senla.daomicroservice.microservices.dto.admin.AdminParentCategoryDto;
+import by.senla.daomicroservice.microservices.dto.forall.GuestParentCategoryDto;
+import by.senla.daomicroservice.microservices.dto.forall.GuestSubCategoryDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

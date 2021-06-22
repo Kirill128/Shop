@@ -3,11 +3,11 @@ package by.senla.daomicroservice.util.mappers;
 
 import by.senla.daomicroservice.entities.Category;
 import by.senla.daomicroservice.entities.Photo;
+import by.senla.daomicroservice.microservices.constants.Lang;
 import by.senla.daomicroservice.entities.Product;
 import by.senla.daomicroservice.entities.Provider;
-import by.senla.microservices.constants.Lang;
-import by.senla.microservices.dto.admin.AdminProductDto;
-import by.senla.microservices.dto.forall.GuestProductDto;
+import by.senla.daomicroservice.microservices.dto.admin.AdminProductDto;
+import by.senla.daomicroservice.microservices.dto.forall.GuestProductDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;

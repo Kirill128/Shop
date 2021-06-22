@@ -16,7 +16,6 @@
         <module>rest</module>
         <module>entities-base</module>
         <module>daomicroservice</module>
-        <module>daomicroservice-controller</module>
         <module>microservices-constants</module>
         <module>my-starter</module>
     </modules>

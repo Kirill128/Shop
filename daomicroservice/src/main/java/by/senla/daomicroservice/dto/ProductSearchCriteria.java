@@ -1,9 +1,8 @@
 package by.senla.daomicroservice.dto;
 
 import by.senla.daomicroservice.entities.SortDirection;
-import by.senla.microservices.constants.Lang;
+import by.senla.daomicroservice.microservices.constants.Lang;
 import lombok.*;
-import org.springframework.data.domain.Sort;
 
 import java.util.List;
 import java.util.Map;

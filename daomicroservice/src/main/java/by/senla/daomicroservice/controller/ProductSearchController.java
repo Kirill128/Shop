@@ -2,9 +2,9 @@ package by.senla.daomicroservice.controller;
 
 import by.senla.daomicroservice.dto.ProductSearchCriteria;
 import by.senla.daomicroservice.service.ProductService;
-import by.senla.microservices.constants.Constants;
-import by.senla.microservices.dto.admin.AdminProductDto;
-import by.senla.microservices.dto.forall.GuestProductDto;
+import by.senla.daomicroservice.microservices.constants.Constants;
+import by.senla.daomicroservice.microservices.dto.admin.AdminProductDto;
+import by.senla.daomicroservice.microservices.dto.forall.GuestProductDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.web.bind.annotation.*;
 

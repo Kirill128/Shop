@@ -1,10 +1,9 @@
 package by.senla.daomicroservice.service;
 
+import by.senla.daomicroservice.microservices.constants.Lang;
 import by.senla.daomicroservice.dto.ProductSearchCriteria;
-import by.senla.microservices.constants.Lang;
-import by.senla.microservices.dto.admin.AdminProductDto;
-import by.senla.daomicroservice.entities.Product;
-import by.senla.microservices.dto.forall.GuestProductDto;
+import by.senla.daomicroservice.microservices.dto.admin.AdminProductDto;
+import by.senla.daomicroservice.microservices.dto.forall.GuestProductDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.data.domain.Page;
 
@@ -23,6 +22,6 @@ public interface ProductService {
    List<GuestProductDto> findAllGuest() throws JsonProcessingException;
    List<AdminProductDto> findAllAdmin() throws JsonProcessingException;
 
-   Page<GuestProductDto> getProductsPageByCriteria(ProductSearchCriteria productSearchCriteria,Lang lang) throws JsonProcessingException;
+   Page<GuestProductDto> getProductsPageByCriteria(ProductSearchCriteria productSearchCriteria, Lang lang) throws JsonProcessingException;
 
 }

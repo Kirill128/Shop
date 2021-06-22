@@ -1,7 +1,7 @@
 package by.senla.daomicroservice.util.mappers;
 
 import by.senla.daomicroservice.entities.Provider;
-import by.senla.microservices.dto.admin.AdminProviderDto;
+import by.senla.daomicroservice.microservices.dto.admin.AdminProviderDto;
 import lombok.experimental.UtilityClass;
 
 import java.util.ArrayList;

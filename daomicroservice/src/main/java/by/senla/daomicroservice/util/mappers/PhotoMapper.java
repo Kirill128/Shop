@@ -1,7 +1,7 @@
 package by.senla.daomicroservice.util.mappers;
 
 import by.senla.daomicroservice.entities.Photo;
-import by.senla.microservices.dto.forall.GuestProductPhotoDto;
+import by.senla.daomicroservice.microservices.dto.forall.GuestProductPhotoDto;
 import lombok.experimental.UtilityClass;
 
 import java.util.ArrayList;

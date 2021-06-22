@@ -2,7 +2,7 @@ package by.itacademy.shop.api.services;
 
 import by.itacademy.shop.api.dto.admin.AdminUserDto;
 import by.itacademy.shop.api.dto.user.UserDto;
-import by.senla.microservices.constants.Lang;
+import by.senla.daomicroservice.microservices.constants.Lang;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.security.core.userdetails.UserDetailsService;
 

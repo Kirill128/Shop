@@ -2,7 +2,7 @@ package by.itacademy.shop.rest;
 
 import by.itacademy.shop.api.dto.user.UserDto;
 import by.itacademy.shop.api.services.UserService;
-import by.senla.microservices.constants.Constants;
+import by.senla.daomicroservice.microservices.constants.Constants;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.context.annotation.Profile;
 import org.springframework.validation.BindingResult;

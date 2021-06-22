@@ -1,6 +1,6 @@
 package by.senla.daomicroservice.constants;
 
-import by.senla.microservices.constants.Lang;
+import by.senla.daomicroservice.microservices.constants.Lang;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass

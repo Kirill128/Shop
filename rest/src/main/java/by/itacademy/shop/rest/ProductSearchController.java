@@ -6,7 +6,7 @@ import by.itacademy.shop.api.dto.forall.ProductSearchCriteria;
 import by.itacademy.shop.api.dto.forall.SimplePage;
 import by.itacademy.shop.api.services.CategoryService;
 import by.itacademy.shop.api.services.ProductService;
-import by.senla.microservices.constants.Constants;
+import by.senla.daomicroservice.microservices.constants.Constants;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.lang.Nullable;
 import org.springframework.security.core.Authentication;

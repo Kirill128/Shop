@@ -9,7 +9,7 @@ import by.itacademy.shop.api.mappers.ProductMapper;
 import by.itacademy.shop.api.services.ProductService;
 import by.itacademy.shop.entities.Product;
 import by.itacademy.shop.utils.ExelFilesWorker;
-import by.senla.microservices.constants.Lang;
+import by.senla.daomicroservice.microservices.constants.Lang;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;

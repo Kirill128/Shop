@@ -8,7 +8,7 @@ import by.itacademy.shop.api.services.CategoryService;
 import by.itacademy.shop.api.services.PhotoService;
 import by.itacademy.shop.api.services.ProductService;
 import by.itacademy.shop.api.services.ProviderService;
-import by.senla.microservices.constants.Constants;
+import by.senla.daomicroservice.microservices.constants.Constants;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;

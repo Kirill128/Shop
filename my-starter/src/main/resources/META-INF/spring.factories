@@ -1,1 +1,2 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=by.senla.daomicroservice.starter.IronConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  by.senla.daomicroservice.mystarter.configs.DaoConfiguration

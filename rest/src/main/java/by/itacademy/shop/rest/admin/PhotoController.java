@@ -3,7 +3,7 @@ package by.itacademy.shop.rest.admin;
 import by.itacademy.shop.api.annotations.LogExceptionCatchable;
 import by.itacademy.shop.api.dto.forall.GuestProductPhotoDto;
 import by.itacademy.shop.api.services.PhotoService;
-import by.senla.microservices.constants.Constants;
+import by.senla.daomicroservice.microservices.constants.Constants;
 import org.springframework.context.annotation.Profile;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
