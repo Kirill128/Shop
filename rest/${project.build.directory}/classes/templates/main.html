@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/static/css/bootstrap/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/static/css/my/general.css}">
+    <link rel="stylesheet" th:href="@{/static/css/my/main.css}">
+    <title>Document</title>
+</head>
+<body>
+    <div class="content">
+        <header class="header">
+            <div class="header__body">
+                <div class="header__user">
+                    <div class="user__body">
+                        <div class="user__img"></div>
+                        <div class="user__name">Kirill Lysyakov</div>
+                    </div>
+                </div>
+                <nav class="header__menu">
+                        <ul class="nav justify-content-end me-5">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Features</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Pricing</a>
+                            </li>
+                        </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main class="main">
+            <div class="main__body">
+                <aside class="sidebar">
+                    <nav class="sidebar__menu">
+                        <ul class="sidebar__list">
+                            <li class="sidebar__item">
+                                <div class="item-sidebar__header">COmpa and </div>
+                                <ul class="item-sidebar__hidden-list">
+                                    <li>
+                                        <a href="#">Some things</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="sidebar__item">
+                                <div class="item-sidebar__header">COmpa and</div>
+                                <ul class="item-sidebar__hidden-list">
+                                    <li>
+                                        <a href="#">Some things</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="sidebar__item">
+                                <div class="item-sidebar__header">COmpa and</div>
+                                <ul class="item-sidebar__hidden-list">
+                                    <li>
+                                        <a href="#">Some things</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="sidebar__item">
+                                <div class="item-sidebar__header">COmpa and</div>
+                                <ul class="item-sidebar__hidden-list">
+                                    <li>
+                                        <a href="#">Some things</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </aside>
+                <section class="products">
+                    <div class="row row-cols-1 row-cols-md-4 g-4" th:each="product : ${products}">
+                        <div class="col">
+                          <div class="card w-75">
+                            <img src="/static/img/unnamed.jpg" class="card-img-top" alt="#">
+                            <div class="card-body">
+                              <p class="card-text" th:text="${product.short_description}"></p>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                        
+                        <div class="btn-toolbar " role="toolbar" aria-label="Toolbar with button groups">
+                            <div class="btn-group me-2" role="group" aria-label="First group">
+                              <button type="button" class="btn btn-primary">1</button>
+                            </div>
+                        </div>
+                </section>
+            </div>
+        </main> 
+
+        <footer class="fixed-bottom footer">
+            <div class="footer__info">+375259999999, г. Гродно, le.le999@mail.com</div>
+        </footer>   
+    </div>
+</body>
+</html>

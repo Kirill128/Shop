@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>by.itacademy</groupId>
+    <artifactId>shop</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>entities</module>
+        <module>api</module>
+        <module>dao</module>
+        <module>services</module>
+        <module>rest</module>
+        <module>entities-base</module>
+        <module>daomicroservice</module>
+        <module>microservices-constants</module>
+        <module>my-starter</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven-war-plugin.version>2.2</maven-war-plugin.version>
+        <spring.version>5.2.15.RELEASE</spring.version>
+        <spring-security.version>5.3.9.RELEASE</spring-security.version>
+        <lombok.version>1.18.18</lombok.version>
+        <hibernate-core.version>5.4.29.Final</hibernate-core.version>
+        <hibernate-types-52.version>2.10.4</hibernate-types-52.version>
+        <jackson-databind.version>2.11.1</jackson-databind.version>
+        <log4j.version>2.13.0</log4j.version>
+        <postgresql.version>42.2.18</postgresql.version>
+        <junit-jupiter.version>RELEASE</junit-jupiter.version>
+        <junit.version>RELEASE</junit.version>
+        <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
+        <poi-ooxml.version>3.15</poi-ooxml.version>
+        <poi.version>3.15</poi.version>
+        <commons-fileupload.version>1.4</commons-fileupload.version>
+        <thymeleaf.version>3.0.12.RELEASE</thymeleaf.version>
+        <thymeleaf-spring5.version>3.0.12.RELEASE</thymeleaf-spring5.version>
+        <javax.servlet-api.version>4.0.1</javax.servlet-api.version>
+        <tomcat-dbcp.version>9.0.1</tomcat-dbcp.version>
+        <liquibase-core.version>4.3.1</liquibase-core.version>
+        <aspect.version>1.9.6</aspect.version>
+        <hibernate-validator.version>6.1.6.Final</hibernate-validator.version>
+        <spring-data-jpa.version>2.3.9.RELEASE</spring-data-jpa.version>
+        <mockito-all.version>1.10.19</mockito-all.version>
+
+    </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.sonarsource.scanner.maven</groupId>
+                    <artifactId>sonar-maven-plugin</artifactId>
+                    <version>3.4.0.905</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+    <dependencyManagement>
+
+    </dependencyManagement>
+</project>

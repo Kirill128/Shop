@@ -1,0 +1,395 @@
+30-Apr-2021 16:31:37.732 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.45
+30-Apr-2021 16:31:37.734 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 30 2021 10:29:04 UTC
+30-Apr-2021 16:31:37.736 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.45.0
+30-Apr-2021 16:31:37.736 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+30-Apr-2021 16:31:37.737 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+30-Apr-2021 16:31:37.737 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+30-Apr-2021 16:31:37.737 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Users\Kirill\.jdks\adopt-openjdk-1.8.0_282\jre
+30-Apr-2021 16:31:37.737 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_282-b08
+30-Apr-2021 16:31:37.737 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            AdoptOpenJDK
+30-Apr-2021 16:31:37.737 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         G:\Programming\Shop\apache-tomcat-9.0.45
+30-Apr-2021 16:31:37.737 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         G:\Programming\Shop\apache-tomcat-9.0.45
+30-Apr-2021 16:31:37.738 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=G:\Programming\Shop\apache-tomcat-9.0.45\conf\logging.properties
+30-Apr-2021 16:31:37.738 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+30-Apr-2021 16:31:37.738 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+30-Apr-2021 16:31:37.738 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+30-Apr-2021 16:31:37.738 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+30-Apr-2021 16:31:37.738 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=G:\Programming\Shop\apache-tomcat-9.0.45
+30-Apr-2021 16:31:37.739 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=G:\Programming\Shop\apache-tomcat-9.0.45
+30-Apr-2021 16:31:37.739 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=G:\Programming\Shop\apache-tomcat-9.0.45\temp
+30-Apr-2021 16:31:37.743 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [C:\Users\Kirill\.jdks\adopt-openjdk-1.8.0_282\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;G:\Programms\apache-maven-3.6.3\bin;C:\Users\Kirill\.jdks\adopt-openjdk-1.8.0_282\bin;G:\Programms\Git\bin;G:\Programms\Git\cmd;C:\Users\Kirill\AppData\Local\Microsoft\WindowsApps;;G:\Programms\Microsoft VS Code\bin;.]
+30-Apr-2021 16:31:38.005 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+30-Apr-2021 16:31:38.119 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [546] milliseconds
+30-Apr-2021 16:31:38.142 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+30-Apr-2021 16:31:38.142 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.45]
+30-Apr-2021 16:31:38.166 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deploying web application archive [G:\Programming\Shop\apache-tomcat-9.0.45\webapps\spring-mvc-app1.war]
+30-Apr-2021 16:31:38.184 INFO [main] org.apache.catalina.startup.ExpandWar.expand An expanded directory [G:\Programming\Shop\apache-tomcat-9.0.45\webapps\spring-mvc-app1] was found with a last modified time that did not match the associated WAR. It will be deleted.
+30-Apr-2021 16:31:39.655 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Apr-2021 16:31:40.864 INFO [main] org.apache.catalina.startup.HostConfig.deployWAR Deployment of web application archive [G:\Programming\Shop\apache-tomcat-9.0.45\webapps\spring-mvc-app1.war] has finished in [2,697] ms
+30-Apr-2021 16:31:40.865 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [G:\Programming\Shop\apache-tomcat-9.0.45\webapps\docs]
+30-Apr-2021 16:31:40.891 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [G:\Programming\Shop\apache-tomcat-9.0.45\webapps\docs] has finished in [26] ms
+30-Apr-2021 16:31:40.892 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [G:\Programming\Shop\apache-tomcat-9.0.45\webapps\examples]
+30-Apr-2021 16:31:42.044 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [G:\Programming\Shop\apache-tomcat-9.0.45\webapps\examples] has finished in [1,152] ms
+30-Apr-2021 16:31:42.044 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [G:\Programming\Shop\apache-tomcat-9.0.45\webapps\host-manager]
+30-Apr-2021 16:31:42.083 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [G:\Programming\Shop\apache-tomcat-9.0.45\webapps\host-manager] has finished in [39] ms
+30-Apr-2021 16:31:42.084 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [G:\Programming\Shop\apache-tomcat-9.0.45\webapps\manager]
+30-Apr-2021 16:31:42.106 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [G:\Programming\Shop\apache-tomcat-9.0.45\webapps\manager] has finished in [21] ms
+30-Apr-2021 16:31:42.106 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [G:\Programming\Shop\apache-tomcat-9.0.45\webapps\rest-1.0-SNAPSHOT]
+30-Apr-2021 16:31:44.778 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Apr-2021 16:31:45.642 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: by.itacademy.shop.hibernate.jpa]
+30-Apr-2021 16:31:45.721 INFO [main] org.hibernate.Version.logVersion HHH000412: Hibernate ORM core version 5.4.29.Final
+30-Apr-2021 16:31:45.976 INFO [main] org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit> HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+30-Apr-2021 16:31:46.188 WARN [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+30-Apr-2021 16:31:46.196 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/shop]
+30-Apr-2021 16:31:46.197 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001001: Connection properties: {user=kirill, password=****}
+30-Apr-2021 16:31:46.197 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001003: Autocommit mode: false
+30-Apr-2021 16:31:46.202 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init> HHH000115: Hibernate connection pool size: 20 (min=1)
+30-Apr-2021 16:31:46.439 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+30-Apr-2021 16:31:47.937 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+30-Apr-2021 16:31:48.041 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: by.itacademy.shop.hibernate.jpa]
+30-Apr-2021 16:31:48.049 WARN [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+30-Apr-2021 16:31:48.050 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/shop]
+30-Apr-2021 16:31:48.050 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001001: Connection properties: {user=kirill, password=****}
+30-Apr-2021 16:31:48.050 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001003: Autocommit mode: false
+30-Apr-2021 16:31:48.051 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init> HHH000115: Hibernate connection pool size: 20 (min=1)
+30-Apr-2021 16:31:48.112 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+30-Apr-2021 16:31:48.373 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+30-Apr-2021 16:31:48.386 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: by.itacademy.shop.hibernate.jpa]
+30-Apr-2021 16:31:48.392 WARN [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+30-Apr-2021 16:31:48.393 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/shop]
+30-Apr-2021 16:31:48.393 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001001: Connection properties: {user=kirill, password=****}
+30-Apr-2021 16:31:48.394 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001003: Autocommit mode: false
+30-Apr-2021 16:31:48.394 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init> HHH000115: Hibernate connection pool size: 20 (min=1)
+30-Apr-2021 16:31:48.553 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+30-Apr-2021 16:31:48.779 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+30-Apr-2021 16:31:48.784 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: by.itacademy.shop.hibernate.jpa]
+30-Apr-2021 16:31:48.789 WARN [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+30-Apr-2021 16:31:48.789 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/shop]
+30-Apr-2021 16:31:48.790 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001001: Connection properties: {user=kirill, password=****}
+30-Apr-2021 16:31:48.790 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001003: Autocommit mode: false
+30-Apr-2021 16:31:48.790 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init> HHH000115: Hibernate connection pool size: 20 (min=1)
+30-Apr-2021 16:31:48.845 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+30-Apr-2021 16:31:49.093 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+30-Apr-2021 16:31:49.098 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: by.itacademy.shop.hibernate.jpa]
+30-Apr-2021 16:31:49.104 WARN [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+30-Apr-2021 16:31:49.104 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/shop]
+30-Apr-2021 16:31:49.105 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001001: Connection properties: {user=kirill, password=****}
+30-Apr-2021 16:31:49.105 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001003: Autocommit mode: false
+30-Apr-2021 16:31:49.106 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init> HHH000115: Hibernate connection pool size: 20 (min=1)
+30-Apr-2021 16:31:49.169 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+30-Apr-2021 16:31:49.396 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+30-Apr-2021 16:31:49.400 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: by.itacademy.shop.hibernate.jpa]
+30-Apr-2021 16:31:49.406 WARN [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+30-Apr-2021 16:31:49.406 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/shop]
+30-Apr-2021 16:31:49.407 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001001: Connection properties: {user=kirill, password=****}
+30-Apr-2021 16:31:49.407 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001003: Autocommit mode: false
+30-Apr-2021 16:31:49.408 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init> HHH000115: Hibernate connection pool size: 20 (min=1)
+30-Apr-2021 16:31:49.465 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+30-Apr-2021 16:31:49.676 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+30-Apr-2021 16:31:49.680 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: by.itacademy.shop.hibernate.jpa]
+30-Apr-2021 16:31:49.685 WARN [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+30-Apr-2021 16:31:49.686 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/shop]
+30-Apr-2021 16:31:49.687 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001001: Connection properties: {user=kirill, password=****}
+30-Apr-2021 16:31:49.687 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001003: Autocommit mode: false
+30-Apr-2021 16:31:49.688 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init> HHH000115: Hibernate connection pool size: 20 (min=1)
+30-Apr-2021 16:31:49.858 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+30-Apr-2021 16:31:50.074 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+30-Apr-2021 16:31:50.079 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: by.itacademy.shop.hibernate.jpa]
+30-Apr-2021 16:31:50.085 WARN [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+30-Apr-2021 16:31:50.086 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/shop]
+30-Apr-2021 16:31:50.086 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001001: Connection properties: {user=kirill, password=****}
+30-Apr-2021 16:31:50.087 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001003: Autocommit mode: false
+30-Apr-2021 16:31:50.087 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init> HHH000115: Hibernate connection pool size: 20 (min=1)
+30-Apr-2021 16:31:50.145 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+30-Apr-2021 16:31:50.344 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+30-Apr-2021 16:31:50.362 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: by.itacademy.shop.hibernate.jpa]
+30-Apr-2021 16:31:50.367 WARN [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+30-Apr-2021 16:31:50.368 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/shop]
+30-Apr-2021 16:31:50.368 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001001: Connection properties: {user=kirill, password=****}
+30-Apr-2021 16:31:50.368 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001003: Autocommit mode: false
+30-Apr-2021 16:31:50.369 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init> HHH000115: Hibernate connection pool size: 20 (min=1)
+30-Apr-2021 16:31:50.427 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+30-Apr-2021 16:31:50.618 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+30-Apr-2021 16:31:51.263 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: by.itacademy.shop.hibernate.jpa]
+30-Apr-2021 16:31:51.279 WARN [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+30-Apr-2021 16:31:51.280 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/shop]
+30-Apr-2021 16:31:51.280 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001001: Connection properties: {user=kirill, password=****}
+30-Apr-2021 16:31:51.281 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001003: Autocommit mode: false
+30-Apr-2021 16:31:51.282 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init> HHH000115: Hibernate connection pool size: 20 (min=1)
+30-Apr-2021 16:31:51.354 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+30-Apr-2021 16:31:51.595 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+30-Apr-2021 16:31:51.602 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: by.itacademy.shop.hibernate.jpa]
+30-Apr-2021 16:31:51.611 WARN [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+30-Apr-2021 16:31:51.612 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/shop]
+30-Apr-2021 16:31:51.613 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001001: Connection properties: {user=kirill, password=****}
+30-Apr-2021 16:31:51.614 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001003: Autocommit mode: false
+30-Apr-2021 16:31:51.615 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init> HHH000115: Hibernate connection pool size: 20 (min=1)
+30-Apr-2021 16:31:51.688 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+30-Apr-2021 16:31:51.938 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+30-Apr-2021 16:31:51.945 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: by.itacademy.shop.hibernate.jpa]
+30-Apr-2021 16:31:51.952 WARN [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+30-Apr-2021 16:31:51.952 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/shop]
+30-Apr-2021 16:31:51.953 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001001: Connection properties: {user=kirill, password=****}
+30-Apr-2021 16:31:51.954 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001003: Autocommit mode: false
+30-Apr-2021 16:31:51.954 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init> HHH000115: Hibernate connection pool size: 20 (min=1)
+30-Apr-2021 16:31:52.013 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+30-Apr-2021 16:31:52.216 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+30-Apr-2021 16:31:52.221 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: by.itacademy.shop.hibernate.jpa]
+30-Apr-2021 16:31:52.226 WARN [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+30-Apr-2021 16:31:52.226 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/shop]
+30-Apr-2021 16:31:52.227 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001001: Connection properties: {user=kirill, password=****}
+30-Apr-2021 16:31:52.228 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001003: Autocommit mode: false
+30-Apr-2021 16:31:52.228 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init> HHH000115: Hibernate connection pool size: 20 (min=1)
+30-Apr-2021 16:31:52.287 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+30-Apr-2021 16:31:52.484 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+30-Apr-2021 16:31:52.488 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: by.itacademy.shop.hibernate.jpa]
+30-Apr-2021 16:31:52.494 WARN [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+30-Apr-2021 16:31:52.494 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/shop]
+30-Apr-2021 16:31:52.495 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001001: Connection properties: {user=kirill, password=****}
+30-Apr-2021 16:31:52.495 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001003: Autocommit mode: false
+30-Apr-2021 16:31:52.496 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init> HHH000115: Hibernate connection pool size: 20 (min=1)
+30-Apr-2021 16:31:52.657 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+30-Apr-2021 16:31:52.858 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+30-Apr-2021 16:31:52.862 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: by.itacademy.shop.hibernate.jpa]
+30-Apr-2021 16:31:52.867 WARN [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+30-Apr-2021 16:31:52.867 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/shop]
+30-Apr-2021 16:31:52.868 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001001: Connection properties: {user=kirill, password=****}
+30-Apr-2021 16:31:52.868 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001003: Autocommit mode: false
+30-Apr-2021 16:31:52.868 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init> HHH000115: Hibernate connection pool size: 20 (min=1)
+30-Apr-2021 16:31:52.923 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+30-Apr-2021 16:31:53.141 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+30-Apr-2021 16:31:53.145 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: by.itacademy.shop.hibernate.jpa]
+30-Apr-2021 16:31:53.151 WARN [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+30-Apr-2021 16:31:53.151 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/shop]
+30-Apr-2021 16:31:53.152 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001001: Connection properties: {user=kirill, password=****}
+30-Apr-2021 16:31:53.152 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001003: Autocommit mode: false
+30-Apr-2021 16:31:53.152 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init> HHH000115: Hibernate connection pool size: 20 (min=1)
+30-Apr-2021 16:31:53.208 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+30-Apr-2021 16:31:53.395 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+30-Apr-2021 16:31:53.399 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: by.itacademy.shop.hibernate.jpa]
+30-Apr-2021 16:31:53.402 WARN [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+30-Apr-2021 16:31:53.404 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/shop]
+30-Apr-2021 16:31:53.404 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001001: Connection properties: {user=kirill, password=****}
+30-Apr-2021 16:31:53.404 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001003: Autocommit mode: false
+30-Apr-2021 16:31:53.405 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init> HHH000115: Hibernate connection pool size: 20 (min=1)
+30-Apr-2021 16:31:53.458 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+30-Apr-2021 16:31:53.640 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+30-Apr-2021 16:31:53.643 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: by.itacademy.shop.hibernate.jpa]
+30-Apr-2021 16:31:53.647 WARN [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+30-Apr-2021 16:31:53.648 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/shop]
+30-Apr-2021 16:31:53.648 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001001: Connection properties: {user=kirill, password=****}
+30-Apr-2021 16:31:53.649 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001003: Autocommit mode: false
+30-Apr-2021 16:31:53.650 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init> HHH000115: Hibernate connection pool size: 20 (min=1)
+30-Apr-2021 16:31:53.702 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+30-Apr-2021 16:31:54.010 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+30-Apr-2021 16:31:54.079 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [G:\Programming\Shop\apache-tomcat-9.0.45\webapps\rest-1.0-SNAPSHOT] has finished in [11,973] ms
+30-Apr-2021 16:31:54.080 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [G:\Programming\Shop\apache-tomcat-9.0.45\webapps\ROOT]
+30-Apr-2021 16:31:54.104 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [G:\Programming\Shop\apache-tomcat-9.0.45\webapps\ROOT] has finished in [24] ms
+30-Apr-2021 16:31:54.109 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+30-Apr-2021 16:31:54.121 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [16001] milliseconds
+30-Apr-2021 17:11:09.028 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/9.0.45
+30-Apr-2021 17:11:09.030 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Mar 30 2021 10:29:04 UTC
+30-Apr-2021 17:11:09.031 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 9.0.45.0
+30-Apr-2021 17:11:09.031 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 10
+30-Apr-2021 17:11:09.031 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+30-Apr-2021 17:11:09.031 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+30-Apr-2021 17:11:09.031 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\Users\Kirill\.jdks\adopt-openjdk-1.8.0_282\jre
+30-Apr-2021 17:11:09.031 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           1.8.0_282-b08
+30-Apr-2021 17:11:09.032 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            AdoptOpenJDK
+30-Apr-2021 17:11:09.032 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         G:\Programming\Shop\apache-tomcat-9.0.45
+30-Apr-2021 17:11:09.032 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         G:\Programming\Shop\apache-tomcat-9.0.45
+30-Apr-2021 17:11:09.032 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=G:\Programming\Shop\apache-tomcat-9.0.45\conf\logging.properties
+30-Apr-2021 17:11:09.032 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+30-Apr-2021 17:11:09.033 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+30-Apr-2021 17:11:09.033 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+30-Apr-2021 17:11:09.033 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+30-Apr-2021 17:11:09.033 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=G:\Programming\Shop\apache-tomcat-9.0.45
+30-Apr-2021 17:11:09.033 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=G:\Programming\Shop\apache-tomcat-9.0.45
+30-Apr-2021 17:11:09.034 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=G:\Programming\Shop\apache-tomcat-9.0.45\temp
+30-Apr-2021 17:11:09.038 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [C:\Users\Kirill\.jdks\adopt-openjdk-1.8.0_282\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;G:\Programms\apache-maven-3.6.3\bin;C:\Users\Kirill\.jdks\adopt-openjdk-1.8.0_282\bin;G:\Programms\Git\bin;G:\Programms\Git\cmd;C:\Users\Kirill\AppData\Local\Microsoft\WindowsApps;;G:\Programms\Microsoft VS Code\bin;.]
+30-Apr-2021 17:11:09.304 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+30-Apr-2021 17:11:09.429 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [558] milliseconds
+30-Apr-2021 17:11:09.451 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+30-Apr-2021 17:11:09.451 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/9.0.45]
+30-Apr-2021 17:11:09.458 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [G:\Programming\Shop\apache-tomcat-9.0.45\webapps\docs]
+30-Apr-2021 17:11:09.670 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [G:\Programming\Shop\apache-tomcat-9.0.45\webapps\docs] has finished in [212] ms
+30-Apr-2021 17:11:09.671 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [G:\Programming\Shop\apache-tomcat-9.0.45\webapps\examples]
+30-Apr-2021 17:11:09.944 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [G:\Programming\Shop\apache-tomcat-9.0.45\webapps\examples] has finished in [273] ms
+30-Apr-2021 17:11:09.945 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [G:\Programming\Shop\apache-tomcat-9.0.45\webapps\host-manager]
+30-Apr-2021 17:11:09.968 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [G:\Programming\Shop\apache-tomcat-9.0.45\webapps\host-manager] has finished in [23] ms
+30-Apr-2021 17:11:09.969 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [G:\Programming\Shop\apache-tomcat-9.0.45\webapps\manager]
+30-Apr-2021 17:11:09.989 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [G:\Programming\Shop\apache-tomcat-9.0.45\webapps\manager] has finished in [20] ms
+30-Apr-2021 17:11:09.989 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [G:\Programming\Shop\apache-tomcat-9.0.45\webapps\rest-1.0-SNAPSHOT]
+30-Apr-2021 17:11:13.658 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+30-Apr-2021 17:11:14.678 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: by.itacademy.shop.hibernate.jpa]
+30-Apr-2021 17:11:14.770 INFO [main] org.hibernate.Version.logVersion HHH000412: Hibernate ORM core version 5.4.29.Final
+30-Apr-2021 17:11:15.050 INFO [main] org.hibernate.annotations.common.reflection.java.JavaReflectionManager.<clinit> HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+30-Apr-2021 17:11:15.280 WARN [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+30-Apr-2021 17:11:15.287 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/shop]
+30-Apr-2021 17:11:15.288 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001001: Connection properties: {user=kirill, password=****}
+30-Apr-2021 17:11:15.288 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001003: Autocommit mode: false
+30-Apr-2021 17:11:15.294 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init> HHH000115: Hibernate connection pool size: 20 (min=1)
+30-Apr-2021 17:11:15.584 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+30-Apr-2021 17:11:17.258 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+30-Apr-2021 17:11:17.369 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: by.itacademy.shop.hibernate.jpa]
+30-Apr-2021 17:11:17.379 WARN [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+30-Apr-2021 17:11:17.379 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/shop]
+30-Apr-2021 17:11:17.380 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001001: Connection properties: {user=kirill, password=****}
+30-Apr-2021 17:11:17.380 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001003: Autocommit mode: false
+30-Apr-2021 17:11:17.380 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init> HHH000115: Hibernate connection pool size: 20 (min=1)
+30-Apr-2021 17:11:17.446 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+30-Apr-2021 17:11:17.736 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+30-Apr-2021 17:11:17.744 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: by.itacademy.shop.hibernate.jpa]
+30-Apr-2021 17:11:17.751 WARN [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+30-Apr-2021 17:11:17.752 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/shop]
+30-Apr-2021 17:11:17.752 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001001: Connection properties: {user=kirill, password=****}
+30-Apr-2021 17:11:17.753 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001003: Autocommit mode: false
+30-Apr-2021 17:11:17.754 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init> HHH000115: Hibernate connection pool size: 20 (min=1)
+30-Apr-2021 17:11:17.816 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+30-Apr-2021 17:11:18.090 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+30-Apr-2021 17:11:18.102 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: by.itacademy.shop.hibernate.jpa]
+30-Apr-2021 17:11:18.109 WARN [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+30-Apr-2021 17:11:18.109 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/shop]
+30-Apr-2021 17:11:18.110 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001001: Connection properties: {user=kirill, password=****}
+30-Apr-2021 17:11:18.111 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001003: Autocommit mode: false
+30-Apr-2021 17:11:18.112 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init> HHH000115: Hibernate connection pool size: 20 (min=1)
+30-Apr-2021 17:11:18.173 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+30-Apr-2021 17:11:18.439 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+30-Apr-2021 17:11:18.455 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: by.itacademy.shop.hibernate.jpa]
+30-Apr-2021 17:11:18.461 WARN [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+30-Apr-2021 17:11:18.480 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/shop]
+30-Apr-2021 17:11:18.489 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001001: Connection properties: {user=kirill, password=****}
+30-Apr-2021 17:11:18.493 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001003: Autocommit mode: false
+30-Apr-2021 17:11:18.494 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init> HHH000115: Hibernate connection pool size: 20 (min=1)
+30-Apr-2021 17:11:18.562 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+30-Apr-2021 17:11:18.810 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+30-Apr-2021 17:11:18.815 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: by.itacademy.shop.hibernate.jpa]
+30-Apr-2021 17:11:18.821 WARN [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+30-Apr-2021 17:11:18.822 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/shop]
+30-Apr-2021 17:11:18.822 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001001: Connection properties: {user=kirill, password=****}
+30-Apr-2021 17:11:18.823 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001003: Autocommit mode: false
+30-Apr-2021 17:11:18.824 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init> HHH000115: Hibernate connection pool size: 20 (min=1)
+30-Apr-2021 17:11:18.893 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+30-Apr-2021 17:11:19.148 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+30-Apr-2021 17:11:19.153 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: by.itacademy.shop.hibernate.jpa]
+30-Apr-2021 17:11:19.159 WARN [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+30-Apr-2021 17:11:19.159 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/shop]
+30-Apr-2021 17:11:19.160 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001001: Connection properties: {user=kirill, password=****}
+30-Apr-2021 17:11:19.161 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001003: Autocommit mode: false
+30-Apr-2021 17:11:19.161 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init> HHH000115: Hibernate connection pool size: 20 (min=1)
+30-Apr-2021 17:11:19.232 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+30-Apr-2021 17:11:19.505 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+30-Apr-2021 17:11:19.510 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: by.itacademy.shop.hibernate.jpa]
+30-Apr-2021 17:11:19.519 WARN [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+30-Apr-2021 17:11:19.520 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/shop]
+30-Apr-2021 17:11:19.521 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001001: Connection properties: {user=kirill, password=****}
+30-Apr-2021 17:11:19.521 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001003: Autocommit mode: false
+30-Apr-2021 17:11:19.523 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init> HHH000115: Hibernate connection pool size: 20 (min=1)
+30-Apr-2021 17:11:19.593 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+30-Apr-2021 17:11:19.833 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+30-Apr-2021 17:11:19.858 INFO [main] org.hibernate.jpa.internal.util.LogHelper.logPersistenceUnitInformation HHH000204: Processing PersistenceUnitInfo [name: by.itacademy.shop.hibernate.jpa]
+30-Apr-2021 17:11:19.865 WARN [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+30-Apr-2021 17:11:19.865 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001005: using driver [org.postgresql.Driver] at URL [jdbc:postgresql://localhost:5432/shop]
+30-Apr-2021 17:11:19.866 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001001: Connection properties: {user=kirill, password=****}
+30-Apr-2021 17:11:19.867 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildCreator HHH10001003: Autocommit mode: false
+30-Apr-2021 17:11:19.867 INFO [main] org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init> HHH000115: Hibernate connection pool size: 20 (min=1)
+30-Apr-2021 17:11:19.926 INFO [main] org.hibernate.dialect.Dialect.<init> HHH000400: Using dialect: org.hibernate.dialect.PostgreSQL10Dialect
+30-Apr-2021 17:11:20.140 INFO [main] org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator.initiateService HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+30-Apr-2021 17:11:20.696 SEVERE [main] org.apache.catalina.core.StandardContext.startInternal One or more listeners failed to start. Full details will be found in the appropriate container log file
+30-Apr-2021 17:11:22.050 SEVERE [main] org.apache.catalina.core.StandardContext.startInternal Context [/rest-1.0-SNAPSHOT] startup failed due to previous errors
+30-Apr-2021 17:11:22.092 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesJdbc The web application [rest-1.0-SNAPSHOT] registered the JDBC driver [org.postgresql.Driver] but failed to unregister it when the web application was stopped. To prevent a memory leak, the JDBC Driver has been forcibly unregistered.
+30-Apr-2021 17:11:22.116 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [rest-1.0-SNAPSHOT] appears to have started a thread named [Hibernate Connection Pool Validation Thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1093)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+ java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+30-Apr-2021 17:11:22.136 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [rest-1.0-SNAPSHOT] appears to have started a thread named [Hibernate Connection Pool Validation Thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1093)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+ java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+30-Apr-2021 17:11:22.139 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [rest-1.0-SNAPSHOT] appears to have started a thread named [Hibernate Connection Pool Validation Thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1093)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+ java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+30-Apr-2021 17:11:22.141 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [rest-1.0-SNAPSHOT] appears to have started a thread named [Hibernate Connection Pool Validation Thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1093)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+ java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+30-Apr-2021 17:11:22.142 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [rest-1.0-SNAPSHOT] appears to have started a thread named [Hibernate Connection Pool Validation Thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1093)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+ java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+30-Apr-2021 17:11:22.166 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [rest-1.0-SNAPSHOT] appears to have started a thread named [Hibernate Connection Pool Validation Thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1093)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+ java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+30-Apr-2021 17:11:22.173 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [rest-1.0-SNAPSHOT] appears to have started a thread named [Hibernate Connection Pool Validation Thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1093)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+ java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+30-Apr-2021 17:11:22.177 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [rest-1.0-SNAPSHOT] appears to have started a thread named [Hibernate Connection Pool Validation Thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1093)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+ java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+30-Apr-2021 17:11:22.178 WARNING [main] org.apache.catalina.loader.WebappClassLoaderBase.clearReferencesThreads The web application [rest-1.0-SNAPSHOT] appears to have started a thread named [Hibernate Connection Pool Validation Thread] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+ sun.misc.Unsafe.park(Native Method)
+ java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+ java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1093)
+ java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+ java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
+ java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+ java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+ java.lang.Thread.run(Thread.java:748)
+30-Apr-2021 17:11:22.207 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [G:\Programming\Shop\apache-tomcat-9.0.45\webapps\rest-1.0-SNAPSHOT] has finished in [12,217] ms
+30-Apr-2021 17:11:22.210 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [G:\Programming\Shop\apache-tomcat-9.0.45\webapps\ROOT]
+30-Apr-2021 17:11:22.228 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [G:\Programming\Shop\apache-tomcat-9.0.45\webapps\ROOT] has finished in [18] ms
+30-Apr-2021 17:11:22.242 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+30-Apr-2021 17:11:22.254 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [12823] milliseconds

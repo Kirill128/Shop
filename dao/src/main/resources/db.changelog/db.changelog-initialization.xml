@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+	<changeSet author="kirill" id="1">
+		<createTable tableName="shop_user">
+			<column autoIncrement="true" name="id" type="int">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)"/>
+			<column name="email" type="VARCHAR(255)" >
+				<constraints nullable="false" />
+			</column>
+			<column name="phone" type="VARCHAR(255)"/>
+			<column name="password" type="VARCHAR(255)" >
+				<constraints nullable="false"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="kirill" id="2">
+		<createTable tableName="role">
+			<column autoIncrement="true" name="id" type="int">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)"/>
+		</createTable>
+	</changeSet>
+	<changeSet author="kirill" id="3">
+		<createTable tableName="user_role">
+			<column name="user_id" type="int">
+				<constraints foreignKeyName="fk_user_role" referencedTableName="shop_user" referencedColumnNames="id" nullable="false" />
+			</column>
+			<column name="role_id" type="int">
+				<constraints foreignKeyName="fk_role_user" referencedTableName="role" referencedColumnNames="id" nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="kirill" id="4">
+		<createTable tableName="category">
+			<column autoIncrement="true" name="id" type="int">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			<column name="title" type="jsonb"/>
+			<column name="parent_id" type="int">
+				<constraints foreignKeyName="fk_category_parent" referencedTableName="category" referencedColumnNames="id" nullable="true"/>
+			</column>
+		</createTable>
+	</changeSet>
+	<changeSet author="kirill" id="5">
+		<createTable tableName="provider">
+			<column autoIncrement="true" name="id" type="int">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			<column name="name" type="VARCHAR(255)"/>
+		</createTable>
+	</changeSet>
+	<changeSet author="kirill" id="6">
+		<createTable tableName="photo">
+			<column autoIncrement="true" name="id" type="int">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			<column name="url" type="varchar(255)"/>
+		</createTable>
+	</changeSet>
+	<changeSet author="kirill" id="7">
+		<createTable tableName="product">
+			<column autoIncrement="true" name="id" type="int">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			<column name="short_description" type="jsonb"/>
+			<column name="barcode" type="varchar(30)"/>
+			<column name="quantity_in_storage" type="int"/>
+			<column name="price" type="numeric(8,2)"/>
+			<column name="attributes" type="jsonb"/>
+			<column name="category_id" type="int"/>
+			<column name="photo_id" type="int" defaultValue="1"/>
+			<column name="provider_id" type="int"/>
+		</createTable>
+	</changeSet>
+	<changeSet id="8" author="kirill">
+		<addForeignKeyConstraint baseTableName="product" baseColumnNames="category_id" constraintName="fk_product_category" referencedTableName="category"
+								 referencedColumnNames="id" nullable="false" onDelete="CASCADE"/>
+		<addForeignKeyConstraint baseTableName="product" baseColumnNames="photo_id" constraintName="fk_product_photo" referencedTableName="photo"
+								 referencedColumnNames="id" onDelete="SET DEFAULT"/>
+		<addForeignKeyConstraint baseTableName="product" baseColumnNames="provider_id" constraintName="fk_product_provider" referencedTableName="provider"
+								 referencedColumnNames="id" onDelete="SET NULL"/>
+
+	</changeSet>
+
+	<changeSet author="kirill" id="9">
+		<createTable tableName="shop_order">
+			<column autoIncrement="true" name="id" type="int">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			<column name="status" type="smallint"/>
+			<column name="user_id" type="int">
+				<constraints foreignKeyName="fk_order_user" referencedTableName="shop_user" referencedColumnNames="id" nullable="false" />
+			</column>
+			<column name="submit_time" type="timestamp"/>
+			<column name="price" type="numeric(8,2)"/>   <!--Products price can change, but product can be already bought-->
+		</createTable>
+	</changeSet>
+	<changeSet author="kirill" id="10">
+		<createTable tableName="product_order">
+			<column autoIncrement="true" name="id" type="int">
+				<constraints primaryKey="true" nullable="false"/>
+			</column>
+			<column name="order_id" type="int">
+				<constraints foreignKeyName="fk_product_position_order" referencedTableName="shop_order" referencedColumnNames="id"  nullable="false" />
+			</column>
+			<column name="product_id" type="int">
+				<constraints foreignKeyName="fk_product_position_product" referencedTableName="product" referencedColumnNames="id" nullable="false" />
+			</column>
+			<column name="quantity" type="int"/>
+			<column name="price" type="numeric(8,2)"/>	 <!--Products price can change, but product can be already bought-->
+		</createTable>
+	</changeSet>
+
+<!--	<include file="src/main/resources/db.changelog/db.changelog-initialization-functionsandtriggers.xml" />-->
+</databaseChangeLog>

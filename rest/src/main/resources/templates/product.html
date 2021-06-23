@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/static/css/bootstrap/bootstrap.min.css}">
+    <link rel="stylesheet" th:href="@{/static/css/my/general.css}">
+    <link rel="stylesheet" th:href="@{/static/css/my/products.css}">
+    <title>Document</title>
+</head>
+<body>
+<div class="content">
+    <header class="header">
+        <div class="header__body">
+            <div class="header__user">
+                <div class="user__body">
+
+                    <div class="user__img"></div>
+                    <div class="user__info" >
+                        <div class="user__account">
+                            <div th:if="${authentication!=null}" class="m-2">
+                                <p th:utext="${authentication.name}"></p>
+                                <a th:href="@{/logout}"  th:utext="'Log out'"  ></a>
+                                <a th:href="@{/user/account}" th:utext="'Account'"></a>
+                            </div>
+                            <div th:if="${authentication==null}" class="m-2">
+                                <p  th:utext="'GUEST'"></p>
+                                <a th:href="@{/login}" th:utext="'Sing in'" ></a>
+                                <a th:href="@{/sing-up}"  th:utext="'Sing up'" ></a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <nav class="header__menu">
+                <ul class="nav justify-content-end me-5">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/}">Main Page</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="main__body">
+            <aside class="sidebar">
+                <nav class="sidebar__menu">
+                    <ul class="sidebar__list" >
+
+                        <li class="sidebar__item" th:each="category : ${categories}">
+                            <div class="item-sidebar__header" th:utext="${category.title}"></div>
+                            <ul class="item-sidebar__hidden-list" >
+                                <li th:each="subCategory : ${category.subcategories}">
+                                    <a th:href="@{'/products/pages/'+${searchCriteria.pageNum}+'?category_id='+${subCategory.id}}"
+                                       th:utext="${subCategory.title}"></a>
+                                </li>
+                            </ul>
+                        </li>
+
+                    </ul>
+                </nav>
+            </aside>
+            <section class="products">
+                <div class="products__search">
+                        <form th:action="@{'/products/pages/'+${searchCriteria.pageNum}}" method="get">
+                            <div class="input-group">
+                                <div class="form-outline">
+                                    <label class="form-label" for="searchName">Search</label>
+                                    <input type="search" id="searchName" class="form-control"
+                                           th:value="${searchCriteria.partOfName}" th:name="partOfName"/>
+                                    <input type="hidden" th:value="${searchCriteria.categoryId}" th:name="categoryId">
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+
+                            <div class="products__sort">
+                                <select class="form-select w-auto"  th:value="${searchCriteria.sortDirection}" th:name="sortDirection" >
+                                    <option th:each="sort : ${T(by.itacademy.shop.utilenum.SortDirection).values()}"
+                                            th:value="${sort}" th:utext="${sort.name()}" selected></option>
+                                </select>
+                                <select  class="form-select w-auto" th:value="${searchCriteria.sortBy}" th:name="sortBy" >
+                                    <option th:value="'price'" th:utext="Price" selected></option>
+                                    <option th:value="'shortDescription'" th:utext="Description"></option>
+                                </select>
+                            </div>
+
+                        </form>
+                </div>
+                <div class="products__items" >
+                    <div class="products__item" th:each="product : ${products}">
+                        <div class="card w-100" >
+                            <form th:action="@{/user/add-order}" method="post">
+                                <img th:src="@{/static/img/unnamed.jpg}" class="card-img-top" alt="#">
+                                <div class="card-body">
+                                    <p class="card-text" th:utext="${product.shortDescription}"></p>
+                                    <p class="card-text text-uppercase fw-bold" th:utext="${product.price}+' р.'"></p>
+                                    <input type="hidden" th:value="${product.id}" th:name="id">
+                                    <input type="submit" value="Add to orders list">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="btn-toolbar " role="toolbar" aria-label="Toolbar with button groups">
+                    <div class="btn-group me-2" role="group" aria-label="First group">
+                        <form th:action="@{'/products/pages/'+${previousPage}}" method="get" th:if="${previousPage!=currentPage}">
+                            <input type="hidden" th:value="${searchCriteria.partOfName}" th:name="partOfName"/>
+                            <input type="hidden" th:value="${searchCriteria.categoryId}" th:name="categoryId">
+                            <input type="hidden"  th:value="${searchCriteria.sortDirection}" th:name="sortDirection">
+                            <input type="hidden"  th:value="${searchCriteria.sortBy}" th:name="sortBy">
+                            <button type="submit"  class="btn btn-primary">Previous</button>
+                        </form>
+
+                        <form th:action="@{'/products/pages/'+${nextPage}}" method="get" th:if="${nextPage!=currentPage}" >
+                            <input type="hidden" th:value="${searchCriteria.partOfName}" th:name="partOfName"/>
+                            <input type="hidden" th:value="${searchCriteria.categoryId}" th:name="categoryId">
+                            <input type="hidden"  th:value="${searchCriteria.sortDirection}" th:name="sortDirection">
+                            <input type="hidden"  th:value="${searchCriteria.sortBy}" th:name="sortBy">
+                            <button type="submit" class="btn btn-primary">Next</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class=" footer">
+        <div class="footer__info">+375259999999, г. Гродно, le.le999@mail.com</div>
+    </footer>
+</div>
+</body>
+</html>

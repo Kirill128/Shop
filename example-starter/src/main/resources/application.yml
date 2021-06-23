@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: money-raven
+ironbank:
+  who:
+    - Ланистеры
+raven:
+  where: бравос
+  include: true
