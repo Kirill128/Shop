@@ -1,9 +1,0 @@
-0:0:0:0:0:0:0:1 - - [30/Apr/2021:16:32:04 +0300] "GET /rest_war_exploded/ HTTP/1.1" 404 773
-0:0:0:0:0:0:0:1 - - [30/Apr/2021:16:32:24 +0300] "GET /rest_war_exploded/rest-1.0-SNAPSHOT HTTP/1.1" 404 790
-0:0:0:0:0:0:0:1 - - [30/Apr/2021:16:32:47 +0300] "GET /rest-1.0-SNAPSHOT HTTP/1.1" 302 -
-0:0:0:0:0:0:0:1 - - [30/Apr/2021:16:32:47 +0300] "GET /rest-1.0-SNAPSHOT/ HTTP/1.1" 200 6845
-0:0:0:0:0:0:0:1 - - [30/Apr/2021:16:32:48 +0300] "GET /rest-1.0-SNAPSHOT/static/css/my/main.css HTTP/1.1" 200 2486
-0:0:0:0:0:0:0:1 - - [30/Apr/2021:16:32:48 +0300] "GET /rest-1.0-SNAPSHOT/static/css/my/general.css HTTP/1.1" 200 1496
-0:0:0:0:0:0:0:1 - - [30/Apr/2021:16:32:48 +0300] "GET /rest-1.0-SNAPSHOT/static/css/bootstrap/bootstrap.min.css HTTP/1.1" 200 154881
-0:0:0:0:0:0:0:1 - - [30/Apr/2021:16:32:48 +0300] "GET /rest-1.0-SNAPSHOT/static/img/unnamed.jpg HTTP/1.1" 200 37724
-0:0:0:0:0:0:0:1 - - [30/Apr/2021:17:11:47 +0300] "GET /rest_war_exploded/products/all HTTP/1.1" 404 789
