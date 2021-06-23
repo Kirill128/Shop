@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/shop
+    username: kirill
+    password: kasatkamania17
+  jpa:
+    generate-ddl: false
+    show_sql: true
+    properties:
+      hibernate:
+        dialect: by.senla.daomicroservice.constants.HIberDialect
+server:
+  port: 8081
