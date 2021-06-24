@@ -28,7 +28,7 @@ import java.util.Map;
 })
 @Entity
 @Table(name = "product")
-public class Product extends GenericEntity<Long>{
+public class Product extends GenericEntity<Long>  {
 
     @Type(type = "jsonb")
     @Column(name = "attributes",columnDefinition = "jsonb")
@@ -61,6 +61,5 @@ public class Product extends GenericEntity<Long>{
 
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "product",cascade = CascadeType.ALL)
     private List<ProductOrder> productOrders;
-
 
 }

@@ -1,8 +1,9 @@
-package by.itacademy.shop.dao;
+package by.itacademy.shop;
 
 import by.itacademy.shop.api.dao.ProductDao;
 import by.itacademy.shop.api.dto.forall.ProductSearchCriteria;
 import by.itacademy.shop.api.dto.forall.SimplePage;
+import by.itacademy.shop.dao.GenericDaoImpl;
 import by.itacademy.shop.entities.Category;
 import by.itacademy.shop.entities.Photo;
 import by.itacademy.shop.entities.Product;
@@ -15,7 +16,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.math.BigDecimal;
 import java.util.ArrayList;

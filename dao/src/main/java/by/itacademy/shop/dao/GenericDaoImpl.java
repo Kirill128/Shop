@@ -48,4 +48,5 @@ public abstract class GenericDaoImpl<T extends GenericEntity<Long>> implements G
     public Class<T> getClassForFind() {
         return classForFind;
     }
+
 }

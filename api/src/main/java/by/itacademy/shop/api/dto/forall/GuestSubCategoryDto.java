@@ -11,4 +11,5 @@ public class GuestSubCategoryDto {
     private Long id;
 
     private String title;
+
 }

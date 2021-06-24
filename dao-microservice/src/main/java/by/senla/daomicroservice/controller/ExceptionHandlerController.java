@@ -13,7 +13,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 public class ExceptionHandlerController {
     @ExceptionHandler(Exception.class)
     public String catchException(Exception e){
-        log.error(e.getMessage());
+        log.error("Exception: "+e.getClass()+". "+e.getLocalizedMessage());
+
         return "ERROR, CHECK DAO MICROSERVICE ";
     }
 }
