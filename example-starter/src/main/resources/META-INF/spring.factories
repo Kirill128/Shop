@@ -1,3 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=by.borisov.conditionalexamples.IronConfiguration
-org.springframework.context.ApplicationContextInitializer=by.borisov.secondpart.ApplicationContextInitializer
-org.springframework.boot.env.EnvironmentPostProcessor=by.borisov.secondpart.ProfileDetectorEPP

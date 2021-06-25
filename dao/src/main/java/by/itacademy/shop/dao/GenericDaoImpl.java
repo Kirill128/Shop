@@ -2,7 +2,6 @@ package by.itacademy.shop.dao;
 
 import by.itacademy.shop.api.dao.GenericDao;
 import by.itacademy.shop.entities.GenericEntity;
-import com.fasterxml.jackson.core.JsonProcessingException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -20,7 +19,7 @@ public abstract class GenericDaoImpl<T extends GenericEntity<Long>> implements G
     protected GenericDaoImpl(Class<T> classForFind){
         this.classForFind=classForFind;
     }
-    public T create(T entity) throws JsonProcessingException {
+    public T create(T entity) {
         entityManager.persist(entity);
         return entity;
     }
@@ -48,5 +47,4 @@ public abstract class GenericDaoImpl<T extends GenericEntity<Long>> implements G
     public Class<T> getClassForFind() {
         return classForFind;
     }
-
 }

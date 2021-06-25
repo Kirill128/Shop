@@ -1,18 +1,14 @@
 package by.itacademy.shop.rest.admin;
 
 import by.itacademy.shop.api.annotations.LogExceptionCatchable;
-
+import by.itacademy.shop.api.constants.Constants;
 import by.itacademy.shop.api.dto.admin.AdminProviderDto;
 import by.itacademy.shop.api.services.ProviderService;
-import by.senla.daomicroservice.microservices.constants.Constants;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import org.springframework.context.annotation.Profile;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping
-@Profile("release")
 public class ProviderController {
     private final ProviderService providerService;
 
@@ -29,7 +25,7 @@ public class ProviderController {
 
     @PostMapping(Constants.ROLE_ADMIN_ACCOUNT_PROVIDERS_CREATE)
     @LogExceptionCatchable
-    public ModelAndView createProvider(@ModelAttribute AdminProviderDto providerDto) throws JsonProcessingException {
+    public ModelAndView createProvider(@ModelAttribute AdminProviderDto providerDto){
         this.providerService.createProvider(providerDto);
         return new ModelAndView(Constants.REDIRECT+Constants.ROLE_ADMIN_ACCOUNT_PROVIDERS_ROOT);
     }

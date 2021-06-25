@@ -2,14 +2,14 @@ package by.itacademy.shop.api.services;
 
 import by.itacademy.shop.api.dto.admin.AdminUserDto;
 import by.itacademy.shop.api.dto.user.UserDto;
-import by.senla.daomicroservice.microservices.constants.Lang;
+import by.itacademy.shop.utilenum.Lang;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
 import java.util.List;
 
 public interface UserService extends UserDetailsService {
-    UserDto createUser(UserDto user, Lang lang) throws JsonProcessingException;
+    UserDto createUser(UserDto user, Lang lang);
     UserDto find(long id,Lang lang);
     AdminUserDto findFullInfo(long id) throws JsonProcessingException;
     UserDto findByEmail(String email,Lang lang);
@@ -20,5 +20,5 @@ public interface UserService extends UserDetailsService {
 
     List<AdminUserDto> getAllUsers() throws JsonProcessingException;
 
-    void addProductToUserOrderList(String email,long productId) throws JsonProcessingException;
+    void addProductToUserOrderList(String email,long productId);
 }

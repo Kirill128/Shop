@@ -3,6 +3,7 @@ package by.itacademy.shop.dao;
 import by.itacademy.shop.api.dao.ProductDao;
 import by.itacademy.shop.api.dto.forall.ProductSearchCriteria;
 import by.itacademy.shop.api.dto.forall.SimplePage;
+import by.itacademy.shop.dao.GenericDaoImpl;
 import by.itacademy.shop.entities.Category;
 import by.itacademy.shop.entities.Photo;
 import by.itacademy.shop.entities.Product;
@@ -12,10 +13,8 @@ import by.itacademy.shop.utilenum.SortDirection;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -25,7 +24,6 @@ import java.util.List;
 
 
 @Repository
-@Profile("release")
 public class ProductDaoImpl extends GenericDaoImpl<Product> implements ProductDao {
 
     public ProductDaoImpl() {
@@ -142,6 +140,4 @@ public class ProductDaoImpl extends GenericDaoImpl<Product> implements ProductDa
         source.forEach( e -> searchName.append(e).append("%"));
         return searchName.toString();
     }
-
-
 }

@@ -1,13 +1,13 @@
 package by.itacademy.shop.rest;
 
+import by.itacademy.shop.api.annotations.LogExceptionCatchable;
+import by.itacademy.shop.api.constants.Constants;
 import by.itacademy.shop.api.dto.forall.GuestParentCategoryDto;
 import by.itacademy.shop.api.dto.forall.GuestProductDto;
 import by.itacademy.shop.api.dto.forall.ProductSearchCriteria;
 import by.itacademy.shop.api.dto.forall.SimplePage;
 import by.itacademy.shop.api.services.CategoryService;
 import by.itacademy.shop.api.services.ProductService;
-import by.senla.daomicroservice.microservices.constants.Constants;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.lang.Nullable;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
@@ -28,10 +28,11 @@ public class ProductSearchController {
     }
 
     @GetMapping(Constants.ROLE_GUEST_PRODUCT_SEARCH_PAGES_NUM)
+    @LogExceptionCatchable
     public ModelAndView getProductsPageGuest(@PathVariable int num,
                                              @Nullable @RequestParam("category_id") Long categoryId,
                                              ProductSearchCriteria fromFrontSearchCriteria,
-                                             Authentication authentication) throws JsonProcessingException {
+                                             Authentication authentication) {
         List<GuestParentCategoryDto> categoryDtos=this.categoryService.getParentCategories(Constants.GLOBAL_LANG);
         if(categoryId!=null){
             fromFrontSearchCriteria.setCategoryId(categoryId);

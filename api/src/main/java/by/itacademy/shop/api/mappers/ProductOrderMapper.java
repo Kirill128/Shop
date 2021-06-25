@@ -3,7 +3,7 @@ package by.itacademy.shop.api.mappers;
 import by.itacademy.shop.api.dto.admin.AdminProductOrderDto;
 import by.itacademy.shop.api.dto.user.ProductOrderDto;
 import by.itacademy.shop.entities.ProductOrder;
-import by.senla.daomicroservice.microservices.constants.Lang;
+import by.itacademy.shop.utilenum.Lang;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.experimental.UtilityClass;
 

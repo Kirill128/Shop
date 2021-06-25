@@ -1,7 +1,7 @@
 package by.itacademy.shop.api.services;
 
 import by.itacademy.shop.api.dto.user.ProductOrderDto;
-import by.senla.daomicroservice.microservices.constants.Lang;
+import by.itacademy.shop.utilenum.Lang;
 
 import java.util.List;
 

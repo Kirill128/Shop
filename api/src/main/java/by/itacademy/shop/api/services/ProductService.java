@@ -4,7 +4,7 @@ import by.itacademy.shop.api.dto.admin.AdminProductDto;
 import by.itacademy.shop.api.dto.forall.GuestProductDto;
 import by.itacademy.shop.api.dto.forall.ProductSearchCriteria;
 import by.itacademy.shop.api.dto.forall.SimplePage;
-import by.senla.daomicroservice.microservices.constants.Lang;
+import by.itacademy.shop.utilenum.Lang;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -14,8 +14,8 @@ import java.util.List;
 public interface ProductService {
 
     //Users
-    List<GuestProductDto> getAllProducts(Lang lang) throws JsonProcessingException;
-    SimplePage<GuestProductDto> getProductsPageByCriteria(ProductSearchCriteria productSearchCriteria) throws JsonProcessingException;
+    List<GuestProductDto> getAllProducts(Lang lang);
+    SimplePage<GuestProductDto> getProductsPageByCriteria(ProductSearchCriteria productSearchCriteria);
     GuestProductDto find(long id, Lang lang);
 
 

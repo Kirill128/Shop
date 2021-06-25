@@ -6,7 +6,6 @@ import by.itacademy.shop.api.mappers.PhotoMapper;
 import by.itacademy.shop.api.services.PhotoService;
 import by.itacademy.shop.entities.Photo;
 import by.itacademy.shop.utils.ImageUploader;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;

@@ -8,7 +8,7 @@ import by.itacademy.shop.api.dto.forall.GuestParentCategoryDto;
 import by.itacademy.shop.api.mappers.CategoryMapper;
 import by.itacademy.shop.api.services.CategoryService;
 import by.itacademy.shop.entities.Category;
-import by.senla.daomicroservice.microservices.constants.Lang;
+import by.itacademy.shop.utilenum.Lang;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,7 +31,6 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    @LogExceptionCatchable
     public List<GuestParentCategoryDto> getParentCategories(Lang lang) {
         return CategoryMapper.mapCategoriesToGuestCategoryDtos(this.categoryDao.getParentCategories(),lang);
     }

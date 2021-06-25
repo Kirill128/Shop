@@ -1,14 +1,12 @@
 package by.itacademy.shop.rest.admin;
 
 import by.itacademy.shop.api.annotations.LogExceptionCatchable;
-import by.itacademy.shop.api.dto.admin.AdminExelFileMetadata;
-import by.itacademy.shop.api.dto.admin.AdminListProductDtos;
-import by.itacademy.shop.api.dto.admin.AdminProductDto;
+import by.itacademy.shop.api.constants.Constants;
+import by.itacademy.shop.api.dto.admin.*;
 import by.itacademy.shop.api.services.CategoryService;
 import by.itacademy.shop.api.services.PhotoService;
 import by.itacademy.shop.api.services.ProductService;
 import by.itacademy.shop.api.services.ProviderService;
-import by.senla.daomicroservice.microservices.constants.Constants;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
@@ -31,10 +29,6 @@ public class ProductController {
         this.categoryService = categoryService;
         this.providerService = providerService;
         this.photoService = photoService;
-    }
-    @GetMapping
-    public String get(){
-        return "String";
     }
 
     @GetMapping(Constants.ROLE_ADMIN_ACCOUNT_PRODUCTS_ROOT)

@@ -1,7 +1,7 @@
 package by.itacademy.shop.api.dto.forall;
 
+import by.itacademy.shop.utilenum.Lang;
 import by.itacademy.shop.utilenum.SortDirection;
-import by.senla.daomicroservice.microservices.constants.Lang;
 import lombok.*;
 
 import java.util.List;

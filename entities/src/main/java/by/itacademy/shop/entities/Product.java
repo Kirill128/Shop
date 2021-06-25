@@ -16,26 +16,16 @@ import java.util.Map;
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
-@NamedEntityGraphs({
-        @NamedEntityGraph(
-                name = "main-page-entity-graph",
-                attributeNodes = {
-                        @NamedAttributeNode(value = "category"),
-                        @NamedAttributeNode(value = "photo"),
-                        @NamedAttributeNode(value = "provider")
-                }
-        )
-})
 @Entity
 @Table(name = "product")
-public class Product extends GenericEntity<Long>  {
+public class Product extends GenericEntity<Long>{
 
-    @Type(type = "jsonb")
-    @Column(name = "attributes",columnDefinition = "jsonb")
+    @Type(type = "json")
+    @Column(name = "attributes",columnDefinition = "json")
     private Map<String,String> attributes;
 
-    @Type(type = "jsonb")
-    @Column(name="short_description",columnDefinition = "jsonb")
+    @Type(type = "json")
+    @Column(name="short_description",columnDefinition = "json")
     private Map<String,String> shortDescription;
 
     @Column(name="price")
@@ -61,5 +51,6 @@ public class Product extends GenericEntity<Long>  {
 
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "product",cascade = CascadeType.ALL)
     private List<ProductOrder> productOrders;
+
 
 }

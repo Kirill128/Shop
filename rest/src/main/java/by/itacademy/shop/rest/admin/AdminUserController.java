@@ -1,18 +1,16 @@
 package by.itacademy.shop.rest.admin;
 
 import by.itacademy.shop.api.annotations.LogExceptionCatchable;
+import by.itacademy.shop.api.constants.Constants;
 import by.itacademy.shop.api.dto.admin.AdminUserDto;
 import by.itacademy.shop.api.services.RoleService;
 import by.itacademy.shop.api.services.UserService;
-import by.senla.daomicroservice.microservices.constants.Constants;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import org.springframework.context.annotation.Profile;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @RestController
 @RequestMapping
-@Profile("release")
 public class AdminUserController {
 
     private final UserService userService;

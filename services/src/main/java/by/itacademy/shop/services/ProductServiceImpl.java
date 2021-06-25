@@ -8,10 +8,9 @@ import by.itacademy.shop.api.dto.forall.SimplePage;
 import by.itacademy.shop.api.mappers.ProductMapper;
 import by.itacademy.shop.api.services.ProductService;
 import by.itacademy.shop.entities.Product;
+import by.itacademy.shop.utilenum.Lang;
 import by.itacademy.shop.utils.ExelFilesWorker;
-import by.senla.daomicroservice.microservices.constants.Lang;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -23,7 +22,6 @@ import java.util.List;
 
 @Service
 @Transactional
-@Profile({"!spring-data & !spring-data-jpql & !spring-data-native-queries & !dao-microservice"})
 public class ProductServiceImpl implements ProductService {
     private ProductDao productDao;
 
