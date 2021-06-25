@@ -5,8 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 
-@SpringBootApplication
-@ComponentScan("by.itacademy.shop")
+@SpringBootApplication(scanBasePackages = "by.itacademy.shop")
+//@ComponentScan("by.itacademy.shop")
 @EntityScan(basePackages = "by.itacademy.shop.entities")
 public class ShopApplication {
 

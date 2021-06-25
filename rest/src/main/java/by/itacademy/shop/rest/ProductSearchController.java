@@ -28,7 +28,7 @@ public class ProductSearchController {
     }
 
     @GetMapping(Constants.ROLE_GUEST_PRODUCT_SEARCH_PAGES_NUM)
-    @LogExceptionCatchable
+//    @LogExceptionCatchable
     public ModelAndView getProductsPageGuest(@PathVariable int num,
                                              @Nullable @RequestParam("category_id") Long categoryId,
                                              ProductSearchCriteria fromFrontSearchCriteria,
