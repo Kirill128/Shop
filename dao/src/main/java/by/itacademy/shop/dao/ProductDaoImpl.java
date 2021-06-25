@@ -14,6 +14,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -25,7 +26,7 @@ import java.util.List;
 
 
 @Repository
-@Profile("release")
+//@Profile("release")
 public class ProductDaoImpl extends GenericDaoImpl<Product> implements ProductDao {
 
     public ProductDaoImpl() {

@@ -20,7 +20,7 @@ import java.util.Map;
 @Table(name="category")
 public class Category extends GenericEntity<Long>{
 
-    @Type(type = "jsonb")
+    @Type(type = "json")
     private Map<String,String> title;
 
     @ManyToOne
