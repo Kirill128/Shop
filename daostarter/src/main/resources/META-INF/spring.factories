@@ -1,1 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=by.itacademy.shop.configs.StarterDaoConfiguration
