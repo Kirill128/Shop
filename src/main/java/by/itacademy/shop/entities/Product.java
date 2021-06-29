@@ -20,12 +20,12 @@ import java.util.Map;
 @Table(name = "product")
 public class Product extends GenericEntity<Long>{
 
-    @Type(type = "jsonb")
-    @Column(name = "attributes",columnDefinition = "jsonb")
+    @Type(type = "json")
+    @Column(name = "attributes",columnDefinition = "json")
     private Map<String,String> attributes;
 
-    @Type(type = "jsonb")
-    @Column(name="short_description",columnDefinition = "jsonb")
+    @Type(type = "json")
+    @Column(name="short_description",columnDefinition = "json")
     private Map<String,String> shortDescription;
 
     @Column(name="price")
