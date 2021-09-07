@@ -23,7 +23,6 @@ public class ProductMapper {
         if(product==null)return null;
         return GuestProductDto.builder().
                 id(product.getId()).
-                attributes(product.getAttributes()).
                 shortDescription(product.getShortDescription().get(lang.value)).
                 price(product.getPrice()).
                 category(CategoryMapper.mapCategoryToGuestSubCategoryDto(product.getCategory(),lang)).
@@ -43,7 +42,6 @@ public class ProductMapper {
         return AdminProductDto.builder().
                 id(product.getId()).
                 barcode(product.getBarcode()).
-                attributes(product.getAttributes()).
                 shortDescription(mapper.writeValueAsString(product.getShortDescription())).
                 price(product.getPrice()).
                 quantityInStorage(product.getQuantityInStorage()).
@@ -71,7 +69,6 @@ public class ProductMapper {
         return Product.builder().
                 id(product.getId()).
                 barcode(product.getBarcode()).
-                attributes(product.getAttributes()).
                 shortDescription(mapper.readValue(product.getShortDescription(),new TypeReference<HashMap<String, String>>(){})).
                 price(product.getPrice()).
                 quantityInStorage(product.getQuantityInStorage()).

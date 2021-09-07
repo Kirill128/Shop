@@ -34,7 +34,7 @@ public class ProductDaoImpl extends GenericDaoImpl<Product> implements ProductDa
         NativeQueryStringBuilder nativeQueryStringBuilder = new NativeQueryStringBuilder()
                 .select(new String[]{"p.id as pid", "p.short_description as pshordescr",
                         "p.barcode as pbar", "p.quantity_in_storage as pquant",
-                        "p.price as pprice", "p.\"attributes\" as pattr",
+                        "p.price as pprice",
                         "p.category_id as pcatid", "p.photo_id as pphotoid", "p.provider_id as pprovid"})
                 .select(new String[]{"c.title as ctitle"})
                 .select("pr.\"name\" as prname")
@@ -123,8 +123,6 @@ public class ProductDaoImpl extends GenericDaoImpl<Product> implements ProductDa
                 .barcode((String) obj[2])
                 .quantityInStorage((Integer) obj[3])
                 .price(((BigDecimal) obj[4]).doubleValue())
-                .attributes((objectMapper.readValue(objectMapper.writeValueAsString(obj[5]),
-                        new TypeReference<HashMap<String, String>>() {})))
                 .category(category)
                 .photo(photo)
                 .provider(provider)

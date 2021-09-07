@@ -20,8 +20,8 @@ import java.util.Map;
 @Table(name = "category")
 public class Category extends GenericEntity<Long>{
 
-    @Type(type = "json")
-    @Column(name = "title",columnDefinition = "json")
+    @Type(type = "jsonb")
+    @Column(name = "title",columnDefinition = "jsonb")
     private Map<String,String> title;
 
     @ManyToOne
@@ -33,6 +33,12 @@ public class Category extends GenericEntity<Long>{
 
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "category",cascade = CascadeType.ALL)
     private List<Product> products;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "category_attribute",
+            joinColumns = {@JoinColumn(name="category_id") },
+            inverseJoinColumns = {@JoinColumn(name="attribute_id")})
+    private List<Attribute> attributes;
 
     @Override
     public String toString() {

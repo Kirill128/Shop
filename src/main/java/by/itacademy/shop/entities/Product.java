@@ -20,12 +20,8 @@ import java.util.Map;
 @Table(name = "product")
 public class Product extends GenericEntity<Long>{
 
-    @Type(type = "json")
-    @Column(name = "attributes",columnDefinition = "json")
-    private Map<String,String> attributes;
-
-    @Type(type = "json")
-    @Column(name="short_description",columnDefinition = "json")
+    @Type(type = "jsonb")
+    @Column(name="short_description",columnDefinition = "jsonb")
     private Map<String,String> shortDescription;
 
     @Column(name="price")
@@ -52,5 +48,6 @@ public class Product extends GenericEntity<Long>{
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "product",cascade = CascadeType.ALL)
     private List<ProductOrder> productOrders;
 
-
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = "product")
+    private List<ProductAttribute> productAttributes;
 }
