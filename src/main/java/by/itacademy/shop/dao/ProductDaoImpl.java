@@ -97,23 +97,23 @@ public class ProductDaoImpl extends GenericDaoImpl<Product> implements ProductDa
         Category category = null;
         Provider provider = null;
         Photo photo = null;
-        if (obj[6] != null) {
+        if (obj[5] != null) {
             category = Category.builder()
-                    .id(Long.valueOf((Integer) obj[6]))
-                    .title((objectMapper.readValue(objectMapper.writeValueAsString(obj[9]),
+                    .id(Long.valueOf((Integer) obj[5]))
+                    .title((objectMapper.readValue(objectMapper.writeValueAsString(obj[8]),
                             new TypeReference<HashMap<String, String>>() {})))
                     .build();
         }
-        if (obj[7] != null) {
+        if (obj[6] != null) {
             photo = Photo.builder()
-                    .id(Long.valueOf((Integer) obj[7]))
-                    .url((String) obj[10])
+                    .id(Long.valueOf((Integer) obj[6]))
+                    .url((String) obj[9])
                     .build();
         }
-        if (obj[8] != null) {
+        if (obj[7] != null) {
             provider = Provider.builder()
-                    .id(Long.valueOf((Integer) obj[8]))
-                    .name((String) obj[11])
+                    .id(Long.valueOf((Integer) obj[7]))
+                    .name((String) obj[10])
                     .build();
         }
         return Product.builder()
